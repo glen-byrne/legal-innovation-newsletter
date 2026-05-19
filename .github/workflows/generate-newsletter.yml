@@ -29,6 +29,7 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_MODEL_HIGH_QUALITY: ${{ vars.OPENAI_MODEL_HIGH_QUALITY || secrets.OPENAI_MODEL_HIGH_QUALITY }}
       OPENAI_MODEL_FAST: ${{ vars.OPENAI_MODEL_FAST || secrets.OPENAI_MODEL_FAST }}
+      ENABLE_OPENAI_WEB_SEARCH: ${{ vars.ENABLE_OPENAI_WEB_SEARCH || 'false' }}
       MAX_FINAL_STORIES: ${{ inputs.maximum_final_stories }}
       MAX_CANDIDATES: ${{ inputs.maximum_candidates }}
       REQUIRE_HUMAN_REVIEW: "true"
@@ -69,9 +70,9 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Draft issue: The Irish Legal Innovator — ${{ steps.issue_date.outputs.value }}"
+          commit-message: "Draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
           branch: "newsletter/${{ steps.issue_date.outputs.value }}"
-          title: "Draft issue: The Irish Legal Innovator — ${{ steps.issue_date.outputs.value }}"
+          title: "Draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
           body-path: .newsletter_pr_body.md
           add-paths: |
             issues/${{ steps.issue_date.outputs.value }}
