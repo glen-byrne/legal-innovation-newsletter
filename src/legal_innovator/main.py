@@ -125,7 +125,9 @@ def generate(args: argparse.Namespace) -> int:
 
     print(f"Generated {len(issue.stories)} stories in {output_dir}")
     print(f"QA status: {'passed' if qa_report.passed else 'needs attention'}")
-    return 0 if qa_report.passed else 1
+    if not qa_report.passed:
+        print("QA findings were recorded in qa_report.md and the PR body for human review.")
+    return 0
 
 
 if __name__ == "__main__":
