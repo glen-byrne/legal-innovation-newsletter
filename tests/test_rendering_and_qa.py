@@ -7,6 +7,7 @@ from legal_innovator.archive import rendered_outputs
 from legal_innovator.config import Settings
 from legal_innovator.models import Issue, RankedStory, ScoreBreakdown, SourceLink
 from legal_innovator.qa import run_qa
+from legal_innovator.summarisation import summarise_issue
 
 
 def make_issue(story_count: int = 8) -> Issue:
@@ -71,3 +72,27 @@ def test_qa_flags_story_outside_window() -> None:
     report = run_qa(issue, window, settings, rendered_outputs(issue))
     assert not report.passed
     assert not report.checklist["all stories are within the 14-day window"]
+
+
+def test_empty_issue_is_plainly_labelled_without_ai_intro() -> None:
+    settings = Settings(dry_run_no_ai=False, openai_api_key="test", openai_model_fast="fast", openai_model_high_quality="hq")
+    intro, stories, errors = summarise_issue([], [], settings)
+    assert not stories
+    assert not errors
+    assert "No qualified stories" in intro
+
+    tz = ZoneInfo("Europe/Dublin")
+    run_at = datetime(2026, 5, 19, 12, 0, tzinfo=tz)
+    issue = Issue(
+        newsletter_name="The Irish Legal Innovator",
+        run_date=run_at.date(),
+        generated_at=run_at,
+        window_start=(run_at - timedelta(days=14)).date(),
+        window_end=run_at.date(),
+        intro=intro,
+        stories=[],
+    )
+    outputs = rendered_outputs(issue)
+    assert "No qualified stories" in outputs["plaintext"]
+    assert "No Qualified Stories" in outputs["markdown"]
+    assert "No Qualified Stories" in outputs["html"]

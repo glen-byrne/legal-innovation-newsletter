@@ -43,6 +43,14 @@
             <tr>
               <td class="intro">{{ issue.intro }}</td>
             </tr>
+            {% if not issue.stories %}
+            <tr>
+              <td class="story">
+                <h2>No Qualified Stories</h2>
+                <p class="summary">No stories met the source, date-window, relevance, and QA requirements for this run.</p>
+              </td>
+            </tr>
+            {% endif %}
             {% for story in issue.stories %}
             <tr>
               <td class="story">

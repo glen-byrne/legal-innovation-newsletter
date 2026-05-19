@@ -104,6 +104,7 @@ def _deterministic_checklist(issue: Issue, window: RunWindow, rendered: dict[str
     return {
         "issue has no more than 12 stories": len(issue.stories) <= 12,
         "issue has at least one story": len(issue.stories) > 0,
+        "empty issues are visibly labelled": bool(issue.stories) or "no qualified stories" in rendered_text,
         "all stories are within the 14-day window": all(
             window.start_at.date() <= story.date <= window.end_at.date() for story in issue.stories
         ),

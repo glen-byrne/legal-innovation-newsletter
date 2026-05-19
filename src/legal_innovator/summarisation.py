@@ -39,6 +39,8 @@ def summarise_issue(
 ) -> tuple[str, list[RankedStory], list[StageError]]:
     errors: list[StageError] = []
     cluster_map = {cluster.cluster_id: cluster for cluster in clusters}
+    if not stories:
+        return _empty_issue_intro(), stories, errors
     if settings.dry_run_no_ai:
         for story in stories:
             cluster = cluster_map.get(story.cluster_id)
@@ -102,4 +104,11 @@ def _fallback_intro(stories: list[RankedStory]) -> str:
     return (
         f"This issue tracks {len(stories)} legal innovation developments from the past fortnight, "
         "with priority given to Irish relevance and wider UK, EU, and global developments where they materially affect legal services."
+    )
+
+
+def _empty_issue_intro() -> str:
+    return (
+        "No qualified stories were selected for this run. Review the QA report for source access, date-window, "
+        "classification, and extraction details before approving or rerunning the issue."
     )

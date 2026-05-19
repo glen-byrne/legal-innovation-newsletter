@@ -14,6 +14,14 @@ def render_plaintext(issue: Issue) -> str:
         issue.intro,
         "",
     ]
+    if not issue.stories:
+        lines.extend(
+            [
+                "No qualified stories",
+                "No stories met the source, date-window, relevance, and QA requirements for this run.",
+                "",
+            ]
+        )
     for index, story in enumerate(issue.stories, start=1):
         lines.extend(
             [
