@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 from legal_innovator.config import RunWindow
 from legal_innovator.models import CandidateArticle, Source, SourceType
-from legal_innovator.sources.base import SourceAdapter, in_window, normalize_url, parse_datetime
+from legal_innovator.sources.base import SourceAdapter, in_window, is_http_url, normalize_url, parse_datetime
 
 
 class WebPageSourceAdapter(SourceAdapter):
@@ -34,6 +34,9 @@ class WebPageSourceAdapter(SourceAdapter):
             href = link.get("href")
             if not title or not href or len(title) < 10:
                 continue
+            if not is_http_url(href, str(source.url)):
+                continue
+            normalized_url = normalize_url(href, str(source.url))
             published_at = None
             time_node = node.select_one("time[datetime], time")
             if time_node:
@@ -45,7 +48,7 @@ class WebPageSourceAdapter(SourceAdapter):
             candidates.append(
                 CandidateArticle(
                     title=title,
-                    url=normalize_url(href, str(source.url)),
+                    url=normalized_url,
                     source_name=source.name,
                     source_url=source.url,
                     source_type=SourceType.WEBPAGE,
@@ -68,12 +71,13 @@ class WebPageSourceAdapter(SourceAdapter):
             href = link.get("href")
             if not title or not href or len(title) < 16:
                 continue
-            if href.startswith("#") or href.startswith("mailto:"):
+            if not is_http_url(href, str(source.url)):
                 continue
+            normalized_url = normalize_url(href, str(source.url))
             candidates.append(
                 CandidateArticle(
                     title=title,
-                    url=normalize_url(href, str(source.url)),
+                    url=normalized_url,
                     source_name=source.name,
                     source_url=source.url,
                     source_type=SourceType.WEBPAGE,

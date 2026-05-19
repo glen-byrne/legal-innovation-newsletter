@@ -97,6 +97,12 @@ def normalize_url(url: str, base_url: str | None = None) -> str:
     return urlunsplit((parsed.scheme, parsed.netloc.lower(), parsed.path or "/", parsed.query, ""))
 
 
+def is_http_url(url: str, base_url: str | None = None) -> bool:
+    absolute = urljoin(base_url or "", url)
+    parsed = urlsplit(absolute)
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
 def unique_candidates(candidates: Iterable[CandidateArticle]) -> list[CandidateArticle]:
     seen: set[str] = set()
     unique: list[CandidateArticle] = []

@@ -8,7 +8,7 @@ import httpx
 import yaml
 
 from legal_innovator.config import RunWindow, Settings
-from legal_innovator.errors import StageError
+from legal_innovator.errors import ErrorStage, StageError
 from legal_innovator.models import CandidateArticle, Source, SourceType
 from legal_innovator.sources.base import RobotsCache, unique_candidates
 from legal_innovator.sources.rss import RSSSourceAdapter
@@ -62,7 +62,10 @@ class DiscoveryService:
             adapter = self.adapters.get(source.type)
             if not adapter:
                 continue
-            candidates.extend(adapter.collect(source, window, limit_per_source))
+            try:
+                candidates.extend(adapter.collect(source, window, limit_per_source))
+            except Exception as exc:  # noqa: BLE001 - a single source should not stop discovery.
+                self.errors.append(StageError(ErrorStage.SOURCE_ACCESS, str(exc), source=source.name, url=str(source.url)))
             self.errors.extend(adapter.errors)
 
         remaining = max(0, self.settings.max_candidates - len(candidates))
