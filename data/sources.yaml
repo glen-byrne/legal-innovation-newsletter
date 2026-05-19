@@ -1,0 +1,71 @@
+sources:
+  - name: Irish Tech News Legaltech
+    url: https://irishtechnews.ie/category/law/legaltech/
+    type: webpage
+    region: ireland
+    category: legaltech
+    credibility: 0.80
+    paywalled: false
+    enabled: true
+  - name: Artificial Lawyer
+    url: https://www.artificiallawyer.com/
+    type: webpage
+    region: global
+    category: legal-ai
+    credibility: 0.82
+    paywalled: false
+    enabled: true
+  - name: LawNext
+    url: https://www.lawnext.com/
+    type: webpage
+    region: us_global
+    category: legaltech
+    credibility: 0.78
+    paywalled: false
+    enabled: true
+  - name: Legal IT Insider / LegalTechnology
+    url: https://legaltechnology.com/
+    type: webpage
+    region: uk_eu
+    category: legaltech
+    credibility: 0.82
+    paywalled: false
+    enabled: true
+  - name: Law.com Legaltech News
+    url: https://www.law.com/legaltechnews/
+    type: webpage
+    region: us_global
+    category: legaltech
+    credibility: 0.84
+    paywalled: true
+    enabled: true
+  - name: The Lawyer Tech
+    url: https://www.thelawyer.com/tag/tech/
+    type: webpage
+    region: uk_eu
+    category: legaltech
+    credibility: 0.83
+    paywalled: true
+    enabled: true
+
+queries:
+  - Ireland legal tech AI law firm
+  - Irish courts digital transformation
+  - Ireland legal innovation legal services
+  - Irish legal technology startup
+  - Ireland law firm artificial intelligence
+  - Irish legal services innovation
+  - UK legal tech AI courts regulation
+  - UK courts digital transformation AI
+  - EU AI Act legal profession legal services
+  - EU legal tech regulation courts digitalisation
+  - law firm artificial intelligence adoption
+  - legal operations innovation in-house counsel
+  - court digitisation e-filing AI
+  - legaltech funding acquisition partnership
+  - legal AI product launch law firms
+  - in-house legal technology innovation
+  - access to justice technology legal innovation
+  - e-discovery AI legal services
+  - cybersecurity regulation law firms
+  - data protection enforcement legal sector

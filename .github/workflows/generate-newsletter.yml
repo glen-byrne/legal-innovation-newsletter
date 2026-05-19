@@ -1,0 +1,79 @@
+name: Generate newsletter
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_date:
+        description: "Run date (YYYY-MM-DD). Leave blank for current Europe/Dublin date."
+        required: false
+        type: string
+      maximum_final_stories:
+        description: "Maximum final stories"
+        required: false
+        default: "12"
+        type: string
+      maximum_candidates:
+        description: "Maximum candidate articles"
+        required: false
+        default: "150"
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL_HIGH_QUALITY: ${{ vars.OPENAI_MODEL_HIGH_QUALITY || secrets.OPENAI_MODEL_HIGH_QUALITY }}
+      OPENAI_MODEL_FAST: ${{ vars.OPENAI_MODEL_FAST || secrets.OPENAI_MODEL_FAST }}
+      MAX_FINAL_STORIES: ${{ inputs.maximum_final_stories }}
+      MAX_CANDIDATES: ${{ inputs.maximum_candidates }}
+      REQUIRE_HUMAN_REVIEW: "true"
+      DRY_RUN_NO_AI: "false"
+      NEWSLETTER_NAME: "The Irish Legal Innovator"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Resolve issue date
+        id: issue_date
+        shell: bash
+        run: |
+          issue_date="${{ inputs.run_date }}"
+          if [ -z "$issue_date" ]; then
+            issue_date="$(TZ=Europe/Dublin date +%F)"
+          fi
+          echo "value=$issue_date" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package
+        run: python -m pip install -e ".[dev]"
+
+      - name: Generate issue files
+        shell: bash
+        run: |
+          args=(generate --no-pr --pr-body-output .newsletter_pr_body.md --max-candidates "${{ inputs.maximum_candidates }}" --max-final-stories "${{ inputs.maximum_final_stories }}")
+          if [ -n "${{ inputs.run_date }}" ]; then
+            args+=(--run-date "${{ inputs.run_date }}")
+          fi
+          python -m legal_innovator.main "${args[@]}"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Draft issue: The Irish Legal Innovator — ${{ steps.issue_date.outputs.value }}"
+          branch: "newsletter/${{ steps.issue_date.outputs.value }}"
+          title: "Draft issue: The Irish Legal Innovator — ${{ steps.issue_date.outputs.value }}"
+          body-path: .newsletter_pr_body.md
+          add-paths: |
+            issues/${{ steps.issue_date.outputs.value }}
+            data/seen_urls.json
+            data/seen_story_clusters.json
