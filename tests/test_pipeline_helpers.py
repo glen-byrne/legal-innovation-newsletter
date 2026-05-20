@@ -75,3 +75,24 @@ def test_missing_openai_env_fails_but_beehiiv_is_not_required() -> None:
         settings.validate_for_live_ai()
     assert "OPENAI_API_KEY" in str(exc.value)
     assert "BEEHIIV" not in str(exc.value)
+
+
+def test_direct_legal_ai_story_outranks_broad_technology_story() -> None:
+    settings = Settings(dry_run_no_ai=True)
+    legal_ai = article("OpenAI Plans Codex For Legal", "https://example.com/codex", Region.US_GLOBAL)
+    legal_ai.snippet = "A legal AI development for law firms and legal teams."
+    broad = article("Limit social media ban for under-16s to unsafe apps, Starmer urged", "https://example.com/social", Region.UK_EU)
+    broad.snippet = "A broad technology policy story about social media."
+    clusters, _ = cluster_articles(
+        [
+            (legal_ai, classification(str(legal_ai.url), Region.US_GLOBAL)),
+            (broad, classification(str(broad.url), Region.UK_EU)),
+        ],
+        settings,
+    )
+    run_at = datetime(2026, 5, 20, 12, 0, tzinfo=ZoneInfo("Europe/Dublin"))
+    window = type("Window", (), {"start_at": run_at - timedelta(days=14), "end_at": run_at, "run_at": run_at})()
+
+    ranked = rank_clusters(clusters, window, settings)
+
+    assert ranked[0].headline == "OpenAI Plans Codex For Legal"

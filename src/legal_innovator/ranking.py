@@ -65,10 +65,15 @@ def _score_breakdown(cluster: StoryCluster, story_date: datetime, window: RunWin
     age_seconds = max(0, (window.end_at - story_date.astimezone(window.run_at.tzinfo)).total_seconds())
     recency_ratio = max(0, 1 - (age_seconds / (14 * 24 * 60 * 60)))
     source_credibility = max((article.source_credibility for article in cluster.articles), default=0.5)
-    legal = classification.legal_sector_relevance
+    text = " ".join([cluster.canonical_headline, *[article.snippet or "" for article in cluster.articles]]).lower()
+    legal = min(1.0, classification.legal_sector_relevance + _direct_legal_ai_boost(text))
     innovation = classification.innovation_significance
     impact = classification.practical_impact
     directness = 1.0 if legal >= 0.75 else 0.45
+    if _is_broad_technology_story(text):
+        directness = min(directness, 0.2)
+        legal = min(legal, 0.45)
+        impact = min(impact, 0.45)
     return ScoreBreakdown(
         region=REGION_WEIGHTS.get(classification.region, REGION_WEIGHTS[Region.UNKNOWN]),
         legal_relevance=legal * 22,
@@ -95,3 +100,33 @@ def _source_kind(url: str, name: str) -> str:
 def _source_order(kind: str) -> int:
     order = {"official": 0, "mainstream_media": 1, "legal_tech_media": 2, "other_media": 3}
     return order.get(kind, 3)
+
+
+def _direct_legal_ai_boost(text: str) -> float:
+    direct_terms = [
+        "codex for legal",
+        "legal ai",
+        "law firm",
+        "law firms",
+        "legal teams",
+        "legal work",
+        "case management",
+        "e-discovery",
+        "patent litigation",
+        "legal knowledge",
+        "diligence",
+    ]
+    return 0.12 if any(term in text for term in direct_terms) else 0.0
+
+
+def _is_broad_technology_story(text: str) -> bool:
+    broad_terms = [
+        "social media ban",
+        "under-16s",
+        "qr code phishing",
+        "openai win court battle",
+        "altman",
+        "elon musk",
+    ]
+    direct_legal_terms = ["law firm", "legal", "court", "regulator", "compliance", "counsel", "lawyer"]
+    return any(term in text for term in broad_terms) and not any(term in text for term in direct_legal_terms)
