@@ -185,43 +185,43 @@ sources:
     enabled: true
 
 queries:
-  - site:legaltechmonitor.com/site/legaltech-news Law.com Legaltech News legal AI
-  - site:legaltechmonitor.com/site/legaltech-news law firms AI legal technology
-  - site:irishtechnews.ie/category/law/legaltech legaltech AI law firm Ireland
-  - site:irishtechnews.ie Irish law firm artificial intelligence legal technology
-  - site:law.com/legaltechnews legal AI law firms legal technology
-  - site:law.com/legaltechnews legal operations e-discovery AI
-  - site:thelawyer.com/tag/tech law firm AI legal technology
-  - site:thelawyer.com/tech-and-ai law firm AI legal technology
-  - site:thelawyer.com legal technology AI courts regulation
-  - site:artificiallawyer.com OpenAI Codex legal law firms
-  - site:artificiallawyer.com "Codex for Legal"
-  - "OpenAI Codex for Legal" law firms legal AI
-  - site:irishtimes.com Ireland law firm AI legal technology
-  - site:irishtimes.com Irish courts digital transformation legal services
-  - site:independent.ie Ireland AI regulation law firms technology
-  - site:businesspost.ie Ireland legal technology AI law firms
-  - site:theguardian.com/law AI courts legal technology regulation
-  - site:theguardian.com/technology AI regulation law firms legal risk
-  - site:thetimes.com law firm AI legal technology
-  - mainstream Irish legal AI courts technology regulation law firms
-  - Ireland legal tech AI law firm
-  - Irish courts digital transformation
-  - Ireland legal innovation legal services
-  - Irish legal technology startup
-  - Ireland law firm artificial intelligence
-  - Irish legal services innovation
-  - UK legal tech AI courts regulation
-  - UK courts digital transformation AI
-  - EU AI Act legal profession legal services
-  - EU legal tech regulation courts digitalisation
-  - law firm artificial intelligence adoption
-  - legal operations innovation in-house counsel
-  - court digitisation e-filing AI
-  - legaltech funding acquisition partnership
-  - legal AI product launch law firms
-  - in-house legal technology innovation
-  - access to justice technology legal innovation
-  - e-discovery AI legal services
-  - cybersecurity regulation law firms
-  - data protection enforcement legal sector
+  - 'site:legaltechmonitor.com/site/legaltech-news Law.com Legaltech News legal AI'
+  - 'site:legaltechmonitor.com/site/legaltech-news law firms AI legal technology'
+  - 'site:irishtechnews.ie/category/law/legaltech legaltech AI law firm Ireland'
+  - 'site:irishtechnews.ie Irish law firm artificial intelligence legal technology'
+  - 'site:law.com/legaltechnews legal AI law firms legal technology'
+  - 'site:law.com/legaltechnews legal operations e-discovery AI'
+  - 'site:thelawyer.com/tag/tech law firm AI legal technology'
+  - 'site:thelawyer.com/tech-and-ai law firm AI legal technology'
+  - 'site:thelawyer.com legal technology AI courts regulation'
+  - 'site:artificiallawyer.com OpenAI Codex legal law firms'
+  - 'site:artificiallawyer.com "Codex for Legal"'
+  - '"OpenAI Codex for Legal" law firms legal AI'
+  - 'site:irishtimes.com Ireland law firm AI legal technology'
+  - 'site:irishtimes.com Irish courts digital transformation legal services'
+  - 'site:independent.ie Ireland AI regulation law firms technology'
+  - 'site:businesspost.ie Ireland legal technology AI law firms'
+  - 'site:theguardian.com/law AI courts legal technology regulation'
+  - 'site:theguardian.com/technology AI regulation law firms legal risk'
+  - 'site:thetimes.com law firm AI legal technology'
+  - 'mainstream Irish legal AI courts technology regulation law firms'
+  - 'Ireland legal tech AI law firm'
+  - 'Irish courts digital transformation'
+  - 'Ireland legal innovation legal services'
+  - 'Irish legal technology startup'
+  - 'Ireland law firm artificial intelligence'
+  - 'Irish legal services innovation'
+  - 'UK legal tech AI courts regulation'
+  - 'UK courts digital transformation AI'
+  - 'EU AI Act legal profession legal services'
+  - 'EU legal tech regulation courts digitalisation'
+  - 'law firm artificial intelligence adoption'
+  - 'legal operations innovation in-house counsel'
+  - 'court digitisation e-filing AI'
+  - 'legaltech funding acquisition partnership'
+  - 'legal AI product launch law firms'
+  - 'in-house legal technology innovation'
+  - 'access to justice technology legal innovation'
+  - 'e-discovery AI legal services'
+  - 'cybersecurity regulation law firms'
+  - 'data protection enforcement legal sector'

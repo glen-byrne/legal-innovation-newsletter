@@ -6,9 +6,16 @@ from zoneinfo import ZoneInfo
 import httpx
 
 from legal_innovator.config import RunWindow, Settings
-from legal_innovator.discovery import DiscoveryService, SourceConfig
+from legal_innovator.discovery import DiscoveryService, SourceConfig, load_source_config
 from legal_innovator.models import Region, Source, SourceType
 from legal_innovator.sources.search import parse_search_result_batch
+
+
+def test_default_source_config_loads() -> None:
+    config = load_source_config()
+
+    assert config.sources
+    assert config.queries
 
 
 def test_webpage_discovery_skips_javascript_links() -> None:
