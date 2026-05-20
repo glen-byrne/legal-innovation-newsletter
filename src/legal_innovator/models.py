@@ -208,6 +208,7 @@ class QAReport(Model):
     findings: list[QAFinding] = Field(default_factory=list)
     stage_errors: list[str] = Field(default_factory=list)
     checklist: dict[str, bool] = Field(default_factory=dict)
+    source_diagnostics: list["SourceDiagnostic"] = Field(default_factory=list)
 
     @property
     def warnings(self) -> list[QAFinding]:
@@ -216,6 +217,15 @@ class QAReport(Model):
     @property
     def errors(self) -> list[QAFinding]:
         return [finding for finding in self.findings if finding.severity == "error"]
+
+
+class SourceDiagnostic(Model):
+    name: str
+    kind: str
+    url_or_query: str
+    candidates_found: int = 0
+    status: Literal["ok", "warning", "error"] = "ok"
+    notes: list[str] = Field(default_factory=list)
 
 
 class OpenAIUsageLimits(Model):

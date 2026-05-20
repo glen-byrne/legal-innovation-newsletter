@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 from legal_innovator.ai import StructuredAIClient
 from legal_innovator.config import RunWindow, Settings
 from legal_innovator.errors import ErrorStage, StageError
-from legal_innovator.models import Issue, QAFinding, QAReport, StoryCluster
+from legal_innovator.models import Issue, QAFinding, QAReport, SourceDiagnostic, StoryCluster
 
 
 class AIQAFinding(BaseModel):
@@ -33,6 +33,7 @@ def run_qa(
     rendered: dict[str, str],
     clusters: list[StoryCluster] | None = None,
     stage_errors: list[StageError] | None = None,
+    source_diagnostics: list[SourceDiagnostic] | None = None,
     *,
     ai_client: StructuredAIClient | None = None,
 ) -> QAReport:
@@ -69,6 +70,7 @@ def run_qa(
         findings=findings,
         stage_errors=stage_error_strings,
         checklist=checklist,
+        source_diagnostics=source_diagnostics or [],
     )
 
 
@@ -83,6 +85,22 @@ def render_qa_report(report: QAReport) -> str:
     ]
     for key, passed in report.checklist.items():
         lines.append(f"- [{'x' if passed else ' '}] {key}")
+    lines.extend(["", "## Source diagnostics", ""])
+    if report.source_diagnostics:
+        lines.extend(
+            [
+                "| Source / query | Type | Candidates | Status | Notes |",
+                "| --- | --- | ---: | --- | --- |",
+            ]
+        )
+        for diagnostic in report.source_diagnostics:
+            notes = "; ".join(diagnostic.notes) if diagnostic.notes else ""
+            lines.append(
+                f"| {_escape_table(diagnostic.name)} | {_escape_table(diagnostic.kind)} | "
+                f"{diagnostic.candidates_found} | {diagnostic.status} | {_escape_table(notes)} |"
+            )
+    else:
+        lines.append("- No source diagnostics recorded.")
     lines.extend(["", "## Findings", ""])
     if report.findings:
         for finding in report.findings:
@@ -97,6 +115,10 @@ def render_qa_report(report: QAReport) -> str:
         lines.append("- None recorded.")
     lines.append("")
     return "\n".join(lines)
+
+
+def _escape_table(value: str) -> str:
+    return value.replace("|", "\\|").replace("\n", " ")
 
 
 def _deterministic_checklist(issue: Issue, window: RunWindow, rendered: dict[str, str]) -> dict[str, bool]:

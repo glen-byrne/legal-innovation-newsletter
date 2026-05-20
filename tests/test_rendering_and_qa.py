@@ -5,8 +5,8 @@ from zoneinfo import ZoneInfo
 
 from legal_innovator.archive import rendered_outputs
 from legal_innovator.config import Settings
-from legal_innovator.models import Issue, RankedStory, ScoreBreakdown, SourceLink
-from legal_innovator.qa import run_qa
+from legal_innovator.models import Issue, RankedStory, ScoreBreakdown, SourceDiagnostic, SourceLink
+from legal_innovator.qa import render_qa_report, run_qa
 from legal_innovator.summarisation import summarise_issue
 
 
@@ -96,3 +96,40 @@ def test_empty_issue_is_plainly_labelled_without_ai_intro() -> None:
     assert "No qualified stories" in outputs["plaintext"]
     assert "No Qualified Stories" in outputs["markdown"]
     assert "No Qualified Stories" in outputs["html"]
+
+
+def test_qa_report_renders_source_diagnostics() -> None:
+    issue = make_issue()
+    settings = Settings(dry_run_no_ai=True)
+    run_at = datetime(2026, 5, 19, 12, 0, tzinfo=ZoneInfo("Europe/Dublin"))
+    window = type("Window", (), {"start_at": run_at - timedelta(days=14), "end_at": run_at})()
+    report = run_qa(
+        issue,
+        window,
+        settings,
+        rendered_outputs(issue),
+        source_diagnostics=[
+            SourceDiagnostic(
+                name="Irish Tech News",
+                kind="rss",
+                url_or_query="https://irishtechnews.ie/feed/",
+                candidates_found=3,
+                status="ok",
+            ),
+            SourceDiagnostic(
+                name="Law.com Legaltech News",
+                kind="webpage",
+                url_or_query="https://www.law.com/legaltechnews/",
+                candidates_found=0,
+                status="error",
+                notes=["403 Forbidden"],
+            ),
+        ],
+    )
+
+    markdown = render_qa_report(report)
+
+    assert "## Source diagnostics" in markdown
+    assert "Irish Tech News" in markdown
+    assert "Law.com Legaltech News" in markdown
+    assert "403 Forbidden" in markdown

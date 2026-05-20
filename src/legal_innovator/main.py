@@ -64,9 +64,11 @@ def generate(args: argparse.Namespace) -> int:
         discovery = DiscoveryService(settings)
         candidates = discovery.collect(source_config, window)
         stage_errors.extend(discovery.errors)
+        source_diagnostics = discovery.diagnostics
         candidates = archive.filter_unseen_candidates(candidates)
     except Exception as exc:  # noqa: BLE001
         stage_errors.append(StageError(ErrorStage.SOURCE_ACCESS, str(exc)))
+        source_diagnostics = []
         candidates = []
 
     try:
@@ -108,7 +110,15 @@ def generate(args: argparse.Namespace) -> int:
         warnings=[],
     )
     rendered = rendered_outputs(issue)
-    qa_report = run_qa(issue, window, settings, rendered, selected_clusters, stage_errors)
+    qa_report = run_qa(
+        issue,
+        window,
+        settings,
+        rendered,
+        selected_clusters,
+        stage_errors,
+        source_diagnostics=source_diagnostics,
+    )
     qa_markdown = render_qa_report(qa_report)
     pr_body = build_pr_body(issue, qa_report)
     files = write_issue_outputs(issue, output_dir, qa_report_markdown=qa_markdown)

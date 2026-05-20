@@ -9,7 +9,7 @@ import yaml
 
 from legal_innovator.config import RunWindow, Settings
 from legal_innovator.errors import ErrorStage, StageError
-from legal_innovator.models import CandidateArticle, Source, SourceType
+from legal_innovator.models import CandidateArticle, Source, SourceDiagnostic, SourceType
 from legal_innovator.sources.base import RobotsCache, unique_candidates
 from legal_innovator.sources.rss import RSSSourceAdapter
 from legal_innovator.sources.search import DisabledSearchProvider, OpenAIWebSearchProvider, SearchProvider
@@ -54,6 +54,7 @@ class DiscoveryService:
         else:
             self.search_provider = DisabledSearchProvider()
         self.errors: list[StageError] = []
+        self.diagnostics: list[SourceDiagnostic] = []
 
     def collect(self, source_config: SourceConfig, window: RunWindow) -> list[CandidateArticle]:
         limit_per_source = max(5, self.settings.max_candidates // max(1, len(source_config.sources)))
@@ -63,17 +64,48 @@ class DiscoveryService:
             if not adapter:
                 continue
             error_start = len(adapter.errors)
+            before_count = len(candidates)
+            notes: list[str] = []
             try:
                 candidates.extend(adapter.collect(source, window, limit_per_source))
             except Exception as exc:  # noqa: BLE001 - a single source should not stop discovery.
-                self.errors.append(StageError(ErrorStage.SOURCE_ACCESS, str(exc), source=source.name, url=str(source.url)))
-            self.errors.extend(adapter.errors[error_start:])
+                message = str(exc)
+                self.errors.append(StageError(ErrorStage.SOURCE_ACCESS, message, source=source.name, url=str(source.url)))
+                notes.append(message)
+            new_errors = adapter.errors[error_start:]
+            self.errors.extend(new_errors)
+            notes.extend(error.message for error in new_errors[:3])
+            found = len(candidates) - before_count
+            self.diagnostics.append(
+                SourceDiagnostic(
+                    name=source.name,
+                    kind=source.type.value,
+                    url_or_query=str(source.url),
+                    candidates_found=found,
+                    status="error" if new_errors and found == 0 else "warning" if new_errors else "ok",
+                    notes=notes,
+                )
+            )
 
         remaining = max(0, self.settings.max_candidates - len(candidates))
         if remaining:
             per_query = max(1, remaining // max(1, len(source_config.queries)))
             for query in source_config.queries:
+                error_start = len(getattr(self.search_provider, "errors", []))
+                before_count = len(candidates)
                 candidates.extend(self.search_provider.search(query, window, per_query))
+                search_errors = getattr(self.search_provider, "errors", [])[error_start:]
+                found = len(candidates) - before_count
+                self.diagnostics.append(
+                    SourceDiagnostic(
+                        name=query,
+                        kind="search",
+                        url_or_query=query,
+                        candidates_found=found,
+                        status="error" if search_errors and found == 0 else "warning" if search_errors else "ok",
+                        notes=[error.message for error in search_errors[:3]],
+                    )
+                )
                 if len(candidates) >= self.settings.max_candidates:
                     break
 
