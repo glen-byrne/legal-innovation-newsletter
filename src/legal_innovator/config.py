@@ -21,6 +21,7 @@ class Settings(BaseModel):
     openai_model_fast: str | None = None
     max_candidates: int = Field(default=150, ge=1)
     max_shortlist: int = Field(default=40, ge=1)
+    max_review_stories: int = Field(default=30, ge=8, le=30)
     max_final_stories: int = Field(default=12, ge=1, le=12)
     min_final_stories: int = Field(default=8, ge=1, le=12)
     max_sources_per_story: int = Field(default=3, ge=1, le=3)
@@ -83,6 +84,7 @@ def load_settings(env_file: str | Path | None = ".env") -> Settings:
         openai_model_fast=os.getenv("OPENAI_MODEL_FAST"),
         max_candidates=int(os.getenv("MAX_CANDIDATES", "150")),
         max_shortlist=int(os.getenv("MAX_SHORTLIST", "40")),
+        max_review_stories=int(os.getenv("MAX_REVIEW_STORIES", "30")),
         max_final_stories=int(os.getenv("MAX_FINAL_STORIES", "12")),
         min_final_stories=int(os.getenv("MIN_FINAL_STORIES", "8")),
         max_sources_per_story=int(os.getenv("MAX_SOURCES_PER_STORY", "3")),

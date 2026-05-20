@@ -14,10 +14,16 @@ from legal_innovator.deduplication import cluster_articles
 from legal_innovator.discovery import DiscoveryService, load_source_config
 from legal_innovator.errors import ErrorStage, StageError
 from legal_innovator.extraction import ExtractionService
-from legal_innovator.models import Issue
+from legal_innovator.models import Issue, ReviewShortlist
 from legal_innovator.pr import build_pr_body, create_pull_request
 from legal_innovator.qa import render_qa_report, run_qa
 from legal_innovator.ranking import rank_clusters
+from legal_innovator.selection import (
+    default_selected_cluster_ids,
+    parse_selected_cluster_ids,
+    render_selection_markdown,
+    select_stories,
+)
 from legal_innovator.summarisation import summarise_issue
 
 
@@ -37,7 +43,9 @@ def build_parser() -> argparse.ArgumentParser:
     generate_parser.add_argument("--run-date", help="Run date in YYYY-MM-DD format")
     generate_parser.add_argument("--output-dir", help="Output directory, defaults to issues/YYYY-MM-DD")
     generate_parser.add_argument("--max-candidates", type=int, help="Override MAX_CANDIDATES")
+    generate_parser.add_argument("--max-review-stories", type=int, help="Override MAX_REVIEW_STORIES")
     generate_parser.add_argument("--max-final-stories", type=int, help="Override MAX_FINAL_STORIES")
+    generate_parser.add_argument("--selection-file", help="Markdown checkbox file selecting final stories")
     generate_parser.add_argument("--no-pr", action="store_true", help="Generate locally without opening a pull request")
     generate_parser.add_argument("--pr-body-output", help="Optional path for the generated PR body")
     return parser
@@ -49,6 +57,8 @@ def generate(args: argparse.Namespace) -> int:
     update = {}
     if args.max_candidates:
         update["max_candidates"] = args.max_candidates
+    if args.max_review_stories:
+        update["max_review_stories"] = args.max_review_stories
     if args.max_final_stories:
         update["max_final_stories"] = args.max_final_stories
     if update:
@@ -92,11 +102,24 @@ def generate(args: argparse.Namespace) -> int:
     stage_errors.extend(dedupe_errors)
     clusters = archive.filter_unseen_clusters(clusters)
 
-    ranked = rank_clusters(clusters, window, settings)[: settings.max_final_stories]
-    ranked_cluster_ids = {story.cluster_id for story in ranked}
-    selected_clusters = [cluster for cluster in clusters if cluster.cluster_id in ranked_cluster_ids]
+    review_stories = rank_clusters(clusters, window, settings)[: settings.max_review_stories]
+    selection_file = Path(args.selection_file) if args.selection_file else output_dir / "editorial_selection.md"
+    selected_cluster_ids = parse_selected_cluster_ids(selection_file)
+    if not selected_cluster_ids:
+        selected_cluster_ids = default_selected_cluster_ids(review_stories, settings.max_final_stories)
+    selected_stories = select_stories(review_stories, selected_cluster_ids)
+    if len(selected_stories) > settings.max_final_stories:
+        stage_errors.append(
+            StageError(
+                ErrorStage.RANKING,
+                f"Selection included {len(selected_stories)} stories; only the first {settings.max_final_stories} were used.",
+            )
+        )
+        selected_stories = selected_stories[: settings.max_final_stories]
+    selected_cluster_ids = [story.cluster_id for story in selected_stories]
+    selected_clusters = [cluster for cluster in clusters if cluster.cluster_id in set(selected_cluster_ids)]
 
-    intro, stories, summary_errors = summarise_issue(ranked, selected_clusters, settings)
+    intro, stories, summary_errors = summarise_issue(selected_stories, selected_clusters, settings)
     stage_errors.extend(summary_errors)
 
     issue = Issue(
@@ -109,6 +132,17 @@ def generate(args: argparse.Namespace) -> int:
         stories=stories,
         warnings=[],
     )
+    review_shortlist = ReviewShortlist(
+        newsletter_name=settings.newsletter_name,
+        run_date=window.issue_date,
+        generated_at=issue.generated_at,
+        window_start=window.start_at.date(),
+        window_end=window.end_at.date(),
+        min_final_stories=settings.min_final_stories,
+        max_final_stories=settings.max_final_stories,
+        selected_cluster_ids=selected_cluster_ids,
+        stories=review_stories,
+    )
     rendered = rendered_outputs(issue)
     qa_report = run_qa(
         issue,
@@ -120,8 +154,15 @@ def generate(args: argparse.Namespace) -> int:
         source_diagnostics=source_diagnostics,
     )
     qa_markdown = render_qa_report(qa_report)
-    pr_body = build_pr_body(issue, qa_report)
-    files = write_issue_outputs(issue, output_dir, qa_report_markdown=qa_markdown)
+    pr_body = build_pr_body(issue, qa_report, review_shortlist)
+    selection_markdown = render_selection_markdown(review_shortlist)
+    files = write_issue_outputs(
+        issue,
+        output_dir,
+        qa_report_markdown=qa_markdown,
+        review_shortlist=review_shortlist,
+        selection_markdown=selection_markdown,
+    )
     archive.record_issue(issue, selected_clusters)
     pr_body_path = Path(args.pr_body_output or ".newsletter_pr_body.md")
     pr_body_path.write_text(pr_body, encoding="utf-8")

@@ -6,7 +6,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from legal_innovator.archive import write_issue_outputs
-from legal_innovator.models import ExtractedArticle
+from legal_innovator.models import ExtractedArticle, ReviewShortlist
 from legal_innovator.pr import build_pr_body
 from legal_innovator.qa import QAReport
 from tests.test_rendering_and_qa import make_issue
@@ -33,6 +33,32 @@ def test_issue_json_does_not_store_full_article_text(tmp_path: Path) -> None:
     assert "FULL ARTICLE TEXT" not in json.dumps(data)
 
 
+def test_write_issue_outputs_includes_review_shortlist_and_selection(tmp_path: Path) -> None:
+    issue = make_issue()
+    shortlist = ReviewShortlist(
+        newsletter_name=issue.newsletter_name,
+        run_date=issue.run_date,
+        generated_at=issue.generated_at,
+        window_start=issue.window_start,
+        window_end=issue.window_end,
+        min_final_stories=8,
+        max_final_stories=12,
+        selected_cluster_ids=[story.cluster_id for story in issue.stories],
+        stories=issue.stories,
+    )
+
+    write_issue_outputs(
+        issue,
+        tmp_path,
+        qa_report_markdown="# QA\n",
+        review_shortlist=shortlist,
+        selection_markdown="# Selection\n",
+    )
+
+    assert (tmp_path / "review_shortlist.json").exists()
+    assert (tmp_path / "editorial_selection.md").exists()
+
+
 def test_pr_body_contains_required_review_sections() -> None:
     issue = make_issue()
     report = QAReport(
@@ -45,8 +71,22 @@ def test_pr_body_contains_required_review_sections() -> None:
             "disclaimer is included": True,
         },
     )
-    body = build_pr_body(issue, report)
+    shortlist = ReviewShortlist(
+        newsletter_name=issue.newsletter_name,
+        run_date=issue.run_date,
+        generated_at=issue.generated_at,
+        window_start=issue.window_start,
+        window_end=issue.window_end,
+        min_final_stories=8,
+        max_final_stories=12,
+        selected_cluster_ids=[issue.stories[0].cluster_id],
+        stories=issue.stories,
+    )
+    body = build_pr_body(issue, report, shortlist)
     assert "Final story list" in body
+    assert "Editorial selection shortlist" in body
+    assert "- [x]" in body
+    assert "- [ ]" in body
     assert "QA checklist" in body
     assert "Opinion pieces and vendor-only announcements were excluded" in body
     assert "does not send email" in body

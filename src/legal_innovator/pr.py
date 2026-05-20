@@ -6,14 +6,14 @@ import os
 import subprocess
 from pathlib import Path
 
-from legal_innovator.models import Issue, QAReport
+from legal_innovator.models import Issue, QAReport, ReviewShortlist
 
 
 def build_pr_title(issue: Issue) -> str:
-    return f"Draft issue: {issue.newsletter_name} — {issue.run_date.isoformat()}"
+    return f"Draft issue: {issue.newsletter_name} - {issue.run_date.isoformat()}"
 
 
-def build_pr_body(issue: Issue, qa_report: QAReport) -> str:
+def build_pr_body(issue: Issue, qa_report: QAReport, review_shortlist: ReviewShortlist | None = None) -> str:
     warning_flags = qa_report.warnings
     lines = [
         f"# {build_pr_title(issue)}",
@@ -28,6 +28,24 @@ def build_pr_body(issue: Issue, qa_report: QAReport) -> str:
     for index, story in enumerate(issue.stories, start=1):
         sources = "; ".join(f"[{link.name}]({link.url})" for link in story.sources)
         lines.append(f"{index}. **{story.headline}** ({story.date.isoformat()}) - {sources}")
+
+    if review_shortlist:
+        selected = set(review_shortlist.selected_cluster_ids)
+        lines.extend(
+            [
+                "",
+                "## Editorial selection shortlist",
+                "",
+                f"Tick {review_shortlist.min_final_stories}-{review_shortlist.max_final_stories} stories.",
+                f"For a durable selection, edit `issues/{issue.run_date.isoformat()}/editorial_selection.md` "
+                "and rerun the workflow for the same date.",
+                "",
+            ]
+        )
+        for index, story in enumerate(review_shortlist.stories, start=1):
+            checked = "x" if story.cluster_id in selected else " "
+            sources = "; ".join(f"[{link.name}]({link.url})" for link in story.sources)
+            lines.append(f"- [{checked}] **{index}. {story.headline}** ({story.date.isoformat()}) - {sources}")
 
     lines.extend(["", "## QA checklist", ""])
     for item, passed in qa_report.checklist.items():

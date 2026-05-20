@@ -72,8 +72,12 @@ For each issue date, the generator creates:
 - `issues/YYYY-MM-DD/issue.html`
 - `issues/YYYY-MM-DD/issue.txt`
 - `issues/YYYY-MM-DD/qa_report.md`
+- `issues/YYYY-MM-DD/review_shortlist.json`
+- `issues/YYYY-MM-DD/editorial_selection.md`
 
 The canonical output is `issue.json`. HTML, Markdown, and plain text are rendered from the structured `Issue` object. Internal scores are stored in JSON for reviewability but are not rendered in the visible newsletter.
+
+The review shortlist contains up to 30 relevant candidate stories from the 14-day window. `editorial_selection.md` uses Markdown checkboxes: tick 8-12 stories, then rerun the generator for the same date to rebuild the final issue files from the checked selection.
 
 ## Setup
 
@@ -113,6 +117,7 @@ Useful controls:
 
 - `MAX_CANDIDATES=150`
 - `MAX_SHORTLIST=40`
+- `MAX_REVIEW_STORIES=30`
 - `MAX_FINAL_STORIES=12`
 - `MIN_FINAL_STORIES=8`
 - `MAX_SOURCES_PER_STORY=3`
@@ -148,7 +153,13 @@ python -m legal_innovator.main generate --run-date 2026-05-19 --no-pr
 Override limits:
 
 ```bash
-python -m legal_innovator.main generate --max-candidates 80 --max-final-stories 10 --no-pr
+python -m legal_innovator.main generate --max-candidates 150 --max-review-stories 30 --max-final-stories 12 --no-pr
+```
+
+Rebuild the final issue from an edited checkbox selection:
+
+```bash
+python -m legal_innovator.main generate --run-date 2026-05-20 --selection-file issues/2026-05-20/editorial_selection.md --no-pr
 ```
 
 ## GitHub Actions Manual Workflow

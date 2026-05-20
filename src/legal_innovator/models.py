@@ -195,6 +195,18 @@ class Issue(Model):
         return self
 
 
+class ReviewShortlist(Model):
+    newsletter_name: str
+    run_date: date
+    generated_at: datetime
+    window_start: date
+    window_end: date
+    min_final_stories: int = Field(ge=1, le=12)
+    max_final_stories: int = Field(ge=1, le=12)
+    selected_cluster_ids: list[str] = Field(default_factory=list)
+    stories: list[RankedStory] = Field(default_factory=list)
+
+
 class QAFinding(Model):
     severity: Literal["info", "warning", "error"]
     message: str

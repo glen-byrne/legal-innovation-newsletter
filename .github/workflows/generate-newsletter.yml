@@ -12,6 +12,11 @@ on:
         required: false
         default: "12"
         type: string
+      maximum_review_stories:
+        description: "Maximum review shortlist stories"
+        required: false
+        default: "30"
+        type: string
       maximum_candidates:
         description: "Maximum candidate articles"
         required: false
@@ -31,6 +36,7 @@ jobs:
       OPENAI_MODEL_FAST: ${{ vars.OPENAI_MODEL_FAST || secrets.OPENAI_MODEL_FAST }}
       ENABLE_OPENAI_WEB_SEARCH: ${{ vars.ENABLE_OPENAI_WEB_SEARCH || 'false' }}
       MAX_FINAL_STORIES: ${{ inputs.maximum_final_stories }}
+      MAX_REVIEW_STORIES: ${{ inputs.maximum_review_stories }}
       MAX_CANDIDATES: ${{ inputs.maximum_candidates }}
       REQUIRE_HUMAN_REVIEW: "true"
       DRY_RUN_NO_AI: "false"
@@ -60,7 +66,7 @@ jobs:
       - name: Generate issue files
         shell: bash
         run: |
-          args=(generate --no-pr --pr-body-output .newsletter_pr_body.md --max-candidates "${{ inputs.maximum_candidates }}" --max-final-stories "${{ inputs.maximum_final_stories }}")
+          args=(generate --no-pr --pr-body-output .newsletter_pr_body.md --max-candidates "${{ inputs.maximum_candidates }}" --max-review-stories "${{ inputs.maximum_review_stories }}" --max-final-stories "${{ inputs.maximum_final_stories }}")
           if [ -n "${{ inputs.run_date }}" ]; then
             args+=(--run-date "${{ inputs.run_date }}")
           fi

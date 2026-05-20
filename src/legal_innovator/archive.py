@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from legal_innovator.models import CandidateArticle, Issue, RankedStory, StoryCluster
+from legal_innovator.models import CandidateArticle, Issue, RankedStory, ReviewShortlist, StoryCluster
 from legal_innovator.rendering import render_html, render_markdown, render_plaintext
 
 
@@ -54,6 +54,8 @@ def write_issue_outputs(
     output_dir: str | Path,
     *,
     qa_report_markdown: str,
+    review_shortlist: ReviewShortlist | None = None,
+    selection_markdown: str | None = None,
     pr_body: str | None = None,
 ) -> dict[str, Path]:
     output_path = Path(output_dir)
@@ -73,6 +75,15 @@ def write_issue_outputs(
     files["html"].write_text(html, encoding="utf-8")
     files["plaintext"].write_text(plaintext, encoding="utf-8")
     files["qa"].write_text(qa_report_markdown, encoding="utf-8")
+    if review_shortlist is not None:
+        files["shortlist_json"] = output_path / "review_shortlist.json"
+        files["shortlist_json"].write_text(
+            json.dumps(review_shortlist.model_dump(mode="json"), indent=2) + "\n",
+            encoding="utf-8",
+        )
+    if selection_markdown is not None:
+        files["selection"] = output_path / "editorial_selection.md"
+        files["selection"].write_text(selection_markdown, encoding="utf-8")
     if pr_body is not None:
         files["pr_body"] = output_path / "pr_body.md"
         files["pr_body"].write_text(pr_body, encoding="utf-8")
