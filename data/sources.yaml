@@ -79,6 +79,22 @@ sources:
     credibility: 0.84
     paywalled: true
     enabled: true
+  - name: Law.com Legaltech News via Legal Tech Monitor RSS
+    url: https://www.legaltechmonitor.com/site/legaltech-news/feed/
+    type: rss
+    region: us_global
+    category: legaltech
+    credibility: 0.80
+    paywalled: false
+    enabled: true
+  - name: Law.com Legaltech News via Legal Tech Monitor
+    url: https://www.legaltechmonitor.com/site/legaltech-news/
+    type: webpage
+    region: us_global
+    category: legaltech
+    credibility: 0.80
+    paywalled: false
+    enabled: true
   - name: Law.com Legaltech News
     url: https://www.law.com/legaltechnews/
     type: webpage
@@ -90,6 +106,14 @@ sources:
   - name: The Lawyer Tech RSS
     url: https://www.thelawyer.com/tag/tech/feed/
     type: rss
+    region: uk_eu
+    category: legaltech
+    credibility: 0.83
+    paywalled: true
+    enabled: true
+  - name: The Lawyer Tech and AI
+    url: https://www.thelawyer.com/tech-and-ai/
+    type: webpage
     region: uk_eu
     category: legaltech
     credibility: 0.83
@@ -143,16 +167,37 @@ sources:
     credibility: 0.85
     paywalled: true
     enabled: true
+  - name: Irish Independent Technology
+    url: https://www.independent.ie/business/technology/
+    type: webpage
+    region: ireland
+    category: mainstream-technology
+    credibility: 0.83
+    paywalled: true
+    enabled: true
+  - name: Business Post Technology
+    url: https://www.businesspost.ie/technology/
+    type: webpage
+    region: ireland
+    category: mainstream-technology
+    credibility: 0.84
+    paywalled: true
+    enabled: true
 
 queries:
+  - site:legaltechmonitor.com/site/legaltech-news Law.com Legaltech News legal AI
+  - site:legaltechmonitor.com/site/legaltech-news law firms AI legal technology
   - site:irishtechnews.ie/category/law/legaltech legaltech AI law firm Ireland
   - site:irishtechnews.ie Irish law firm artificial intelligence legal technology
   - site:law.com/legaltechnews legal AI law firms legal technology
   - site:law.com/legaltechnews legal operations e-discovery AI
   - site:thelawyer.com/tag/tech law firm AI legal technology
+  - site:thelawyer.com/tech-and-ai law firm AI legal technology
   - site:thelawyer.com legal technology AI courts regulation
   - site:irishtimes.com Ireland law firm AI legal technology
   - site:irishtimes.com Irish courts digital transformation legal services
+  - site:independent.ie Ireland AI regulation law firms technology
+  - site:businesspost.ie Ireland legal technology AI law firms
   - site:theguardian.com/law AI courts legal technology regulation
   - site:theguardian.com/technology AI regulation law firms legal risk
   - site:thetimes.com law firm AI legal technology
