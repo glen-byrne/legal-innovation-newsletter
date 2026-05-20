@@ -52,6 +52,38 @@ def test_deduplication_fallback_merges_same_story() -> None:
     assert len(clusters[0].articles) == 2
 
 
+def test_deduplication_fallback_merges_same_funding_story_with_different_headlines() -> None:
+    settings = Settings(dry_run_no_ai=True)
+    first = article(
+        "Stilta raises $10.5m, with investors including Legora, OpenAI and Lovable",
+        "https://example.com/stilta-legal-it",
+        Region.UK_EU,
+    )
+    second = article(
+        "Stilta, A Swedish Startup Bringing Agentic AI To Patent Litigation, Raises $10.5M Seed",
+        "https://example.com/stilta-lawnext",
+        Region.UK_EU,
+    )
+    third = article(
+        "AI-Powered Patent Startup Stilta Announces $10.5M Seed Funding Round",
+        "https://example.com/stilta-lawcom",
+        Region.UK_EU,
+    )
+
+    clusters, errors = cluster_articles(
+        [
+            (first, classification(str(first.url), Region.UK_EU)),
+            (second, classification(str(second.url), Region.UK_EU)),
+            (third, classification(str(third.url), Region.UK_EU)),
+        ],
+        settings,
+    )
+
+    assert not errors
+    assert len(clusters) == 1
+    assert len(clusters[0].articles) == 3
+
+
 def test_irish_relevance_can_outrank_global_story() -> None:
     settings = Settings(dry_run_no_ai=True)
     irish = article("Irish law firm adopts AI governance platform", "https://example.com/irish", Region.IRELAND)
