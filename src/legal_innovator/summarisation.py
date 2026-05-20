@@ -66,8 +66,14 @@ def summarise_issue(
         return _fallback_intro(stories), stories, errors
 
     by_cluster_id = {item.cluster_id: item for item in batch.stories}
-    for story in stories:
+    used_generated_ids: set[int] = set()
+    for index, story in enumerate(stories):
         generated = by_cluster_id.get(story.cluster_id)
+        if generated:
+            used_generated_ids.add(id(generated))
+        elif index < len(batch.stories) and id(batch.stories[index]) not in used_generated_ids:
+            generated = batch.stories[index]
+            used_generated_ids.add(id(generated))
         if not generated:
             story.qa_notes.append("No AI summary returned; fallback summary used.")
             cluster = cluster_map.get(story.cluster_id)
@@ -81,7 +87,11 @@ def summarise_issue(
 
 
 def _summary_prompt(stories: list[RankedStory], cluster_map: dict[str, StoryCluster]) -> str:
-    lines = ["Write the issue intro and final story summaries from these ranked stories."]
+    lines = [
+        "Write the issue intro and final story summaries from these ranked stories.",
+        "Return exactly one story object for each input story, in the same order.",
+        "Preserve each Cluster ID exactly as supplied.",
+    ]
     for index, story in enumerate(stories, start=1):
         cluster = cluster_map.get(story.cluster_id)
         lines.append(f"\nStory {index}\nCluster ID: {story.cluster_id}\nWorking headline: {story.headline}\nDate: {story.date}")

@@ -7,7 +7,7 @@ from legal_innovator.archive import rendered_outputs
 from legal_innovator.config import Settings
 from legal_innovator.models import Issue, RankedStory, ScoreBreakdown, SourceDiagnostic, SourceLink
 from legal_innovator.qa import render_qa_report, run_qa
-from legal_innovator.summarisation import summarise_issue
+from legal_innovator.summarisation import SummaryBatch, StorySummary, summarise_issue
 
 
 def make_issue(story_count: int = 8) -> Issue:
@@ -133,3 +133,29 @@ def test_qa_report_renders_source_diagnostics() -> None:
     assert "Irish Tech News" in markdown
     assert "Law.com Legaltech News" in markdown
     assert "403 Forbidden" in markdown
+
+
+def test_summarisation_matches_by_order_when_cluster_ids_differ() -> None:
+    class FakeAI:
+        def complete_json(self, **kwargs):
+            return SummaryBatch(
+                intro="A concise executive briefing intro.",
+                stories=[
+                    StorySummary(
+                        cluster_id="changed-id",
+                        headline="Updated headline",
+                        summary="A neutral generated summary.",
+                        why_it_matters="It gives legal teams a practical signal to monitor.",
+                    )
+                ],
+            )
+
+    issue = make_issue(story_count=1)
+    settings = Settings(openai_api_key="test", openai_model_fast="fast", openai_model_high_quality="hq")
+    intro, stories, errors = summarise_issue(issue.stories, [], settings, ai_client=FakeAI())
+
+    assert not errors
+    assert intro == "A concise executive briefing intro."
+    assert stories[0].headline == "Updated headline"
+    assert stories[0].summary == "A neutral generated summary."
+    assert not stories[0].qa_notes

@@ -37,6 +37,9 @@ def classify_articles(
 
     paired: list[tuple[ExtractedArticle, ClassificationResult]] = []
     for article in articles:
+        prefilter_reason = _editorial_prefilter_reason(article)
+        if prefilter_reason:
+            continue
         try:
             batch = ai_client.complete_json(
                 schema=ClassificationBatch,
@@ -59,6 +62,35 @@ def classify_articles(
             continue
         paired.append((article, classification))
     return paired, errors
+
+
+def _editorial_prefilter_reason(article: ExtractedArticle) -> str | None:
+    text = f"{article.title} {article.snippet or ''} {article.metadata_description or ''}".lower()
+    commentary_markers = [
+        "some thoughts",
+        "opinion",
+        "commentary",
+        "podcast",
+        "talkingtech podcast",
+        "walk through:",
+    ]
+    vendor_markers = [
+        "product award",
+        "new product award",
+        "launch of",
+        "launches",
+        "announces",
+        "extends beyond software",
+    ]
+    if any(marker in text for marker in commentary_markers):
+        return "commentary_or_podcast"
+    if any(marker in text for marker in vendor_markers) and not _has_third_party_news_context(text):
+        return "vendor_or_product_announcement"
+    return None
+
+
+def _has_third_party_news_context(text: str) -> bool:
+    return any(marker in text for marker in ["funding", "raises", "acquisition", "court", "regulator", "government"])
 
 
 def _classification_prompt(articles: list[ExtractedArticle]) -> str:
