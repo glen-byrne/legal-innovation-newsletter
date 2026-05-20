@@ -1,10 +1,34 @@
 sources:
+  - name: Irish Tech News Legaltech RSS
+    url: https://irishtechnews.ie/category/law/legaltech/feed/
+    type: rss
+    region: ireland
+    category: legaltech
+    credibility: 0.80
+    paywalled: false
+    enabled: true
+  - name: Irish Tech News RSS
+    url: https://irishtechnews.ie/feed/
+    type: rss
+    region: ireland
+    category: technology
+    credibility: 0.78
+    paywalled: false
+    enabled: true
   - name: Irish Tech News Legaltech
     url: https://irishtechnews.ie/category/law/legaltech/
     type: webpage
     region: ireland
     category: legaltech
     credibility: 0.80
+    paywalled: false
+    enabled: true
+  - name: Artificial Lawyer RSS
+    url: https://www.artificiallawyer.com/feed/
+    type: rss
+    region: global
+    category: legal-ai
+    credibility: 0.82
     paywalled: false
     enabled: true
   - name: Artificial Lawyer
@@ -15,12 +39,28 @@ sources:
     credibility: 0.82
     paywalled: false
     enabled: true
+  - name: LawNext RSS
+    url: https://www.lawnext.com/feed/
+    type: rss
+    region: us_global
+    category: legaltech
+    credibility: 0.78
+    paywalled: false
+    enabled: true
   - name: LawNext
     url: https://www.lawnext.com/
     type: webpage
     region: us_global
     category: legaltech
     credibility: 0.78
+    paywalled: false
+    enabled: true
+  - name: Legal IT Insider / LegalTechnology RSS
+    url: https://legaltechnology.com/feed/
+    type: rss
+    region: uk_eu
+    category: legaltech
+    credibility: 0.82
     paywalled: false
     enabled: true
   - name: Legal IT Insider / LegalTechnology
@@ -31,12 +71,28 @@ sources:
     credibility: 0.82
     paywalled: false
     enabled: true
+  - name: Law.com Legaltech News RSS
+    url: https://www.law.com/legaltechnews/rss/
+    type: rss
+    region: us_global
+    category: legaltech
+    credibility: 0.84
+    paywalled: true
+    enabled: true
   - name: Law.com Legaltech News
     url: https://www.law.com/legaltechnews/
     type: webpage
     region: us_global
     category: legaltech
     credibility: 0.84
+    paywalled: true
+    enabled: true
+  - name: The Lawyer Tech RSS
+    url: https://www.thelawyer.com/tag/tech/feed/
+    type: rss
+    region: uk_eu
+    category: legaltech
+    credibility: 0.83
     paywalled: true
     enabled: true
   - name: The Lawyer Tech
@@ -47,8 +103,60 @@ sources:
     credibility: 0.83
     paywalled: true
     enabled: true
+  - name: The Guardian Law RSS
+    url: https://www.theguardian.com/law/rss
+    type: rss
+    region: uk_eu
+    category: mainstream-law
+    credibility: 0.86
+    paywalled: false
+    enabled: true
+  - name: The Guardian Technology RSS
+    url: https://www.theguardian.com/technology/rss
+    type: rss
+    region: uk_eu
+    category: mainstream-technology
+    credibility: 0.84
+    paywalled: false
+    enabled: true
+  - name: BBC Technology RSS
+    url: https://feeds.bbci.co.uk/news/technology/rss.xml
+    type: rss
+    region: uk_eu
+    category: mainstream-technology
+    credibility: 0.86
+    paywalled: false
+    enabled: true
+  - name: BBC Business RSS
+    url: https://feeds.bbci.co.uk/news/business/rss.xml
+    type: rss
+    region: uk_eu
+    category: mainstream-business
+    credibility: 0.86
+    paywalled: false
+    enabled: true
+  - name: The Irish Times Technology
+    url: https://www.irishtimes.com/technology/
+    type: webpage
+    region: ireland
+    category: mainstream-technology
+    credibility: 0.85
+    paywalled: true
+    enabled: true
 
 queries:
+  - site:irishtechnews.ie/category/law/legaltech legaltech AI law firm Ireland
+  - site:irishtechnews.ie Irish law firm artificial intelligence legal technology
+  - site:law.com/legaltechnews legal AI law firms legal technology
+  - site:law.com/legaltechnews legal operations e-discovery AI
+  - site:thelawyer.com/tag/tech law firm AI legal technology
+  - site:thelawyer.com legal technology AI courts regulation
+  - site:irishtimes.com Ireland law firm AI legal technology
+  - site:irishtimes.com Irish courts digital transformation legal services
+  - site:theguardian.com/law AI courts legal technology regulation
+  - site:theguardian.com/technology AI regulation law firms legal risk
+  - site:thetimes.com law firm AI legal technology
+  - mainstream Irish legal AI courts technology regulation law firms
   - Ireland legal tech AI law firm
   - Irish courts digital transformation
   - Ireland legal innovation legal services
