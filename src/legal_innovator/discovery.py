@@ -62,11 +62,12 @@ class DiscoveryService:
             adapter = self.adapters.get(source.type)
             if not adapter:
                 continue
+            error_start = len(adapter.errors)
             try:
                 candidates.extend(adapter.collect(source, window, limit_per_source))
             except Exception as exc:  # noqa: BLE001 - a single source should not stop discovery.
                 self.errors.append(StageError(ErrorStage.SOURCE_ACCESS, str(exc), source=source.name, url=str(source.url)))
-            self.errors.extend(adapter.errors)
+            self.errors.extend(adapter.errors[error_start:])
 
         remaining = max(0, self.settings.max_candidates - len(candidates))
         if remaining:

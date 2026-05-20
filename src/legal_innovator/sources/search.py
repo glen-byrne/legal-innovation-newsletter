@@ -7,11 +7,13 @@ be enabled without coupling the rest of the pipeline to a provider.
 
 from __future__ import annotations
 
+import json
+import re
 from abc import ABC, abstractmethod
 from datetime import datetime
 
 from openai import OpenAI
-from pydantic import AnyUrl, BaseModel, Field
+from pydantic import AnyUrl, BaseModel, Field, ValidationError, field_validator
 
 from legal_innovator.config import RunWindow, Settings
 from legal_innovator.errors import ErrorStage, StageError
@@ -43,6 +45,13 @@ class SearchResultItem(BaseModel):
     snippet: str | None = None
     region: Region = Region.UNKNOWN
 
+    @field_validator("url")
+    @classmethod
+    def require_http_url(cls, value: AnyUrl) -> AnyUrl:
+        if value.scheme not in {"http", "https"}:
+            raise ValueError("Only http and https URLs are allowed")
+        return value
+
 
 class SearchResultBatch(BaseModel):
     items: list[SearchResultItem] = Field(default_factory=list)
@@ -68,7 +77,7 @@ class OpenAIWebSearchProvider(SearchProvider):
                 temperature=0.1,
             )
             raw_text = getattr(response, "output_text", "") or "{}"
-            batch = SearchResultBatch.model_validate_json(raw_text)
+            batch = parse_search_result_batch(raw_text)
         except Exception as exc:  # noqa: BLE001 - optional discovery should degrade gracefully.
             self.errors.append(StageError(ErrorStage.SOURCE_ACCESS, f"OpenAI web search failed: {exc}", source=query))
             return []
@@ -98,6 +107,7 @@ class OpenAIWebSearchProvider(SearchProvider):
 def _search_prompt(query: str, window: RunWindow, limit: int) -> str:
     return (
         "Use web search to find recent legal innovation news. Return JSON only with an items array. "
+        "Do not wrap the JSON in Markdown fences. "
         "Each item must include title, direct publisher url, source_name, published_at as ISO date or datetime, "
         "snippet, and region as ireland, uk_eu, us_global, global, or unknown. "
         "Do not return Google, Bing, or search-result URLs. Do not include opinion, commentary, advertorials, "
@@ -114,3 +124,34 @@ def _parse_search_date(value: str | None, window: RunWindow) -> datetime | None:
     if not parsed:
         return None
     return parsed.replace(tzinfo=window.run_at.tzinfo) if parsed.tzinfo is None else parsed
+
+
+def parse_search_result_batch(raw_text: str) -> SearchResultBatch:
+    """Parse provider JSON even when it is wrapped in Markdown code fences."""
+
+    json_text = _extract_json_text(raw_text)
+    try:
+        return SearchResultBatch.model_validate_json(json_text)
+    except ValidationError:
+        data = json.loads(json_text)
+        valid_items = []
+        for item in data.get("items", []):
+            try:
+                valid_items.append(SearchResultItem.model_validate(item))
+            except ValidationError:
+                continue
+        return SearchResultBatch(items=valid_items)
+
+
+def _extract_json_text(raw_text: str) -> str:
+    stripped = raw_text.strip()
+    fenced = re.fullmatch(r"```(?:json)?\s*(.*?)\s*```", stripped, flags=re.DOTALL | re.IGNORECASE)
+    if fenced:
+        stripped = fenced.group(1).strip()
+    if stripped.startswith("{") and stripped.endswith("}"):
+        return stripped
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        return stripped[start : end + 1]
+    return stripped

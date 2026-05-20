@@ -8,6 +8,7 @@ import httpx
 from legal_innovator.config import RunWindow, Settings
 from legal_innovator.discovery import DiscoveryService, SourceConfig
 from legal_innovator.models import Region, Source, SourceType
+from legal_innovator.sources.search import parse_search_result_batch
 
 
 def test_webpage_discovery_skips_javascript_links() -> None:
@@ -54,3 +55,52 @@ def test_webpage_discovery_skips_javascript_links() -> None:
     assert len(candidates) == 1
     assert str(candidates[0].url) == "https://example.com/valid-legal-ai-story"
     assert not service.errors
+
+
+def test_openai_search_parser_accepts_fenced_json() -> None:
+    raw = """```json
+    {
+      "items": [
+        {
+          "title": "Irish courts publish digital filing update",
+          "url": "https://example.com/courts-update",
+          "source_name": "Example News",
+          "published_at": "2026-05-18",
+          "snippet": "A short summary.",
+          "region": "ireland"
+        }
+      ]
+    }
+    ```"""
+
+    batch = parse_search_result_batch(raw)
+
+    assert len(batch.items) == 1
+    assert batch.items[0].title == "Irish courts publish digital filing update"
+    assert str(batch.items[0].url) == "https://example.com/courts-update"
+
+
+def test_openai_search_parser_skips_invalid_items() -> None:
+    raw = """
+    {
+      "items": [
+        {
+          "title": "Bad link",
+          "url": "javascript:void(0);",
+          "source_name": "Example News",
+          "published_at": "2026-05-18"
+        },
+        {
+          "title": "Valid legal innovation story",
+          "url": "https://example.com/valid",
+          "source_name": "Example News",
+          "published_at": "2026-05-18"
+        }
+      ]
+    }
+    """
+
+    batch = parse_search_result_batch(raw)
+
+    assert len(batch.items) == 1
+    assert batch.items[0].title == "Valid legal innovation story"
