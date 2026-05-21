@@ -39,16 +39,32 @@ Default sources live in [data/sources.yaml](data/sources.yaml). The MVP starts w
 - Law.com Legaltech News
 - The Lawyer tech tag
 
-The same file also contains targeted discovery queries for future search-provider adapters. The project does not scrape Google, Bing, or other search-engine result pages directly.
+The normal workflow is RSS/source-first. It does not use Google Alerts, and it does not scrape Google, Bing, or other search-engine result pages.
 
 Discovery order:
 
-1. RSS/feed/source-list discovery where configured.
-2. Public source page and metadata discovery.
-3. Optional OpenAI API web search when `ENABLE_OPENAI_WEB_SEARCH=true`.
+1. RSS/feed discovery where configured.
+2. Public source page, sitemap, and metadata discovery for sources without suitable RSS feeds.
+3. Optional OpenAI API web search only when `ENABLE_OPENAI_WEB_SEARCH=true`.
 4. Optional third-party news/search API adapters in future.
 
-If no search API is configured, the system still runs from source lists, public source pages, RSS feeds, and permitted metadata.
+The default and recommended cost-control setting is `ENABLE_OPENAI_WEB_SEARCH=false`. In that mode, configured search queries are not run and do not appear as source diagnostics. They are retained only as an optional expanded-discovery fallback.
+
+If no search API is configured, the system still runs from source lists, public source pages, RSS feeds, sitemaps, and permitted metadata.
+
+## Lean Fortnightly Workflow
+
+The recommended low-cost workflow is:
+
+1. Collect candidates from curated RSS feeds, public source pages, and sitemaps.
+2. Apply deterministic filters first: date window, source validity, duplicate URLs, obvious opinion/commentary, vendor-only items, and broad irrelevant technology stories.
+3. Use OpenAI only on the narrowed candidate pool for relevance classification, deduplication, ranking support, final summaries, and factual QA.
+4. Generate a 25-30 story review shortlist.
+5. Review `editorial_selection.md` and tick 8-12 stories.
+6. Rerun the generator for the same issue date to rebuild the final issue from the selected stories.
+7. Review the PR and merge only when the issue is editorially approved.
+
+This workflow is designed to minimise API spend while preserving source traceability and human editorial control.
 
 ## Compliance-Safe Extraction
 
@@ -115,7 +131,7 @@ Required for live generation:
 
 Useful controls:
 
-- `MAX_CANDIDATES=150`
+- `MAX_CANDIDATES=80`
 - `MAX_SHORTLIST=40`
 - `MAX_REVIEW_STORIES=30`
 - `MAX_FINAL_STORIES=12`
@@ -153,7 +169,7 @@ python -m legal_innovator.main generate --run-date 2026-05-19 --no-pr
 Override limits:
 
 ```bash
-python -m legal_innovator.main generate --max-candidates 150 --max-review-stories 30 --max-final-stories 12 --no-pr
+python -m legal_innovator.main generate --max-candidates 80 --max-review-stories 30 --max-final-stories 12 --no-pr
 ```
 
 Rebuild the final issue from an edited checkbox selection:
@@ -176,7 +192,7 @@ It:
 
 The PR title is:
 
-`Draft issue: The Irish Legal Innovator — YYYY-MM-DD`
+`Draft issue: The Irish Legal Innovator - YYYY-MM-DD`
 
 The workflow requests only:
 
@@ -245,6 +261,8 @@ OpenAI assists with:
 - Executive intro
 - Factual QA against source snippets, metadata, and permitted text
 
+To control cost, keep `ENABLE_OPENAI_WEB_SEARCH=false` for normal runs and use RSS/source discovery as the main collection layer. Increase `MAX_CANDIDATES` or enable OpenAI web search only when the shortlist is clearly missing important stories.
+
 AI responses are requested as structured JSON and validated with Pydantic. If validation fails, the call is retried once with a corrective prompt. If it still fails, the failure is recorded in `qa_report.md` and affected items are excluded or safely handled.
 
 ## Adding Sources
@@ -262,7 +280,27 @@ Edit [data/sources.yaml](data/sources.yaml):
   enabled: true
 ```
 
-Supported source types are `rss`, `webpage`, and `sitemap` for the MVP. Search providers are intentionally adapter-based; OpenAI web search can be enabled, and a third-party news/search API can be added later without changing the rest of the pipeline.
+Supported source types are `rss`, `webpage`, and `sitemap` for the MVP. Prefer RSS feeds wherever possible. Search providers are intentionally adapter-based; OpenAI web search can be enabled for an expanded run, and a third-party news/search API can be added later without changing the rest of the pipeline.
+
+## Reverting to Broader Discovery
+
+If the lean workflow misses important stories, first try reversible configuration changes:
+
+```bash
+MAX_CANDIDATES=150
+ENABLE_OPENAI_WEB_SEARCH=true
+```
+
+In GitHub Actions, set repository variable `ENABLE_OPENAI_WEB_SEARCH` to `true` and run the workflow with `maximum_candidates` set to `150`.
+
+If you want to undo the lean-process code/docs change entirely, revert the commit that introduced it:
+
+```bash
+git revert <commit-sha>
+git push
+```
+
+That creates a new commit restoring the previous behaviour without rewriting history.
 
 ## Future beehiiv Integration
 
@@ -307,6 +345,7 @@ No or too few stories:
 
 - Check `qa_report.md` for source access, robots, extraction, classification, and OpenAI failures.
 - Review `data/sources.yaml` and add more high-quality RSS feeds or source pages.
+- For a one-off expanded run, increase `MAX_CANDIDATES` and enable `ENABLE_OPENAI_WEB_SEARCH=true`.
 
 GitHub Action cannot create a PR:
 

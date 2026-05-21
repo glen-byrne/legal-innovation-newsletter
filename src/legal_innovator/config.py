@@ -19,7 +19,7 @@ class Settings(BaseModel):
     openai_api_key: str | None = None
     openai_model_high_quality: str | None = None
     openai_model_fast: str | None = None
-    max_candidates: int = Field(default=150, ge=1)
+    max_candidates: int = Field(default=80, ge=1)
     max_shortlist: int = Field(default=40, ge=1)
     max_review_stories: int = Field(default=30, ge=8, le=30)
     max_final_stories: int = Field(default=12, ge=1, le=12)
@@ -82,7 +82,7 @@ def load_settings(env_file: str | Path | None = ".env") -> Settings:
         openai_api_key=os.getenv("OPENAI_API_KEY"),
         openai_model_high_quality=os.getenv("OPENAI_MODEL_HIGH_QUALITY"),
         openai_model_fast=os.getenv("OPENAI_MODEL_FAST"),
-        max_candidates=int(os.getenv("MAX_CANDIDATES", "150")),
+        max_candidates=int(os.getenv("MAX_CANDIDATES", "80")),
         max_shortlist=int(os.getenv("MAX_SHORTLIST", "40")),
         max_review_stories=int(os.getenv("MAX_REVIEW_STORIES", "30")),
         max_final_stories=int(os.getenv("MAX_FINAL_STORIES", "12")),

@@ -18,9 +18,9 @@ on:
         default: "30"
         type: string
       maximum_candidates:
-        description: "Maximum candidate articles"
+        description: "Maximum candidate articles collected from RSS/source pages before filtering"
         required: false
-        default: "150"
+        default: "80"
         type: string
 
 permissions:

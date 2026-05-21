@@ -64,6 +64,19 @@ def test_webpage_discovery_skips_javascript_links() -> None:
     assert not service.errors
 
 
+def test_discovery_skips_query_diagnostics_when_web_search_disabled() -> None:
+    settings = Settings(dry_run_no_ai=True, enable_openai_web_search=False)
+    run_at = datetime(2026, 5, 19, 12, 0, tzinfo=ZoneInfo("Europe/Dublin"))
+    window = RunWindow(run_at=run_at, start_at=run_at - timedelta(days=14), end_at=run_at)
+    service = DiscoveryService(settings, client=httpx.Client(transport=httpx.MockTransport(lambda request: httpx.Response(404))))
+    config = SourceConfig(sources=[], queries=["Ireland legal tech AI law firm"])
+
+    candidates = service.collect(config, window)
+
+    assert candidates == []
+    assert service.diagnostics == []
+
+
 def test_openai_search_parser_accepts_fenced_json() -> None:
     raw = """```json
     {

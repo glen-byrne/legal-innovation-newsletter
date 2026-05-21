@@ -88,7 +88,7 @@ class DiscoveryService:
             )
 
         remaining = max(0, self.settings.max_candidates - len(candidates))
-        if remaining:
+        if remaining and self.settings.enable_openai_web_search:
             per_query = max(1, remaining // max(1, len(source_config.queries)))
             for query in source_config.queries:
                 error_start = len(getattr(self.search_provider, "errors", []))
