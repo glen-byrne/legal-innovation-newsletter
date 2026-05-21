@@ -1,0 +1,129 @@
+# The Irish Legal Innovator
+
+**Issue date:** 2026-05-21
+
+This fortnight saw Osborne Clarke spin out its first AI-powered regulatory monitoring company, Justima, while Swedish startup Stilta secured significant funding to advance AI-driven patent litigation. Law firm AI adoption continues to be heavily influenced by client demand, and new tools and partnerships, such as Harvey's Command Center and DeepJudge integration, are reshaping legal workflows. Meanwhile, regulatory and ethical concerns remain prominent, with developments in deepfake enforcement, tech abuse in domestic law, and AI misinformation in elections.
+
+## 1. Osborne Clarke Spins Off AI-Powered Regulatory Monitoring Company Justima
+
+**Date:** 2026-05-21
+
+Osborne Clarke has spun out Justima, an AI-driven regulatory monitoring platform, marking the firm's first such move and retaining an ownership stake while acting as exclusive regulatory partner. Justima automates the monitoring of over 200 legal and regulatory sources daily, aiming to reduce resource burdens and risks for corporate legal departments.
+
+**Why it matters:** This signals growing law firm investment in AI solutions that directly address client compliance needs and operational efficiency.
+
+**Sources:** [Artificial Lawyer RSS](https://www.artificiallawyer.com/2026/05/21/justima-spins-out-of-osborne-clarke); [Legal IT Insider / LegalTechnology RSS](https://legaltechnology.com/osborne-clarke-launches-independent-company-for-ai-regulatory-monitoring); [Law.com Legaltech News via Legal Tech Monitor RSS](https://www.legaltechmonitor.com/2026/05/osborne-clarke-spins-off-ai-powered-regulatory-monitoring-company-justima)
+
+## 2. Stilta, A Swedish Startup Bringing Agentic AI To Patent Litigation, Raises $10.5M Seed Led By Andreessen Horowitz
+
+**Date:** 2026-05-20
+
+Stockholm-based Stilta has raised $10.5 million in seed funding led by Andreessen Horowitz to develop AI agents for patent invalidity and infringement analysis, with participation from Y Combinator and leading AI founders. The platform leverages AI to analyse vast patent and scientific data, aiming to make patent enforcement and defence more accessible and effective.
+
+**Why it matters:** This reflects accelerating investor interest in AI tools that can transform high-value, complex areas of legal practice such as intellectual property.
+
+**Sources:** [Legal IT Insider / LegalTechnology RSS](https://legaltechnology.com/stilta-raises-10-5m-with-investors-including-legora-openai-and-lovable); [LawNext RSS](https://www.lawnext.com/2026/05/stilta-a-stockholm-startup-bringing-agentic-ai-to-patent-litigation-raises-10-5m-seed-led-by-andreessen-horowitz.html)
+
+## 3. Clients Have Major Influence on Law Firm Legal AI Decisions
+
+**Date:** 2026-05-21
+
+A Litera survey found that 51% of law firms have made AI investment decisions under direct client influence, with only 15% describing such decisions as entirely internally driven. The research also highlights that clients increasingly specify not just the adoption of AI, but also which tools firms should use.
+
+**Why it matters:** Client expectations are now a primary driver of legal AI adoption, shaping law firm technology strategies across the sector.
+
+**Sources:** [Artificial Lawyer RSS](https://www.artificiallawyer.com/2026/05/21/clients-have-major-influence-on-law-firm-legal-ai-decisions)
+
+## 4. Harvey partners with DeepJudge and unveils Command Center to measure and drive AI adoption
+
+**Date:** 2026-05-20
+
+Harvey has announced a partnership with DeepJudge to integrate organisational knowledge into its workflows and launched Command Center, a tool for managing and benchmarking enterprise AI adoption. The new offerings aim to help law firms leverage internal precedents and gain visibility into AI usage and rollout.
+
+**Why it matters:** These developments support law firms in scaling AI adoption while maintaining oversight and leveraging institutional knowledge.
+
+**Sources:** [Legal IT Insider / LegalTechnology RSS](https://legaltechnology.com/harvey-partners-with-deepjudge-and-unveils-command-center-to-measure-and-drive-ai-adoption)
+
+## 5. The Claude-pocalypse Bypassed Legal Aid; LawDroid’s New Plugin Remedies That, with 15 Targeted Skills
+
+**Date:** 2026-05-20
+
+Following Anthropic's release of legal-specific plugins for its Claude AI assistant, LawDroid has launched a free, open-source Legal Aid Plugin designed specifically for civil legal aid providers. This addresses a gap left by major AI vendors, whose tools have largely focused on corporate legal tasks rather than underserved communities.
+
+**Why it matters:** The move highlights ongoing efforts to ensure AI-driven legal technology benefits access to justice and not just commercial law firms.
+
+**Sources:** [LawNext RSS](https://www.lawnext.com/2026/05/the-claude-pocalypse-bypassed-legal-aid-lawdroids-new-plugin-remedies-that-with-15-targeted-skills.html)
+
+## 6. ChatGPT and other AI bots made huge errors before Scottish election, study finds
+
+**Date:** 2026-05-20
+
+A Demos study found that AI chatbots, including ChatGPT and Gemini, provided misinformation in response to 34% of voter queries ahead of the Scottish election, prompting the Electoral Commission to call for new legal controls. Errors included inventing scandals, misreporting election dates, and providing incorrect voting requirements.
+
+**Why it matters:** This underscores the risks of relying on AI-generated information in sensitive contexts such as elections and the need for regulatory oversight.
+
+**Sources:** [The Guardian Technology RSS](https://www.theguardian.com/technology/2026/may/20/ai-chatbots-chatgpt-replika-grok-gemini-misinformation-scottish-election-demos)
+
+## 7. Legal AI Firm Harvey Bets Big on France Amid Rising EU Tech Scrutiny, Data Concerns
+
+**Date:** 2026-05-20
+
+Harvey is expanding its presence in France by incorporating open data sources and adapting workflows for French legal use cases, though law firms note the lack of access to proprietary legal databases. The move comes as EU scrutiny of tech and data practices intensifies.
+
+**Why it matters:** Harvey’s strategy reflects the challenges and opportunities for legal AI providers in the EU market.
+
+**Sources:** [Law.com Legaltech News via Legal Tech Monitor RSS](https://www.legaltechmonitor.com/2026/05/legal-ai-firm-harvey-bets-big-on-france-amid-rising-eu-tech-scrutiny-data-concerns)
+
+## 8. Littler rolls out DepoSim after partnering on employment law capability
+
+**Date:** 2026-05-21
+
+Littler is rolling out DepoSim, an AI-powered deposition simulation platform, firmwide after collaborating to develop employment law scenarios for litigation training. The tool combines AI with scenario-based learning to help attorneys practice and improve deposition skills as more junior legal tasks become automated.
+
+**Why it matters:** This demonstrates how AI is being used to modernise legal training and maintain litigation readiness as traditional workflows evolve.
+
+**Sources:** [Legal IT Insider / LegalTechnology RSS](https://legaltechnology.com/littler-rolls-out-deposim-after-partnering-on-employment-law-capability)
+
+## 9. Google DeepMind in talks with UK unions amid staff concern over US and Israel’s AI use
+
+**Date:** 2026-05-20
+
+Google DeepMind has agreed to formal talks with UK unions following staff concerns about the use of its AI in US and Israeli defence and intelligence applications, potentially paving the way for union representation. The move follows internal petitions and a vote by London-based employees to seek unionisation.
+
+**Why it matters:** This highlights growing employee activism and ethical scrutiny around AI development and government applications.
+
+**Sources:** [The Guardian Technology RSS](https://www.theguardian.com/technology/2026/may/20/google-deepmind-talks-uk-unions-ai-use-israel-us-defence)
+
+## 10. FTC Fires First Warning Shots at 'Nudify' Sites Under New Federal Deepfake Law
+
+**Date:** 2026-05-21
+
+The US Federal Trade Commission has issued warning letters to 'nudify' deepfake sites, threatening civil penalties of up to $53,088 per violation, just one day after the Take it Down Act took effect. The action marks the first enforcement steps under new federal deepfake legislation.
+
+**Why it matters:** This signals a more assertive regulatory approach to combating harmful AI-generated content under new US legislation.
+
+**Sources:** [Law.com Legaltech News via Legal Tech Monitor RSS](https://www.legaltechmonitor.com/2026/05/ftc-fires-first-warning-shots-at-nudify-sites-under-new-federal-deepfake-law)
+
+## 11. Domestic abuse law fails to recognise danger of tech abuse, Lords committee told
+
+**Date:** 2026-05-21
+
+A Lords select committee heard that the UK Domestic Abuse Act does not fully address technology-facilitated abuse, such as location tracking and stalkerware, which has become increasingly common. Policy experts called for explicit inclusion of tech abuse in the statutory definition of domestic abuse.
+
+**Why it matters:** This raises awareness of the need for legal frameworks to keep pace with technology-enabled abuse.
+
+**Sources:** [The Guardian Law RSS](https://www.theguardian.com/law/2026/may/21/domestic-abuse-law-fails-to-recognise-danger-of-tech-abuse-lords-committee-told)
+
+## 12. Law.com's Legaltech News
+
+**Date:** 2026-05-15
+
+Recent legaltech developments include new digital tools for legal ops, evolving rules on courtroom technology, and warnings from industry leaders that firms lagging in AI risk losing talent and client business. The sector continues to see rapid product launches, partnerships, and calls for modernisation.
+
+**Why it matters:** Ongoing innovation and client expectations are driving law firms to prioritise technology adoption for competitiveness and client service.
+
+**Sources:** [Law.com Legaltech News via Legal Tech Monitor](https://www.legaltechmonitor.com/site/legaltech-news)
+
+---
+
+This newsletter is for general information only and does not constitute legal advice.
