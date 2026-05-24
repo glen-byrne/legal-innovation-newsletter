@@ -8,6 +8,7 @@ from datetime import datetime
 from pathlib import Path
 
 from legal_innovator.archive import ArchiveStore, rendered_outputs, write_issue_outputs
+from legal_innovator.candidates import load_candidate_file, rank_imported_clusters
 from legal_innovator.classification import classify_articles
 from legal_innovator.config import compute_run_window, load_settings
 from legal_innovator.deduplication import cluster_articles
@@ -45,6 +46,7 @@ def build_parser() -> argparse.ArgumentParser:
     generate_parser.add_argument("--max-candidates", type=int, help="Override MAX_CANDIDATES")
     generate_parser.add_argument("--max-review-stories", type=int, help="Override MAX_REVIEW_STORIES")
     generate_parser.add_argument("--max-final-stories", type=int, help="Override MAX_FINAL_STORIES")
+    generate_parser.add_argument("--candidate-file", help="JSON candidate file generated from Codex research output")
     generate_parser.add_argument("--selection-file", help="Markdown checkbox file selecting final stories")
     generate_parser.add_argument("--no-pr", action="store_true", help="Generate locally without opening a pull request")
     generate_parser.add_argument("--pr-body-output", help="Optional path for the generated PR body")
@@ -67,42 +69,55 @@ def generate(args: argparse.Namespace) -> int:
     window = compute_run_window(settings, args.run_date)
     output_dir = Path(args.output_dir or f"issues/{window.issue_date.isoformat()}")
 
-    source_config = load_source_config()
     archive = ArchiveStore()
+    source_diagnostics = []
 
-    try:
-        discovery = DiscoveryService(settings)
-        candidates = discovery.collect(source_config, window)
-        stage_errors.extend(discovery.errors)
-        source_diagnostics = discovery.diagnostics
-        candidates = archive.filter_unseen_candidates(candidates)
-    except Exception as exc:  # noqa: BLE001
-        stage_errors.append(StageError(ErrorStage.SOURCE_ACCESS, str(exc)))
-        source_diagnostics = []
-        candidates = []
+    if args.candidate_file:
+        try:
+            imported = load_candidate_file(args.candidate_file, window)
+            stage_errors.extend(imported.errors)
+            source_diagnostics = imported.diagnostics
+            clusters = archive.filter_unseen_clusters(imported.clusters)
+            review_stories = rank_imported_clusters(clusters, window, settings)[: settings.max_review_stories]
+        except Exception as exc:  # noqa: BLE001
+            stage_errors.append(
+                StageError(ErrorStage.SOURCE_ACCESS, f"Candidate file import failed: {exc}", source=args.candidate_file)
+            )
+            clusters = []
+            review_stories = []
+    else:
+        source_config = load_source_config()
+        try:
+            discovery = DiscoveryService(settings)
+            candidates = discovery.collect(source_config, window)
+            stage_errors.extend(discovery.errors)
+            source_diagnostics = discovery.diagnostics
+            candidates = archive.filter_unseen_candidates(candidates)
+        except Exception as exc:  # noqa: BLE001
+            stage_errors.append(StageError(ErrorStage.SOURCE_ACCESS, str(exc)))
+            candidates = []
 
-    try:
-        extractor = ExtractionService(settings)
-        extracted = extractor.extract_many(candidates)
-        stage_errors.extend(extractor.errors)
-        extracted = [
-            article
-            for article in extracted
-            if article.published_at
-            and window.start_at <= article.published_at.astimezone(window.run_at.tzinfo) <= window.end_at
-        ]
-    except Exception as exc:  # noqa: BLE001
-        stage_errors.append(StageError(ErrorStage.EXTRACTION, str(exc)))
-        extracted = []
+        try:
+            extractor = ExtractionService(settings)
+            extracted = extractor.extract_many(candidates)
+            stage_errors.extend(extractor.errors)
+            extracted = [
+                article
+                for article in extracted
+                if article.published_at
+                and window.start_at <= article.published_at.astimezone(window.run_at.tzinfo) <= window.end_at
+            ]
+        except Exception as exc:  # noqa: BLE001
+            stage_errors.append(StageError(ErrorStage.EXTRACTION, str(exc)))
+            extracted = []
 
-    classified, classification_errors = classify_articles(extracted, settings)
-    stage_errors.extend(classification_errors)
+        classified, classification_errors = classify_articles(extracted, settings)
+        stage_errors.extend(classification_errors)
 
-    clusters, dedupe_errors = cluster_articles(classified, settings)
-    stage_errors.extend(dedupe_errors)
-    clusters = archive.filter_unseen_clusters(clusters)
-
-    review_stories = rank_clusters(clusters, window, settings)[: settings.max_review_stories]
+        clusters, dedupe_errors = cluster_articles(classified, settings)
+        stage_errors.extend(dedupe_errors)
+        clusters = archive.filter_unseen_clusters(clusters)
+        review_stories = rank_clusters(clusters, window, settings)[: settings.max_review_stories]
     selection_file = Path(args.selection_file) if args.selection_file else output_dir / "editorial_selection.md"
     selected_cluster_ids = parse_selected_cluster_ids(selection_file)
     if not selected_cluster_ids:

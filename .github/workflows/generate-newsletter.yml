@@ -22,6 +22,10 @@ on:
         required: false
         default: "80"
         type: string
+      candidate_file:
+        description: "Optional path to Codex candidate JSON file. If blank, issues/YYYY-MM-DD/candidates.json is auto-used when present."
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -69,6 +73,13 @@ jobs:
           args=(generate --no-pr --pr-body-output .newsletter_pr_body.md --max-candidates "${{ inputs.maximum_candidates }}" --max-review-stories "${{ inputs.maximum_review_stories }}" --max-final-stories "${{ inputs.maximum_final_stories }}")
           if [ -n "${{ inputs.run_date }}" ]; then
             args+=(--run-date "${{ inputs.run_date }}")
+          fi
+          candidate_file="${{ inputs.candidate_file }}"
+          if [ -z "$candidate_file" ] && [ -f "issues/${{ steps.issue_date.outputs.value }}/candidates.json" ]; then
+            candidate_file="issues/${{ steps.issue_date.outputs.value }}/candidates.json"
+          fi
+          if [ -n "$candidate_file" ]; then
+            args+=(--candidate-file "$candidate_file")
           fi
           python -m legal_innovator.main "${args[@]}"
 
