@@ -1,0 +1,318 @@
+{
+  "newsletter_name": "The Irish Legal Innovator",
+  "run_date": "2026-05-24",
+  "generated_at": "2026-05-24T21:24:23.097518+01:00",
+  "window_start": "2026-05-10",
+  "window_end": "2026-05-24",
+  "intro": "This fortnight saw significant developments in legal AI adoption, regulation, and market structure. Highlights include new regulatory guidance for barristers and solicitors on AI use, a major in-house legal team shifting to AI-driven adviser selection, and further expansion of AI-enabled legal service models. Law firms, regulators, and clients are all moving to formalise, supervise, and scale AI in legal practice.",
+  "stories": [
+    {
+      "headline": "Donna O'Leary appointed director and head of Newcode AI Ireland",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland",
+      "sources": [
+        {
+          "name": "Irish Legal News",
+          "url": "https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Irish Legal News"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Donna O'Leary, formerly of Mason Hayes & Curran, has been named director and head of Newcode AI Ireland, following her work in AI consultancy focused on legal upskilling and literacy.",
+      "why_it_matters": "This appointment signals growing investment in AI training and implementation support for Irish legal professionals.",
+      "score": 997.101,
+      "score_breakdown": {
+        "region": 25.0,
+        "legal_relevance": 20.240000000000002,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.285720899470899,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-004"
+    },
+    {
+      "headline": "Law Society calls for clear AI rules for court documents and wider MoJ review of AI in justice",
+      "date": "2026-05-12",
+      "canonical_url": "https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "The Law Society has urged regulators and government to clarify rules for responsible AI use in court proceedings, including disclosure requirements and guidance for court users.",
+      "why_it_matters": "Clearer rules would directly impact litigation practice, solicitor competence, and the supervision of AI-assisted work in court proceedings.",
+      "score": 996.088,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.8571494708994711,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-005"
+    },
+    {
+      "headline": "Bar Standards Board issues guidance on safe and responsible AI use by barristers",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html",
+      "sources": [
+        {
+          "name": "Bar Standards Board",
+          "url": "https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html",
+          "source_type": "other_media"
+        }
+      ],
+      "source_names": [
+        "Bar Standards Board"
+      ],
+      "source_types": [
+        "other_media"
+      ],
+      "summary": "The Bar Standards Board has published guidance outlining how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.",
+      "why_it_matters": "This provides barristers and chambers with a formal regulatory framework for adopting and supervising AI tools.",
+      "score": 995.092,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 9.5,
+        "recency": 4.285720899470899,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-006"
+    },
+    {
+      "headline": "Family judge uses secure judicial AI tool to summarise judgment for parents with learning difficulties",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "In Re B, a family judge used a secure judicial AI application to generate simplified summaries of a judgment to aid parents with learning difficulties.",
+      "why_it_matters": "This case demonstrates practical use of AI to improve accessibility and understanding in judicial communication.",
+      "score": 994.091,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.285720899470899,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-007"
+    },
+    {
+      "headline": "Judge refers solicitors to SRA after fake or mis-cited AI-generated authorities were filed",
+      "date": "2026-05-15",
+      "canonical_url": "https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases",
+      "sources": [
+        {
+          "name": "Legal Futures",
+          "url": "https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal Futures"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated in Rodney v Gee'z Micro Bar & Pitstop.",
+      "why_it_matters": "The incident highlights professional risks and the need for robust verification and supervision when using AI in legal work.",
+      "score": 993.09,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 2.5714351851851855,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-008"
+    },
+    {
+      "headline": "Revolut drops traditional law firm panel for AI-assisted performance-based adviser selection",
+      "date": "2026-05-19",
+      "canonical_url": "https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Revolut will replace its fixed law firm panel with an AI-driven system, using in-house tools to pre-select firms and scrutinise advice and billing.",
+      "why_it_matters": "This shift illustrates how in-house teams are leveraging AI and metrics to reshape external counsel selection and client relationships.",
+      "score": 992.092,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 21.56,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.85714947089947,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-009"
+    },
+    {
+      "headline": "Carta acquires AI-driven ABS Avantia Law and creates SRA-regulated Carta Law",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management",
+      "sources": [
+        {
+          "name": "Legal Futures",
+          "url": "https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal Futures"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Carta has acquired Avantia Law, forming SRA-regulated Carta Law, and plans to integrate its ERP platform with Avantia's AI for private equity legal and compliance services.",
+      "why_it_matters": "This acquisition marks a structural change as software companies integrate AI-enabled law firms to deliver combined legal service offerings.",
+      "score": 991.091,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.285720899470899,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-010"
+    },
+    {
+      "headline": "Linklaters launches Applied Intelligence team for bespoke AI-enabled legal solutions",
+      "date": "2026-05-11",
+      "canonical_url": "https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Linklaters has launched the Applied Intelligence team, combining lawyers and data scientists to deliver bespoke AI-enabled solutions for complex, data-heavy legal matters.",
+      "why_it_matters": "This reflects a shift toward dedicated, client-facing AI teams as part of mainstream legal service delivery.",
+      "score": 990.087,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.28572089947089907,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-011"
+    },
+    {
+      "headline": "Burges Salmon expands Wexler AI from disputes team to firmwide document-heavy work",
+      "date": "2026-05-11",
+      "canonical_url": "https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide deployment, supporting document review, fact extraction, and early case assessment.",
+      "why_it_matters": "Firmwide adoption of litigation-focused AI signals that such tools are moving from pilot projects into mainstream legal practice.",
+      "score": 989.087,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.28572089947089907,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-012"
+    }
+  ],
+  "disclaimer": "This newsletter is for general information only and does not constitute legal advice.",
+  "warnings": []
+}
