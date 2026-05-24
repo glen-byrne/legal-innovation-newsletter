@@ -5,145 +5,394 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Irish Legal Innovator</title>
     <style>
-      body { margin: 0; padding: 0; background: #ffffff; color: #14213d; font-family: Arial, Helvetica, sans-serif; }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #F5F1EA;
+        color: #1E3B2E;
+        font-family: Arial, Helvetica, sans-serif;
+      }
       table { border-collapse: collapse; }
-      a { color: #0f6b77; text-decoration: underline; }
-      .wrapper { width: 100%; background: #ffffff; }
-      .container { width: 100%; max-width: 680px; margin: 0 auto; }
-      .header { padding: 28px 24px 18px 24px; border-bottom: 3px solid #0f6b77; }
-      .title { margin: 0; font-size: 28px; line-height: 1.2; color: #102a43; font-weight: 700; }
-      .date { margin: 8px 0 0 0; font-size: 13px; color: #52616b; }
-      .intro { padding: 22px 24px; font-size: 16px; line-height: 1.55; color: #243b53; }
-      .story { padding: 22px 24px; border-top: 1px solid #d9e2ec; }
-      .story h2 { margin: 0 0 8px 0; font-size: 20px; line-height: 1.3; color: #102a43; }
-      .meta { margin: 0 0 12px 0; font-size: 13px; color: #52616b; }
-      .summary { margin: 0 0 12px 0; font-size: 15px; line-height: 1.55; color: #243b53; }
-      .why { margin: 0 0 12px 0; font-size: 15px; line-height: 1.55; color: #243b53; }
-      .why strong { color: #0b4f5c; }
-      .sources { margin: 0; font-size: 13px; line-height: 1.5; color: #52616b; }
-      .footer { padding: 22px 24px 30px 24px; border-top: 1px solid #d9e2ec; font-size: 12px; line-height: 1.5; color: #52616b; }
+      img { border: 0; display: block; }
+      a { color: #1E3B2E; text-decoration: underline; }
+      .wrapper {
+        width: 100%;
+        background: #F5F1EA;
+      }
+      .container {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        background: #FFFCF7;
+      }
+      .outer-pad {
+        padding: 28px 14px;
+      }
+      .masthead {
+        padding: 34px 30px 28px 30px;
+        background: #1E3B2E;
+        color: #F5F1EA;
+        text-align: center;
+      }
+      .est-row {
+        margin: 0 0 14px 0;
+        font-size: 11px;
+        line-height: 1.4;
+        color: #DCCBB2;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+      .monogram {
+        display: inline-block;
+        margin: 0 auto 12px auto;
+        padding: 9px 12px;
+        border: 1px solid #DCCBB2;
+        color: #DCCBB2;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 24px;
+        line-height: 1;
+      }
+      .title-small {
+        margin: 0 0 4px 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        line-height: 1.15;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .title-large {
+        margin: 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 42px;
+        line-height: 1.05;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .tagline {
+        margin: 16px 0 0 0;
+        color: #DCCBB2;
+        font-size: 12px;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+      .issue-meta {
+        padding: 16px 30px;
+        background: #DCCBB2;
+        color: #1E3B2E;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .intro {
+        padding: 28px 30px;
+        background: #FFFCF7;
+        border-bottom: 1px solid #DCCBB2;
+        color: #2A2A24;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .story {
+        padding: 26px 30px;
+        background: #FFFCF7;
+        border-bottom: 1px solid #DCCBB2;
+      }
+      .story-number {
+        width: 34px;
+        height: 34px;
+        border-radius: 17px;
+        background: #1E3B2E;
+        color: #F5F1EA;
+        font-size: 14px;
+        line-height: 34px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .story h2 {
+        margin: 0;
+        color: #1E3B2E;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 23px;
+        line-height: 1.25;
+        font-weight: normal;
+      }
+      .meta {
+        margin: 8px 0 0 0;
+        color: #8B7966;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .summary {
+        margin: 16px 0 0 0;
+        color: #2A2A24;
+        font-size: 15px;
+        line-height: 1.62;
+      }
+      .why {
+        margin: 16px 0 0 0;
+        padding: 12px 14px;
+        background: #F5F1EA;
+        border-left: 3px solid #5A3E2B;
+        color: #2A2A24;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .why strong {
+        color: #5A3E2B;
+      }
+      .sources {
+        margin: 16px 0 0 0;
+        color: #8B7966;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .sources strong {
+        color: #5A3E2B;
+      }
+      .empty-title {
+        margin: 0 0 10px 0;
+        color: #1E3B2E;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        line-height: 1.3;
+        font-weight: normal;
+      }
+      .footer {
+        padding: 24px 30px 30px 30px;
+        background: #1E3B2E;
+        color: #DCCBB2;
+        font-size: 12px;
+        line-height: 1.55;
+        text-align: center;
+      }
+      .footer-mark {
+        margin: 0 0 10px 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+        line-height: 1;
+      }
       @media screen and (max-width: 520px) {
-        .header, .intro, .story, .footer { padding-left: 18px !important; padding-right: 18px !important; }
-        .title { font-size: 24px !important; }
-        .story h2 { font-size: 18px !important; }
+        .outer-pad { padding: 0 !important; }
+        .masthead { padding: 28px 20px 24px 20px !important; }
+        .issue-meta, .intro, .story, .footer { padding-left: 20px !important; padding-right: 20px !important; }
+        .title-large { font-size: 34px !important; }
+        .title-small { font-size: 18px !important; }
+        .story h2 { font-size: 20px !important; }
+        .intro { font-size: 16px !important; }
       }
     </style>
   </head>
   <body>
     <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0">
       <tr>
-        <td align="center">
+        <td class="outer-pad" align="center">
           <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-              <td class="header">
-                <h1 class="title">The Irish Legal Innovator</h1>
-                <p class="date">Issue date: 2026-05-24</p>
+              <td class="masthead">
+                <p class="est-row">Est. 2024</p>
+                <div class="monogram">ILI</div>
+                <h1 class="title-small">The</h1>
+                <h1 class="title-large">Irish Legal</h1>
+                <h1 class="title-small">Innovator</h1>
+                <p class="tagline">Law. Innovation. Impact.</p>
               </td>
             </tr>
             <tr>
-              <td class="intro">This fortnight saw significant developments in legal AI adoption, regulation, and market structure. Regulatory bodies issued new guidance on responsible AI use, while law firms and in-house teams expanded their AI capabilities and restructured adviser relationships. Notable moves included a high-profile legal AI appointment in Ireland, a major fintech's shift to AI-driven adviser selection, and further integration of AI into both legal service delivery and judicial processes.</td>
+              <td class="issue-meta">
+                <strong>The Irish Legal Innovator</strong><br>
+                Issue date: 2026-05-24
+              </td>
+            </tr>
+            <tr>
+              <td class="intro">This fortnight saw significant developments in legal AI adoption, regulation, and market structure. Highlights include new regulatory guidance for barristers and solicitors on AI use, a major in-house legal team shifting to AI-driven adviser selection, and further expansion of AI-enabled legal service models. Law firms, regulators, and clients are all moving to formalise, supervise, and scale AI in legal practice.</td>
             </tr>
             <tr>
               <td class="story">
-                <h2>1. Donna O'Leary appointed director and head of Newcode AI Ireland</h2>
-                <p class="meta">2026-05-18</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">1</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Donna O'Leary appointed director and head of Newcode AI Ireland</h2>
+                      <p class="meta">2026-05-18</p>
+                    </td>
+                  </tr>
+                </table>
                 <p class="summary">Donna O'Leary, formerly of Mason Hayes & Curran, has been named director and head of Newcode AI Ireland, following her work in AI consultancy focused on legal upskilling and literacy.</p>
-                <p class="why"><strong>Why it matters:</strong> This appointment signals growing investment in legal AI expertise and formal training infrastructure within the Irish legal sector.</p>
+                <p class="why"><strong>Why it matters:</strong> This appointment signals growing investment in AI training and implementation support for Irish legal professionals.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland">Irish Legal News</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>2. Law Society calls for clear AI rules for court documents and wider MoJ review of AI in justice</h2>
-                <p class="meta">2026-05-12</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">2</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Law Society calls for clear AI rules for court documents and wider MoJ review of AI in justice</h2>
+                      <p class="meta">2026-05-12</p>
+                    </td>
+                  </tr>
+                </table>
                 <p class="summary">The Law Society has urged regulators and government to clarify rules for responsible AI use in court proceedings, including disclosure requirements and guidance for court users.</p>
-                <p class="why"><strong>Why it matters:</strong> Clear regulatory guidance will directly impact litigation practice, solicitor competence, and court processes.</p>
+                <p class="why"><strong>Why it matters:</strong> Clearer rules would directly impact litigation practice, solicitor competence, and the supervision of AI-assisted work in court proceedings.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article">Law Society Gazette</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>3. Bar Standards Board issues guidance on safe and responsible AI use by barristers</h2>
-                <p class="meta">2026-05-18</p>
-                <p class="summary">The Bar Standards Board released guidance detailing how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.</p>
-                <p class="why"><strong>Why it matters:</strong> This provides a formal regulatory framework for AI adoption and oversight by barristers and chambers.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">3</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Bar Standards Board issues guidance on safe and responsible AI use by barristers</h2>
+                      <p class="meta">2026-05-18</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The Bar Standards Board has published guidance outlining how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.</p>
+                <p class="why"><strong>Why it matters:</strong> This provides barristers and chambers with a formal regulatory framework for adopting and supervising AI tools.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html">Bar Standards Board</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>4. Family judge uses secure judicial AI tool to summarise judgment for parents with learning difficulties</h2>
-                <p class="meta">2026-05-18</p>
-                <p class="summary">In Re B, a family judge used a secure AI tool to generate simplified summaries of a judgment to aid parents with learning difficulties, marking a practical use of AI for accessible justice.</p>
-                <p class="why"><strong>Why it matters:</strong> This demonstrates AI's potential to improve understanding and participation for vulnerable litigants.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">4</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Family judge uses secure judicial AI tool to summarise judgment for parents with learning difficulties</h2>
+                      <p class="meta">2026-05-18</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">In Re B, a family judge used a secure judicial AI application to generate simplified summaries of a judgment to aid parents with learning difficulties.</p>
+                <p class="why"><strong>Why it matters:</strong> This case demonstrates practical use of AI to improve accessibility and understanding in judicial communication.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article">Law Society Gazette</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>5. Judge refers solicitors to SRA after fake or mis-cited AI-generated authorities were filed</h2>
-                <p class="meta">2026-05-15</p>
-                <p class="summary">Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated, highlighting risks in AI-assisted legal drafting.</p>
-                <p class="why"><strong>Why it matters:</strong> The incident underscores the importance of verification, supervision, and risk management when using AI in legal work.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">5</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Judge refers solicitors to SRA after fake or mis-cited AI-generated authorities were filed</h2>
+                      <p class="meta">2026-05-15</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated in Rodney v Gee'z Micro Bar & Pitstop.</p>
+                <p class="why"><strong>Why it matters:</strong> The incident highlights professional risks and the need for robust verification and supervision when using AI in legal work.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases">Legal Futures</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>6. Revolut drops traditional law firm panel for AI-assisted performance-based adviser selection</h2>
-                <p class="meta">2026-05-19</p>
-                <p class="summary">Revolut will replace its fixed law firm panel with an AI-driven system to pre-select and evaluate external advisers, using in-house tools to scrutinise advice and billing.</p>
-                <p class="why"><strong>Why it matters:</strong> This shift illustrates how AI and data analytics are reshaping law firm selection and relationships with major corporate clients.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">6</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Revolut drops traditional law firm panel for AI-assisted performance-based adviser selection</h2>
+                      <p class="meta">2026-05-19</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Revolut will replace its fixed law firm panel with an AI-driven system, using in-house tools to pre-select firms and scrutinise advice and billing.</p>
+                <p class="why"><strong>Why it matters:</strong> This shift illustrates how in-house teams are leveraging AI and metrics to reshape external counsel selection and client relationships.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article">Law Society Gazette</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>7. Carta acquires AI-driven ABS Avantia Law and creates SRA-regulated Carta Law</h2>
-                <p class="meta">2026-05-18</p>
-                <p class="summary">Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to integrate AI-enabled legal workflows with its ERP platform for private equity clients.</p>
-                <p class="why"><strong>Why it matters:</strong> The acquisition reflects a trend toward integrated, technology-enabled, and regulated legal services.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">7</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Carta acquires AI-driven ABS Avantia Law and creates SRA-regulated Carta Law</h2>
+                      <p class="meta">2026-05-18</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Carta has acquired Avantia Law, forming SRA-regulated Carta Law, and plans to integrate its ERP platform with Avantia's AI for private equity legal and compliance services.</p>
+                <p class="why"><strong>Why it matters:</strong> This acquisition marks a structural change as software companies integrate AI-enabled law firms to deliver combined legal service offerings.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management">Legal Futures</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>8. Linklaters launches Applied Intelligence team for bespoke AI-enabled legal solutions</h2>
-                <p class="meta">2026-05-11</p>
-                <p class="summary">Linklaters has launched its Applied Intelligence team, combining lawyers and data scientists to deliver custom AI-enabled solutions for complex, data-intensive legal matters.</p>
-                <p class="why"><strong>Why it matters:</strong> This move highlights the growing role of multidisciplinary teams in delivering AI-powered, client-facing legal services.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">8</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Linklaters launches Applied Intelligence team for bespoke AI-enabled legal solutions</h2>
+                      <p class="meta">2026-05-11</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Linklaters has launched the Applied Intelligence team, combining lawyers and data scientists to deliver bespoke AI-enabled solutions for complex, data-heavy legal matters.</p>
+                <p class="why"><strong>Why it matters:</strong> This reflects a shift toward dedicated, client-facing AI teams as part of mainstream legal service delivery.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/">Legal IT Insider</a>                </p>
               </td>
             </tr>
             <tr>
               <td class="story">
-                <h2>9. Burges Salmon expands Wexler AI from disputes team to firmwide document-heavy work</h2>
-                <p class="meta">2026-05-11</p>
-                <p class="summary">Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide document review, supporting tasks such as fact extraction and early case assessment.</p>
-                <p class="why"><strong>Why it matters:</strong> Firmwide AI deployment signals the mainstreaming of AI-driven workflows for document-intensive legal work.</p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">9</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Burges Salmon expands Wexler AI from disputes team to firmwide document-heavy work</h2>
+                      <p class="meta">2026-05-11</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide deployment, supporting document review, fact extraction, and early case assessment.</p>
+                <p class="why"><strong>Why it matters:</strong> Firmwide adoption of litigation-focused AI signals that such tools are moving from pilot projects into mainstream legal practice.</p>
                 <p class="sources">
-                  Sources:
+                  <strong>Sources:</strong>
                     <a href="https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/">Legal IT Insider</a>                </p>
               </td>
             </tr>
             <tr>
-              <td class="footer">This newsletter is for general information only and does not constitute legal advice.</td>
+              <td class="footer">
+                <p class="footer-mark">ILI</p>
+                This newsletter is for general information only and does not constitute legal advice.
+              </td>
             </tr>
           </table>
         </td>

@@ -2,7 +2,7 @@
 
 **Issue date:** 2026-05-24
 
-This fortnight saw significant developments in legal AI adoption, regulation, and market structure. Regulatory bodies issued new guidance on responsible AI use, while law firms and in-house teams expanded their AI capabilities and restructured adviser relationships. Notable moves included a high-profile legal AI appointment in Ireland, a major fintech's shift to AI-driven adviser selection, and further integration of AI into both legal service delivery and judicial processes.
+This fortnight saw significant developments in legal AI adoption, regulation, and market structure. Highlights include new regulatory guidance for barristers and solicitors on AI use, a major in-house legal team shifting to AI-driven adviser selection, and further expansion of AI-enabled legal service models. Law firms, regulators, and clients are all moving to formalise, supervise, and scale AI in legal practice.
 
 ## 1. Donna O'Leary appointed director and head of Newcode AI Ireland
 
@@ -10,7 +10,7 @@ This fortnight saw significant developments in legal AI adoption, regulation, an
 
 Donna O'Leary, formerly of Mason Hayes & Curran, has been named director and head of Newcode AI Ireland, following her work in AI consultancy focused on legal upskilling and literacy.
 
-**Why it matters:** This appointment signals growing investment in legal AI expertise and formal training infrastructure within the Irish legal sector.
+**Why it matters:** This appointment signals growing investment in AI training and implementation support for Irish legal professionals.
 
 **Sources:** [Irish Legal News](https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland)
 
@@ -20,7 +20,7 @@ Donna O'Leary, formerly of Mason Hayes & Curran, has been named director and hea
 
 The Law Society has urged regulators and government to clarify rules for responsible AI use in court proceedings, including disclosure requirements and guidance for court users.
 
-**Why it matters:** Clear regulatory guidance will directly impact litigation practice, solicitor competence, and court processes.
+**Why it matters:** Clearer rules would directly impact litigation practice, solicitor competence, and the supervision of AI-assisted work in court proceedings.
 
 **Sources:** [Law Society Gazette](https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article)
 
@@ -28,9 +28,9 @@ The Law Society has urged regulators and government to clarify rules for respons
 
 **Date:** 2026-05-18
 
-The Bar Standards Board released guidance detailing how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.
+The Bar Standards Board has published guidance outlining how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.
 
-**Why it matters:** This provides a formal regulatory framework for AI adoption and oversight by barristers and chambers.
+**Why it matters:** This provides barristers and chambers with a formal regulatory framework for adopting and supervising AI tools.
 
 **Sources:** [Bar Standards Board](https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html)
 
@@ -38,9 +38,9 @@ The Bar Standards Board released guidance detailing how barristers should apply 
 
 **Date:** 2026-05-18
 
-In Re B, a family judge used a secure AI tool to generate simplified summaries of a judgment to aid parents with learning difficulties, marking a practical use of AI for accessible justice.
+In Re B, a family judge used a secure judicial AI application to generate simplified summaries of a judgment to aid parents with learning difficulties.
 
-**Why it matters:** This demonstrates AI's potential to improve understanding and participation for vulnerable litigants.
+**Why it matters:** This case demonstrates practical use of AI to improve accessibility and understanding in judicial communication.
 
 **Sources:** [Law Society Gazette](https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article)
 
@@ -48,9 +48,9 @@ In Re B, a family judge used a secure AI tool to generate simplified summaries o
 
 **Date:** 2026-05-15
 
-Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated, highlighting risks in AI-assisted legal drafting.
+Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated in Rodney v Gee'z Micro Bar & Pitstop.
 
-**Why it matters:** The incident underscores the importance of verification, supervision, and risk management when using AI in legal work.
+**Why it matters:** The incident highlights professional risks and the need for robust verification and supervision when using AI in legal work.
 
 **Sources:** [Legal Futures](https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases)
 
@@ -58,9 +58,9 @@ Two solicitors were referred to the SRA after court documents included hallucina
 
 **Date:** 2026-05-19
 
-Revolut will replace its fixed law firm panel with an AI-driven system to pre-select and evaluate external advisers, using in-house tools to scrutinise advice and billing.
+Revolut will replace its fixed law firm panel with an AI-driven system, using in-house tools to pre-select firms and scrutinise advice and billing.
 
-**Why it matters:** This shift illustrates how AI and data analytics are reshaping law firm selection and relationships with major corporate clients.
+**Why it matters:** This shift illustrates how in-house teams are leveraging AI and metrics to reshape external counsel selection and client relationships.
 
 **Sources:** [Law Society Gazette](https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article)
 
@@ -68,9 +68,9 @@ Revolut will replace its fixed law firm panel with an AI-driven system to pre-se
 
 **Date:** 2026-05-18
 
-Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to integrate AI-enabled legal workflows with its ERP platform for private equity clients.
+Carta has acquired Avantia Law, forming SRA-regulated Carta Law, and plans to integrate its ERP platform with Avantia's AI for private equity legal and compliance services.
 
-**Why it matters:** The acquisition reflects a trend toward integrated, technology-enabled, and regulated legal services.
+**Why it matters:** This acquisition marks a structural change as software companies integrate AI-enabled law firms to deliver combined legal service offerings.
 
 **Sources:** [Legal Futures](https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management)
 
@@ -78,9 +78,9 @@ Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to 
 
 **Date:** 2026-05-11
 
-Linklaters has launched its Applied Intelligence team, combining lawyers and data scientists to deliver custom AI-enabled solutions for complex, data-intensive legal matters.
+Linklaters has launched the Applied Intelligence team, combining lawyers and data scientists to deliver bespoke AI-enabled solutions for complex, data-heavy legal matters.
 
-**Why it matters:** This move highlights the growing role of multidisciplinary teams in delivering AI-powered, client-facing legal services.
+**Why it matters:** This reflects a shift toward dedicated, client-facing AI teams as part of mainstream legal service delivery.
 
 **Sources:** [Legal IT Insider](https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/)
 
@@ -88,9 +88,9 @@ Linklaters has launched its Applied Intelligence team, combining lawyers and dat
 
 **Date:** 2026-05-11
 
-Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide document review, supporting tasks such as fact extraction and early case assessment.
+Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide deployment, supporting document review, fact extraction, and early case assessment.
 
-**Why it matters:** Firmwide AI deployment signals the mainstreaming of AI-driven workflows for document-intensive legal work.
+**Why it matters:** Firmwide adoption of litigation-focused AI signals that such tools are moving from pilot projects into mainstream legal practice.
 
 **Sources:** [Legal IT Insider](https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/)
 
