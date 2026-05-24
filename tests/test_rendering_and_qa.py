@@ -52,6 +52,19 @@ def test_rendered_outputs_exclude_internal_scores() -> None:
     assert issue.disclaimer in outputs["plaintext"]
 
 
+def test_html_template_uses_brand_identity_palette() -> None:
+    issue = make_issue()
+    html = rendered_outputs(issue)["html"]
+
+    assert "#1E3B2E" in html
+    assert "#8B7966" in html
+    assert "#5A3E2B" in html
+    assert "#DCCBB2" in html
+    assert "#F5F1EA" in html
+    assert "Law. Innovation. Impact." in html
+    assert "ILI" in html
+
+
 def test_qa_acceptance_checks_pass_for_valid_issue() -> None:
     issue = make_issue()
     settings = Settings(dry_run_no_ai=True)
