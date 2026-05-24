@@ -83,7 +83,37 @@ jobs:
           fi
           python -m legal_innovator.main "${args[@]}"
 
+      - name: Commit regenerated files to existing issue branch
+        if: ${{ github.ref_name == format('newsletter/{0}', steps.issue_date.outputs.value) }}
+        shell: bash
+        run: |
+          branch="newsletter/${{ steps.issue_date.outputs.value }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "issues/${{ steps.issue_date.outputs.value }}" data/seen_urls.json data/seen_story_clusters.json
+          if git diff --cached --quiet; then
+            echo "No regenerated files changed."
+          else
+            git commit -m "Refresh draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
+            git push origin "HEAD:$branch"
+          fi
+
+      - name: Update existing pull request body
+        if: ${{ github.ref_name == format('newsletter/{0}', steps.issue_date.outputs.value) }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          branch="newsletter/${{ steps.issue_date.outputs.value }}"
+          title="Draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
+          if gh pr view "$branch" --json number >/dev/null 2>&1; then
+            gh pr edit "$branch" --title "$title" --body-file .newsletter_pr_body.md
+          else
+            echo "No existing pull request found for $branch; generated files were committed only."
+          fi
+
       - name: Create pull request
+        if: ${{ github.ref_name != format('newsletter/{0}', steps.issue_date.outputs.value) }}
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
