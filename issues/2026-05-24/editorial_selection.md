@@ -5,13 +5,13 @@ Tick or untick the boxes, then rerun the generator for the same issue date to re
 
 Do not edit the hidden `story:` identifiers inside the comments.
 
-- [] <!-- story:ILIN-2026-05-24-001 --> **1. Ireland's AI Office regime and regulatory sandbox architecture set out at William Fry AI summit** (2026-05-21)
+- [ ] <!-- story:ILIN-2026-05-24-001 --> **1. Ireland's AI Office regime and regulatory sandbox architecture set out at William Fry AI summit** (2026-05-21)
   Sources: Law Society Gazette: https://www.lawsociety.ie/gazette/top-stories/2026/may/box-tickers-will-find-ai-office-regime-challenging/
 
-- [] <!-- story:ILIN-2026-05-24-002 --> **2. IHREC warns proposed Irish AI law risks insufficient independence, coherence and transparency** (2026-05-14)
+- [ ] <!-- story:ILIN-2026-05-24-002 --> **2. IHREC warns proposed Irish AI law risks insufficient independence, coherence and transparency** (2026-05-14)
   Sources: Irish Legal News: https://www.irishlegal.com/articles/concerns-raised-over-independence-coherence-and-transparency-in-proposed-ai-law
 
-- [] <!-- story:ILIN-2026-05-24-003 --> **3. Ulster University and StructureFlow launch collaboration on visual legal modelling and applied legal innovation** (2026-05-19)
+- [ ] <!-- story:ILIN-2026-05-24-003 --> **3. Ulster University and StructureFlow launch collaboration on visual legal modelling and applied legal innovation** (2026-05-19)
   Sources: Irish Legal News: https://www.irishlegal.com/articles/ulster-university-collaboration-to-help-students-navigate-rising-complexity-of-legal-practice
 
 - [x] <!-- story:ILIN-2026-05-24-004 --> **4. Donna O'Leary appointed director and head of Newcode AI Ireland** (2026-05-18)

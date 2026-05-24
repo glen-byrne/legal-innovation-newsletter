@@ -1,15 +1,12 @@
 {
   "newsletter_name": "The Irish Legal Innovator",
   "run_date": "2026-05-24",
-  "generated_at": "2026-05-24T20:17:44.137975+01:00",
+  "generated_at": "2026-05-24T20:43:42.938599+01:00",
   "window_start": "2026-05-10",
   "window_end": "2026-05-24",
   "min_final_stories": 8,
   "max_final_stories": 12,
   "selected_cluster_ids": [
-    "ILIN-2026-05-24-001",
-    "ILIN-2026-05-24-002",
-    "ILIN-2026-05-24-003",
     "ILIN-2026-05-24-004",
     "ILIN-2026-05-24-005",
     "ILIN-2026-05-24-006",
@@ -38,8 +35,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Ireland\u2019s new AI Office, expected by August 2026, will coordinate designated authorities under the EU AI Act and promote innovation through an AI regulatory sandbox, as outlined at a recent William Fry summit.",
-      "why_it_matters": "The structure and remit of the AI Office will directly impact how law firms and clients navigate AI compliance, risk, and innovation in Ireland.",
+      "summary": "",
+      "why_it_matters": "",
       "score": 1000.1,
       "score_breakdown": {
         "region": 25.0,
@@ -47,7 +44,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 6.088371317083333,
+        "recency": 6.0000066137566135,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -72,8 +69,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "The Irish Human Rights and Equality Commission cautioned the Oireachtas that the draft Regulation of Artificial Intelligence Bill 2026 may create an AI oversight framework lacking independence, resources, and transparency.",
-      "why_it_matters": "Oversight design will influence rights-based AI assurance, public sector accountability, and client risk management.",
+      "summary": "",
+      "why_it_matters": "",
       "score": 999.096,
       "score_breakdown": {
         "region": 25.0,
@@ -81,7 +78,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 2.0883713170833333,
+        "recency": 2.0000066137566135,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -106,8 +103,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Ulster University\u2019s Centre for Legal Technology and StructureFlow have launched a research and educational partnership focused on visual legal modelling and managing complex legal structures.",
-      "why_it_matters": "This initiative supports the development of legal skills needed as practice becomes more complex and AI-driven.",
+      "summary": "",
+      "why_it_matters": "",
       "score": 998.099,
       "score_breakdown": {
         "region": 25.0,
@@ -115,7 +112,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 4.94551417422619,
+        "recency": 4.85714947089947,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -140,8 +137,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Donna O\u2019Leary, formerly of Mason Hayes & Curran, has been appointed director and head of Newcode AI Ireland, reflecting a focus on practical AI literacy and upskilling in the legal sector.",
-      "why_it_matters": "The appointment signals growing investment in AI training and implementation support within the Irish legal-tech sector.",
+      "summary": "Donna O'Leary, formerly of Mason Hayes & Curran, has been named director and head of Newcode AI Ireland, following her work in AI consultancy focused on legal upskilling and literacy.",
+      "why_it_matters": "This appointment signals growing investment in legal AI expertise and formal training infrastructure within the Irish legal sector.",
       "score": 997.101,
       "score_breakdown": {
         "region": 25.0,
@@ -149,7 +146,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 4.374085602797619,
+        "recency": 4.285720899470899,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -174,8 +171,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "The Law Society has urged regulators and government to clarify rules for AI use in court proceedings, including disclosure requirements and guidance for court users.",
-      "why_it_matters": "Clear rules will shape litigation practice, solicitor competence, and the management of AI-assisted court submissions.",
+      "summary": "The Law Society has urged regulators and government to clarify rules for responsible AI use in court proceedings, including disclosure requirements and guidance for court users.",
+      "why_it_matters": "Clear regulatory guidance will directly impact litigation practice, solicitor competence, and court processes.",
       "score": 996.088,
       "score_breakdown": {
         "region": 17.0,
@@ -183,7 +180,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 0.9455141742261901,
+        "recency": 0.8571494708994711,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -208,8 +205,8 @@
       "source_types": [
         "other_media"
       ],
-      "summary": "The Bar Standards Board has published guidance on how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.",
-      "why_it_matters": "This guidance provides a regulatory framework for responsible AI adoption in legal practice.",
+      "summary": "The Bar Standards Board released guidance detailing how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.",
+      "why_it_matters": "This provides a formal regulatory framework for AI adoption and oversight by barristers and chambers.",
       "score": 995.092,
       "score_breakdown": {
         "region": 17.0,
@@ -217,7 +214,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 9.5,
-        "recency": 4.374085602797619,
+        "recency": 4.285720899470899,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -242,8 +239,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "In Re B, a family judge used a secure judicial AI tool to generate simplified summaries of a judgment for parents with learning difficulties, aiming to improve understanding.",
-      "why_it_matters": "This demonstrates practical use of AI to enhance accessibility and clarity in judicial communication.",
+      "summary": "In Re B, a family judge used a secure AI tool to generate simplified summaries of a judgment to aid parents with learning difficulties, marking a practical use of AI for accessible justice.",
+      "why_it_matters": "This demonstrates AI's potential to improve understanding and participation for vulnerable litigants.",
       "score": 994.091,
       "score_breakdown": {
         "region": 17.0,
@@ -251,7 +248,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 4.374085602797619,
+        "recency": 4.285720899470899,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -276,8 +273,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated in Rodney v Gee'z Micro Bar & Pitstop.",
-      "why_it_matters": "The incident highlights the professional risks and supervision challenges in legal AI adoption.",
+      "summary": "Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated, highlighting risks in AI-assisted legal drafting.",
+      "why_it_matters": "The incident underscores the importance of verification, supervision, and risk management when using AI in legal work.",
       "score": 993.09,
       "score_breakdown": {
         "region": 17.0,
@@ -285,7 +282,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 2.6597998885119054,
+        "recency": 2.5714351851851855,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -310,16 +307,16 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Revolut will replace its fixed law firm panel with an AI-assisted system to pre-select firms and scrutinise advice and invoices, according to its chief legal officer.",
-      "why_it_matters": "This shift illustrates how AI is changing in-house legal services procurement.",
-      "score": 992.093,
+      "summary": "Revolut will replace its fixed law firm panel with an AI-driven system to pre-select and evaluate external advisers, using in-house tools to scrutinise advice and billing.",
+      "why_it_matters": "This shift illustrates how AI and data analytics are reshaping law firm selection and relationships with major corporate clients.",
+      "score": 992.092,
       "score_breakdown": {
         "region": 17.0,
         "legal_relevance": 21.56,
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 4.94551417422619,
+        "recency": 4.85714947089947,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -344,8 +341,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to integrate AI-driven legal workflows with its ERP platform for private equity compliance.",
-      "why_it_matters": "The move reflects the convergence of technology and legal services into new service delivery models.",
+      "summary": "Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to integrate AI-enabled legal workflows with its ERP platform for private equity clients.",
+      "why_it_matters": "The acquisition reflects a trend toward integrated, technology-enabled, and regulated legal services.",
       "score": 991.091,
       "score_breakdown": {
         "region": 17.0,
@@ -353,7 +350,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 4.374085602797619,
+        "recency": 4.285720899470899,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -378,8 +375,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Linklaters has launched an Applied Intelligence team combining lawyers and data scientists to deliver bespoke AI-enabled solutions for complex, data-intensive client matters.",
-      "why_it_matters": "This signals a shift toward dedicated AI teams supporting and delivering complex client work.",
+      "summary": "Linklaters has launched its Applied Intelligence team, combining lawyers and data scientists to deliver custom AI-enabled solutions for complex, data-intensive legal matters.",
+      "why_it_matters": "This move highlights the growing role of multidisciplinary teams in delivering AI-powered, client-facing legal services.",
       "score": 990.087,
       "score_breakdown": {
         "region": 17.0,
@@ -387,7 +384,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 0.37408560279761893,
+        "recency": 0.28572089947089907,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -412,8 +409,8 @@
       "source_types": [
         "legal_tech_media"
       ],
-      "summary": "Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide document-heavy workflows, supporting fact extraction, chronology, and large-scale document review.",
-      "why_it_matters": "Firmwide AI deployment marks the mainstreaming of AI in document-heavy legal workflows.",
+      "summary": "Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide document review, supporting tasks such as fact extraction and early case assessment.",
+      "why_it_matters": "Firmwide AI deployment signals the mainstreaming of AI-driven workflows for document-intensive legal work.",
       "score": 989.087,
       "score_breakdown": {
         "region": 17.0,
@@ -421,7 +418,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 0.37408560279761893,
+        "recency": 0.28572089947089907,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -455,7 +452,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 1.5169427456547622,
+        "recency": 1.4285780423280423,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -489,7 +486,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 9.5,
-        "recency": 0.9455141742261901,
+        "recency": 0.8571494708994711,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -523,7 +520,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 6.6000000000000005,
-        "recency": 4.94551417422619,
+        "recency": 4.85714947089947,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -557,7 +554,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 2.0883713170833333,
+        "recency": 2.0000066137566135,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -591,7 +588,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 2.0883713170833333,
+        "recency": 2.0000066137566135,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -625,7 +622,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 0.9455141742261901,
+        "recency": 0.8571494708994711,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -659,7 +656,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 4.374085602797619,
+        "recency": 4.285720899470899,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -693,7 +690,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 5.516942745654761,
+        "recency": 5.428578042328042,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -720,14 +717,14 @@
       ],
       "summary": "",
       "why_it_matters": "",
-      "score": 980.092,
+      "score": 980.091,
       "score_breakdown": {
         "region": 17.0,
         "legal_relevance": 18.919999999999998,
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 6.6597998885119045,
+        "recency": 6.5714351851851855,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -761,7 +758,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 6.088371317083333,
+        "recency": 6.0000066137566135,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -795,7 +792,7 @@
         "innovation": 15.3,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 5.516942745654761,
+        "recency": 5.428578042328042,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -829,7 +826,7 @@
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 6.088371317083333,
+        "recency": 6.0000066137566135,
         "factuality": 5.0,
         "directness": 8.0
       },
@@ -856,14 +853,14 @@
       ],
       "summary": "",
       "why_it_matters": "",
-      "score": 976.085,
+      "score": 976.084,
       "score_breakdown": {
         "region": 10.0,
         "legal_relevance": 18.919999999999998,
         "innovation": 13.26,
         "practical_impact": 13.94,
         "source_credibility": 8.8,
-        "recency": 6.6597998885119045,
+        "recency": 6.5714351851851855,
         "factuality": 5.0,
         "directness": 8.0
       },
