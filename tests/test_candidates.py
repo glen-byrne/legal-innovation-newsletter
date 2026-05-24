@@ -9,7 +9,7 @@ from legal_innovator.candidates import load_candidate_file, rank_imported_cluste
 from legal_innovator.config import RunWindow, Settings
 
 
-def test_candidate_file_import_groups_duplicates_and_excludes_near_misses(tmp_path: Path) -> None:
+def test_candidate_file_import_keeps_all_candidate_rows_for_editorial_selection(tmp_path: Path) -> None:
     candidate_file = tmp_path / "candidates.json"
     candidate_file.write_text(
         json.dumps(
@@ -72,14 +72,19 @@ def test_candidate_file_import_groups_duplicates_and_excludes_near_misses(tmp_pa
 
     assert not result.errors
     assert len(result.candidates) == 3
-    assert len(result.clusters) == 1
-    assert result.clusters[0].cluster_id == "DG-001"
-    assert len(result.clusters[0].articles) == 2
+    assert len(result.clusters) == 3
+    assert [cluster.cluster_id for cluster in result.clusters] == [
+        "ILIN-2026-05-24-001",
+        "ILIN-2026-05-24-002",
+        "ILIN-2026-05-24-003",
+    ]
+    assert result.default_selected_cluster_ids == ["ILIN-2026-05-24-001", "ILIN-2026-05-24-002"]
 
     ranked = rank_imported_clusters(result.clusters, window, Settings(dry_run_no_ai=True))
 
     assert ranked[0].headline == "Legal AI platform announces major court workflow partnership"
-    assert ranked[0].cluster_id == "DG-001"
+    assert ranked[1].headline == "Second report on legal AI court workflow partnership"
+    assert ranked[2].headline == "Near miss broad technology policy story"
 
 
 def test_candidate_file_import_flags_out_of_window_items(tmp_path: Path) -> None:

@@ -71,13 +71,15 @@ def generate(args: argparse.Namespace) -> int:
 
     archive = ArchiveStore()
     source_diagnostics = []
+    imported_default_selected_cluster_ids: list[str] | None = None
 
     if args.candidate_file:
         try:
             imported = load_candidate_file(args.candidate_file, window)
             stage_errors.extend(imported.errors)
             source_diagnostics = imported.diagnostics
-            clusters = archive.filter_unseen_clusters(imported.clusters)
+            clusters = imported.clusters
+            imported_default_selected_cluster_ids = imported.default_selected_cluster_ids
             review_stories = rank_imported_clusters(clusters, window, settings)[: settings.max_review_stories]
         except Exception as exc:  # noqa: BLE001
             stage_errors.append(
@@ -121,7 +123,11 @@ def generate(args: argparse.Namespace) -> int:
     selection_file = Path(args.selection_file) if args.selection_file else output_dir / "editorial_selection.md"
     selected_cluster_ids = parse_selected_cluster_ids(selection_file)
     if not selected_cluster_ids:
-        selected_cluster_ids = default_selected_cluster_ids(review_stories, settings.max_final_stories)
+        selected_cluster_ids = (
+            imported_default_selected_cluster_ids[: settings.max_final_stories]
+            if imported_default_selected_cluster_ids is not None
+            else default_selected_cluster_ids(review_stories, settings.max_final_stories)
+        )
     selected_stories = select_stories(review_stories, selected_cluster_ids)
     if len(selected_stories) > settings.max_final_stories:
         stage_errors.append(

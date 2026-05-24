@@ -75,6 +75,7 @@ class ResearchedCandidate(Model):
 class CandidateImportResult:
     candidates: list[ResearchedCandidate]
     clusters: list[StoryCluster]
+    default_selected_cluster_ids: list[str]
     errors: list[StageError]
     diagnostics: list[SourceDiagnostic]
 
@@ -85,11 +86,10 @@ def load_candidate_file(path: str | Path, window: RunWindow) -> CandidateImportR
     raw_items = _extract_candidate_items(raw_text)
     candidates = [ResearchedCandidate.model_validate(item) for item in raw_items]
     errors: list[StageError] = []
-    clusters_by_key: dict[str, list[tuple[ResearchedCandidate, ExtractedArticle, ClassificationResult]]] = {}
+    clusters: list[StoryCluster] = []
+    default_selected_cluster_ids: list[str] = []
 
     for candidate in candidates:
-        if not candidate.selected:
-            continue
         published_at = datetime.combine(candidate.published_date, time(12, 0), tzinfo=window.run_at.tzinfo)
         if not (window.start_at <= published_at <= window.end_at):
             errors.append(
@@ -103,10 +103,11 @@ def load_candidate_file(path: str | Path, window: RunWindow) -> CandidateImportR
             continue
         article = _article_from_candidate(candidate, published_at)
         classification = _classification_from_candidate(candidate)
-        group_key = _cluster_key(candidate)
-        clusters_by_key.setdefault(group_key, []).append((candidate, article, classification))
+        cluster = _cluster_from_candidate(candidate, article, classification)
+        clusters.append(cluster)
+        if candidate.selected:
+            default_selected_cluster_ids.append(cluster.cluster_id)
 
-    clusters = [_cluster_from_group(group_key, group) for group_key, group in clusters_by_key.items()]
     diagnostics = [
         SourceDiagnostic(
             name=candidate_path.name,
@@ -114,10 +115,16 @@ def load_candidate_file(path: str | Path, window: RunWindow) -> CandidateImportR
             url_or_query=str(candidate_path),
             candidates_found=len(candidates),
             status="warning" if errors else "ok",
-            notes=[f"{len(clusters)} selected story clusters imported from Codex research output."],
+            notes=[f"{len(clusters)} candidate stories imported from Codex research output."],
         )
     ]
-    return CandidateImportResult(candidates=candidates, clusters=clusters, errors=errors, diagnostics=diagnostics)
+    return CandidateImportResult(
+        candidates=candidates,
+        clusters=clusters,
+        default_selected_cluster_ids=default_selected_cluster_ids,
+        errors=errors,
+        diagnostics=diagnostics,
+    )
 
 
 def rank_imported_clusters(clusters: list[StoryCluster], window: RunWindow, settings: Settings) -> list[RankedStory]:
@@ -212,27 +219,17 @@ def _classification_from_candidate(candidate: ResearchedCandidate) -> Classifica
     )
 
 
-def _cluster_key(candidate: ResearchedCandidate) -> str:
-    duplicate_group = candidate.duplicate_group.strip()
-    if duplicate_group and duplicate_group.lower() != "none":
-        return duplicate_group
-    return candidate.id
-
-
-def _cluster_from_group(
-    group_key: str,
-    group: list[tuple[ResearchedCandidate, ExtractedArticle, ClassificationResult]],
+def _cluster_from_candidate(
+    candidate: ResearchedCandidate,
+    article: ExtractedArticle,
+    classification: ClassificationResult,
 ) -> StoryCluster:
-    headline_candidate, _, _ = group[0]
-    articles = [article for _, article, _ in group]
-    classifications = [classification for _, _, classification in group]
-    representative = max(classifications, key=lambda item: item.confidence)
     return StoryCluster(
-        cluster_id=group_key,
-        canonical_headline=headline_candidate.headline,
-        articles=articles,
-        classification=representative,
-        fingerprint=group_key,
+        cluster_id=candidate.id,
+        canonical_headline=candidate.headline,
+        articles=[article],
+        classification=classification,
+        fingerprint=candidate.id,
     )
 
 

@@ -60,7 +60,7 @@ The recommended low-cost workflow uses Codex for research discovery and the Pyth
 2. Save the Codex output as JSON at `issues/YYYY-MM-DD/candidates.json`.
 3. Commit and push the candidate file so GitHub Actions can read it.
 4. Run the GitHub Actions workflow for the same issue date.
-5. The workflow imports the candidate file, preserves Codex ranking, merges `duplicate_group` items, excludes `selected=false` near-misses, and generates `editorial_selection.md`.
+5. The workflow imports the candidate file, preserves Codex ranking, includes every in-window candidate row in `editorial_selection.md`, and uses `selected` only to decide which items start ticked by default.
 6. Review `editorial_selection.md` and tick 8-12 final stories.
 7. Rerun the workflow for the same issue date, using the same candidate file and edited selection file.
 8. Review the generated PR and merge only when the issue is editorially approved.
@@ -103,8 +103,8 @@ The importer:
 
 - Requires direct `http` or `https` source URLs.
 - Excludes candidates outside the 14-day window.
-- Excludes `selected=false` items from the shortlist.
-- Merges candidates with the same `duplicate_group`.
+- Includes `selected=false` items in the shortlist, unticked by default.
+- Keeps candidates with the same `duplicate_group` visible as separate rows so the editor can choose which source/framing to use.
 - Preserves the order of the Codex candidate list for the review shortlist.
 - Uses `factual_basis` and `legal_sector_relevance_note` as the source-grounded context for final summaries and QA.
 
@@ -416,7 +416,7 @@ No or too few stories:
 
 - Check `qa_report.md` for source access, robots, extraction, classification, and OpenAI failures.
 - If using the Codex-assisted workflow, check that `issues/YYYY-MM-DD/candidates.json` contains valid JSON and that candidate dates are inside the 14-day window.
-- Check that candidate items intended for the shortlist have `selected: true`.
+- Check that candidate items intended to start ticked by default have `selected: true`.
 - Review `data/sources.yaml` and add more high-quality RSS feeds or source pages.
 - For a one-off expanded run, increase `MAX_CANDIDATES` and enable `ENABLE_OPENAI_WEB_SEARCH=true`.
 
