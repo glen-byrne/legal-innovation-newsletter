@@ -1,0 +1,129 @@
+# The Irish Legal Innovator
+
+**Issue date:** 2026-05-24
+
+This fortnight saw significant developments in Ireland’s AI regulatory landscape, with details emerging on the forthcoming AI Office and regulatory sandbox, alongside warnings from IHREC about the independence and transparency of proposed AI oversight. Legal education and practice continue to adapt, with new collaborations, appointments, and firmwide AI deployments, while in-house teams and legal service providers are reshaping procurement and delivery models through AI integration. Regulatory and professional bodies issued new guidance on responsible AI use, and courts demonstrated both the risks and opportunities of AI in judicial processes.
+
+## 1. Ireland's AI Office regime and regulatory sandbox architecture set out at William Fry AI summit
+
+**Date:** 2026-05-21
+
+Ireland’s new AI Office, expected by August 2026, will coordinate designated authorities under the EU AI Act and promote innovation through an AI regulatory sandbox, as outlined at a recent William Fry summit.
+
+**Why it matters:** The structure and remit of the AI Office will directly impact how law firms and clients navigate AI compliance, risk, and innovation in Ireland.
+
+**Sources:** [Law Society Gazette](https://www.lawsociety.ie/gazette/top-stories/2026/may/box-tickers-will-find-ai-office-regime-challenging/)
+
+## 2. IHREC warns proposed Irish AI law risks insufficient independence, coherence and transparency
+
+**Date:** 2026-05-14
+
+The Irish Human Rights and Equality Commission cautioned the Oireachtas that the draft Regulation of Artificial Intelligence Bill 2026 may create an AI oversight framework lacking independence, resources, and transparency.
+
+**Why it matters:** Oversight design will influence rights-based AI assurance, public sector accountability, and client risk management.
+
+**Sources:** [Irish Legal News](https://www.irishlegal.com/articles/concerns-raised-over-independence-coherence-and-transparency-in-proposed-ai-law)
+
+## 3. Ulster University and StructureFlow launch collaboration on visual legal modelling and applied legal innovation
+
+**Date:** 2026-05-19
+
+Ulster University’s Centre for Legal Technology and StructureFlow have launched a research and educational partnership focused on visual legal modelling and managing complex legal structures.
+
+**Why it matters:** This initiative supports the development of legal skills needed as practice becomes more complex and AI-driven.
+
+**Sources:** [Irish Legal News](https://www.irishlegal.com/articles/ulster-university-collaboration-to-help-students-navigate-rising-complexity-of-legal-practice)
+
+## 4. Donna O'Leary appointed director and head of Newcode AI Ireland
+
+**Date:** 2026-05-18
+
+Donna O’Leary, formerly of Mason Hayes & Curran, has been appointed director and head of Newcode AI Ireland, reflecting a focus on practical AI literacy and upskilling in the legal sector.
+
+**Why it matters:** The appointment signals growing investment in AI training and implementation support within the Irish legal-tech sector.
+
+**Sources:** [Irish Legal News](https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland)
+
+## 5. Law Society calls for clear AI rules for court documents and wider MoJ review of AI in justice
+
+**Date:** 2026-05-12
+
+The Law Society has urged regulators and government to clarify rules for AI use in court proceedings, including disclosure requirements and guidance for court users.
+
+**Why it matters:** Clear rules will shape litigation practice, solicitor competence, and the management of AI-assisted court submissions.
+
+**Sources:** [Law Society Gazette](https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article)
+
+## 6. Bar Standards Board issues guidance on safe and responsible AI use by barristers
+
+**Date:** 2026-05-18
+
+The Bar Standards Board has published guidance on how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.
+
+**Why it matters:** This guidance provides a regulatory framework for responsible AI adoption in legal practice.
+
+**Sources:** [Bar Standards Board](https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html)
+
+## 7. Family judge uses secure judicial AI tool to summarise judgment for parents with learning difficulties
+
+**Date:** 2026-05-18
+
+In Re B, a family judge used a secure judicial AI tool to generate simplified summaries of a judgment for parents with learning difficulties, aiming to improve understanding.
+
+**Why it matters:** This demonstrates practical use of AI to enhance accessibility and clarity in judicial communication.
+
+**Sources:** [Law Society Gazette](https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article)
+
+## 8. Judge refers solicitors to SRA after fake or mis-cited AI-generated authorities were filed
+
+**Date:** 2026-05-15
+
+Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated in Rodney v Gee'z Micro Bar & Pitstop.
+
+**Why it matters:** The incident highlights the professional risks and supervision challenges in legal AI adoption.
+
+**Sources:** [Legal Futures](https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases)
+
+## 9. Revolut drops traditional law firm panel for AI-assisted performance-based adviser selection
+
+**Date:** 2026-05-19
+
+Revolut will replace its fixed law firm panel with an AI-assisted system to pre-select firms and scrutinise advice and invoices, according to its chief legal officer.
+
+**Why it matters:** This shift illustrates how AI is changing in-house legal services procurement.
+
+**Sources:** [Law Society Gazette](https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article)
+
+## 10. Carta acquires AI-driven ABS Avantia Law and creates SRA-regulated Carta Law
+
+**Date:** 2026-05-18
+
+Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to integrate AI-driven legal workflows with its ERP platform for private equity compliance.
+
+**Why it matters:** The move reflects the convergence of technology and legal services into new service delivery models.
+
+**Sources:** [Legal Futures](https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management)
+
+## 11. Linklaters launches Applied Intelligence team for bespoke AI-enabled legal solutions
+
+**Date:** 2026-05-11
+
+Linklaters has launched an Applied Intelligence team combining lawyers and data scientists to deliver bespoke AI-enabled solutions for complex, data-intensive client matters.
+
+**Why it matters:** This signals a shift toward dedicated AI teams supporting and delivering complex client work.
+
+**Sources:** [Legal IT Insider](https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/)
+
+## 12. Burges Salmon expands Wexler AI from disputes team to firmwide document-heavy work
+
+**Date:** 2026-05-11
+
+Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide document-heavy workflows, supporting fact extraction, chronology, and large-scale document review.
+
+**Why it matters:** Firmwide AI deployment marks the mainstreaming of AI in document-heavy legal workflows.
+
+**Sources:** [Legal IT Insider](https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/)
+
+---
+
+This newsletter is for general information only and does not constitute legal advice.

@@ -1,0 +1,875 @@
+{
+  "newsletter_name": "The Irish Legal Innovator",
+  "run_date": "2026-05-24",
+  "generated_at": "2026-05-24T20:17:44.137975+01:00",
+  "window_start": "2026-05-10",
+  "window_end": "2026-05-24",
+  "min_final_stories": 8,
+  "max_final_stories": 12,
+  "selected_cluster_ids": [
+    "ILIN-2026-05-24-001",
+    "ILIN-2026-05-24-002",
+    "ILIN-2026-05-24-003",
+    "ILIN-2026-05-24-004",
+    "ILIN-2026-05-24-005",
+    "ILIN-2026-05-24-006",
+    "ILIN-2026-05-24-007",
+    "ILIN-2026-05-24-008",
+    "ILIN-2026-05-24-009",
+    "ILIN-2026-05-24-010",
+    "ILIN-2026-05-24-011",
+    "ILIN-2026-05-24-012"
+  ],
+  "stories": [
+    {
+      "headline": "Ireland's AI Office regime and regulatory sandbox architecture set out at William Fry AI summit",
+      "date": "2026-05-21",
+      "canonical_url": "https://www.lawsociety.ie/gazette/top-stories/2026/may/box-tickers-will-find-ai-office-regime-challenging/",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawsociety.ie/gazette/top-stories/2026/may/box-tickers-will-find-ai-office-regime-challenging/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Ireland\u2019s new AI Office, expected by August 2026, will coordinate designated authorities under the EU AI Act and promote innovation through an AI regulatory sandbox, as outlined at a recent William Fry summit.",
+      "why_it_matters": "The structure and remit of the AI Office will directly impact how law firms and clients navigate AI compliance, risk, and innovation in Ireland.",
+      "score": 1000.1,
+      "score_breakdown": {
+        "region": 25.0,
+        "legal_relevance": 20.240000000000002,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 6.088371317083333,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-001"
+    },
+    {
+      "headline": "IHREC warns proposed Irish AI law risks insufficient independence, coherence and transparency",
+      "date": "2026-05-14",
+      "canonical_url": "https://www.irishlegal.com/articles/concerns-raised-over-independence-coherence-and-transparency-in-proposed-ai-law",
+      "sources": [
+        {
+          "name": "Irish Legal News",
+          "url": "https://www.irishlegal.com/articles/concerns-raised-over-independence-coherence-and-transparency-in-proposed-ai-law",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Irish Legal News"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "The Irish Human Rights and Equality Commission cautioned the Oireachtas that the draft Regulation of Artificial Intelligence Bill 2026 may create an AI oversight framework lacking independence, resources, and transparency.",
+      "why_it_matters": "Oversight design will influence rights-based AI assurance, public sector accountability, and client risk management.",
+      "score": 999.096,
+      "score_breakdown": {
+        "region": 25.0,
+        "legal_relevance": 20.240000000000002,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 2.0883713170833333,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-002"
+    },
+    {
+      "headline": "Ulster University and StructureFlow launch collaboration on visual legal modelling and applied legal innovation",
+      "date": "2026-05-19",
+      "canonical_url": "https://www.irishlegal.com/articles/ulster-university-collaboration-to-help-students-navigate-rising-complexity-of-legal-practice",
+      "sources": [
+        {
+          "name": "Irish Legal News",
+          "url": "https://www.irishlegal.com/articles/ulster-university-collaboration-to-help-students-navigate-rising-complexity-of-legal-practice",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Irish Legal News"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Ulster University\u2019s Centre for Legal Technology and StructureFlow have launched a research and educational partnership focused on visual legal modelling and managing complex legal structures.",
+      "why_it_matters": "This initiative supports the development of legal skills needed as practice becomes more complex and AI-driven.",
+      "score": 998.099,
+      "score_breakdown": {
+        "region": 25.0,
+        "legal_relevance": 20.240000000000002,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.94551417422619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-003"
+    },
+    {
+      "headline": "Donna O'Leary appointed director and head of Newcode AI Ireland",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland",
+      "sources": [
+        {
+          "name": "Irish Legal News",
+          "url": "https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Irish Legal News"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Donna O\u2019Leary, formerly of Mason Hayes & Curran, has been appointed director and head of Newcode AI Ireland, reflecting a focus on practical AI literacy and upskilling in the legal sector.",
+      "why_it_matters": "The appointment signals growing investment in AI training and implementation support within the Irish legal-tech sector.",
+      "score": 997.101,
+      "score_breakdown": {
+        "region": 25.0,
+        "legal_relevance": 20.240000000000002,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.374085602797619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-004"
+    },
+    {
+      "headline": "Law Society calls for clear AI rules for court documents and wider MoJ review of AI in justice",
+      "date": "2026-05-12",
+      "canonical_url": "https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "The Law Society has urged regulators and government to clarify rules for AI use in court proceedings, including disclosure requirements and guidance for court users.",
+      "why_it_matters": "Clear rules will shape litigation practice, solicitor competence, and the management of AI-assisted court submissions.",
+      "score": 996.088,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.9455141742261901,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-005"
+    },
+    {
+      "headline": "Bar Standards Board issues guidance on safe and responsible AI use by barristers",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html",
+      "sources": [
+        {
+          "name": "Bar Standards Board",
+          "url": "https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html",
+          "source_type": "other_media"
+        }
+      ],
+      "source_names": [
+        "Bar Standards Board"
+      ],
+      "source_types": [
+        "other_media"
+      ],
+      "summary": "The Bar Standards Board has published guidance on how barristers should apply existing professional duties to AI and emerging technologies, covering competence, risk, and client obligations.",
+      "why_it_matters": "This guidance provides a regulatory framework for responsible AI adoption in legal practice.",
+      "score": 995.092,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 9.5,
+        "recency": 4.374085602797619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-006"
+    },
+    {
+      "headline": "Family judge uses secure judicial AI tool to summarise judgment for parents with learning difficulties",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawgazette.co.uk/news/judge-turns-to-ai-to-help-parents-understand-decision/5126824.article",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "In Re B, a family judge used a secure judicial AI tool to generate simplified summaries of a judgment for parents with learning difficulties, aiming to improve understanding.",
+      "why_it_matters": "This demonstrates practical use of AI to enhance accessibility and clarity in judicial communication.",
+      "score": 994.091,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.374085602797619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-007"
+    },
+    {
+      "headline": "Judge refers solicitors to SRA after fake or mis-cited AI-generated authorities were filed",
+      "date": "2026-05-15",
+      "canonical_url": "https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases",
+      "sources": [
+        {
+          "name": "Legal Futures",
+          "url": "https://www.legalfutures.co.uk/latest-news/judge-refers-solicitors-to-sra-for-fake-ai-generated-cases",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal Futures"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Two solicitors were referred to the SRA after court documents included hallucinated or mis-cited authorities believed to be AI-generated in Rodney v Gee'z Micro Bar & Pitstop.",
+      "why_it_matters": "The incident highlights the professional risks and supervision challenges in legal AI adoption.",
+      "score": 993.09,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 2.6597998885119054,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-008"
+    },
+    {
+      "headline": "Revolut drops traditional law firm panel for AI-assisted performance-based adviser selection",
+      "date": "2026-05-19",
+      "canonical_url": "https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article",
+      "sources": [
+        {
+          "name": "Law Society Gazette",
+          "url": "https://www.lawgazette.co.uk/news/fintech-giant-scraps-law-firm-panel-as-ai-helps-to-rate-performance/5126835.article",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Law Society Gazette"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Revolut will replace its fixed law firm panel with an AI-assisted system to pre-select firms and scrutinise advice and invoices, according to its chief legal officer.",
+      "why_it_matters": "This shift illustrates how AI is changing in-house legal services procurement.",
+      "score": 992.093,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 21.56,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.94551417422619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-009"
+    },
+    {
+      "headline": "Carta acquires AI-driven ABS Avantia Law and creates SRA-regulated Carta Law",
+      "date": "2026-05-18",
+      "canonical_url": "https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management",
+      "sources": [
+        {
+          "name": "Legal Futures",
+          "url": "https://www.legalfutures.co.uk/latest-news/us-company-buys-ai-driven-abs-focused-on-asset-management",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal Futures"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Carta has acquired Avantia Law, forming SRA-regulated Carta Law and planning to integrate AI-driven legal workflows with its ERP platform for private equity compliance.",
+      "why_it_matters": "The move reflects the convergence of technology and legal services into new service delivery models.",
+      "score": 991.091,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.374085602797619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-010"
+    },
+    {
+      "headline": "Linklaters launches Applied Intelligence team for bespoke AI-enabled legal solutions",
+      "date": "2026-05-11",
+      "canonical_url": "https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/11/linklaters-launches-applied-intelligence-for-firepower-where-off-the-shelf-tools-cant-deliver/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Linklaters has launched an Applied Intelligence team combining lawyers and data scientists to deliver bespoke AI-enabled solutions for complex, data-intensive client matters.",
+      "why_it_matters": "This signals a shift toward dedicated AI teams supporting and delivering complex client work.",
+      "score": 990.087,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.37408560279761893,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-011"
+    },
+    {
+      "headline": "Burges Salmon expands Wexler AI from disputes team to firmwide document-heavy work",
+      "date": "2026-05-11",
+      "canonical_url": "https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/11/burges-salmon-extends-use-of-wexler-firmwide/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Burges Salmon has extended its use of Wexler AI from dispute resolution to firmwide document-heavy workflows, supporting fact extraction, chronology, and large-scale document review.",
+      "why_it_matters": "Firmwide AI deployment marks the mainstreaming of AI in document-heavy legal workflows.",
+      "score": 989.087,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.37408560279761893,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-012"
+    },
+    {
+      "headline": "Anthropic launches Claude for Legal with MCP connectors and practice-area plugins",
+      "date": "2026-05-13",
+      "canonical_url": "https://legaltechnology.com/2026/05/13/claude-for-legal-what-the-industry-needs-to-know/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/13/claude-for-legal-what-the-industry-needs-to-know/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 988.081,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 1.5169427456547622,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-013"
+    },
+    {
+      "headline": "Thomson Reuters and Anthropic connect Claude directly to CoCounsel Legal via MCP",
+      "date": "2026-05-12",
+      "canonical_url": "https://www.thomsonreuters.com/en/press-releases/2026/may/thomson-reuters-and-anthropic-expand-partnership-to-connect-claude-with-cocounsel-legal",
+      "sources": [
+        {
+          "name": "Thomson Reuters",
+          "url": "https://www.thomsonreuters.com/en/press-releases/2026/may/thomson-reuters-and-anthropic-expand-partnership-to-connect-claude-with-cocounsel-legal",
+          "source_type": "mainstream_media"
+        }
+      ],
+      "source_names": [
+        "Thomson Reuters"
+      ],
+      "source_types": [
+        "mainstream_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 987.082,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 9.5,
+        "recency": 0.9455141742261901,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-014"
+    },
+    {
+      "headline": "Thomson Reuters introduces HighQ MCP to connect collaboration-platform matter data to AI agents",
+      "date": "2026-05-19",
+      "canonical_url": "https://legal.thomsonreuters.com/blog/introducing-highq-mcp-bring-client-context-to-your-ai-agents/",
+      "sources": [
+        {
+          "name": "Thomson Reuters",
+          "url": "https://legal.thomsonreuters.com/blog/introducing-highq-mcp-bring-client-context-to-your-ai-agents/",
+          "source_type": "mainstream_media"
+        }
+      ],
+      "source_names": [
+        "Thomson Reuters"
+      ],
+      "source_types": [
+        "mainstream_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 986.081,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 6.6000000000000005,
+        "recency": 4.94551417422619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.75,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-015"
+    },
+    {
+      "headline": "NetDocuments unveils Legal Context Graph as DMS vendors compete to become the trusted AI context layer",
+      "date": "2026-05-14",
+      "canonical_url": "https://legaltechnology.com/2026/05/14/netdocuments-reimagines-the-dms-around-context/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/14/netdocuments-reimagines-the-dms-around-context/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 985.08,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 2.0883713170833333,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-016"
+    },
+    {
+      "headline": "iManage unveils MCP Server to expose DMS content to AI tools through a governed open protocol",
+      "date": "2026-05-14",
+      "canonical_url": "https://legaltechnology.com/2026/05/14/imanage-unveils-open-protocol/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/14/imanage-unveils-open-protocol/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 984.08,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 2.0883713170833333,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-017"
+    },
+    {
+      "headline": "Aderant launches Agent Center for AI-driven law-firm operations workflows",
+      "date": "2026-05-12",
+      "canonical_url": "https://legaltechnology.com/2026/05/12/aderant-rolls-out-agent-center-at-momentum-as-part-of-stridyn-platform-expansion/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/2026/05/12/aderant-rolls-out-agent-center-at-momentum-as-part-of-stridyn-platform-expansion/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 983.079,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 0.9455141742261901,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-018"
+    },
+    {
+      "headline": "Lexsoft T3 adds MCP access and Tiger Eye launches AI curation for legal knowledge management",
+      "date": "2026-05-18",
+      "canonical_url": "https://legaltechnology.com/legal-knowledge-lexsoft-announces-t3-is-accessible-via-mcp-and-tiger-eye-launches-ai-curation-assistant/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/legal-knowledge-lexsoft-announces-t3-is-accessible-via-mcp-and-tiger-eye-launches-ai-curation-assistant/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 982.092,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 21.56,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 4.374085602797619,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-019"
+    },
+    {
+      "headline": "Harvey partners with DeepJudge and announces Command Center for enterprise legal AI adoption management",
+      "date": "2026-05-20",
+      "canonical_url": "https://legaltechnology.com/harvey-partners-with-deepjudge-and-unveils-command-center-to-measure-and-drive-ai-adoption/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/harvey-partners-with-deepjudge-and-unveils-command-center-to-measure-and-drive-ai-adoption/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 981.088,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 21.56,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 5.516942745654761,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-020"
+    },
+    {
+      "headline": "Weightmans selects Clio Operate for firmwide case and matter management after year-long review",
+      "date": "2026-05-22",
+      "canonical_url": "https://legaltechnology.com/weightmans-selects-clio-operate-formerly-sharedo-after-major-selection-process/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/weightmans-selects-clio-operate-formerly-sharedo-after-major-selection-process/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 980.092,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 6.6597998885119045,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-021"
+    },
+    {
+      "headline": "Osborne Clarke spins out Justima to automate European regulatory monitoring with AI agents",
+      "date": "2026-05-21",
+      "canonical_url": "https://legaltechnology.com/osborne-clarke-launches-independent-company-for-ai-regulatory-monitoring/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/osborne-clarke-launches-independent-company-for-ai-regulatory-monitoring/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 979.093,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 6.088371317083333,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-022"
+    },
+    {
+      "headline": "Stilta raises $10.5m for agentic AI patent litigation and IP monetisation platform",
+      "date": "2026-05-20",
+      "canonical_url": "https://legaltechnology.com/stilta-raises-10-5m-with-investors-including-legora-openai-and-lovable/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/stilta-raises-10-5m-with-investors-including-legora-openai-and-lovable/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 978.088,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 21.56,
+        "innovation": 15.3,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 5.516942745654761,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-023"
+    },
+    {
+      "headline": "Littler rolls out DepoSim after partnering on employment-law deposition simulation",
+      "date": "2026-05-21",
+      "canonical_url": "https://legaltechnology.com/littler-rolls-out-deposim-after-partnering-on-employment-law-capability/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/littler-rolls-out-deposim-after-partnering-on-employment-law-capability/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 977.084,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 6.088371317083333,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.82,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-024"
+    },
+    {
+      "headline": "ConnectLive 2026 highlights legal DMS repositioning around permission-aware AI context fabric",
+      "date": "2026-05-22",
+      "canonical_url": "https://legaltechnology.com/connectlive-2026-the-dms-rewires-itself-for-the-agentic-era/",
+      "sources": [
+        {
+          "name": "Legal IT Insider",
+          "url": "https://legaltechnology.com/connectlive-2026-the-dms-rewires-itself-for-the-agentic-era/",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "Legal IT Insider"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "",
+      "why_it_matters": "",
+      "score": 976.085,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 18.919999999999998,
+        "innovation": 13.26,
+        "practical_impact": 13.94,
+        "source_credibility": 8.8,
+        "recency": 6.6597998885119045,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.72,
+      "qa_notes": [],
+      "cluster_id": "ILIN-2026-05-24-025"
+    }
+  ]
+}
