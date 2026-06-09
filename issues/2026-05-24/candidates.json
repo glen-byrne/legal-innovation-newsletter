@@ -52,13 +52,13 @@
     {
       "id": "ILIN-2026-05-24-004",
       "headline": "Donna O'Leary appointed director and head of Newcode AI Ireland",
-      "published_date": "2026-05-18",
+      "published_date": "2026-05-20",
       "source_name": "Irish Legal News",
       "source_url": "https://www.irishlegal.com/articles/donna-oleary-appointed-head-of-newcode-ai-ireland",
       "event_type": "legal_ai_adoption",
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
-      "factual_basis": "The report says former Mason Hayes & Curran solicitor Donna O'Leary has been appointed director and head of Newcode AI Ireland after founding an AI consultancy focused on practical AI literacy and upskilling.",
+      "factual_basis": "The report says former Mason Hayes & Curran solicitor Donna O'Leary has been appointed director and head of Newcode AI Ireland, with the Dublin expansion planning 30 roles and following more than EUR6 million in seed funding.",
       "legal_sector_relevance_note": "The appointment is a local signal that legal-AI providers are investing in Ireland and that lawyer training, AI literacy and implementation support are becoming a more formal part of the Irish legal-tech market.",
       "duplicate_group": "none",
       "warning_flags": [],
@@ -66,25 +66,40 @@
     },
     {
       "id": "ILIN-2026-05-24-005",
-      "headline": "Law Society calls for clear AI rules for court documents and wider MoJ review of AI in justice",
-      "published_date": "2026-05-12",
+      "headline": "Law Society AI in Legal Practice Summit says Irish law-firm structures and fees are already being affected",
+      "published_date": "2026-05-18",
       "source_name": "Law Society Gazette",
-      "source_url": "https://www.lawgazette.co.uk/news/tell-us-the-rules-for-using-ai-in-court-say-solicitors/5126757.article",
-      "event_type": "professional_guidance",
+      "source_url": "https://www.lawsociety.ie/gazette/in-depth/2026/may/crossing-the-rubicon-ai-summit/",
+      "event_type": "legal_education",
       "source_origin": "confirmed_reporting",
-      "region": "UK/EU",
-      "factual_basis": "The Law Society called for regulators and government to clarify responsible AI use in court proceedings, including potential disclosure requirements and HMCTS guidance for court users.",
-      "legal_sector_relevance_note": "The proposal would directly affect litigation practice, AI-assisted drafting, solicitor competence expectations and how firms supervise court-facing work product.",
+      "region": "Ireland",
+      "factual_basis": "The report from the AI in Legal Practice Summit in Blackhall Place says Irish lawyers were warned that AI is affecting law-firm structures, pricing and the billable-hour model, while requiring human review and governance.",
+      "legal_sector_relevance_note": "This is directly relevant to Irish firm leaders because it connects AI adoption to operating model, pricing, training and client-value expectations rather than only tool selection.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
     },
     {
       "id": "ILIN-2026-05-24-006",
+      "headline": "Law Society calls for clear rules on AI use in court documents",
+      "published_date": "2026-05-12",
+      "source_name": "The Law Society",
+      "source_url": "https://www.lawsociety.org.uk/campaigns/consultation-responses/use-of-ai-for-preparing-court-documents",
+      "event_type": "professional_guidance",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "The Law Society response to the Civil Justice Council consultation called for transparency, urgent SRA and HMCTS guidance, and a wider review of AI use in the justice system.",
+      "legal_sector_relevance_note": "The proposal would directly affect litigation practice, AI-assisted drafting, solicitor competence expectations and how firms supervise court-facing work product.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "ILIN-2026-05-24-007",
       "headline": "Bar Standards Board issues guidance on safe and responsible AI use by barristers",
       "published_date": "2026-05-18",
       "source_name": "Bar Standards Board",
-      "source_url": "https://www.barstandardsboard.org.uk/resources/blogs/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html",
+      "source_url": "https://www.barstandardsboard.org.uk/resources/new-guidance-supports-barristers-to-safely-adopt-artificial-intelligence-and-emerging-technologies.html",
       "event_type": "professional_guidance",
       "source_origin": "official_source",
       "region": "UK/EU",
@@ -95,7 +110,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-007",
+      "id": "ILIN-2026-05-24-008",
       "headline": "Family judge uses secure judicial AI tool to summarise judgment for parents with learning difficulties",
       "published_date": "2026-05-18",
       "source_name": "Law Society Gazette",
@@ -110,7 +125,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-008",
+      "id": "ILIN-2026-05-24-009",
       "headline": "Judge refers solicitors to SRA after fake or mis-cited AI-generated authorities were filed",
       "published_date": "2026-05-15",
       "source_name": "Legal Futures",
@@ -125,7 +140,22 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-009",
+      "id": "ILIN-2026-05-24-010",
+      "headline": "High Court publicly admonishes Pinsent Masons over misleading AI-generated court letters",
+      "published_date": "2026-05-22",
+      "source_name": "BAILII",
+      "source_url": "https://www.bailii.org/ew/cases/EWHC/Ch/2026/1199.html",
+      "event_type": "professional_guidance",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "In Cork and another v Smith [2026] EWHC 1199 (Ch), ICC Judge Mullen considered evidence that AI had been used to produce misleading letters to the court, including non-existent insolvency-rule text, and treated public admonishment plus SRA self-referral as the appropriate response.",
+      "legal_sector_relevance_note": "The judgment is a concrete warning on supervision, verification, AI chat records, court candour and the risk of junior lawyers relying on authoritative-sounding AI output in live litigation.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "ILIN-2026-05-24-011",
       "headline": "Revolut drops traditional law firm panel for AI-assisted performance-based adviser selection",
       "published_date": "2026-05-19",
       "source_name": "Law Society Gazette",
@@ -140,7 +170,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-010",
+      "id": "ILIN-2026-05-24-012",
       "headline": "Carta acquires AI-driven ABS Avantia Law and creates SRA-regulated Carta Law",
       "published_date": "2026-05-18",
       "source_name": "Legal Futures",
@@ -155,7 +185,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-011",
+      "id": "ILIN-2026-05-24-013",
       "headline": "Linklaters launches Applied Intelligence team for bespoke AI-enabled legal solutions",
       "published_date": "2026-05-11",
       "source_name": "Legal IT Insider",
@@ -170,7 +200,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-012",
+      "id": "ILIN-2026-05-24-014",
       "headline": "Burges Salmon expands Wexler AI from disputes team to firmwide document-heavy work",
       "published_date": "2026-05-11",
       "source_name": "Legal IT Insider",
@@ -185,30 +215,78 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-013",
-      "headline": "Anthropic launches Claude for Legal with MCP connectors and practice-area plugins",
-      "published_date": "2026-05-13",
+      "id": "ILIN-2026-05-24-015",
+      "headline": "Weightmans selects Clio Operate for firmwide case and matter management after year-long review",
+      "published_date": "2026-05-22",
       "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/2026/05/13/claude-for-legal-what-the-industry-needs-to-know/",
-      "event_type": "reported_platform_entry",
+      "source_url": "https://legaltechnology.com/weightmans-selects-clio-operate-formerly-sharedo-after-major-selection-process/",
+      "event_type": "legal_operations",
       "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Weightmans selected Clio Operate, formerly Sharedo, as its case and matter management platform after a 12-month selection process and a review of multiple vendors.",
+      "legal_sector_relevance_note": "The move is relevant to firm leaders because case and matter management is core operational infrastructure, and the selection links workflow data, client insight and legal content surfacing inside matter systems.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "ILIN-2026-05-24-016",
+      "headline": "Osborne Clarke spins out Justima to automate European regulatory monitoring with AI agents",
+      "published_date": "2026-05-21",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/osborne-clarke-launches-independent-company-for-ai-regulatory-monitoring/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Osborne Clarke is spinning off Justima, an independent company using AI agents to monitor more than 200 European legal and regulatory sources daily and deliver business-relevant changes to legal and compliance departments.",
+      "legal_sector_relevance_note": "This is a law-firm innovation story because a firm is productising regulatory expertise into an AI service for client legal and compliance workflows, changing how monitoring work may be delivered.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "ILIN-2026-05-24-017",
+      "headline": "LawX raises EUR7.5m to build AI-powered operating system for European law firms and notaries",
+      "published_date": "2026-05-18",
+      "source_name": "Tech.eu",
+      "source_url": "https://tech.eu/2026/05/18/lawx-raises-eur75m-to-build-europes-legal-operating-system/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Tech.eu reports that Berlin-based LawX raised EUR7.5 million in seed funding led by Motive Partners to develop an AI-driven platform automating operational workflows for law firms and notaries.",
+      "legal_sector_relevance_note": "The funding is relevant because it targets the administrative operating layer of legal practice - intake, workflow management, documents, calendars and billing - rather than only research or drafting.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "ILIN-2026-05-24-018",
+      "headline": "Anthropic launches Claude for Legal with MCP connectors and practice-area plugins",
+      "published_date": "2026-05-12",
+      "source_name": "Anthropic",
+      "source_url": "https://claude.com/blog/claude-for-the-legal-industry",
+      "event_type": "reported_platform_entry",
+      "source_origin": "vendor_originated_announcement",
       "region": "US/global",
-      "factual_basis": "The report says Anthropic launched Claude for Legal, including more than 20 MCP connectors, 12 legal plugins and integrations with legal and enterprise systems such as Thomson Reuters, Westlaw, Practical Law, Harvey, Everlaw, Box and DocuSign.",
+      "factual_basis": "Anthropic announced Claude for the legal industry, with legal plugins, MCP connectors to legal and enterprise systems, and workflows intended for legal research, drafting, contracts, compliance and litigation work.",
       "legal_sector_relevance_note": "This is a major foundation-model move into legal workflows, potentially making general AI assistants an orchestration layer across legal research, drafting, document management, contracts and litigation systems.",
       "duplicate_group": "DG-002",
       "warning_flags": [
+        "vendor_originated",
         "possible_duplicate"
       ],
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-014",
+      "id": "ILIN-2026-05-24-019",
       "headline": "Thomson Reuters and Anthropic connect Claude directly to CoCounsel Legal via MCP",
       "published_date": "2026-05-12",
       "source_name": "Thomson Reuters",
       "source_url": "https://www.thomsonreuters.com/en/press-releases/2026/may/thomson-reuters-and-anthropic-expand-partnership-to-connect-claude-with-cocounsel-legal",
       "event_type": "funding_acquisition_partnership",
-      "source_origin": "official_source",
+      "source_origin": "vendor_originated_announcement",
       "region": "US/global",
       "factual_basis": "Thomson Reuters announced an MCP integration with Anthropic connecting Claude directly to CoCounsel Legal, backed by Westlaw, Practical Law, KeyCite signals and CoCounsel workflows.",
       "legal_sector_relevance_note": "For legal teams, this is strategically important because it links a frontier model interface to citation-grounded professional legal research and drafting infrastructure with confidentiality and validation claims.",
@@ -220,7 +298,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-015",
+      "id": "ILIN-2026-05-24-020",
       "headline": "Thomson Reuters introduces HighQ MCP to connect collaboration-platform matter data to AI agents",
       "published_date": "2026-05-19",
       "source_name": "Thomson Reuters",
@@ -238,7 +316,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-016",
+      "id": "ILIN-2026-05-24-021",
       "headline": "NetDocuments unveils Legal Context Graph as DMS vendors compete to become the trusted AI context layer",
       "published_date": "2026-05-14",
       "source_name": "Legal IT Insider",
@@ -256,7 +334,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-017",
+      "id": "ILIN-2026-05-24-022",
       "headline": "iManage unveils MCP Server to expose DMS content to AI tools through a governed open protocol",
       "published_date": "2026-05-14",
       "source_name": "Legal IT Insider",
@@ -274,13 +352,31 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-018",
+      "id": "ILIN-2026-05-24-023",
+      "headline": "ConnectLive 2026 highlights legal DMS repositioning around permission-aware AI context fabric",
+      "published_date": "2026-05-22",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/connectlive-2026-the-dms-rewires-itself-for-the-agentic-era/",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Legal IT Insider reports from ConnectLive 2026 that iManage closed its flagship user conference with a platform repositioning around an AI context fabric and permission-aware DMS access for the agentic era.",
+      "legal_sector_relevance_note": "The report reinforces that document-management systems are becoming strategic AI control points for firms, shaping how privileged content, matter context and multiple AI tools are connected and audited.",
+      "duplicate_group": "DG-003",
+      "warning_flags": [
+        "possible_duplicate",
+        "limited_detail"
+      ],
+      "selected": false
+    },
+    {
+      "id": "ILIN-2026-05-24-024",
       "headline": "Aderant launches Agent Center for AI-driven law-firm operations workflows",
       "published_date": "2026-05-12",
-      "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/2026/05/12/aderant-rolls-out-agent-center-at-momentum-as-part-of-stridyn-platform-expansion/",
+      "source_name": "Aderant",
+      "source_url": "https://www.aderant.com/news-pr/aderant-introduces-agentic-law-firm-operations-ai-agent-center/",
       "event_type": "legal_operations",
-      "source_origin": "confirmed_reporting",
+      "source_origin": "vendor_originated_announcement",
       "region": "US/global",
       "factual_basis": "Aderant announced Agent Center on its Stridyn platform, including collections, e-billing appeals and talent evaluation agents, with further agents planned after Momentum Global 2026.",
       "legal_sector_relevance_note": "This is a legal-operations story because it applies AI agents to work-to-cash, billing and talent workflows that affect law-firm profitability and management rather than only lawyer drafting.",
@@ -291,16 +387,16 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-019",
-      "headline": "Lexsoft T3 adds MCP access and Tiger Eye launches AI curation for legal knowledge management",
-      "published_date": "2026-05-18",
-      "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/legal-knowledge-lexsoft-announces-t3-is-accessible-via-mcp-and-tiger-eye-launches-ai-curation-assistant/",
-      "event_type": "legal_tech_product",
-      "source_origin": "confirmed_reporting",
-      "region": "UK/EU",
-      "factual_basis": "Lexsoft announced that T3 is accessible via MCP and includes an OpenAI vectorised indexer; Tiger Eye announced an AI Curation Assistant for its Blueprint knowledge management platform.",
-      "legal_sector_relevance_note": "The item is relevant because legal knowledge systems are being rebuilt for AI retrieval and curation, affecting precedent search, classification and fee-earner contribution to knowledge banks.",
+      "id": "ILIN-2026-05-24-025",
+      "headline": "Baker McKenzie deploys Legora across its global lawyer network",
+      "published_date": "2026-05-12",
+      "source_name": "Baker McKenzie",
+      "source_url": "https://www.bakermckenzie.com/en/newsroom/2026/05/baker-mckenzie-deploys-legora",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "official_source",
+      "region": "global",
+      "factual_basis": "Baker McKenzie announced a global rollout of Legora to lawyers across its network, alongside AI training, practice innovation lawyer roles and collaboration between Legora legal engineers and the firm's Applied AI practice.",
+      "legal_sector_relevance_note": "The rollout shows a global firm treating AI adoption as a training, workflow-design and practice-group operating model issue, not merely an enterprise software purchase.",
       "duplicate_group": "none",
       "warning_flags": [
         "vendor_originated"
@@ -308,7 +404,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-020",
+      "id": "ILIN-2026-05-24-026",
       "headline": "Harvey partners with DeepJudge and announces Command Center for enterprise legal AI adoption management",
       "published_date": "2026-05-20",
       "source_name": "Legal IT Insider",
@@ -325,39 +421,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-021",
-      "headline": "Weightmans selects Clio Operate for firmwide case and matter management after year-long review",
-      "published_date": "2026-05-22",
-      "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/weightmans-selects-clio-operate-formerly-sharedo-after-major-selection-process/",
-      "event_type": "legal_operations",
-      "source_origin": "confirmed_reporting",
-      "region": "UK/EU",
-      "factual_basis": "Weightmans selected Clio Operate, formerly Sharedo, as its case and matter management platform after a 12-month selection process and a review of multiple vendors.",
-      "legal_sector_relevance_note": "The move is relevant to firm leaders because case and matter management is core operational infrastructure, and the selection links workflow data, client insight and legal content surfacing inside matter systems.",
-      "duplicate_group": "none",
-      "warning_flags": [],
-      "selected": true
-    },
-    {
-      "id": "ILIN-2026-05-24-022",
-      "headline": "Osborne Clarke spins out Justima to automate European regulatory monitoring with AI agents",
-      "published_date": "2026-05-21",
-      "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/osborne-clarke-launches-independent-company-for-ai-regulatory-monitoring/",
-      "event_type": "legal_ai_adoption",
-      "source_origin": "confirmed_reporting",
-      "region": "UK/EU",
-      "factual_basis": "Osborne Clarke is spinning off Justima, an independent company using AI agents to monitor more than 200 European legal and regulatory sources daily and deliver business-relevant changes to legal and compliance departments.",
-      "legal_sector_relevance_note": "This is a law-firm innovation story because a firm is productising regulatory expertise into an AI service for client legal and compliance workflows, changing how monitoring work may be delivered.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "vendor_originated"
-      ],
-      "selected": true
-    },
-    {
-      "id": "ILIN-2026-05-24-023",
+      "id": "ILIN-2026-05-24-027",
       "headline": "Stilta raises $10.5m for agentic AI patent litigation and IP monetisation platform",
       "published_date": "2026-05-20",
       "source_name": "Legal IT Insider",
@@ -374,7 +438,7 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-024",
+      "id": "ILIN-2026-05-24-028",
       "headline": "Littler rolls out DepoSim after partnering on employment-law deposition simulation",
       "published_date": "2026-05-21",
       "source_name": "Legal IT Insider",
@@ -391,20 +455,36 @@
       "selected": true
     },
     {
-      "id": "ILIN-2026-05-24-025",
-      "headline": "ConnectLive 2026 highlights legal DMS repositioning around permission-aware AI context fabric",
-      "published_date": "2026-05-22",
+      "id": "ILIN-2026-05-24-029",
+      "headline": "Lexsoft T3 adds MCP access and Tiger Eye launches AI curation for legal knowledge management",
+      "published_date": "2026-05-18",
       "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/connectlive-2026-the-dms-rewires-itself-for-the-agentic-era/",
+      "source_url": "https://legaltechnology.com/legal-knowledge-lexsoft-announces-t3-is-accessible-via-mcp-and-tiger-eye-launches-ai-curation-assistant/",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Lexsoft announced that T3 is accessible via MCP and includes an OpenAI vectorised indexer; Tiger Eye announced an AI Curation Assistant for its Blueprint knowledge management platform.",
+      "legal_sector_relevance_note": "The item is relevant because legal knowledge systems are being rebuilt for AI retrieval and curation, affecting precedent search, classification and fee-earner contribution to knowledge banks.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "ILIN-2026-05-24-030",
+      "headline": "Docusign upgrades Intelligent Agreement Management with AI agents and legal-platform partnerships",
+      "published_date": "2026-05-21",
+      "source_name": "TechTarget",
+      "source_url": "https://www.techtarget.com/searchcontentmanagement/news/366643495/Docusign-upgrades-AI-fueled-contract-management-platform",
       "event_type": "legal_tech_product",
       "source_origin": "confirmed_reporting",
       "region": "US/global",
-      "factual_basis": "Legal IT Insider reports from ConnectLive 2026 that iManage closed its flagship user conference with a platform repositioning around an AI context fabric and permission-aware DMS access for the agentic era.",
-      "legal_sector_relevance_note": "The report reinforces that document-management systems are becoming strategic AI control points for firms, shaping how privileged content, matter context and multiple AI tools are connected and audited.",
-      "duplicate_group": "DG-003",
+      "factual_basis": "TechTarget reports that Docusign is adding AI agents, an agent builder and integrations across its Intelligent Agreement Management suite, while building partnerships with legal AI systems including Harvey, Legora and Thomson Reuters CoCounsel.",
+      "legal_sector_relevance_note": "Contracts are a core legal workflow; Docusign's move suggests agreement data, approvals and AI review are becoming a connected legal-operations layer rather than isolated e-signature activity.",
+      "duplicate_group": "none",
       "warning_flags": [
-        "possible_duplicate",
-        "limited_detail"
+        "vendor_originated"
       ],
       "selected": true
     }
