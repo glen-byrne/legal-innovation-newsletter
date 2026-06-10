@@ -444,36 +444,32 @@
     },
     {
       "id": "ILIN-2026-06-10-029",
-      "headline": "Claude for Legal has over 90 AI agents",
-      "published_date": "2026-06-01",
-      "source_name": "Artificial Lawyer",
-      "source_url": "https://www.artificiallawyer.com/2026/06/01/claude-for-legal-has-over-90-ai-agents/",
-      "event_type": "legal_tech_product",
-      "source_origin": "vendor_originated_announcement",
-      "region": "US/global",
-      "factual_basis": "Artificial Lawyer reported that Claude for Legal had more than 90 named legal AI agents available and adaptable through Anthropic's GitHub page, in addition to plugins and MCP connectors.",
-      "legal_sector_relevance_note": "Shows legal AI moving from broad copilots to workflow-specific agents such as agreement review, DSAR response, termination review, and claim chart building.",
+      "headline": "European Commission publishes Code of Practice on Transparency of AI-Generated Content",
+      "published_date": "2026-06-10",
+      "source_name": "European Commission",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",
+      "event_type": "regulatory_development",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "The Commission published a final voluntary code of practice to help AI providers and deployers meet AI Act obligations on marking, detecting, and labelling AI-generated content from 2 August 2026.",
+      "legal_sector_relevance_note": "EU AI transparency rules will affect legal advice on deployer obligations, deepfake labelling, public-interest publications, evidence provenance, platform compliance, and AI governance programmes.",
       "duplicate_group": "none",
-      "warning_flags": [
-        "vendor_originated"
-      ],
+      "warning_flags": [],
       "selected": true
     },
     {
       "id": "ILIN-2026-06-10-030",
-      "headline": "Fearn raises USD 5.5 million to build AI patent-drafting software for inventors",
-      "published_date": "2026-06-10",
-      "source_name": "Business Insider",
-      "source_url": "https://www.businessinsider.com/a16z-backed-fearn-raises-5-million-legal-ai-patent-drafting-2026-6",
-      "event_type": "funding_acquisition_partnership",
+      "headline": "Law Society opens free Social Media, AI and the Law MOOC with more than 3,000 registrations",
+      "published_date": "2026-06-02",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/registration-open-for-law-society-free-mooc/",
+      "event_type": "legal_education",
       "source_origin": "confirmed_reporting",
-      "region": "US/global",
-      "factual_basis": "Business Insider reported that Fearn raised USD 5.5 million in seed funding, led by Kindred Ventures with participation from Andreessen Horowitz, for AI software that helps inventors draft patents from technical documents.",
-      "legal_sector_relevance_note": "Signals investor interest in tools that move parts of patent drafting upstream to inventors and in-house R&D teams, with implications for IP firms and patent-prosecution service models.",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that registration opened for the Law Society's free on-demand course on social media, AI and law, starting 9 June 2026 with more than 3,000 participants already registered.",
+      "legal_sector_relevance_note": "A practical Irish legal-education item showing public and professional demand for AI, social-media, liability, regulation, privacy, data-protection, cybercrime, and ecommerce literacy.",
       "duplicate_group": "none",
-      "warning_flags": [
-        "paywalled"
-      ],
+      "warning_flags": [],
       "selected": true
     }
   ]
