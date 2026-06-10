@@ -77,5 +77,5 @@ Do not edit the hidden `story:` identifiers inside the comments.
 - [ ] <!-- story:ILIN-2026-06-10-024 --> **24. Legora buys Cadastral agentic real estate platform** (2026-06-02)
   Sources: Artificial Lawyer: https://www.artificiallawyer.com/2026/06/02/legora-buys-cadastral-agentic-real-estate-platform/
 
-- [ ] <!-- story:ILIN-2026-06-10-025 --> **25. LawGeex founders launch Superlegal NewMod firm** (2026-06-03)
+- [X] <!-- story:ILIN-2026-06-10-025 --> **25. LawGeex founders launch Superlegal NewMod firm** (2026-06-03)
   Sources: Artificial Lawyer: https://www.artificiallawyer.com/2026/06/03/lawgeex-founders-launch-superlegal-newmod-firm/
