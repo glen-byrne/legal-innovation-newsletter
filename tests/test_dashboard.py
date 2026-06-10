@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from legal_innovator.dashboard.github import candidate_count
 from legal_innovator.dashboard.selection import build_editorial_selection_markdown, validate_selection_count
 from legal_innovator.selection import parse_selected_cluster_ids
@@ -49,3 +51,18 @@ def test_candidate_count_handles_missing_candidates() -> None:
     assert candidate_count({"candidates": [{}, {}]}) == 2
     assert candidate_count({}) == 0
 
+
+def test_dashboard_login_page_renders(monkeypatch) -> None:
+    fastapi_testclient = pytest.importorskip("fastapi.testclient")
+    from legal_innovator.dashboard.app import app
+
+    monkeypatch.setenv("DASHBOARD_GITHUB_REPOSITORY", "glen-byrne/legal-innovation-newsletter")
+    monkeypatch.setenv("DASHBOARD_GITHUB_TOKEN", "test-token")
+    monkeypatch.setenv("DASHBOARD_PASSWORD", "test-password")
+    monkeypatch.setenv("DASHBOARD_COOKIE_SECURE", "false")
+
+    client = fastapi_testclient.TestClient(app)
+    response = client.get("/login")
+
+    assert response.status_code == 200
+    assert "Sign in" in response.text

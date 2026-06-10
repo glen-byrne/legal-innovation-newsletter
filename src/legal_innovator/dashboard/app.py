@@ -93,10 +93,18 @@ async def login(request: Request, error: str | None = None):
     try:
         settings = load_dashboard_settings()
     except RuntimeError as exc:
-        return templates.TemplateResponse("login.html", {"request": request, "setup_error": str(exc), "error": None})
+        return templates.TemplateResponse(
+            request,
+            "login.html",
+            {"request": request, "setup_error": str(exc), "error": None},
+        )
     if is_authenticated(request, settings):
         return RedirectResponse(url="/", status_code=303)
-    return templates.TemplateResponse("login.html", {"request": request, "setup_error": None, "error": error})
+    return templates.TemplateResponse(
+        request,
+        "login.html",
+        {"request": request, "setup_error": None, "error": error},
+    )
 
 
 @app.post("/login")
@@ -144,6 +152,7 @@ async def index(request: Request, message: str | None = None):
             }
         )
     return templates.TemplateResponse(
+        request,
         "index.html",
         {
             "request": request,
@@ -251,6 +260,7 @@ async def _render_issue(
 
     selected_ids = override_selected_ids or (selected_story_ids(shortlist) if shortlist else [])
     return templates.TemplateResponse(
+        request,
         "issue.html",
         {
             "request": request,
