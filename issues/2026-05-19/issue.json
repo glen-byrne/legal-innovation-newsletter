@@ -1,0 +1,182 @@
+{
+  "newsletter_name": "The Irish Legal Innovator",
+  "run_date": "2026-05-19",
+  "generated_at": "2026-05-19T22:29:02.732744+01:00",
+  "window_start": "2026-05-05",
+  "window_end": "2026-05-19",
+  "intro": "This fortnight saw significant developments in legal technology, with major funding rounds, new product launches, and industry recognition for innovation. AI-driven solutions for patent litigation, legal benchmarking, and personal injury workflows are reshaping how legal services are delivered and evaluated. Meanwhile, established players and new entrants alike are focusing on improving research, compliance, and operational visibility for legal departments.",
+  "stories": [
+    {
+      "headline": "Stilta Raises $10.5M Seed Round to Bring Agentic AI to Patent Litigation",
+      "date": "2026-05-19",
+      "canonical_url": "https://www.lawnext.com/2026/05/stilta-a-stockholm-startup-bringing-agentic-ai-to-patent-litigation-raises-10-5m-seed-led-by-andreessen-horowitz.html",
+      "sources": [
+        {
+          "name": "LawNext",
+          "url": "https://www.lawnext.com/2026/05/stilta-a-stockholm-startup-bringing-agentic-ai-to-patent-litigation-raises-10-5m-seed-led-by-andreessen-horowitz.html",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "LawNext"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Stockholm-based startup Stilta has secured $10.5 million in seed funding led by Andreessen Horowitz to develop AI agents for patent invalidity and infringement analysis, marking its first external investment. The move highlights rapid growth in AI tools for patent practitioners, following recent large investments in similar platforms.",
+      "why_it_matters": "This funding signals increasing investor confidence in AI-driven solutions for complex, high-value practice areas.",
+      "score": 96.5,
+      "score_breakdown": {
+        "region": 17.0,
+        "legal_relevance": 22.0,
+        "innovation": 15.3,
+        "practical_impact": 13.600000000000001,
+        "source_credibility": 7.800000000000001,
+        "recency": 7.800013517718254,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.95,
+      "qa_notes": [],
+      "cluster_id": "2"
+    },
+    {
+      "headline": "Harvey Launches 'LAB,' An Open-Source, Long-Horizon Benchmark for Legal AI Agents",
+      "date": "2026-05-19",
+      "canonical_url": "https://www.lawnext.com/2026/05/some-thoughts-on-harveys-launch-of-lab-an-open-source-long-horizon-benchmark-for-legal-ai-agents.html",
+      "sources": [
+        {
+          "name": "LawNext",
+          "url": "https://www.lawnext.com/2026/05/some-thoughts-on-harveys-launch-of-lab-an-open-source-long-horizon-benchmark-for-legal-ai-agents.html",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "LawNext"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Legal AI company Harvey has introduced the Legal Agent Benchmark (LAB), an open-source framework designed to evaluate how AI agents perform extended, real-world legal tasks across 24 practice areas. LAB aims to help law firms assess the ROI of AI investments by providing detailed, expert-graded task performance data.",
+      "why_it_matters": "LAB provides a new industry standard for objectively measuring and deploying legal AI.",
+      "score": 87.869,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 22.0,
+        "innovation": 15.3,
+        "practical_impact": 11.899999999999999,
+        "source_credibility": 7.800000000000001,
+        "recency": 7.86912727433201,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.9,
+      "qa_notes": [],
+      "cluster_id": "1"
+    },
+    {
+      "headline": "EvenUp Launches 'Pre-Litigation-as-a-Service' for Personal Injury Law Firms",
+      "date": "2026-05-14",
+      "canonical_url": "https://www.lawnext.com/2026/05/evenup-extends-beyond-software-with-launch-of-pre-litigation-as-a-service-offering-for-pi-law-firms.html",
+      "sources": [
+        {
+          "name": "LawNext",
+          "url": "https://www.lawnext.com/2026/05/evenup-extends-beyond-software-with-launch-of-pre-litigation-as-a-service-offering-for-pi-law-firms.html",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "LawNext"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "EvenUp has launched Pre-Litigation as a Service (PLAAS), combining AI and case management staff to handle the full pre-litigation lifecycle for personal injury firms, alongside updates to its AI assistant and document drafting tools. The offering positions EvenUp as an outsourced operations partner rather than just a software vendor.",
+      "why_it_matters": "This development blurs the line between technology and managed legal services powered by AI.",
+      "score": 82.858,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 19.8,
+        "innovation": 13.600000000000001,
+        "practical_impact": 13.600000000000001,
+        "source_credibility": 7.800000000000001,
+        "recency": 5.05833362353836,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.95,
+      "qa_notes": [],
+      "cluster_id": "4"
+    },
+    {
+      "headline": "Thomson Reuters CoCounsel Wins 2026 New Product Award from Law Librarians",
+      "date": "2026-05-15",
+      "canonical_url": "https://www.lawnext.com/2026/05/law-librarians-name-thomson-reuters-cocounsel-as-winner-of-2026-new-product-award.html",
+      "sources": [
+        {
+          "name": "LawNext",
+          "url": "https://www.lawnext.com/2026/05/law-librarians-name-thomson-reuters-cocounsel-as-winner-of-2026-new-product-award.html",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "LawNext"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "Thomson Reuters CoCounsel Legal has been awarded the 2026 New Product Award by the American Association of Law Libraries for its platform that integrates legal research, document analysis, and drafting in a single interface. The product was recognized for enhancing law library services and improving access to legal information.",
+      "why_it_matters": "Recognition from law librarians underscores the growing importance of integrated legal research platforms in practice.",
+      "score": 79.434,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 17.6,
+        "innovation": 13.600000000000001,
+        "practical_impact": 11.899999999999999,
+        "source_credibility": 7.800000000000001,
+        "recency": 5.534471189675926,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.9,
+      "qa_notes": [],
+      "cluster_id": "3"
+    },
+    {
+      "headline": "eDig365 Debuts Reporting and Visibility Layer for Microsoft Purview E-Discovery",
+      "date": "2026-05-14",
+      "canonical_url": "https://www.lawnext.com/2026/05/edig365-aims-to-gives-legal-teams-reporting-and-visibility-within-microsoft-purview-e-discovery.html",
+      "sources": [
+        {
+          "name": "LawNext",
+          "url": "https://www.lawnext.com/2026/05/edig365-aims-to-gives-legal-teams-reporting-and-visibility-within-microsoft-purview-e-discovery.html",
+          "source_type": "legal_tech_media"
+        }
+      ],
+      "source_names": [
+        "LawNext"
+      ],
+      "source_types": [
+        "legal_tech_media"
+      ],
+      "summary": "eDig365, launched by Five Star Legal, provides legal teams with a reporting and observability layer for Microsoft Purview eDiscovery, addressing the lack of direct visibility for legal and compliance teams in many organizations. The tool aims to streamline e-discovery workflows that are often split between IT and legal departments.",
+      "why_it_matters": "Enhanced visibility and reporting can improve collaboration and oversight in corporate legal departments.",
+      "score": 73.798,
+      "score_breakdown": {
+        "region": 10.0,
+        "legal_relevance": 17.6,
+        "innovation": 10.2,
+        "practical_impact": 10.2,
+        "source_credibility": 7.800000000000001,
+        "recency": 4.997573041527778,
+        "factuality": 5.0,
+        "directness": 8.0
+      },
+      "confidence": 0.9,
+      "qa_notes": [],
+      "cluster_id": "5"
+    }
+  ],
+  "disclaimer": "This newsletter is for general information only and does not constitute legal advice.",
+  "warnings": []
+}
