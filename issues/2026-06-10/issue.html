@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Irish Legal Innovator</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #F5F1EA;
+        color: #1E3B2E;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      table { border-collapse: collapse; }
+      img { border: 0; display: block; }
+      a { color: #1E3B2E; text-decoration: underline; }
+      .wrapper {
+        width: 100%;
+        background: #F5F1EA;
+      }
+      .container {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        background: #FFFCF7;
+      }
+      .outer-pad {
+        padding: 28px 14px;
+      }
+      .masthead {
+        padding: 34px 30px 28px 30px;
+        background: #1E3B2E;
+        color: #F5F1EA;
+        text-align: center;
+      }
+      .est-row {
+        margin: 0 0 14px 0;
+        font-size: 11px;
+        line-height: 1.4;
+        color: #DCCBB2;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+      .monogram {
+        display: inline-block;
+        margin: 0 auto 12px auto;
+        padding: 9px 12px;
+        border: 1px solid #DCCBB2;
+        color: #DCCBB2;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 24px;
+        line-height: 1;
+      }
+      .title-small {
+        margin: 0 0 4px 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        line-height: 1.15;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .title-large {
+        margin: 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 42px;
+        line-height: 1.05;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .tagline {
+        margin: 16px 0 0 0;
+        color: #DCCBB2;
+        font-size: 12px;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+      .issue-meta {
+        padding: 16px 30px;
+        background: #DCCBB2;
+        color: #1E3B2E;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .intro {
+        padding: 28px 30px;
+        background: #FFFCF7;
+        border-bottom: 1px solid #DCCBB2;
+        color: #2A2A24;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .story {
+        padding: 26px 30px;
+        background: #FFFCF7;
+        border-bottom: 1px solid #DCCBB2;
+      }
+      .story-number {
+        width: 34px;
+        height: 34px;
+        border-radius: 17px;
+        background: #1E3B2E;
+        color: #F5F1EA;
+        font-size: 14px;
+        line-height: 34px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .story h2 {
+        margin: 0;
+        color: #1E3B2E;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 23px;
+        line-height: 1.25;
+        font-weight: normal;
+      }
+      .meta {
+        margin: 8px 0 0 0;
+        color: #8B7966;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .summary {
+        margin: 16px 0 0 0;
+        color: #2A2A24;
+        font-size: 15px;
+        line-height: 1.62;
+      }
+      .why {
+        margin: 16px 0 0 0;
+        padding: 12px 14px;
+        background: #F5F1EA;
+        border-left: 3px solid #5A3E2B;
+        color: #2A2A24;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .why strong {
+        color: #5A3E2B;
+      }
+      .sources {
+        margin: 16px 0 0 0;
+        color: #8B7966;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .sources strong {
+        color: #5A3E2B;
+      }
+      .empty-title {
+        margin: 0 0 10px 0;
+        color: #1E3B2E;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        line-height: 1.3;
+        font-weight: normal;
+      }
+      .footer {
+        padding: 24px 30px 30px 30px;
+        background: #1E3B2E;
+        color: #DCCBB2;
+        font-size: 12px;
+        line-height: 1.55;
+        text-align: center;
+      }
+      .footer-mark {
+        margin: 0 0 10px 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+        line-height: 1;
+      }
+      @media screen and (max-width: 520px) {
+        .outer-pad { padding: 0 !important; }
+        .masthead { padding: 28px 20px 24px 20px !important; }
+        .issue-meta, .intro, .story, .footer { padding-left: 20px !important; padding-right: 20px !important; }
+        .title-large { font-size: 34px !important; }
+        .title-small { font-size: 18px !important; }
+        .story h2 { font-size: 20px !important; }
+        .intro { font-size: 16px !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="outer-pad" align="center">
+          <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="masthead">
+                <p class="est-row">Est. 2024</p>
+                <div class="monogram">ILI</div>
+                <h1 class="title-small">The</h1>
+                <h1 class="title-large">Irish Legal</h1>
+                <h1 class="title-small">Innovator</h1>
+                <p class="tagline">Law. Innovation. Impact.</p>
+              </td>
+            </tr>
+            <tr>
+              <td class="issue-meta">
+                <strong>The Irish Legal Innovator</strong><br>
+                Issue date: 2026-06-10
+              </td>
+            </tr>
+            <tr>
+              <td class="intro">This fortnight saw significant developments in Irish legal digitisation, with the national rollout of online probate applications and continued use of remote court procedures. Regulatory changes included expanded access to insolvency payments, higher merger-notification thresholds, and a public consultation on disability law reform. Legal technology and AI also featured prominently, with a major Irish legal AI funding round and UK initiatives in AI-driven legal services.</td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">1</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Probate online to go live for solicitors nationwide on the Courts Portal from 2 June 2026</h2>
+                      <p class="meta">2026-05-31</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">From 2 June 2026, solicitors across Ireland will be able to file grant of probate applications online via the Courts Portal, following a successful Dublin pilot involving over 100 applications. This marks a key step in the Courts Service's national digitisation programme.</p>
+                <p class="why"><strong>Why it matters:</strong> The move streamlines probate processes for practitioners and signals further digital transformation in Irish court administration.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.courts.ie/news/probate-online-to-go-live-for-solicitors-nationwide-on-the-courts-portal-from-2-june-2026">Courts Service of Ireland</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">2</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Dublin Circuit Court Personal Insolvency remote callover set for 8 June 2026</h2>
+                      <p class="meta">2026-06-04</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The Courts Service has scheduled a remote callover on 8 June 2026 to assess readiness for personal insolvency hearings in the Dublin Circuit Court, continuing the use of remote management for civil case administration. Practitioners were notified that hearings are listed for 10 and 11 June.</p>
+                <p class="why"><strong>Why it matters:</strong> This reflects ongoing integration of remote procedures in Irish courts, supporting efficiency and flexible case administration.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.courts.ie/news/dublin---circuit-court---personal-insolvency---remote-call-over-8-june-2026-at-10-25am">Courts Service of Ireland</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">3</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Survey sends clear message on flat-fee plan for District Court criminal legal aid</h2>
+                      <p class="meta">2026-06-08</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">A Law Society survey found that 70% of criminal-law solicitors would be unlikely or very unlikely to continue District Court legal-aid work if a proposed flat-fee model is introduced. The findings highlight practitioner concerns about the impact of fee reform on representation and court capacity.</p>
+                <p class="why"><strong>Why it matters:</strong> Potential changes to legal aid remuneration could affect access to justice, defence provision, and the functioning of the District Court.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.lawsociety.ie/gazette/top-stories/2026/june/survey-sends-clear-message-on-flat-fee-plan/">Law Society Gazette</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">4</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Public consultation opened to inform review of Ireland's Disability Act 2005</h2>
+                      <p class="meta">2026-06-08</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The Department of Children, Disability and Equality has launched a public consultation to inform the review of the Disability Act 2005, considering Ireland's obligations under the UNCRPD, with submissions open until 9 September 2026. The review may address statutory rights, assessment processes, and public service accessibility.</p>
+                <p class="why"><strong>Why it matters:</strong> This consultation could lead to significant statutory reforms affecting disability rights and legal practice in public law.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.gov.ie/en/department-of-children-disability-and-equality/consultations/public-consultation-to-inform-the-review-of-the-disability-act-2005/">Government of Ireland</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">5</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Deemed Insolvent Process widens access to Ireland's Insolvency Payments Scheme</h2>
+                      <p class="meta">2026-06-09</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The Deemed Insolvent Process has commenced, allowing employees to access the Insolvency Payments Scheme when an employer ceases trading without formal insolvency proceedings. This change broadens eligibility and introduces new claims procedures for affected workers.</p>
+                <p class="why"><strong>Why it matters:</strong> Practitioners must adapt to expanded employee protections and updated procedures within Ireland's insolvency framework.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.lawsociety.ie/gazette/top-stories/2026/june/move-widens-access-to-insolvency-payments/">Law Society Gazette</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">6</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Eighty per cent of Northern Ireland crime victims have no confidence in justice system</h2>
+                      <p class="meta">2026-06-03</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Research from Queen's University Belfast, reported by Irish Legal News, shows that over 80% of crime victims in Northern Ireland lack confidence in receiving justice. The findings highlight ongoing challenges in victim experience and support.</p>
+                <p class="why"><strong>Why it matters:</strong> This underscores the need for reforms to improve victim outcomes and support across the justice system.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.irishlegal.com/articles/80-per-cent-of-crime-victims-in-northern-ireland-are-not-confident-they-will-receive-justice-queens-researchers">Irish Legal News</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">7</div>
+                    </td>
+                    <td valign="top">
+                      <h2>CCPC welcomes higher merger-notification thresholds to reduce regulatory burden</h2>
+                      <p class="meta">2026-06-10</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">From 1 July 2026, Ireland's mandatory merger-notification thresholds will rise to an aggregate turnover of EUR 100 million and an individual threshold of EUR 15 million, following new regulations welcomed by the CCPC. The change aims to reduce regulatory filings for smaller transactions.</p>
+                <p class="why"><strong>Why it matters:</strong> Corporate, M&A and in-house teams must review deal structures and notification requirements in light of the new thresholds.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.irishlegal.com/articles/ccpc-welcomes-increase-in-merger-thresholds-to-reduce-regulatory-burden">Irish Legal News</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">8</div>
+                    </td>
+                    <td valign="top">
+                      <h2>ICCL raises concerns over reported nationwide garda bodycam rollout</h2>
+                      <p class="meta">2026-06-05</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The ICCL has expressed concern about reports of a EUR 150 million national rollout of body-worn cameras by An Garda Siochana before the pilot assessment report and final code of practice are published. The move raises questions about oversight, data protection, and privacy safeguards.</p>
+                <p class="why"><strong>Why it matters:</strong> Legal professionals should monitor developments for implications on policing, digital evidence, and privacy compliance.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.lawsociety.ie/gazette/top-stories/2026/june/iccl-concerns-on-garda-bodycam-plans/">Law Society Gazette</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">9</div>
+                    </td>
+                    <td valign="top">
+                      <h2>EU Justice Scoreboard shows Ireland high on trust but low on some justice-system digital indicators</h2>
+                      <p class="meta">2026-06-05</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The 2026 EU Justice Scoreboard reports that three-quarters of Irish respondents rate judicial independence positively, but Ireland ranks near the bottom for procedural rules enabling digital technology in courts. The findings provide comparative data on trust, efficiency, and digital readiness.</p>
+                <p class="why"><strong>Why it matters:</strong> This highlights both strengths and ongoing challenges for Ireland's court modernisation efforts.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.lawsociety.ie/gazette/top-stories/2026/june/ireland-scores-high-for-trust-in-justice/">Law Society Gazette</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">10</div>
+                    </td>
+                    <td valign="top">
+                      <h2>Irish co-founded legal AI startup Wordsmith raises USD 70 million Series B</h2>
+                      <p class="meta">2026-06-05</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">Wordsmith AI, co-founded by Dublin-born Robbie Falkenthal, has raised USD 70 million in Series B funding to expand its legal AI platform and Irish presence. The round was led by Highland Europe and Index Ventures, with a focus on in-house legal workflow solutions.</p>
+                <p class="why"><strong>Why it matters:</strong> This funding signals strong investor confidence in Irish legal technology innovation and market growth.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.irishlegal.com/articles/irish-co-founded-legal-ai-startup-wordsmith-raises-70m">Irish Legal News</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">11</div>
+                    </td>
+                    <td valign="top">
+                      <h2>UK government plans AI legal assistants for Crown Court backlog pilot</h2>
+                      <p class="meta">2026-06-09</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The UK government will pilot AI-powered virtual legal assistants in Crown courts to help identify trial-ready cases and group similar hearings, amid Law Society concerns about funding, transparency, and safeguards. The initiative aims to address court backlogs using technology.</p>
+                <p class="why"><strong>Why it matters:</strong> Irish practitioners may draw comparisons with domestic digitisation efforts and consider implications for court efficiency and practitioner roles.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://www.theguardian.com/technology/2026/jun/09/ai-legal-assistants-england-wales-cannot-replace-funding-staff">The Guardian</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="story">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="46" valign="top">
+                      <div class="story-number">12</div>
+                    </td>
+                    <td valign="top">
+                      <h2>UK Government launches AI Growth Lab with legal as first focus area</h2>
+                      <p class="meta">2026-06-09</p>
+                    </td>
+                  </tr>
+                </table>
+                <p class="summary">The UK Government has launched an AI Growth Lab, prioritising LawTech and legal services as its first focus, with the ICO collaborating with legal regulators on cross-sector AI guidance. The initiative aims to address regulatory challenges in legal AI adoption.</p>
+                <p class="why"><strong>Why it matters:</strong> This development may influence future regulatory approaches and best practices for legal AI providers and users.</p>
+                <p class="sources">
+                  <strong>Sources:</strong>
+                    <a href="https://legaltechnology.com/uk-government-launches-ai-growth-lab-with-legal-as-its-first-focus-area/">Legal IT Insider</a>                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="footer">
+                <p class="footer-mark">ILI</p>
+                This newsletter is for general information only and does not constitute legal advice.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
