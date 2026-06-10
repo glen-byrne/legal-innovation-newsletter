@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from legal_innovator.dashboard.app import DashboardSettings, is_authenticated
@@ -81,3 +83,53 @@ def test_dashboard_no_auth_overrides_password() -> None:
     )
 
     assert is_authenticated(request=object(), settings=settings) is True
+
+
+def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> None:
+    fastapi_testclient = pytest.importorskip("fastapi.testclient")
+    from legal_innovator.dashboard.app import app
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.delenv("DASHBOARD_GITHUB_REPOSITORY", raising=False)
+    monkeypatch.delenv("DASHBOARD_GITHUB_TOKEN", raising=False)
+    monkeypatch.delenv("DASHBOARD_PASSWORD", raising=False)
+    monkeypatch.setenv("DASHBOARD_ALLOW_NO_AUTH", "true")
+    monkeypatch.setenv("DASHBOARD_COOKIE_SECURE", "false")
+    issue_dir = tmp_path / "issues" / "2026-06-10"
+    issue_dir.mkdir(parents=True)
+    candidates = [_candidate(index) for index in range(1, 9)]
+    (issue_dir / "candidates.json").write_text(json.dumps({"candidates": candidates}), encoding="utf-8")
+
+    client = fastapi_testclient.TestClient(app)
+    index_response = client.get("/")
+    assert index_response.status_code == 200
+    assert "2026-06-10" in index_response.text
+
+    response = client.post(
+        "/issues/2026-06-10/generate-html",
+        data={"selected": [candidate["id"] for candidate in candidates]},
+        follow_redirects=False,
+    )
+
+    assert response.status_code == 303
+    assert (issue_dir / "issue.html").exists()
+    assert (issue_dir / "editorial_selection.md").exists()
+    assert "Story 1" in (issue_dir / "issue.html").read_text(encoding="utf-8")
+
+
+def _candidate(index: int) -> dict[str, object]:
+    return {
+        "id": f"ILIN-2026-06-10-{index:03d}",
+        "headline": f"Story {index}",
+        "published_date": "2026-06-01",
+        "source_name": "Example Source",
+        "source_url": f"https://example.com/story-{index}",
+        "event_type": "legal_ai_adoption",
+        "source_origin": "confirmed_reporting",
+        "region": "Ireland",
+        "factual_basis": f"Example factual basis {index}.",
+        "legal_sector_relevance_note": f"Example legal-sector relevance {index}.",
+        "duplicate_group": "none",
+        "warning_flags": [],
+        "selected": True,
+    }

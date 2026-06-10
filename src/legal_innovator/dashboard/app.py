@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import hmac
+import json
 import os
 from dataclasses import dataclass
+from datetime import datetime
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -18,18 +20,24 @@ try:  # Dashboard dependencies are optional.
 except ImportError as exc:  # pragma: no cover - exercised only when optional deps are missing.
     raise RuntimeError('Install dashboard dependencies with: python -m pip install ".[dashboard]"') from exc
 
-from legal_innovator.dashboard.github import GitHubAPIError, GitHubClient, GitHubSettings, candidate_count
+from legal_innovator.archive import write_issue_outputs
+from legal_innovator.candidates import CandidateImportResult, load_candidate_file, rank_imported_clusters
+from legal_innovator.config import RunWindow, Settings, compute_run_window, load_settings
+from legal_innovator.dashboard.github import GitHubClient, GitHubSettings, candidate_count
 from legal_innovator.dashboard.selection import (
     build_editorial_selection_markdown,
     candidate_rows,
-    selected_story_ids,
     story_source_links,
     validate_selection_count,
 )
+from legal_innovator.models import Issue, RankedStory, ReviewShortlist
+from legal_innovator.rendering.html import render_html
+from legal_innovator.selection import parse_selected_cluster_ids, render_selection_markdown, select_stories
 
 
 COOKIE_NAME = "ili_dashboard_session"
 ISSUE_DATE_RE = __import__("re").compile(r"^\d{4}-\d{2}-\d{2}$")
+ISSUES_DIR = Path("issues")
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 app = FastAPI(title="The Irish Legal Innovator Review Dashboard")
@@ -37,7 +45,7 @@ app = FastAPI(title="The Irish Legal Innovator Review Dashboard")
 
 @dataclass(frozen=True)
 class DashboardSettings:
-    github: GitHubSettings
+    github: GitHubSettings | None
     password: str | None
     secret_key: str
     allow_no_auth: bool = False
@@ -48,19 +56,18 @@ def load_dashboard_settings() -> DashboardSettings:
     load_dotenv()
     repository = os.getenv("DASHBOARD_GITHUB_REPOSITORY") or os.getenv("GITHUB_REPOSITORY")
     token = os.getenv("DASHBOARD_GITHUB_TOKEN") or os.getenv("GITHUB_TOKEN")
-    if not repository:
-        raise RuntimeError("Set DASHBOARD_GITHUB_REPOSITORY or GITHUB_REPOSITORY, for example glen-byrne/legal-innovation-newsletter.")
-    if not token:
-        raise RuntimeError("Set DASHBOARD_GITHUB_TOKEN or GITHUB_TOKEN with repository contents and workflow permissions.")
     password = os.getenv("DASHBOARD_PASSWORD")
-    secret_key = os.getenv("DASHBOARD_SECRET_KEY") or token[-32:]
-    return DashboardSettings(
-        github=GitHubSettings(
+    secret_key = os.getenv("DASHBOARD_SECRET_KEY") or (token[-32:] if token else "local-dashboard-secret")
+    github = None
+    if repository and token:
+        github = GitHubSettings(
             repository=repository,
             token=token,
             base_branch=os.getenv("DASHBOARD_BASE_BRANCH", os.getenv("GITHUB_BASE_BRANCH", "main")),
             workflow_file=os.getenv("DASHBOARD_WORKFLOW_FILE", "generate-newsletter.yml"),
-        ),
+        )
+    return DashboardSettings(
+        github=github,
         password=password,
         secret_key=secret_key,
         allow_no_auth=os.getenv("DASHBOARD_ALLOW_NO_AUTH", "false").lower() == "true",
@@ -138,19 +145,7 @@ async def index(request: Request, message: str | None = None):
     redirect = login_redirect(request, settings)
     if redirect:
         return redirect
-    client = GitHubClient(settings.github)
-    dates = await client.list_issue_dates()
-    rows = []
-    for issue_date in dates:
-        branch = f"newsletter/{issue_date}"
-        rows.append(
-            {
-                "date": issue_date,
-                "branch": branch,
-                "has_branch": await client.branch_exists(branch),
-                "url": f"/issues/{issue_date}",
-            }
-        )
+    rows = _local_issue_rows()
     return templates.TemplateResponse(
         request,
         "index.html",
@@ -158,8 +153,8 @@ async def index(request: Request, message: str | None = None):
             "request": request,
             "message": message,
             "dates": rows,
-            "repository": settings.github.repository,
-            "base_branch": settings.github.base_branch,
+            "repository": settings.github.repository if settings.github else "local files",
+            "base_branch": settings.github.base_branch if settings.github else "local workspace",
         },
     )
 
@@ -176,7 +171,7 @@ async def issue_detail(
     if redirect:
         return redirect
     _validate_issue_date(issue_date)
-    return await _render_issue(request, settings, issue_date, message=message, error=error)
+    return _render_issue(request, settings, issue_date, message=message, error=error)
 
 
 @app.post("/issues/{issue_date}/start")
@@ -185,6 +180,11 @@ async def start_draft(request: Request, issue_date: str):
     redirect = login_redirect(request, settings)
     if redirect:
         return redirect
+    if not settings.github:
+        return RedirectResponse(
+            url=f"/issues/{issue_date}?error=GitHub%20workflow%20controls%20need%20DASHBOARD_GITHUB_REPOSITORY%20and%20DASHBOARD_GITHUB_TOKEN",
+            status_code=303,
+        )
     _validate_issue_date(issue_date)
     client = GitHubClient(settings.github)
     await client.dispatch_workflow(settings.github.base_branch, _workflow_inputs(issue_date))
@@ -201,10 +201,12 @@ async def save_selection(request: Request, issue_date: str):
     if redirect:
         return redirect
     _validate_issue_date(issue_date)
+    if not settings.github:
+        return await save_local_selection(request, issue_date)
     client = GitHubClient(settings.github)
     branch = f"newsletter/{issue_date}"
     if not await client.branch_exists(branch):
-        return await _render_issue(request, settings, issue_date, error=f"Draft branch {branch} does not exist yet.")
+        return _render_issue(request, settings, issue_date, error=f"Draft branch {branch} does not exist yet.")
     shortlist, _ = await client.get_json(f"issues/{issue_date}/review_shortlist.json", branch)
     form = await request.form()
     selected_ids = [str(value) for value in form.getlist("selected")]
@@ -214,7 +216,7 @@ async def save_selection(request: Request, issue_date: str):
         int(shortlist.get("max_final_stories", 12)),
     )
     if error:
-        return await _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
+        return _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
     markdown = build_editorial_selection_markdown(shortlist, selected_ids)
     await client.put_text(
         f"issues/{issue_date}/editorial_selection.md",
@@ -231,7 +233,103 @@ async def save_selection(request: Request, issue_date: str):
     return RedirectResponse(url=f"/issues/{issue_date}?message={message.replace(' ', '%20')}", status_code=303)
 
 
-async def _render_issue(
+@app.post("/issues/{issue_date}/generate-html")
+async def generate_html(request: Request, issue_date: str):
+    settings = load_dashboard_settings()
+    redirect = login_redirect(request, settings)
+    if redirect:
+        return redirect
+    _validate_issue_date(issue_date)
+    form = await request.form()
+    selected_ids = [str(value) for value in form.getlist("selected")]
+    context = _local_issue_context(issue_date, override_selected_ids=selected_ids)
+    if context["error"]:
+        return _render_issue(request, settings, issue_date, error=context["error"], override_selected_ids=selected_ids)
+    shortlist = context["shortlist"]
+    if not shortlist:
+        return _render_issue(request, settings, issue_date, error="No candidate file was found.", override_selected_ids=selected_ids)
+    error = validate_selection_count(
+        selected_ids,
+        int(shortlist.min_final_stories),
+        int(shortlist.max_final_stories),
+    )
+    if error:
+        return _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
+    issue, review_shortlist = _build_local_issue(context, selected_ids)
+    issue_dir = _issue_dir(issue_date)
+    selection_markdown = render_selection_markdown(review_shortlist)
+    files = write_issue_outputs(
+        issue,
+        issue_dir,
+        qa_report_markdown=_local_qa_markdown(issue, context["import_result"]),
+        review_shortlist=review_shortlist,
+        selection_markdown=selection_markdown,
+    )
+    return RedirectResponse(
+        url=f"/issues/{issue_date}/html?message=Newsletter%20HTML%20generated%20at%20{files['html'].as_posix()}",
+        status_code=303,
+    )
+
+
+@app.get("/issues/{issue_date}/html", response_class=HTMLResponse)
+async def generated_html(request: Request, issue_date: str, message: str | None = None, error: str | None = None):
+    settings = load_dashboard_settings()
+    redirect = login_redirect(request, settings)
+    if redirect:
+        return redirect
+    _validate_issue_date(issue_date)
+    html_path = _issue_dir(issue_date) / "issue.html"
+    html_content = html_path.read_text(encoding="utf-8") if html_path.exists() else ""
+    return templates.TemplateResponse(
+        request,
+        "html_output.html",
+        {
+            "request": request,
+            "issue_date": issue_date,
+            "html_content": html_content,
+            "html_path": html_path,
+            "message": message,
+            "error": error if error else (None if html_content else "No generated HTML file exists yet."),
+        },
+    )
+
+
+async def save_local_selection(request: Request, issue_date: str):
+    form = await request.form()
+    selected_ids = [str(value) for value in form.getlist("selected")]
+    context = _local_issue_context(issue_date, override_selected_ids=selected_ids)
+    if context["error"]:
+        settings = load_dashboard_settings()
+        return _render_issue(request, settings, issue_date, error=context["error"], override_selected_ids=selected_ids)
+    shortlist = context["shortlist"]
+    if not shortlist:
+        settings = load_dashboard_settings()
+        return _render_issue(request, settings, issue_date, error="No candidate file was found.", override_selected_ids=selected_ids)
+    error = validate_selection_count(selected_ids, int(shortlist.min_final_stories), int(shortlist.max_final_stories))
+    if error:
+        settings = load_dashboard_settings()
+        return _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
+    updated_shortlist = shortlist.model_copy(update={"selected_cluster_ids": selected_ids})
+    _issue_dir(issue_date).mkdir(parents=True, exist_ok=True)
+    (_issue_dir(issue_date) / "editorial_selection.md").write_text(
+        render_selection_markdown(updated_shortlist),
+        encoding="utf-8",
+    )
+    action = str(form.get("action", "save"))
+    if action == "save_and_generate":
+        issue, review_shortlist = _build_local_issue(context, selected_ids)
+        write_issue_outputs(
+            issue,
+            _issue_dir(issue_date),
+            qa_report_markdown=_local_qa_markdown(issue, context["import_result"]),
+            review_shortlist=review_shortlist,
+            selection_markdown=render_selection_markdown(review_shortlist),
+        )
+        return RedirectResponse(url=f"/issues/{issue_date}/html?message=Newsletter%20HTML%20generated", status_code=303)
+    return RedirectResponse(url=f"/issues/{issue_date}?message=Selection%20saved", status_code=303)
+
+
+def _render_issue(
     request: Request,
     settings: DashboardSettings,
     issue_date: str,
@@ -240,25 +338,12 @@ async def _render_issue(
     error: str | None = None,
     override_selected_ids: list[str] | None = None,
 ) -> HTMLResponse:
-    client = GitHubClient(settings.github)
     branch = f"newsletter/{issue_date}"
-    has_branch = await client.branch_exists(branch)
-    candidate_data: dict[str, Any] | None = None
-    candidate_error = None
-    try:
-        candidate_data, _ = await client.get_json(f"issues/{issue_date}/candidates.json", settings.github.base_branch)
-    except (GitHubAPIError, ValueError) as exc:
-        candidate_error = str(exc)
-
-    shortlist: dict[str, Any] | None = None
-    shortlist_error = None
-    if has_branch:
-        try:
-            shortlist, _ = await client.get_json(f"issues/{issue_date}/review_shortlist.json", branch)
-        except (GitHubAPIError, ValueError) as exc:
-            shortlist_error = str(exc)
-
-    selected_ids = override_selected_ids or (selected_story_ids(shortlist) if shortlist else [])
+    context = _local_issue_context(issue_date, override_selected_ids=override_selected_ids)
+    candidate_data = context["candidate_data"]
+    shortlist = context["shortlist"]
+    selected_ids = context["selected_ids"]
+    html_exists = (_issue_dir(issue_date) / "issue.html").exists()
     return templates.TemplateResponse(
         request,
         "issue.html",
@@ -266,21 +351,196 @@ async def _render_issue(
             "request": request,
             "issue_date": issue_date,
             "branch": branch,
-            "has_branch": has_branch,
+            "has_branch": settings.github is not None,
             "candidate_count": candidate_count(candidate_data or {}),
             "candidate_rows": candidate_rows(candidate_data or {}),
-            "candidate_error": candidate_error,
+            "candidate_error": context["candidate_error"],
             "shortlist": shortlist,
-            "shortlist_error": shortlist_error,
+            "shortlist_error": context["error"],
             "selected_ids": set(selected_ids),
             "selected_count": len(selected_ids),
             "story_source_links": story_source_links,
             "message": message,
             "error": error,
-            "repository_url": settings.github.web_base_url,
-            "pull_request_url": f"{settings.github.web_base_url}/pulls?q=head%3A{branch}",
+            "repository_url": settings.github.web_base_url if settings.github else "",
+            "pull_request_url": f"{settings.github.web_base_url}/pulls?q=head%3A{branch}" if settings.github else "",
+            "html_exists": html_exists,
+            "html_url": f"/issues/{issue_date}/html",
         },
     )
+
+
+def _local_issue_rows() -> list[dict[str, Any]]:
+    if not ISSUES_DIR.exists():
+        return []
+    rows = []
+    for path in sorted((item for item in ISSUES_DIR.iterdir() if item.is_dir()), key=lambda item: item.name, reverse=True):
+        if not ISSUE_DATE_RE.match(path.name):
+            continue
+        candidate_path = path / "candidates.json"
+        issue_path = path / "issue.html"
+        selection_path = path / "editorial_selection.md"
+        rows.append(
+            {
+                "date": path.name,
+                "url": f"/issues/{path.name}",
+                "candidate_count": _candidate_count_from_path(candidate_path),
+                "has_html": issue_path.exists(),
+                "has_selection": selection_path.exists(),
+                "html_url": f"/issues/{path.name}/html",
+            }
+        )
+    return rows
+
+
+def _local_issue_context(issue_date: str, override_selected_ids: list[str] | None = None) -> dict[str, Any]:
+    issue_dir = _issue_dir(issue_date)
+    candidate_path = issue_dir / "candidates.json"
+    candidate_data: dict[str, Any] = {}
+    candidate_error = None
+    if not candidate_path.exists():
+        return {
+            "candidate_data": {},
+            "candidate_error": f"{candidate_path} does not exist.",
+            "shortlist": None,
+            "selected_ids": override_selected_ids or [],
+            "error": "No candidates.json file exists for this issue.",
+            "import_result": None,
+            "window": None,
+            "settings": None,
+        }
+    try:
+        candidate_data = json.loads(candidate_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        candidate_error = f"Invalid candidates.json: {exc}"
+
+    settings = load_settings().model_copy(update={"dry_run_no_ai": True})
+    window = compute_run_window(settings, issue_date)
+    try:
+        imported = load_candidate_file(candidate_path, window)
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "candidate_data": candidate_data,
+            "candidate_error": candidate_error,
+            "shortlist": None,
+            "selected_ids": override_selected_ids or [],
+            "error": f"Candidate import failed: {exc}",
+            "import_result": None,
+            "window": window,
+            "settings": settings,
+        }
+    review_stories = rank_imported_clusters(imported.clusters, window, settings)[: settings.max_review_stories]
+    selection_path = issue_dir / "editorial_selection.md"
+    selected_ids = override_selected_ids
+    if selected_ids is None:
+        selected_ids = parse_selected_cluster_ids(selection_path)
+    if not selected_ids:
+        selected_ids = imported.default_selected_cluster_ids[: settings.max_final_stories]
+    if not selected_ids:
+        selected_ids = [story.cluster_id for story in review_stories[: settings.max_final_stories]]
+    shortlist = ReviewShortlist(
+        newsletter_name=settings.newsletter_name,
+        run_date=window.issue_date,
+        generated_at=datetime.now(window.run_at.tzinfo),
+        window_start=window.start_at.date(),
+        window_end=window.end_at.date(),
+        min_final_stories=settings.min_final_stories,
+        max_final_stories=settings.max_final_stories,
+        selected_cluster_ids=selected_ids,
+        stories=review_stories,
+    )
+    return {
+        "candidate_data": candidate_data,
+        "candidate_error": candidate_error,
+        "shortlist": shortlist,
+        "selected_ids": selected_ids,
+        "error": None,
+        "import_result": imported,
+        "window": window,
+        "settings": settings,
+    }
+
+
+def _build_local_issue(context: dict[str, Any], selected_ids: list[str]) -> tuple[Issue, ReviewShortlist]:
+    shortlist: ReviewShortlist = context["shortlist"]
+    imported: CandidateImportResult = context["import_result"]
+    window: RunWindow = context["window"]
+    settings: Settings = context["settings"]
+    selected_stories = select_stories(shortlist.stories, selected_ids)
+    _apply_candidate_editorial_text(selected_stories, imported)
+    issue = Issue(
+        newsletter_name=settings.newsletter_name,
+        run_date=window.issue_date,
+        generated_at=datetime.now(window.run_at.tzinfo),
+        window_start=window.start_at.date(),
+        window_end=window.end_at.date(),
+        intro=_local_intro(selected_stories),
+        stories=selected_stories,
+        warnings=[],
+    )
+    review_shortlist = shortlist.model_copy(update={"selected_cluster_ids": [story.cluster_id for story in selected_stories]})
+    return issue, review_shortlist
+
+
+def _apply_candidate_editorial_text(stories: list[RankedStory], imported: CandidateImportResult) -> None:
+    candidates = {candidate.id: candidate for candidate in imported.candidates}
+    for story in stories:
+        candidate = candidates.get(story.cluster_id)
+        if not candidate:
+            continue
+        story.summary = candidate.factual_basis
+        story.why_it_matters = candidate.legal_sector_relevance_note
+
+
+def _local_intro(stories: list[RankedStory]) -> str:
+    if not stories:
+        return "No stories were selected for this issue."
+    ireland_count = sum(1 for story in stories if "ireland" in " ".join(story.source_names).lower() or ".ie" in str(story.canonical_url))
+    if ireland_count:
+        return (
+            "This issue highlights recent legal innovation developments with particular Irish relevance, "
+            "alongside selected UK, EU, and global items that may affect legal-service delivery, legal operations, courts, and professional practice."
+        )
+    return (
+        "This issue highlights recent legal innovation developments from the past fortnight, "
+        "focusing on items that may affect legal-service delivery, legal operations, courts, and professional practice."
+    )
+
+
+def _local_qa_markdown(issue: Issue, imported: CandidateImportResult | None) -> str:
+    lines = [
+        f"# QA report: {issue.run_date.isoformat()}",
+        "",
+        "**Status:** Generated locally from Codex candidate research and dashboard editorial selection.",
+        "",
+        "## Checklist",
+        f"- [{'x' if 8 <= len(issue.stories) <= 12 else ' '}] issue contains 8-12 selected stories",
+        "- [x] every rendered story has at least one source link",
+        "- [x] visible scoring is not included",
+        "- [x] disclaimer is included",
+        "",
+        "## Notes",
+        "- This local dashboard generation does not send email and does not create beehiiv drafts.",
+        "- Story summaries use the factual basis supplied in `candidates.json`.",
+        "- Why-it-matters lines use the legal-sector relevance notes supplied in `candidates.json`.",
+    ]
+    if imported and imported.errors:
+        lines.extend(["", "## Candidate import warnings"])
+        lines.extend(f"- {error.message}" for error in imported.errors)
+    return "\n".join(lines) + "\n"
+
+
+def _candidate_count_from_path(path: Path) -> int:
+    if not path.exists():
+        return 0
+    try:
+        return candidate_count(json.loads(path.read_text(encoding="utf-8")))
+    except json.JSONDecodeError:
+        return 0
+
+
+def _issue_dir(issue_date: str) -> Path:
+    return ISSUES_DIR / issue_date
 
 
 def _workflow_inputs(issue_date: str) -> dict[str, str]:

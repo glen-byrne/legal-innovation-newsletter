@@ -61,20 +61,32 @@ def candidate_rows(candidate_data: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def story_sources(story: dict[str, Any]) -> str:
-    sources = story.get("sources", [])
+    sources = _story_value(story, "sources", [])
     if not isinstance(sources, list):
         return ""
-    return "; ".join(source.get("name", "Source") for source in sources if isinstance(source, dict))
+    return "; ".join(_story_value(source, "name", "Source") for source in sources)
 
 
-def story_source_links(story: dict[str, Any]) -> list[dict[str, str]]:
+def story_source_links(story: Any) -> list[dict[str, str]]:
     links: list[dict[str, str]] = []
-    for source in story.get("sources", []):
-        if isinstance(source, dict):
-            links.append({"name": str(source.get("name", "Source")), "url": str(source.get("url", ""))})
+    sources = _story_value(story, "sources", [])
+    if not isinstance(sources, list):
+        return links
+    for source in sources:
+        links.append(
+            {
+                "name": str(_story_value(source, "name", "Source")),
+                "url": str(_story_value(source, "url", "")),
+            }
+        )
     return links
 
 
 def safe_message(value: str | None) -> str:
     return escape(value or "", quote=True)
 
+
+def _story_value(value: Any, key: str, default: Any = None) -> Any:
+    if isinstance(value, dict):
+        return value.get(key, default)
+    return getattr(value, key, default)

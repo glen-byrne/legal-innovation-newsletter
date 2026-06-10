@@ -4,14 +4,12 @@
 
 {% block content %}
 <section class="panel">
+  <p style="margin:0 0 12px;"><a href="/">← Newsletter library</a></p>
   <h1 class="page-title">Issue {{ issue_date }}</h1>
   <p class="muted">
-    Candidate stories on main: {{ candidate_count }} ·
-    Draft branch:
-    {% if has_branch %}
-      <code>{{ branch }}</code>
-    {% else %}
-      not created yet
+    Candidate stories: {{ candidate_count }}
+    {% if html_exists %}
+      · HTML already generated
     {% endif %}
   </p>
 
@@ -19,14 +17,8 @@
     <p class="error">Candidate file could not be loaded: {{ candidate_error }}</p>
   {% endif %}
 
-  {% if not has_branch %}
-    <p>
-      Start the existing GitHub workflow from <code>main</code> to create the draft PR and review shortlist.
-      This keeps the current workflow intact.
-    </p>
-    <form method="post" action="/issues/{{ issue_date }}/start">
-      <button class="button" type="submit" {% if candidate_count == 0 %}disabled{% endif %}>Create draft PR</button>
-    </form>
+  {% if not shortlist %}
+    <p class="error">No reviewable candidate shortlist is available for this issue.</p>
     {% if candidate_rows %}
       <h2 class="story-title" style="margin-top:28px;">Candidate preview</h2>
       {% for item in candidate_rows %}
@@ -38,13 +30,10 @@
       </article>
       {% endfor %}
     {% endif %}
-  {% elif not shortlist %}
-    <p class="error">The draft branch exists, but the review shortlist could not be loaded: {{ shortlist_error }}</p>
-    <p><a class="button secondary" href="{{ pull_request_url }}" target="_blank" rel="noreferrer">Open pull request</a></p>
   {% else %}
-    <form method="post" action="/issues/{{ issue_date }}/save">
+    <form method="post" action="/issues/{{ issue_date }}/generate-html">
       <p class="muted">
-        Select {{ shortlist.min_final_stories }}-{{ shortlist.max_final_stories }} stories.
+        Select {{ shortlist.min_final_stories }}-{{ shortlist.max_final_stories }} stories for the final newsletter.
         Currently selected: <strong>{{ selected_count }}</strong>.
       </p>
       {% for story in shortlist.stories %}
@@ -78,12 +67,13 @@
 
       <div class="toolbar">
         <div class="muted">
-          Saves to <code>issues/{{ issue_date }}/editorial_selection.md</code> on <code>{{ branch }}</code>.
+          Saves selection and creates <code>issues/{{ issue_date }}/issue.html</code>.
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="button secondary" name="action" value="save" type="submit">Save selection</button>
-          <button class="button" name="action" value="save_and_generate" type="submit">Save and regenerate</button>
-          <a class="button secondary" href="{{ pull_request_url }}" target="_blank" rel="noreferrer">Open PR</a>
+          {% if html_exists %}
+            <a class="button secondary" href="{{ html_url }}">Open generated HTML</a>
+          {% endif %}
+          <button class="button" type="submit">Generate newsletter HTML</button>
         </div>
       </div>
     </form>

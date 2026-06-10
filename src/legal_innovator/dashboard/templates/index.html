@@ -1,27 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}Issues - The Irish Legal Innovator{% endblock %}
+{% block title %}Newsletter library - The Irish Legal Innovator{% endblock %}
 
 {% block content %}
 <section class="panel">
-  <h1 class="page-title">Issues</h1>
-  <p class="muted">Repository: {{ repository }} · Base branch: {{ base_branch }}</p>
+  <h1 class="page-title">Newsletter library</h1>
+  <p class="muted">Source: {{ repository }} · {{ base_branch }}</p>
   {% if not dates %}
-    <p>No issue folders were found on the base branch.</p>
+    <p>No issue folders were found. Ask Codex to gather candidate stories first, then refresh this page.</p>
   {% endif %}
   <div class="grid">
     {% for row in dates %}
     <article class="card">
       <h2 class="story-title">{{ row.date }}</h2>
       <p class="meta">
-        {% if row.has_branch %}
-          Draft branch exists: <code>{{ row.branch }}</code>
-        {% else %}
-          No draft branch yet.
+        {{ row.candidate_count }} candidate stor{% if row.candidate_count == 1 %}y{% else %}ies{% endif %}
+        {% if row.has_selection %}
+          · selection saved
+        {% endif %}
+        {% if row.has_html %}
+          · HTML generated
         {% endif %}
       </p>
-      <p style="margin:14px 0 0;">
+      <p style="margin:14px 0 0; display:flex; gap:10px; flex-wrap:wrap;">
         <a class="button secondary" href="{{ row.url }}">Open review</a>
+        {% if row.has_html %}
+          <a class="button secondary" href="{{ row.html_url }}">Open HTML</a>
+        {% else %}
+          <span class="muted" style="align-self:center;">No HTML yet</span>
+        {% endif %}
       </p>
     </article>
     {% endfor %}
