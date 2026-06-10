@@ -395,18 +395,18 @@
     },
     {
       "id": "ILIN-2026-06-10-026",
-      "headline": "Spellbook hires former Shopify CTO",
-      "published_date": "2026-06-02",
-      "source_name": "Artificial Lawyer",
-      "source_url": "https://www.artificiallawyer.com/2026/06/02/spellbook-hires-former-shopify-cto/",
-      "event_type": "legal_operations",
-      "source_origin": "vendor_originated_announcement",
+      "headline": "Ninth Circuit suspends two California lawyers over AI-generated false citations",
+      "published_date": "2026-06-03",
+      "source_name": "San Francisco Chronicle",
+      "source_url": "https://www.sfchronicle.com/politics/article/sloppy-ai-use-gets-two-california-lawyers-22289879.php",
+      "event_type": "professional_guidance",
+      "source_origin": "confirmed_reporting",
       "region": "US/global",
-      "factual_basis": "Artificial Lawyer reported that contract AI company Spellbook hired former Shopify CTO Jean-Michel Lemieux as an executive individual contributor working across product, engineering, go-to-market, and internal systems.",
-      "legal_sector_relevance_note": "Signals legal AI vendors recruiting senior technology leadership to build AI-native operating models and compete in contract workflow automation.",
+      "factual_basis": "The San Francisco Chronicle reported that the Ninth Circuit fined two lawyers USD 2,500 each and suspended them from practice in the court for six months after briefs contained fictitious AI-generated case citations.",
+      "legal_sector_relevance_note": "A concrete professional-risk item for lawyers using generative AI in litigation, reinforcing duties of competence, diligence, candor, and human verification of legal authorities.",
       "duplicate_group": "none",
       "warning_flags": [
-        "vendor_originated"
+        "paywalled"
       ],
       "selected": true
     },
@@ -461,19 +461,18 @@
     },
     {
       "id": "ILIN-2026-06-10-030",
-      "headline": "Billables AI raises USD 10.2 million Series A for law-firm operational intelligence",
+      "headline": "Fearn raises USD 5.5 million to build AI patent-drafting software for inventors",
       "published_date": "2026-06-10",
-      "source_name": "Artificial Lawyer",
-      "source_url": "https://www.artificiallawyer.com/2026/06/10/claude-fable-steno-billables-ai-spellbook-legora/",
+      "source_name": "Business Insider",
+      "source_url": "https://www.businessinsider.com/a16z-backed-fearn-raises-5-million-legal-ai-patent-drafting-2026-6",
       "event_type": "funding_acquisition_partnership",
-      "source_origin": "vendor_originated_announcement",
+      "source_origin": "confirmed_reporting",
       "region": "US/global",
-      "factual_basis": "Artificial Lawyer reported in its 10 June roundup that Billables AI raised USD 10.2 million in a Series A round led by Avenue Growth Partners to accelerate R&D, go-to-market work, and legal technology partnerships.",
-      "legal_sector_relevance_note": "Relevant to law-firm finance and operations because the product captures legal work data across tools such as Microsoft 365, Google Workspace, Zoom, Adobe, and practice-management systems.",
+      "factual_basis": "Business Insider reported that Fearn raised USD 5.5 million in seed funding, led by Kindred Ventures with participation from Andreessen Horowitz, for AI software that helps inventors draft patents from technical documents.",
+      "legal_sector_relevance_note": "Signals investor interest in tools that move parts of patent drafting upstream to inventors and in-house R&D teams, with implications for IP firms and patent-prosecution service models.",
       "duplicate_group": "none",
       "warning_flags": [
-        "vendor_originated",
-        "limited_detail"
+        "paywalled"
       ],
       "selected": true
     }
