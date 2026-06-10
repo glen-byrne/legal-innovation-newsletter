@@ -117,6 +117,23 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert "Story 1" in (issue_dir / "issue.html").read_text(encoding="utf-8")
 
 
+def test_dashboard_generate_html_get_redirects(monkeypatch, tmp_path) -> None:
+    fastapi_testclient = pytest.importorskip("fastapi.testclient")
+    from legal_innovator.dashboard.app import app
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.delenv("DASHBOARD_GITHUB_REPOSITORY", raising=False)
+    monkeypatch.delenv("DASHBOARD_GITHUB_TOKEN", raising=False)
+    monkeypatch.delenv("DASHBOARD_PASSWORD", raising=False)
+    monkeypatch.setenv("DASHBOARD_ALLOW_NO_AUTH", "true")
+
+    client = fastapi_testclient.TestClient(app)
+    response = client.get("/issues/2026-06-10/generate-html", follow_redirects=False)
+
+    assert response.status_code == 303
+    assert response.headers["location"] == "/issues/2026-06-10"
+
+
 def _candidate(index: int) -> dict[str, object]:
     return {
         "id": f"ILIN-2026-06-10-{index:03d}",

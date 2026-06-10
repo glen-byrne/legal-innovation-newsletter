@@ -271,6 +271,16 @@ async def generate_html(request: Request, issue_date: str):
     )
 
 
+@app.get("/issues/{issue_date}/generate-html")
+async def generate_html_get(request: Request, issue_date: str):
+    settings = load_dashboard_settings()
+    redirect = login_redirect(request, settings)
+    if redirect:
+        return redirect
+    _validate_issue_date(issue_date)
+    return RedirectResponse(url=f"/issues/{issue_date}", status_code=303)
+
+
 @app.get("/issues/{issue_date}/html", response_class=HTMLResponse)
 async def generated_html(request: Request, issue_date: str, message: str | None = None, error: str | None = None):
     settings = load_dashboard_settings()
