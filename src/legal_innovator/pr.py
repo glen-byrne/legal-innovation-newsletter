@@ -31,12 +31,18 @@ def build_pr_body(issue: Issue, qa_report: QAReport, review_shortlist: ReviewSho
 
     if review_shortlist:
         selected = set(review_shortlist.selected_cluster_ids)
+        if review_shortlist.max_final_stories > 0:
+            selection_instruction = (
+                f"Tick {review_shortlist.min_final_stories}-{review_shortlist.max_final_stories} stories."
+            )
+        else:
+            selection_instruction = f"Tick at least {review_shortlist.min_final_stories} stories."
         lines.extend(
             [
                 "",
                 "## Editorial selection shortlist",
                 "",
-                f"Tick {review_shortlist.min_final_stories}-{review_shortlist.max_final_stories} stories.",
+                selection_instruction,
                 f"For a durable selection, edit `issues/{issue.run_date.isoformat()}/editorial_selection.md` "
                 "and rerun the workflow for the same date.",
                 "",

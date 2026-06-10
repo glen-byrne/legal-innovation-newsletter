@@ -1,4 +1,4 @@
-"""Configuration loading for The Irish Legal Innovator."""
+"""Configuration loading for The Legal Innovator Ireland."""
 
 from __future__ import annotations
 
@@ -19,17 +19,17 @@ class Settings(BaseModel):
     openai_api_key: str | None = None
     openai_model_high_quality: str | None = None
     openai_model_fast: str | None = None
-    max_candidates: int = Field(default=80, ge=1)
+    max_candidates: int = Field(default=0, ge=0)
     max_shortlist: int = Field(default=40, ge=1)
-    max_review_stories: int = Field(default=30, ge=8, le=30)
-    max_final_stories: int = Field(default=12, ge=1, le=12)
+    max_review_stories: int = Field(default=0, ge=0)
+    max_final_stories: int = Field(default=0, ge=0)
     min_final_stories: int = Field(default=8, ge=1, le=12)
     max_sources_per_story: int = Field(default=3, ge=1, le=3)
     max_extract_chars_per_article: int = Field(default=6000, ge=500)
     require_human_review: bool = True
     dry_run_no_ai: bool = False
     enable_openai_web_search: bool = False
-    newsletter_name: str = "The Irish Legal Innovator"
+    newsletter_name: str = "The Legal Innovator Ireland"
     newsletter_sender_name: str | None = None
     newsletter_sender_email: str | None = None
     beehiiv_api_key: str | None = None
@@ -82,17 +82,17 @@ def load_settings(env_file: str | Path | None = ".env") -> Settings:
         openai_api_key=os.getenv("OPENAI_API_KEY"),
         openai_model_high_quality=os.getenv("OPENAI_MODEL_HIGH_QUALITY"),
         openai_model_fast=os.getenv("OPENAI_MODEL_FAST"),
-        max_candidates=int(os.getenv("MAX_CANDIDATES", "80")),
+        max_candidates=int(os.getenv("MAX_CANDIDATES", "0")),
         max_shortlist=int(os.getenv("MAX_SHORTLIST", "40")),
-        max_review_stories=int(os.getenv("MAX_REVIEW_STORIES", "30")),
-        max_final_stories=int(os.getenv("MAX_FINAL_STORIES", "12")),
+        max_review_stories=int(os.getenv("MAX_REVIEW_STORIES", "0")),
+        max_final_stories=int(os.getenv("MAX_FINAL_STORIES", "0")),
         min_final_stories=int(os.getenv("MIN_FINAL_STORIES", "8")),
         max_sources_per_story=int(os.getenv("MAX_SOURCES_PER_STORY", "3")),
         max_extract_chars_per_article=int(os.getenv("MAX_EXTRACT_CHARS_PER_ARTICLE", "6000")),
         require_human_review=bool_env(os.getenv("REQUIRE_HUMAN_REVIEW"), True),
         dry_run_no_ai=bool_env(os.getenv("DRY_RUN_NO_AI"), False),
         enable_openai_web_search=bool_env(os.getenv("ENABLE_OPENAI_WEB_SEARCH"), False),
-        newsletter_name=os.getenv("NEWSLETTER_NAME", "The Irish Legal Innovator"),
+        newsletter_name=os.getenv("NEWSLETTER_NAME", "The Legal Innovator Ireland"),
         newsletter_sender_name=os.getenv("NEWSLETTER_SENDER_NAME"),
         newsletter_sender_email=os.getenv("NEWSLETTER_SENDER_EMAIL"),
         beehiiv_api_key=os.getenv("BEEHIIV_API_KEY"),

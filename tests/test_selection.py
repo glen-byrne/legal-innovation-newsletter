@@ -35,10 +35,18 @@ def test_default_selection_checks_top_final_stories() -> None:
     assert selected == [f"cluster-{index}" for index in range(12)]
 
 
+def test_default_selection_can_be_uncapped() -> None:
+    stories = make_ranked_stories(30)
+
+    selected = default_selected_cluster_ids(stories, 0)
+
+    assert selected == [f"cluster-{index}" for index in range(30)]
+
+
 def test_render_and_parse_editorial_selection(tmp_path: Path) -> None:
     stories = make_ranked_stories(3)
     shortlist = ReviewShortlist(
-        newsletter_name="The Irish Legal Innovator",
+        newsletter_name="The Legal Innovator Ireland",
         run_date=stories[0].date,
         generated_at=datetime(2026, 5, 20, 12, 0, tzinfo=ZoneInfo("Europe/Dublin")),
         window_start=stories[0].date - timedelta(days=14),

@@ -17,7 +17,7 @@ if not exist "%PYTHON_EXE%" (
   exit /b 1
 )
 
-echo Starting The Irish Legal Innovator dashboard...
+echo Starting the Legal Innovation Newsletter dashboard...
 echo.
 echo Dashboard address:
 echo http://127.0.0.1:%DASHBOARD_PORT%/

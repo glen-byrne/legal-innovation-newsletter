@@ -8,19 +8,19 @@ on:
         required: false
         type: string
       maximum_final_stories:
-        description: "Maximum final stories"
+        description: "Maximum final stories. Use 0 for no cap."
         required: false
-        default: "12"
+        default: "0"
         type: string
       maximum_review_stories:
-        description: "Maximum review shortlist stories"
+        description: "Maximum review shortlist stories. Use 0 for no cap."
         required: false
-        default: "30"
+        default: "0"
         type: string
       maximum_candidates:
-        description: "Maximum candidate articles collected from RSS/source pages before filtering"
+        description: "Maximum candidate articles collected from RSS/source pages before filtering. Use 0 for no cap."
         required: false
-        default: "80"
+        default: "0"
         type: string
       candidate_file:
         description: "Optional path to Codex candidate JSON file. If blank, issues/YYYY-MM-DD/candidates.json is auto-used when present."
@@ -44,7 +44,7 @@ jobs:
       MAX_CANDIDATES: ${{ inputs.maximum_candidates }}
       REQUIRE_HUMAN_REVIEW: "true"
       DRY_RUN_NO_AI: "false"
-      NEWSLETTER_NAME: "The Irish Legal Innovator"
+      NEWSLETTER_NAME: "The Legal Innovator Ireland"
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -94,7 +94,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No regenerated files changed."
           else
-            git commit -m "Refresh draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
+            git commit -m "Refresh draft issue: The Legal Innovator Ireland - ${{ steps.issue_date.outputs.value }}"
             git push origin "HEAD:$branch"
           fi
 
@@ -105,7 +105,7 @@ jobs:
         shell: bash
         run: |
           branch="newsletter/${{ steps.issue_date.outputs.value }}"
-          title="Draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
+          title="Draft issue: The Legal Innovator Ireland - ${{ steps.issue_date.outputs.value }}"
           if gh pr view "$branch" --json number >/dev/null 2>&1; then
             gh pr edit "$branch" --title "$title" --body-file .newsletter_pr_body.md
           else
@@ -117,9 +117,9 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
+          commit-message: "Draft issue: The Legal Innovator Ireland - ${{ steps.issue_date.outputs.value }}"
           branch: "newsletter/${{ steps.issue_date.outputs.value }}"
-          title: "Draft issue: The Irish Legal Innovator - ${{ steps.issue_date.outputs.value }}"
+          title: "Draft issue: The Legal Innovator Ireland - ${{ steps.issue_date.outputs.value }}"
           body-path: .newsletter_pr_body.md
           add-paths: |
             issues/${{ steps.issue_date.outputs.value }}

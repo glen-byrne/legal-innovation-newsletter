@@ -15,7 +15,7 @@ def validate_selection_count(selected_ids: list[str], minimum: int, maximum: int
     count = len(selected_ids)
     if count < minimum:
         return f"Select at least {minimum} stories. You selected {count}."
-    if count > maximum:
+    if maximum > 0 and count > maximum:
         return f"Select no more than {maximum} stories. You selected {count}."
     return None
 
@@ -23,13 +23,13 @@ def validate_selection_count(selected_ids: list[str], minimum: int, maximum: int
 def build_editorial_selection_markdown(shortlist: dict[str, Any], selected_ids: list[str]) -> str:
     selected = set(selected_ids)
     issue_date = shortlist["run_date"]
-    newsletter_name = shortlist.get("newsletter_name", "The Irish Legal Innovator")
+    newsletter_name = shortlist.get("newsletter_name", "The Legal Innovator Ireland")
     minimum = shortlist.get("min_final_stories", 8)
-    maximum = shortlist.get("max_final_stories", 12)
+    maximum = shortlist.get("max_final_stories", 0)
     lines = [
         f"# Editorial selection: {newsletter_name} - {issue_date}",
         "",
-        f"Select {minimum}-{maximum} stories for the final newsletter.",
+        _selection_instruction(int(minimum), int(maximum)),
         "Tick or untick the boxes, then rerun the generator for the same issue date to rebuild the final issue files.",
         "",
         "Do not edit the hidden `story:` identifiers inside the comments.",
@@ -90,3 +90,9 @@ def _story_value(value: Any, key: str, default: Any = None) -> Any:
     if isinstance(value, dict):
         return value.get(key, default)
     return getattr(value, key, default)
+
+
+def _selection_instruction(minimum: int, maximum: int) -> str:
+    if maximum <= 0:
+        return f"Select at least {minimum} stories for the final newsletter."
+    return f"Select {minimum}-{maximum} stories for the final newsletter."

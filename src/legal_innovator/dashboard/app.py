@@ -35,12 +35,12 @@ from legal_innovator.rendering.html import render_html
 from legal_innovator.selection import parse_selected_cluster_ids, render_selection_markdown, select_stories
 
 
-COOKIE_NAME = "ili_dashboard_session"
+COOKIE_NAME = "lin_dashboard_session"
 ISSUE_DATE_RE = __import__("re").compile(r"^\d{4}-\d{2}-\d{2}$")
 ISSUES_DIR = Path("issues")
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
-app = FastAPI(title="The Irish Legal Innovator Review Dashboard")
+app = FastAPI(title="Legal Innovation Newsletter Dashboard")
 
 
 @dataclass(frozen=True)
@@ -213,7 +213,7 @@ async def save_selection(request: Request, issue_date: str):
     error = validate_selection_count(
         selected_ids,
         int(shortlist.get("min_final_stories", 8)),
-        int(shortlist.get("max_final_stories", 12)),
+        int(shortlist.get("max_final_stories", 0)),
     )
     if error:
         return _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
@@ -395,6 +395,7 @@ def _local_issue_rows() -> list[dict[str, Any]]:
                 "date": path.name,
                 "url": f"/issues/{path.name}",
                 "candidate_count": _candidate_count_from_path(candidate_path),
+                "candidate_updated_at": _file_updated_at(candidate_path),
                 "has_html": issue_path.exists(),
                 "has_selection": selection_path.exists(),
                 "html_url": f"/issues/{path.name}/html",
@@ -424,7 +425,9 @@ def _local_issue_context(issue_date: str, override_selected_ids: list[str] | Non
     except json.JSONDecodeError as exc:
         candidate_error = f"Invalid candidates.json: {exc}"
 
-    settings = load_settings().model_copy(update={"dry_run_no_ai": True})
+    settings = load_settings().model_copy(
+        update={"dry_run_no_ai": True, "max_review_stories": 0, "max_final_stories": 0, "max_candidates": 0}
+    )
     window = compute_run_window(settings, issue_date)
     try:
         imported = load_candidate_file(candidate_path, window)
@@ -439,15 +442,15 @@ def _local_issue_context(issue_date: str, override_selected_ids: list[str] | Non
             "window": window,
             "settings": settings,
         }
-    review_stories = rank_imported_clusters(imported.clusters, window, settings)[: settings.max_review_stories]
+    review_stories = _limit_stories(rank_imported_clusters(imported.clusters, window, settings), settings.max_review_stories)
     selection_path = issue_dir / "editorial_selection.md"
     selected_ids = override_selected_ids
     if selected_ids is None:
         selected_ids = parse_selected_cluster_ids(selection_path)
     if not selected_ids:
-        selected_ids = imported.default_selected_cluster_ids[: settings.max_final_stories]
+        selected_ids = _limit_ids(imported.default_selected_cluster_ids, settings.max_final_stories)
     if not selected_ids:
-        selected_ids = [story.cluster_id for story in review_stories[: settings.max_final_stories]]
+        selected_ids = default_dashboard_selected_ids(review_stories, settings.max_final_stories)
     shortlist = ReviewShortlist(
         newsletter_name=settings.newsletter_name,
         run_date=window.issue_date,
@@ -524,7 +527,7 @@ def _local_qa_markdown(issue: Issue, imported: CandidateImportResult | None) -> 
         "**Status:** Generated locally from Codex candidate research and dashboard editorial selection.",
         "",
         "## Checklist",
-        f"- [{'x' if 8 <= len(issue.stories) <= 12 else ' '}] issue contains 8-12 selected stories",
+        f"- [{'x' if len(issue.stories) >= 8 else ' '}] issue contains at least 8 selected stories",
         "- [x] every rendered story has at least one source link",
         "- [x] visible scoring is not included",
         "- [x] disclaimer is included",
@@ -549,6 +552,26 @@ def _candidate_count_from_path(path: Path) -> int:
         return 0
 
 
+def _file_updated_at(path: Path) -> str:
+    if not path.exists():
+        return "No candidate file"
+    return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def _limit_stories(stories: list[RankedStory], limit: int) -> list[RankedStory]:
+    return stories if limit <= 0 else stories[:limit]
+
+
+def _limit_ids(values: list[str], limit: int) -> list[str]:
+    return values if limit <= 0 else values[:limit]
+
+
+def default_dashboard_selected_ids(stories: list[RankedStory], limit: int) -> list[str]:
+    if limit <= 0:
+        return [story.cluster_id for story in stories]
+    return [story.cluster_id for story in stories[:limit]]
+
+
 def _issue_dir(issue_date: str) -> Path:
     return ISSUES_DIR / issue_date
 
@@ -556,9 +579,9 @@ def _issue_dir(issue_date: str) -> Path:
 def _workflow_inputs(issue_date: str) -> dict[str, str]:
     return {
         "run_date": issue_date,
-        "maximum_final_stories": "12",
-        "maximum_review_stories": "30",
-        "maximum_candidates": "80",
+        "maximum_final_stories": "0",
+        "maximum_review_stories": "0",
+        "maximum_candidates": "0",
         "candidate_file": "",
     }
 

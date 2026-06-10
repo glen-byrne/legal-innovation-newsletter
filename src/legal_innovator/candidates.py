@@ -260,19 +260,20 @@ def _event_type_score(event_type: str) -> float:
     high = {
         "court_digitisation",
         "legal_ai_adoption",
-        "professional_guidance",
         "access_to_justice",
+        "legal_operations",
+        "legal_education",
         "funding_acquisition_partnership",
         "reported_platform_entry",
     }
     medium = {
         "legal_tech_product",
-        "regulatory_development",
-        "legal_education",
-        "legal_operations",
+        "professional_guidance",
     }
     if event_type in high:
-        return 0.9
+        return 0.92
     if event_type in medium:
-        return 0.78
-    return 0.65
+        return 0.82
+    if event_type == "regulatory_development":
+        return 0.6
+    return 0.55

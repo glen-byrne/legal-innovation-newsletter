@@ -57,7 +57,8 @@ class DiscoveryService:
         self.diagnostics: list[SourceDiagnostic] = []
 
     def collect(self, source_config: SourceConfig, window: RunWindow) -> list[CandidateArticle]:
-        limit_per_source = max(5, self.settings.max_candidates // max(1, len(source_config.sources)))
+        unlimited = self.settings.max_candidates <= 0
+        limit_per_source = 100 if unlimited else max(5, self.settings.max_candidates // max(1, len(source_config.sources)))
         candidates: list[CandidateArticle] = []
         for source in source_config.sources:
             adapter = self.adapters.get(source.type)
@@ -87,7 +88,7 @@ class DiscoveryService:
                 )
             )
 
-        remaining = max(0, self.settings.max_candidates - len(candidates))
+        remaining = 0 if unlimited else max(0, self.settings.max_candidates - len(candidates))
         if remaining and self.settings.enable_openai_web_search:
             per_query = max(1, remaining // max(1, len(source_config.queries)))
             for query in source_config.queries:
@@ -106,9 +107,10 @@ class DiscoveryService:
                         notes=[error.message for error in search_errors[:3]],
                     )
                 )
-                if len(candidates) >= self.settings.max_candidates:
+                if not unlimited and len(candidates) >= self.settings.max_candidates:
                     break
 
         self.errors.extend(self.robots.errors)
         self.errors.extend(getattr(self.search_provider, "errors", []))
-        return unique_candidates(candidates)[: self.settings.max_candidates]
+        unique = unique_candidates(candidates)
+        return unique if unlimited else unique[: self.settings.max_candidates]

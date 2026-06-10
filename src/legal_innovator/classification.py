@@ -15,11 +15,12 @@ class ClassificationBatch(BaseModel):
 
 
 CLASSIFICATION_SYSTEM = """You are an executive legal innovation newsletter editor.
-Classify candidate news items for The Irish Legal Innovator.
+Classify candidate news items for The Legal Innovator Ireland.
 Return JSON only.
 Exclude opinion, commentary, generic vendor marketing, and vendor-only product announcements unless there is a concrete factual news event supported by a reliable third-party source.
 Treat paywalled items cautiously: use only headline, metadata, snippets, and links supplied. Do not infer detailed facts from a headline alone.
 In scope includes AI in law, legal operations, court digitisation, regtech/compliance, e-discovery, access to justice, legal education, legal design, smart contracts/blockchain, privacy/cyber governance, alternative legal services, and legal-sector-relevant digital identity, cyber, AI regulation, or enterprise technology developments.
+Give the strongest relevance to stories about how legal work is produced, delivered, automated, engineered, designed, governed, priced, taught, accessed, or supervised. Demote generic legal, litigation, regulatory, business, or technology-policy stories unless they have a clear legal-service-delivery or practice-of-law innovation angle.
 """
 
 

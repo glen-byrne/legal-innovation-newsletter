@@ -1,6 +1,6 @@
-# The Irish Legal Innovator
+# The Legal Innovator Ireland
 
-Lean MVP newsletter generation system for **The Irish Legal Innovator**, an executive-style legal innovation briefing.
+Lean MVP newsletter generation system for **The Legal Innovator Ireland**, an executive-style legal innovation briefing.
 
 The system discovers legal innovation news from the 14 days immediately before the run date, prioritises Irish relevance while allowing major UK/EU and global stories to outrank minor local items, and generates review-ready issue files for a human-approved GitHub pull request.
 
@@ -54,38 +54,38 @@ If no search API is configured, the system still runs from source lists, public 
 
 ## Codex-Assisted Fortnightly Workflow
 
-The recommended low-cost workflow uses Codex for research discovery and the Python system for validation, selection, rendering, QA, archiving, and PR review:
+The recommended low-cost workflow uses Codex for research discovery and the local dashboard for selection, rendering, and QA:
 
-1. Prompt Codex to gather 25-30 candidate stories using the agreed fortnightly legal-innovation news scan prompt.
+1. Prompt Codex to gather all materially relevant candidate stories using [docs/codex-news-scan-prompt.md](docs/codex-news-scan-prompt.md).
 2. Save the Codex output as JSON at `issues/YYYY-MM-DD/candidates.json`.
-3. Commit and push the candidate file so GitHub Actions can read it.
-4. Run the GitHub Actions workflow for the same issue date.
-5. The workflow imports the candidate file, preserves Codex ranking, includes every in-window candidate row in `editorial_selection.md`, and uses `selected` only to decide which items start ticked by default.
-6. Review `editorial_selection.md` and tick 8-12 final stories.
-7. Rerun the workflow for the same issue date, using the same candidate file and edited selection file.
-8. Review the generated PR and merge only when the issue is editorially approved.
+3. Commit and push the candidate file so the repository archive stays current.
+4. Open the dashboard with `start-dashboard.cmd`.
+5. Open the latest issue in the dashboard. The library shows when `candidates.json` was last updated, which helps distinguish repeat scans on the same day.
+6. Review the candidate stories and tick the items to include in the final newsletter. There is no upper cap on the number selected.
+7. Click **Generate newsletter HTML**.
+8. Copy the generated HTML into the mailing campaign platform for human review and sending.
 
 This workflow is designed to minimise API spend while preserving source traceability and human editorial control. The legacy RSS/source discovery path remains available as a fallback when no candidate file is supplied.
 
-## Optional Hosted Review Dashboard
+## Local Review Dashboard
 
-The repository also includes an optional web dashboard that can run alongside the existing GitHub workflow. It does not replace the Markdown/PR process; it gives a friendlier browser interface for the same underlying files.
+The repository includes a local web dashboard for the editorial review workflow.
 
 The dashboard can:
 
-- List issue dates from the repository.
-- Show whether a `newsletter/YYYY-MM-DD` draft branch exists.
-- Preview candidate stories from `issues/YYYY-MM-DD/candidates.json`.
-- Trigger the existing **Generate newsletter** workflow from `main` to create the draft PR.
-- Display the generated `review_shortlist.json` as selectable story cards.
-- Save the selected 8-12 stories back to `issues/YYYY-MM-DD/editorial_selection.md` on the newsletter branch.
-- Trigger the existing workflow again from the newsletter branch to regenerate the final issue.
+- List local issue folders as a newsletter library.
+- Show how many candidate stories each issue contains.
+- Show the last modified time of each `candidates.json` scan.
+- Display candidate stories from `issues/YYYY-MM-DD/candidates.json` as selectable story cards.
+- Save selections to `issues/YYYY-MM-DD/editorial_selection.md`.
+- Generate `issue.html`, `issue.md`, `issue.txt`, `issue.json`, and `qa_report.md` locally.
+- Show the generated HTML with a copy button and preview.
 
 The dashboard still uses the same source-of-truth files:
 
 - Input candidates: `issues/YYYY-MM-DD/candidates.json`
 - Human selection: `issues/YYYY-MM-DD/editorial_selection.md`
-- Workflow: `.github/workflows/generate-newsletter.yml`
+- Generated HTML: `issues/YYYY-MM-DD/issue.html`
 
 Install the optional dashboard dependencies:
 
@@ -99,14 +99,18 @@ Run locally:
 uvicorn legal_innovator.dashboard.app:app --reload
 ```
 
-For PowerShell:
+The easiest Windows launch path is:
 
 ```powershell
-$env:DASHBOARD_GITHUB_REPOSITORY="glen-byrne/legal-innovation-newsletter"
-$env:DASHBOARD_GITHUB_TOKEN="<github-token>"
-$env:DASHBOARD_PASSWORD="<dashboard-password>"
+.\start-dashboard.cmd
+```
+
+For manual PowerShell startup:
+
+```powershell
+$env:DASHBOARD_ALLOW_NO_AUTH="true"
 $env:DASHBOARD_COOKIE_SECURE="false"
-uvicorn legal_innovator.dashboard.app:app --reload
+uvicorn legal_innovator.dashboard.app:app --port 8002 --reload
 ```
 
 For a hosted service such as Render or Railway, use:
@@ -114,7 +118,9 @@ For a hosted service such as Render or Railway, use:
 - Build command: `python -m pip install ".[dashboard]"`
 - Start command: `uvicorn legal_innovator.dashboard.app:app --host 0.0.0.0 --port $PORT`
 
-Required dashboard environment variables:
+For local use via `start-dashboard.cmd`, no dashboard password or GitHub token is required.
+
+Required hosted dashboard environment variables:
 
 - `DASHBOARD_GITHUB_REPOSITORY`, for example `glen-byrne/legal-innovation-newsletter`
 - `DASHBOARD_GITHUB_TOKEN`
@@ -126,6 +132,7 @@ Optional dashboard environment variables:
 - `DASHBOARD_WORKFLOW_FILE=generate-newsletter.yml`
 - `DASHBOARD_SECRET_KEY`
 - `DASHBOARD_COOKIE_SECURE=true`
+- `DASHBOARD_ALLOW_NO_AUTH=false`
 
 Use a fine-grained GitHub token with access only to this repository where possible. It needs repository contents read/write permission and permission to dispatch Actions workflows. Keep the hosted dashboard behind HTTPS and a strong password. Use `DASHBOARD_COOKIE_SECURE=false` only for local HTTP testing.
 
@@ -139,7 +146,7 @@ Example:
 {
   "candidates": [
     {
-      "id": "ILIN-2026-05-24-001",
+      "id": "TLII-2026-05-24-001",
       "headline": "Example legal AI workflow story",
       "published_date": "2026-05-24",
       "source_name": "Example Legal News",
@@ -201,7 +208,7 @@ When using the Codex-assisted workflow, the human-prepared input file is:
 
 The canonical output is `issue.json`. HTML, Markdown, and plain text are rendered from the structured `Issue` object. Internal scores are stored in JSON for reviewability but are not rendered in the visible newsletter.
 
-The review shortlist contains up to 30 relevant candidate stories from the 14-day window. `editorial_selection.md` uses Markdown checkboxes: tick 8-12 stories, then rerun the generator for the same date to rebuild the final issue files from the checked selection.
+The dashboard review shortlist shows all imported candidate stories from the 14-day window. Select the stories you want in the dashboard, then generate the final HTML from that selection.
 
 ## Setup
 
@@ -239,17 +246,17 @@ Required for live generation:
 
 Useful controls:
 
-- `MAX_CANDIDATES=80`
+- `MAX_CANDIDATES=0`
 - `MAX_SHORTLIST=40`
-- `MAX_REVIEW_STORIES=30`
-- `MAX_FINAL_STORIES=12`
+- `MAX_REVIEW_STORIES=0`
+- `MAX_FINAL_STORIES=0`
 - `MIN_FINAL_STORIES=8`
 - `MAX_SOURCES_PER_STORY=3`
 - `MAX_EXTRACT_CHARS_PER_ARTICLE=6000`
 - `REQUIRE_HUMAN_REVIEW=true`
 - `DRY_RUN_NO_AI=false`
 - `ENABLE_OPENAI_WEB_SEARCH=false`
-- `NEWSLETTER_NAME="The Irish Legal Innovator"`
+- `NEWSLETTER_NAME="The Legal Innovator Ireland"`
 
 Future beehiiv placeholders:
 
@@ -274,10 +281,10 @@ Use a reproducible run date:
 python -m legal_innovator.main generate --run-date 2026-05-19 --no-pr
 ```
 
-Override limits:
+Override limits. A value of `0` means no cap:
 
 ```bash
-python -m legal_innovator.main generate --max-candidates 80 --max-review-stories 30 --max-final-stories 12 --no-pr
+python -m legal_innovator.main generate --max-candidates 0 --max-review-stories 0 --max-final-stories 0 --no-pr
 ```
 
 Generate from a Codex candidate file:
@@ -309,7 +316,7 @@ It:
 
 The PR title is:
 
-`Draft issue: The Irish Legal Innovator - YYYY-MM-DD`
+`Draft issue: The Legal Innovator Ireland - YYYY-MM-DD`
 
 The workflow requests only:
 
@@ -321,13 +328,13 @@ permissions:
 
 Repository settings may need Actions workflow permissions enabled so GitHub Actions can create pull requests.
 
-Recommended GitHub process:
+Recommended GitHub process when using Actions rather than the local dashboard:
 
 1. Save the Codex research output as `issues/YYYY-MM-DD/candidates.json`.
 2. Commit and push that candidate file to `main`.
 3. Run **Generate newsletter** in GitHub Actions with the same `run_date`.
 4. Review the generated PR.
-5. Edit `issues/YYYY-MM-DD/editorial_selection.md` on the PR branch to tick 8-12 stories.
+5. Edit `issues/YYYY-MM-DD/editorial_selection.md` on the PR branch to tick the stories you want.
 6. Rerun **Generate newsletter** from the PR branch for the same `run_date`.
 7. Review the rebuilt `issue.html`, `issue.md`, `issue.txt`, `issue.json`, and `qa_report.md`.
 8. Merge the PR when approved.
@@ -364,7 +371,7 @@ Seen URLs and story fingerprints are updated on the PR branch so merged issues b
 
 ## Ranking
 
-Ranking is weighted, not section-based. The visible newsletter is one ranked list of 8-12 stories.
+Ranking is weighted, not section-based. The visible newsletter is one ranked list of the stories selected by the editor.
 
 Internal scoring considers:
 
@@ -394,7 +401,7 @@ OpenAI assists with:
 
 When a Codex candidate file is supplied, the system skips broad live discovery and does not spend API credits searching or classifying the full web. OpenAI API usage is concentrated on final summaries, the executive intro, and factual QA for the selected issue.
 
-To control cost, keep `ENABLE_OPENAI_WEB_SEARCH=false` for normal runs and use the Codex candidate-file workflow as the main collection layer. Increase `MAX_CANDIDATES` or enable OpenAI web search only when the shortlist is clearly missing important stories and you want a one-off expanded discovery run.
+To control cost, keep `ENABLE_OPENAI_WEB_SEARCH=false` for normal runs and use the Codex candidate-file workflow as the main collection layer. Set a positive `MAX_CANDIDATES` value only when you deliberately want to cap fallback RSS/source discovery, or enable OpenAI web search for a one-off expanded run.
 
 AI responses are requested as structured JSON and validated with Pydantic. If validation fails, the call is retried once with a corrective prompt. If it still fails, the failure is recorded in `qa_report.md` and affected items are excluded or safely handled.
 
@@ -420,11 +427,11 @@ Supported source types are `rss`, `webpage`, and `sitemap` for the MVP. Prefer R
 If the lean workflow misses important stories, first try reversible configuration changes:
 
 ```bash
-MAX_CANDIDATES=150
+MAX_CANDIDATES=0
 ENABLE_OPENAI_WEB_SEARCH=true
 ```
 
-In GitHub Actions, set repository variable `ENABLE_OPENAI_WEB_SEARCH` to `true` and run the workflow with `maximum_candidates` set to `150`.
+In GitHub Actions, set repository variable `ENABLE_OPENAI_WEB_SEARCH` to `true` and leave `maximum_candidates` as `0` for no cap, or set a positive number if you want a deliberate limit.
 
 If you want to undo the lean-process code/docs change entirely, revert the commit that introduced it:
 
@@ -458,7 +465,7 @@ Tests mock the expensive and live-service boundaries by constructing typed objec
 
 Current coverage checks include:
 
-- Story-count and date-window validation
+- Story-presence and date-window validation
 - Required source links and max three sources per story
 - Hidden internal scores in visible renders
 - Disclaimer rendering
@@ -480,7 +487,7 @@ No or too few stories:
 - If using the Codex-assisted workflow, check that `issues/YYYY-MM-DD/candidates.json` contains valid JSON and that candidate dates are inside the 14-day window.
 - Check that candidate items intended to start ticked by default have `selected: true`.
 - Review `data/sources.yaml` and add more high-quality RSS feeds or source pages.
-- For a one-off expanded run, increase `MAX_CANDIDATES` and enable `ENABLE_OPENAI_WEB_SEARCH=true`.
+- For a one-off expanded run, enable `ENABLE_OPENAI_WEB_SEARCH=true` and leave `MAX_CANDIDATES=0` unless you want a deliberate cap.
 
 Candidate file import fails:
 

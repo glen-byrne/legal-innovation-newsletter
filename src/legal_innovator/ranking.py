@@ -77,12 +77,12 @@ def _score_breakdown(cluster: StoryCluster, story_date: datetime, window: RunWin
     return ScoreBreakdown(
         region=REGION_WEIGHTS.get(classification.region, REGION_WEIGHTS[Region.UNKNOWN]),
         legal_relevance=legal * 22,
-        innovation=innovation * 17,
-        practical_impact=impact * 17,
+        innovation=innovation * 24,
+        practical_impact=impact * 16,
         source_credibility=source_credibility * 10,
-        recency=recency_ratio * 8,
+        recency=recency_ratio * 7,
         factuality=5 if classification.is_factual_news_event else -8,
-        directness=directness * 8,
+        directness=directness * 10,
     )
 
 
@@ -114,6 +114,15 @@ def _direct_legal_ai_boost(text: str) -> float:
         "e-discovery",
         "patent litigation",
         "legal knowledge",
+        "legal operations",
+        "legal design",
+        "court digitisation",
+        "court digitalisation",
+        "workflow",
+        "automation",
+        "document management",
+        "matter management",
+        "contract lifecycle",
         "diligence",
     ]
     return 0.12 if any(term in text for term in direct_terms) else 0.0

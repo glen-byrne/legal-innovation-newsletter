@@ -22,7 +22,7 @@ class SummaryBatch(BaseModel):
     stories: list[StorySummary] = Field(default_factory=list)
 
 
-SUMMARY_SYSTEM = """You write The Irish Legal Innovator, an executive briefing for law firm leaders, lawyers, clients, in-house counsel, and legal-tech founders.
+SUMMARY_SYSTEM = """You write The Legal Innovator Ireland, an executive briefing for law firm leaders, lawyers, clients, in-house counsel, and legal-tech founders.
 Return JSON only. Tone: neutral, concise, professional, commercially aware. Avoid hype and legal advice.
 Summaries must be based only on the supplied source snippets, metadata, and permitted article text. For paywalled sources, do not imply full article access.
 Each story summary should be 1-2 concise sentences. Each why_it_matters should be exactly one sentence.

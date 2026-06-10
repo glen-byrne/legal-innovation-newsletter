@@ -12,6 +12,8 @@ CHECKBOX_RE = re.compile(r"^-\s+\[(?P<checked>[ xX])\]\s+<!--\s*story:(?P<id>[^ 
 
 
 def default_selected_cluster_ids(stories: list[RankedStory], max_final_stories: int) -> list[str]:
+    if max_final_stories <= 0:
+        return [story.cluster_id for story in stories]
     return [story.cluster_id for story in stories[:max_final_stories]]
 
 
@@ -37,7 +39,7 @@ def render_selection_markdown(shortlist: ReviewShortlist) -> str:
     lines = [
         f"# Editorial selection: {shortlist.newsletter_name} - {shortlist.run_date.isoformat()}",
         "",
-        f"Select {shortlist.min_final_stories}-{shortlist.max_final_stories} stories for the final newsletter.",
+        _selection_instruction(shortlist),
         "Tick or untick the boxes, then rerun the generator for the same issue date to rebuild the final issue files.",
         "",
         "Do not edit the hidden `story:` identifiers inside the comments.",
@@ -54,3 +56,9 @@ def render_selection_markdown(shortlist: ReviewShortlist) -> str:
             ]
         )
     return "\n".join(lines)
+
+
+def _selection_instruction(shortlist: ReviewShortlist) -> str:
+    if shortlist.max_final_stories <= 0:
+        return f"Select at least {shortlist.min_final_stories} stories for the final newsletter."
+    return f"Select {shortlist.min_final_stories}-{shortlist.max_final_stories} stories for the final newsletter."

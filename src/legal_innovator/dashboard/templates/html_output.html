@@ -4,9 +4,9 @@
 
 {% block content %}
 <section class="panel">
-  <p style="margin:0 0 12px;"><a href="/issues/{{ issue_date }}">← Back to review</a></p>
+  <p style="margin:0 0 12px;"><a href="/issues/{{ issue_date }}">&larr; Back to review</a></p>
   <h1 class="page-title">Generated HTML</h1>
-  <p class="muted">Issue {{ issue_date }} · <code>{{ html_path }}</code></p>
+  <p class="muted">Issue {{ issue_date }} &middot; <code>{{ html_path }}</code></p>
 
   {% if html_content %}
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin:18px 0;">
@@ -15,7 +15,7 @@
     </div>
     <textarea
       id="html-source"
-      style="width:100%; min-height:360px; padding:14px; border:1px solid var(--line); border-radius:8px; font-family: Consolas, monospace; font-size:13px;"
+      style="width:100%; min-height:360px; padding:14px; border:1px solid var(--line); border-radius:12px; font-family: Consolas, monospace; font-size:13px;"
       spellcheck="false"
     >{{ html_content }}</textarea>
 
@@ -23,7 +23,7 @@
     <iframe
       title="Generated newsletter preview"
       srcdoc="{{ html_content | e }}"
-      style="width:100%; min-height:720px; border:1px solid var(--line); border-radius:8px; background:white; margin-top:12px;"
+      style="width:100%; min-height:720px; border:1px solid var(--line); border-radius:14px; background:white; margin-top:12px;"
     ></iframe>
 
     <script>
@@ -35,7 +35,7 @@
       }
     </script>
   {% else %}
-    <p>No HTML has been generated yet. Go back to the review page, select 8-12 stories, then click <strong>Generate newsletter HTML</strong>.</p>
+    <p>No HTML has been generated yet. Go back to the review page, select the stories you want, then click <strong>Generate newsletter HTML</strong>.</p>
   {% endif %}
 </section>
 {% endblock %}

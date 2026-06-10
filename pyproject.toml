@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "the-irish-legal-innovator"
+name = "the-legal-innovator-ireland"
 version = "0.1.0"
-description = "Newsletter generation pipeline for The Irish Legal Innovator."
+description = "Newsletter generation pipeline for The Legal Innovator Ireland."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

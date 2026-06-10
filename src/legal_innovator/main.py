@@ -1,4 +1,4 @@
-"""CLI entrypoint for The Irish Legal Innovator pipeline."""
+"""CLI entrypoint for The Legal Innovator Ireland pipeline."""
 
 from __future__ import annotations
 
@@ -57,11 +57,11 @@ def generate(args: argparse.Namespace) -> int:
     stage_errors: list[StageError] = []
     settings = load_settings()
     update = {}
-    if args.max_candidates:
+    if args.max_candidates is not None:
         update["max_candidates"] = args.max_candidates
-    if args.max_review_stories:
+    if args.max_review_stories is not None:
         update["max_review_stories"] = args.max_review_stories
-    if args.max_final_stories:
+    if args.max_final_stories is not None:
         update["max_final_stories"] = args.max_final_stories
     if update:
         settings = settings.model_copy(update=update)
@@ -80,7 +80,7 @@ def generate(args: argparse.Namespace) -> int:
             source_diagnostics = imported.diagnostics
             clusters = imported.clusters
             imported_default_selected_cluster_ids = imported.default_selected_cluster_ids
-            review_stories = rank_imported_clusters(clusters, window, settings)[: settings.max_review_stories]
+            review_stories = _limit_stories(rank_imported_clusters(clusters, window, settings), settings.max_review_stories)
         except Exception as exc:  # noqa: BLE001
             stage_errors.append(
                 StageError(ErrorStage.SOURCE_ACCESS, f"Candidate file import failed: {exc}", source=args.candidate_file)
@@ -119,17 +119,17 @@ def generate(args: argparse.Namespace) -> int:
         clusters, dedupe_errors = cluster_articles(classified, settings)
         stage_errors.extend(dedupe_errors)
         clusters = archive.filter_unseen_clusters(clusters)
-        review_stories = rank_clusters(clusters, window, settings)[: settings.max_review_stories]
+        review_stories = _limit_stories(rank_clusters(clusters, window, settings), settings.max_review_stories)
     selection_file = Path(args.selection_file) if args.selection_file else output_dir / "editorial_selection.md"
     selected_cluster_ids = parse_selected_cluster_ids(selection_file)
     if not selected_cluster_ids:
         selected_cluster_ids = (
-            imported_default_selected_cluster_ids[: settings.max_final_stories]
+            _limit_ids(imported_default_selected_cluster_ids, settings.max_final_stories)
             if imported_default_selected_cluster_ids is not None
             else default_selected_cluster_ids(review_stories, settings.max_final_stories)
         )
     selected_stories = select_stories(review_stories, selected_cluster_ids)
-    if len(selected_stories) > settings.max_final_stories:
+    if settings.max_final_stories > 0 and len(selected_stories) > settings.max_final_stories:
         stage_errors.append(
             StageError(
                 ErrorStage.RANKING,
@@ -200,6 +200,14 @@ def generate(args: argparse.Namespace) -> int:
     if not qa_report.passed:
         print("QA findings were recorded in qa_report.md and the PR body for human review.")
     return 0
+
+
+def _limit_stories(stories, limit: int):
+    return stories if limit <= 0 else stories[:limit]
+
+
+def _limit_ids(values: list[str], limit: int) -> list[str]:
+    return values if limit <= 0 else values[:limit]
 
 
 if __name__ == "__main__":

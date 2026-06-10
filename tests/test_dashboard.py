@@ -12,7 +12,7 @@ from legal_innovator.selection import parse_selected_cluster_ids
 
 def make_shortlist() -> dict:
     return {
-        "newsletter_name": "The Irish Legal Innovator",
+        "newsletter_name": "The Legal Innovator Ireland",
         "run_date": "2026-06-10",
         "min_final_stories": 1,
         "max_final_stories": 2,
@@ -48,6 +48,7 @@ def test_dashboard_selection_count_validation() -> None:
     assert validate_selection_count([], 1, 2) == "Select at least 1 stories. You selected 0."
     assert validate_selection_count(["one", "two", "three"], 1, 2) == "Select no more than 2 stories. You selected 3."
     assert validate_selection_count(["one", "two"], 1, 2) is None
+    assert validate_selection_count(["one", "two", "three"], 1, 0) is None
 
 
 def test_candidate_count_handles_missing_candidates() -> None:

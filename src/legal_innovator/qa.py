@@ -124,7 +124,6 @@ def _escape_table(value: str) -> str:
 def _deterministic_checklist(issue: Issue, window: RunWindow, rendered: dict[str, str]) -> dict[str, bool]:
     rendered_text = "\n".join(rendered.values()).lower()
     return {
-        "issue has no more than 12 stories": len(issue.stories) <= 12,
         "issue has at least one story": len(issue.stories) > 0,
         "empty issues are visibly labelled": bool(issue.stories) or "no qualified stories" in rendered_text,
         "all stories are within the 14-day window": all(

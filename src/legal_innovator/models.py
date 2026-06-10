@@ -188,12 +188,6 @@ class Issue(Model):
     disclaimer: str = "This newsletter is for general information only and does not constitute legal advice."
     warnings: list[str] = Field(default_factory=list)
 
-    @model_validator(mode="after")
-    def validate_story_count(self) -> "Issue":
-        if len(self.stories) > 12:
-            raise ValueError("Issue cannot contain more than 12 stories")
-        return self
-
 
 class ReviewShortlist(Model):
     newsletter_name: str
@@ -202,7 +196,7 @@ class ReviewShortlist(Model):
     window_start: date
     window_end: date
     min_final_stories: int = Field(ge=1, le=12)
-    max_final_stories: int = Field(ge=1, le=12)
+    max_final_stories: int = Field(ge=0)
     selected_cluster_ids: list[str] = Field(default_factory=list)
     stories: list[RankedStory] = Field(default_factory=list)
 
@@ -241,9 +235,9 @@ class SourceDiagnostic(Model):
 
 
 class OpenAIUsageLimits(Model):
-    max_candidates: int = 150
+    max_candidates: int = 0
     max_shortlist: int = 40
-    max_final_stories: int = 12
+    max_final_stories: int = 0
 
 
 def strip_tracking_params(url: str) -> str:

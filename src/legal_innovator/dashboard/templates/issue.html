@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}{{ issue_date }} - The Irish Legal Innovator{% endblock %}
+{% block title %}{{ issue_date }} - Legal Innovation Newsletter{% endblock %}
 
 {% block content %}
 <section class="panel">
-  <p style="margin:0 0 12px;"><a href="/">← Newsletter library</a></p>
+  <p style="margin:0 0 12px;"><a href="/">&larr; Newsletter library</a></p>
   <h1 class="page-title">Issue {{ issue_date }}</h1>
   <p class="muted">
     Candidate stories: {{ candidate_count }}
     {% if html_exists %}
-      · HTML already generated
+      &middot; HTML already generated
     {% endif %}
   </p>
 
@@ -24,7 +24,7 @@
       {% for item in candidate_rows %}
       <article class="card" style="margin-top:12px;">
         <h3 class="story-title">{{ loop.index }}. {{ item.headline }}</h3>
-        <p class="meta">{{ item.published_date }} · {{ item.source_name }} · {{ item.region }} · {{ item.source_origin }}</p>
+        <p class="meta">{{ item.published_date }} &middot; {{ item.source_name }} &middot; {{ item.region }} &middot; {{ item.source_origin }}</p>
         <p class="note">{{ item.legal_sector_relevance_note }}</p>
         <p class="sources"><a class="pill" href="{{ item.source_url }}" target="_blank" rel="noreferrer">Open source</a></p>
       </article>
@@ -33,7 +33,11 @@
   {% else %}
     <form method="post" action="/issues/{{ issue_date }}/generate-html">
       <p class="muted">
-        Select {{ shortlist.min_final_stories }}-{{ shortlist.max_final_stories }} stories for the final newsletter.
+        {% if shortlist.max_final_stories > 0 %}
+          Select {{ shortlist.min_final_stories }}-{{ shortlist.max_final_stories }} stories for the final newsletter.
+        {% else %}
+          Select at least {{ shortlist.min_final_stories }} stories for the final newsletter.
+        {% endif %}
         Currently selected: <strong>{{ selected_count }}</strong>.
       </p>
       {% for story in shortlist.stories %}
@@ -49,7 +53,7 @@
         </div>
         <div>
           <h2 class="story-title">{{ loop.index }}. {{ story.headline }}</h2>
-          <p class="meta">{{ story.date }} · {{ story.sources | length }} source{% if story.sources | length != 1 %}s{% endif %}</p>
+          <p class="meta">{{ story.date }} &middot; {{ story.sources | length }} source{% if story.sources | length != 1 %}s{% endif %}</p>
           {% if story.summary %}
             <p class="note">{{ story.summary }}</p>
           {% endif %}

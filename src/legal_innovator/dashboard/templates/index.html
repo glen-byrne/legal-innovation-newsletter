@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Newsletter library - The Irish Legal Innovator{% endblock %}
+{% block title %}Newsletter library - Legal Innovation Newsletter{% endblock %}
 
 {% block content %}
 <section class="panel">
   <h1 class="page-title">Newsletter library</h1>
-  <p class="muted">Source: {{ repository }} · {{ base_branch }}</p>
+  <p class="muted">Source: {{ repository }} &middot; {{ base_branch }}</p>
   {% if not dates %}
     <p>No issue folders were found. Ask Codex to gather candidate stories first, then refresh this page.</p>
   {% endif %}
@@ -15,11 +15,12 @@
       <h2 class="story-title">{{ row.date }}</h2>
       <p class="meta">
         {{ row.candidate_count }} candidate stor{% if row.candidate_count == 1 %}y{% else %}ies{% endif %}
+        &middot; scan updated {{ row.candidate_updated_at }}
         {% if row.has_selection %}
-          · selection saved
+          &middot; selection saved
         {% endif %}
         {% if row.has_html %}
-          · HTML generated
+          &middot; HTML generated
         {% endif %}
       </p>
       <p style="margin:14px 0 0; display:flex; gap:10px; flex-wrap:wrap;">
