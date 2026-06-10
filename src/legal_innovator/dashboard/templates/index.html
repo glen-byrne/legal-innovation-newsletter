@@ -6,6 +6,15 @@
 <section class="panel">
   <h1 class="page-title">Newsletter library</h1>
   <p class="muted">Source: {{ repository }} &middot; {{ base_branch }}</p>
+  <div class="section-actions">
+    {% if scan_prompt %}
+      <button class="button" type="button" data-copy-prompt>Copy scan prompt</button>
+      <span class="muted" data-copy-status aria-live="polite"></span>
+      <textarea id="scan-prompt-text" class="visually-hidden" readonly>{{ scan_prompt }}</textarea>
+    {% else %}
+      <span class="muted">Scan prompt file not found.</span>
+    {% endif %}
+  </div>
   {% if not dates %}
     <p>No issue folders were found. Ask Codex to gather candidate stories first, then refresh this page.</p>
   {% endif %}
@@ -35,4 +44,40 @@
     {% endfor %}
   </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function () {
+    var button = document.querySelector("[data-copy-prompt]");
+    var prompt = document.getElementById("scan-prompt-text");
+    var status = document.querySelector("[data-copy-status]");
+    if (!button || !prompt) {
+      return;
+    }
+
+    function setStatus(message) {
+      if (status) {
+        status.textContent = message;
+      }
+    }
+
+    button.addEventListener("click", async function () {
+      var text = prompt.value;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          prompt.classList.remove("visually-hidden");
+          prompt.select();
+          document.execCommand("copy");
+          prompt.classList.add("visually-hidden");
+        }
+        setStatus("Copied. Paste it into Codex.");
+      } catch (error) {
+        setStatus("Copy failed. Open the prompt file instead.");
+      }
+    });
+  }());
+</script>
 {% endblock %}

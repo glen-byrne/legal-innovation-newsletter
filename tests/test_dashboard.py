@@ -56,6 +56,20 @@ def test_candidate_count_handles_missing_candidates() -> None:
     assert candidate_count({}) == 0
 
 
+def test_scan_prompt_text_extracts_fenced_prompt(monkeypatch, tmp_path) -> None:
+    from legal_innovator.dashboard.app import _scan_prompt_text
+
+    monkeypatch.chdir(tmp_path)
+    docs_dir = tmp_path / "docs"
+    docs_dir.mkdir()
+    (docs_dir / "codex-news-scan-prompt.md").write_text(
+        "Intro\n\n```text\nPrompt body\nSecond line\n```\n",
+        encoding="utf-8",
+    )
+
+    assert _scan_prompt_text() == "Prompt body\nSecond line"
+
+
 def test_dashboard_login_page_renders(monkeypatch) -> None:
     fastapi_testclient = pytest.importorskip("fastapi.testclient")
     from legal_innovator.dashboard.app import app

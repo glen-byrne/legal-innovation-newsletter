@@ -38,6 +38,7 @@ from legal_innovator.selection import parse_selected_cluster_ids, render_selecti
 COOKIE_NAME = "lin_dashboard_session"
 ISSUE_DATE_RE = __import__("re").compile(r"^\d{4}-\d{2}-\d{2}$")
 ISSUES_DIR = Path("issues")
+SCAN_PROMPT_PATH = Path("docs/codex-news-scan-prompt.md")
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 app = FastAPI(title="Legal Innovation Newsletter Dashboard")
@@ -155,6 +156,7 @@ async def index(request: Request, message: str | None = None):
             "dates": rows,
             "repository": settings.github.repository if settings.github else "local files",
             "base_branch": settings.github.base_branch if settings.github else "local workspace",
+            "scan_prompt": _scan_prompt_text(),
         },
     )
 
@@ -556,6 +558,22 @@ def _file_updated_at(path: Path) -> str:
     if not path.exists():
         return "No candidate file"
     return datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def _scan_prompt_text() -> str:
+    if not SCAN_PROMPT_PATH.exists():
+        return ""
+    content = SCAN_PROMPT_PATH.read_text(encoding="utf-8").strip()
+    start_marker = "```text"
+    end_marker = "```"
+    start = content.find(start_marker)
+    if start == -1:
+        return content
+    start += len(start_marker)
+    end = content.find(end_marker, start)
+    if end == -1:
+        return content[start:].strip()
+    return content[start:end].strip()
 
 
 def _limit_stories(stories: list[RankedStory], limit: int) -> list[RankedStory]:
