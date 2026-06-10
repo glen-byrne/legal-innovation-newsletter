@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}The Irish Legal Innovator{% endblock %}</title>
+    <style>
+      :root {
+        --forest: #1E3B2E;
+        --taupe: #8B7966;
+        --brown: #5A3E2B;
+        --beige: #DCCBB2;
+        --cream: #F5F1EA;
+        --paper: #FFFCF7;
+        --ink: #24221F;
+        --line: rgba(90, 62, 43, 0.22);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a { color: var(--forest); }
+      .topbar {
+        background: var(--forest);
+        color: var(--cream);
+        padding: 18px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .mark {
+        border: 1px solid var(--beige);
+        color: var(--beige);
+        font-family: Georgia, "Times New Roman", serif;
+        padding: 7px 9px;
+        letter-spacing: 0;
+      }
+      .brand-title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        line-height: 1;
+      }
+      .brand-subtitle {
+        color: var(--beige);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        margin-top: 4px;
+        text-transform: uppercase;
+      }
+      .topbar form { margin: 0; }
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 28px auto 48px;
+      }
+      .panel {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 22px;
+      }
+      .page-title {
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--forest);
+        font-size: 34px;
+        line-height: 1.15;
+        margin: 0 0 8px;
+        font-weight: normal;
+      }
+      .muted { color: var(--taupe); }
+      .message, .error {
+        border-radius: 6px;
+        padding: 12px 14px;
+        margin: 0 0 18px;
+      }
+      .message { background: #eaf3ed; color: var(--forest); border: 1px solid #c8dfcf; }
+      .error { background: #fff1ed; color: #7a2318; border: 1px solid #efc3b8; }
+      .button {
+        appearance: none;
+        border: 1px solid var(--forest);
+        background: var(--forest);
+        color: var(--cream);
+        border-radius: 6px;
+        padding: 10px 14px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .button.secondary {
+        background: transparent;
+        color: var(--forest);
+      }
+      .button.ghost {
+        background: transparent;
+        color: var(--beige);
+        border-color: var(--beige);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fffdfa;
+        padding: 16px;
+      }
+      .story-card {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 14px;
+      }
+      .story-card + .story-card { margin-top: 12px; }
+      .story-title {
+        margin: 0;
+        color: var(--forest);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: normal;
+      }
+      .meta {
+        margin: 7px 0 0;
+        color: var(--taupe);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .note {
+        margin: 10px 0 0;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .sources {
+        margin: 10px 0 0;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        display: inline-block;
+        border: 1px solid var(--line);
+        color: var(--brown);
+        background: var(--cream);
+        border-radius: 999px;
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+      .toolbar {
+        position: sticky;
+        bottom: 0;
+        background: rgba(245, 241, 234, 0.96);
+        border-top: 1px solid var(--line);
+        padding: 14px 0 0;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--forest);
+      }
+      @media (max-width: 720px) {
+        .topbar { align-items: flex-start; flex-direction: column; }
+        .page-title { font-size: 28px; }
+        .toolbar { align-items: stretch; flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark">ILI</div>
+        <div>
+          <div class="brand-title">The Irish Legal Innovator</div>
+          <div class="brand-subtitle">Editorial Review Dashboard</div>
+        </div>
+      </div>
+      {% if request.url.path != "/login" %}
+      <form method="post" action="/logout">
+        <button class="button ghost" type="submit">Sign out</button>
+      </form>
+      {% endif %}
+    </header>
+    <main class="shell">
+      {% if message %}<p class="message">{{ message }}</p>{% endif %}
+      {% if error %}<p class="error">{{ error }}</p>{% endif %}
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

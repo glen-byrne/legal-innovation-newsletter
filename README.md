@@ -67,6 +67,68 @@ The recommended low-cost workflow uses Codex for research discovery and the Pyth
 
 This workflow is designed to minimise API spend while preserving source traceability and human editorial control. The legacy RSS/source discovery path remains available as a fallback when no candidate file is supplied.
 
+## Optional Hosted Review Dashboard
+
+The repository also includes an optional web dashboard that can run alongside the existing GitHub workflow. It does not replace the Markdown/PR process; it gives a friendlier browser interface for the same underlying files.
+
+The dashboard can:
+
+- List issue dates from the repository.
+- Show whether a `newsletter/YYYY-MM-DD` draft branch exists.
+- Preview candidate stories from `issues/YYYY-MM-DD/candidates.json`.
+- Trigger the existing **Generate newsletter** workflow from `main` to create the draft PR.
+- Display the generated `review_shortlist.json` as selectable story cards.
+- Save the selected 8-12 stories back to `issues/YYYY-MM-DD/editorial_selection.md` on the newsletter branch.
+- Trigger the existing workflow again from the newsletter branch to regenerate the final issue.
+
+The dashboard still uses the same source-of-truth files:
+
+- Input candidates: `issues/YYYY-MM-DD/candidates.json`
+- Human selection: `issues/YYYY-MM-DD/editorial_selection.md`
+- Workflow: `.github/workflows/generate-newsletter.yml`
+
+Install the optional dashboard dependencies:
+
+```bash
+python -m pip install ".[dashboard]"
+```
+
+Run locally:
+
+```bash
+uvicorn legal_innovator.dashboard.app:app --reload
+```
+
+For PowerShell:
+
+```powershell
+$env:DASHBOARD_GITHUB_REPOSITORY="glen-byrne/legal-innovation-newsletter"
+$env:DASHBOARD_GITHUB_TOKEN="<github-token>"
+$env:DASHBOARD_PASSWORD="<dashboard-password>"
+$env:DASHBOARD_COOKIE_SECURE="false"
+uvicorn legal_innovator.dashboard.app:app --reload
+```
+
+For a hosted service such as Render or Railway, use:
+
+- Build command: `python -m pip install ".[dashboard]"`
+- Start command: `uvicorn legal_innovator.dashboard.app:app --host 0.0.0.0 --port $PORT`
+
+Required dashboard environment variables:
+
+- `DASHBOARD_GITHUB_REPOSITORY`, for example `glen-byrne/legal-innovation-newsletter`
+- `DASHBOARD_GITHUB_TOKEN`
+- `DASHBOARD_PASSWORD`
+
+Optional dashboard environment variables:
+
+- `DASHBOARD_BASE_BRANCH=main`
+- `DASHBOARD_WORKFLOW_FILE=generate-newsletter.yml`
+- `DASHBOARD_SECRET_KEY`
+- `DASHBOARD_COOKIE_SECURE=true`
+
+Use a fine-grained GitHub token with access only to this repository where possible. It needs repository contents read/write permission and permission to dispatch Actions workflows. Keep the hosted dashboard behind HTTPS and a strong password. Use `DASHBOARD_COOKIE_SECURE=false` only for local HTTP testing.
+
 ## Candidate File Format
 
 For the automated pipeline, ask Codex to return JSON rather than only a visual table. The candidate file may be either a JSON array or an object with a `candidates` array.
