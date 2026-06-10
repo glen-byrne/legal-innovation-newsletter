@@ -59,8 +59,6 @@
         margin-top: 2px;
       }
 
-      .topbar form { margin: 0; }
-
       .shell {
         width: min(1180px, calc(100% - 32px));
         margin: 28px auto 64px;
@@ -235,9 +233,7 @@
         <div class="brand-subtitle">Editorial dashboard</div>
       </div>
       {% if request.url.path != "/login" %}
-      <form method="post" action="/logout">
-        <button class="button ghost" type="submit">Sign out</button>
-      </form>
+      <a class="button ghost" href="/">Home</a>
       {% endif %}
     </header>
     <main class="shell">
