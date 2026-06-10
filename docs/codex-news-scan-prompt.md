@@ -27,6 +27,10 @@ Research task:
 
 Find recent factual news items published within the last 14 days before ISSUE_DATE.
 
+Return up to this many candidate stories: 50
+
+Prioritise quality over quantity. Do not pad the list with weak, generic, duplicative, or only loosely relevant items.
+
 Prioritise stories about innovation in the practice, delivery, management, engineering, design, and business of law. Give stronger weight to stories involving legal technology, legal AI, workflow engineering, service design, court digitisation, access-to-justice tools, legal operations, knowledge systems, document systems, e-discovery, CLM, matter management, legal education technology, AI governance for lawyers, and new legal-service delivery models.
 
 Prioritise:
@@ -48,8 +52,6 @@ Exclude:
 - stories based only on search-result snippets or headlines
 - items without direct source URLs
 - generic technology regulation without a clear legal-practice, legal-market, or legal-service-delivery angle
-
-Return as many materially relevant candidate stories as you find. Do not stop at 30 if there are more good candidates. Do not add weak filler merely to increase the count.
 
 The saved file must be valid JSON only. Do not wrap it in Markdown fences. Do not include comments. Use exactly this top-level structure:
 
