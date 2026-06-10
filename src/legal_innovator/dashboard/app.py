@@ -74,7 +74,7 @@ def session_cookie_value(settings: DashboardSettings) -> str:
 
 
 def is_authenticated(request: Request, settings: DashboardSettings) -> bool:
-    if settings.allow_no_auth and not settings.password:
+    if settings.allow_no_auth:
         return True
     if not settings.password:
         return False

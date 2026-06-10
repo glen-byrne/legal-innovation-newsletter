@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from legal_innovator.dashboard.github import candidate_count
+from legal_innovator.dashboard.app import DashboardSettings, is_authenticated
+from legal_innovator.dashboard.github import GitHubSettings, candidate_count
 from legal_innovator.dashboard.selection import build_editorial_selection_markdown, validate_selection_count
 from legal_innovator.selection import parse_selected_cluster_ids
 
@@ -66,3 +67,17 @@ def test_dashboard_login_page_renders(monkeypatch) -> None:
 
     assert response.status_code == 200
     assert "Sign in" in response.text
+
+
+def test_dashboard_no_auth_overrides_password() -> None:
+    settings = DashboardSettings(
+        github=GitHubSettings(
+            repository="glen-byrne/legal-innovation-newsletter",
+            token="test-token",
+        ),
+        password="old-password",
+        secret_key="test-secret",
+        allow_no_auth=True,
+    )
+
+    assert is_authenticated(request=object(), settings=settings) is True
