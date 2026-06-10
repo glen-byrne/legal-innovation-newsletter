@@ -89,7 +89,7 @@ def login_redirect(request: Request, settings: DashboardSettings) -> RedirectRes
 
 
 @app.get("/login", response_class=HTMLResponse)
-async def login(request: Request, error: str | None = None) -> HTMLResponse:
+async def login(request: Request, error: str | None = None):
     try:
         settings = load_dashboard_settings()
     except RuntimeError as exc:
@@ -100,7 +100,7 @@ async def login(request: Request, error: str | None = None) -> HTMLResponse:
 
 
 @app.post("/login")
-async def login_submit(request: Request) -> RedirectResponse:
+async def login_submit(request: Request):
     settings = load_dashboard_settings()
     form = await request.form()
     password = str(form.get("password", ""))
@@ -118,14 +118,14 @@ async def login_submit(request: Request) -> RedirectResponse:
 
 
 @app.post("/logout")
-async def logout() -> RedirectResponse:
+async def logout():
     response = RedirectResponse(url="/login", status_code=303)
     response.delete_cookie(COOKIE_NAME)
     return response
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request, message: str | None = None) -> HTMLResponse | RedirectResponse:
+async def index(request: Request, message: str | None = None):
     settings = load_dashboard_settings()
     redirect = login_redirect(request, settings)
     if redirect:
@@ -161,7 +161,7 @@ async def issue_detail(
     issue_date: str,
     message: str | None = None,
     error: str | None = None,
-) -> HTMLResponse | RedirectResponse:
+):
     settings = load_dashboard_settings()
     redirect = login_redirect(request, settings)
     if redirect:
@@ -171,7 +171,7 @@ async def issue_detail(
 
 
 @app.post("/issues/{issue_date}/start")
-async def start_draft(request: Request, issue_date: str) -> RedirectResponse:
+async def start_draft(request: Request, issue_date: str):
     settings = load_dashboard_settings()
     redirect = login_redirect(request, settings)
     if redirect:
@@ -186,7 +186,7 @@ async def start_draft(request: Request, issue_date: str) -> RedirectResponse:
 
 
 @app.post("/issues/{issue_date}/save")
-async def save_selection(request: Request, issue_date: str) -> HTMLResponse | RedirectResponse:
+async def save_selection(request: Request, issue_date: str):
     settings = load_dashboard_settings()
     redirect = login_redirect(request, settings)
     if redirect:
@@ -286,4 +286,3 @@ def _workflow_inputs(issue_date: str) -> dict[str, str]:
 def _validate_issue_date(issue_date: str) -> None:
     if not ISSUE_DATE_RE.match(issue_date):
         raise HTTPException(status_code=404, detail="Invalid issue date")
-
