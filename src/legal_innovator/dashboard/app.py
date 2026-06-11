@@ -445,6 +445,7 @@ def _local_issue_context(issue_date: str, override_selected_ids: list[str] | Non
             "settings": settings,
         }
     review_stories = _limit_stories(rank_imported_clusters(imported.clusters, window, settings), settings.max_review_stories)
+    _apply_candidate_editorial_text(review_stories, imported)
     selection_path = issue_dir / "editorial_selection.md"
     selected_ids = override_selected_ids
     if selected_ids is None:

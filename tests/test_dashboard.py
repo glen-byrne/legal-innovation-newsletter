@@ -120,6 +120,12 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert index_response.status_code == 200
     assert "2026-06-10" in index_response.text
 
+    review_response = client.get("/issues/2026-06-10")
+    assert review_response.status_code == 200
+    assert "Example factual basis 1." in review_response.text
+    assert "Why it matters:" in review_response.text
+    assert "Example legal-sector relevance 1." in review_response.text
+
     response = client.post(
         "/issues/2026-06-10/generate-html",
         data={"selected": [candidate["id"] for candidate in candidates]},
