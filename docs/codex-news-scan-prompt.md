@@ -1,8 +1,3 @@
-# Legal Innovation Newsletter - Codex News Scan Prompt
-
-Use this prompt in Codex when gathering the candidate story list for a new issue.
-
-```text
 You are working inside the Git repository at C:\Users\Glen\Documents\legal-innovation-newsletter.
 
 Your task is to find recent factual news items relevant to an executive briefing called The Legal Innovator Ireland, then save the candidate list directly into the repository as valid JSON.
@@ -30,6 +25,8 @@ Find recent factual news items published within the last 14 days before ISSUE_DA
 Return up to this many candidate stories: 50
 
 Prioritise quality over quantity. Do not pad the list with weak, generic, duplicative, or only loosely relevant items.
+
+When verifying source URLs, batch source checks where possible and avoid asking for separate approvals for each individual URL. Prefer built-in web/search/browser tools over PowerShell Invoke-WebRequest where available.
 
 Prioritise stories about innovation in the practice, delivery, management, engineering, design, and business of law. Give stronger weight to stories involving legal technology, legal AI, workflow engineering, service design, court digitisation, access-to-justice tools, legal operations, knowledge systems, document systems, e-discovery, CLM, matter management, legal education technology, AI governance for lawyers, and new legal-service delivery models.
 
