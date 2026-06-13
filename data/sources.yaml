@@ -159,6 +159,38 @@ sources:
     credibility: 0.86
     paywalled: false
     enabled: true
+  - name: TechCrunch RSS
+    url: https://techcrunch.com/feed/
+    type: rss
+    region: us_global
+    category: mainstream-technology
+    credibility: 0.84
+    paywalled: false
+    enabled: true
+  - name: TechCrunch AI
+    url: https://techcrunch.com/category/artificial-intelligence/
+    type: webpage
+    region: us_global
+    category: mainstream-technology
+    credibility: 0.84
+    paywalled: false
+    enabled: true
+  - name: WIRED RSS
+    url: https://www.wired.com/feed/rss
+    type: rss
+    region: us_global
+    category: mainstream-technology
+    credibility: 0.84
+    paywalled: true
+    enabled: true
+  - name: WIRED Business
+    url: https://www.wired.com/category/business/
+    type: webpage
+    region: us_global
+    category: mainstream-technology
+    credibility: 0.84
+    paywalled: true
+    enabled: true
   - name: The Irish Times Technology
     url: https://www.irishtimes.com/technology/
     type: webpage
@@ -203,6 +235,10 @@ queries:
   - 'site:businesspost.ie Ireland legal technology AI law firms'
   - 'site:theguardian.com/law AI courts legal technology regulation'
   - 'site:theguardian.com/technology AI regulation law firms legal risk'
+  - 'site:techcrunch.com legal AI law firms legal technology'
+  - 'site:techcrunch.com artificial intelligence legal operations legal tech'
+  - 'site:wired.com legal AI law firms legal technology'
+  - 'site:wired.com artificial intelligence courts law firms legal services'
   - 'site:thetimes.com law firm AI legal technology'
   - 'mainstream Irish legal AI courts technology regulation law firms'
   - 'Ireland legal tech AI law firm'

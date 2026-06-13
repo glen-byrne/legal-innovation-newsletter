@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 from legal_innovator.models import RankedStory, ReviewShortlist, SourceLink
 from legal_innovator.selection import (
     default_selected_cluster_ids,
+    order_stories_by_selection,
     parse_selected_cluster_ids,
     render_selection_markdown,
     select_stories,
@@ -21,6 +22,7 @@ def make_ranked_stories(count: int = 30) -> list[RankedStory]:
             date=(run_at - timedelta(days=index % 14)).date(),
             canonical_url=f"https://example.com/review-{index}",
             sources=[SourceLink(name="Example", url=f"https://example.com/review-{index}")],
+            region_tags=["Ireland"] if index % 2 == 0 else ["United Kingdom", "European Union"],
             cluster_id=f"cluster-{index}",
         )
         for index in range(count)
@@ -62,3 +64,28 @@ def test_render_and_parse_editorial_selection(tmp_path: Path) -> None:
 
     assert parse_selected_cluster_ids(path) == ["cluster-0", "cluster-2"]
     assert select_stories(stories, ["cluster-2"])[0].headline == "Review story 3"
+    assert "Regions: Ireland" in markdown
+    assert "Regions: United Kingdom, European Union" in markdown
+
+
+def test_selection_order_controls_final_story_order(tmp_path: Path) -> None:
+    stories = make_ranked_stories(3)
+    selected_ids = ["cluster-2", "cluster-0"]
+    shortlist = ReviewShortlist(
+        newsletter_name="The Legal Innovator Ireland",
+        run_date=stories[0].date,
+        generated_at=datetime(2026, 5, 20, 12, 0, tzinfo=ZoneInfo("Europe/Dublin")),
+        window_start=stories[0].date - timedelta(days=14),
+        window_end=stories[0].date,
+        min_final_stories=1,
+        max_final_stories=3,
+        selected_cluster_ids=selected_ids,
+        stories=stories,
+    )
+    markdown = render_selection_markdown(shortlist)
+    path = tmp_path / "editorial_selection.md"
+    path.write_text(markdown, encoding="utf-8")
+
+    assert [story.cluster_id for story in order_stories_by_selection(stories, selected_ids)[:2]] == selected_ids
+    assert [story.cluster_id for story in select_stories(stories, selected_ids)] == selected_ids
+    assert parse_selected_cluster_ids(path) == selected_ids

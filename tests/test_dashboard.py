@@ -22,12 +22,14 @@ def make_shortlist() -> dict:
                 "cluster_id": "story-1",
                 "headline": "First story",
                 "date": "2026-06-10",
+                "region_tags": ["Ireland"],
                 "sources": [{"name": "Example Source", "url": "https://example.com/one"}],
             },
             {
                 "cluster_id": "story-2",
                 "headline": "Second story",
                 "date": "2026-06-09",
+                "region_tags": ["United Kingdom", "European Union"],
                 "sources": [{"name": "Example Source", "url": "https://example.com/two"}],
             },
         ],
@@ -42,6 +44,17 @@ def test_dashboard_selection_markdown_matches_existing_parser(tmp_path) -> None:
     assert parse_selected_cluster_ids(path) == ["story-2"]
     assert "<!-- story:story-1 -->" in markdown
     assert "<!-- story:story-2 -->" in markdown
+    assert "Regions: Ireland" in markdown
+    assert "Regions: United Kingdom, European Union" in markdown
+
+
+def test_dashboard_selection_markdown_preserves_selected_order(tmp_path) -> None:
+    markdown = build_editorial_selection_markdown(make_shortlist(), ["story-2", "story-1"])
+    path = tmp_path / "editorial_selection.md"
+    path.write_text(markdown, encoding="utf-8")
+
+    assert parse_selected_cluster_ids(path) == ["story-2", "story-1"]
+    assert markdown.index("Second story") < markdown.index("First story")
 
 
 def test_dashboard_selection_count_validation() -> None:
@@ -113,6 +126,7 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     issue_dir = tmp_path / "issues" / "2026-06-10"
     issue_dir.mkdir(parents=True)
     candidates = [_candidate(index) for index in range(1, 9)]
+    candidates[1]["region"] = "UK/EU"
     (issue_dir / "candidates.json").write_text(json.dumps({"candidates": candidates}), encoding="utf-8")
 
     client = fastapi_testclient.TestClient(app)
@@ -123,19 +137,37 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     review_response = client.get("/issues/2026-06-10")
     assert review_response.status_code == 200
     assert "Example factual basis 1." in review_response.text
+    assert "Ireland" in review_response.text
+    assert "Drag story to reorder" in review_response.text
+    assert "data-drag-handle" in review_response.text
+    assert "data-remove-region" in review_response.text
     assert "Why it matters:" in review_response.text
     assert "Example legal-sector relevance 1." in review_response.text
 
+    selected_ids = [candidate["id"] for candidate in reversed(candidates)]
+    form_data = {
+        "selected": selected_ids,
+        "region_tag_story": [candidate["id"] for candidate in candidates],
+    }
+    for candidate in candidates:
+        story_id = str(candidate["id"])
+        form_data[f"region_tags__{story_id}"] = ["United Kingdom"] if story_id == candidates[1]["id"] else ["Ireland"]
     response = client.post(
         "/issues/2026-06-10/generate-html",
-        data={"selected": [candidate["id"] for candidate in candidates]},
+        data=form_data,
         follow_redirects=False,
     )
 
     assert response.status_code == 303
     assert (issue_dir / "issue.html").exists()
     assert (issue_dir / "editorial_selection.md").exists()
-    assert "Story 1" in (issue_dir / "issue.html").read_text(encoding="utf-8")
+    html = (issue_dir / "issue.html").read_text(encoding="utf-8")
+    assert "Story 1" in html
+    assert html.index("Story 8") < html.index("Story 1")
+    assert '<span class="region-tag">Ireland</span>' in html
+    assert '<span class="region-tag">United Kingdom</span>' in html
+    assert '<span class="region-tag">European Union</span>' not in html
+    assert parse_selected_cluster_ids(issue_dir / "editorial_selection.md") == selected_ids
 
 
 def test_dashboard_generate_html_get_redirects(monkeypatch, tmp_path) -> None:

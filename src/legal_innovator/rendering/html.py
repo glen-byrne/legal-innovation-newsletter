@@ -2,11 +2,16 @@
 
 from __future__ import annotations
 
+from datetime import date
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from legal_innovator.models import Issue
+
+
+def format_display_date(value: date) -> str:
+    return f"{value.day} {value.strftime('%B %Y')}"
 
 
 def render_html(issue: Issue) -> str:
@@ -18,4 +23,4 @@ def render_html(issue: Issue) -> str:
         lstrip_blocks=True,
     )
     template = env.get_template("email.html.j2")
-    return template.render(issue=issue)
+    return template.render(issue=issue, format_date=format_display_date)

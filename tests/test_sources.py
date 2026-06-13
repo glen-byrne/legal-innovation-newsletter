@@ -16,6 +16,11 @@ def test_default_source_config_loads() -> None:
 
     assert config.sources
     assert config.queries
+    source_names = {source.name for source in config.sources}
+    assert "TechCrunch RSS" in source_names
+    assert "WIRED RSS" in source_names
+    assert any("site:techcrunch.com" in query for query in config.queries)
+    assert any("site:wired.com" in query for query in config.queries)
 
 
 def test_webpage_discovery_skips_javascript_links() -> None:

@@ -34,14 +34,6 @@
         color: #F5F1EA;
         text-align: center;
       }
-      .est-row {
-        margin: 0 0 14px 0;
-        font-size: 11px;
-        line-height: 1.4;
-        color: #DCCBB2;
-        font-family: Arial, Helvetica, sans-serif;
-        text-transform: uppercase;
-      }
       .monogram {
         display: inline-block;
         margin: 0 auto 12px auto;
@@ -73,9 +65,8 @@
       .tagline {
         margin: 16px 0 0 0;
         color: #DCCBB2;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 1.5;
-        text-transform: uppercase;
       }
       .issue-meta {
         padding: 16px 30px;
@@ -122,6 +113,27 @@
         color: #8B7966;
         font-size: 13px;
         line-height: 1.45;
+      }
+      .issue-disclaimer {
+        margin: 8px 0 0 0;
+        color: #2A2A24;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .region-tags {
+        margin: 10px 0 0 0;
+      }
+      .region-tag {
+        display: inline-block;
+        margin: 0 6px 6px 0;
+        padding: 4px 8px;
+        border: 1px solid #DCCBB2;
+        border-radius: 999px;
+        background: #F5F1EA;
+        color: #5A3E2B;
+        font-size: 12px;
+        line-height: 1.2;
+        font-weight: bold;
       }
       .summary {
         margin: 16px 0 0 0;
@@ -173,6 +185,17 @@
         font-size: 20px;
         line-height: 1;
       }
+      .feedback-button {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 16px;
+        border: 1px solid #DCCBB2;
+        border-radius: 999px;
+        color: #F5F1EA;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+      }
       @media screen and (max-width: 520px) {
         .outer-pad { padding: 0 !important; }
         .masthead { padding: 28px 20px 24px 20px !important; }
@@ -191,18 +214,17 @@
           <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td class="masthead">
-                <p class="est-row">Est. 2024</p>
                 <div class="monogram">LII</div>
                 <h1 class="title-small">The Legal</h1>
                 <h1 class="title-large">Innovator</h1>
                 <h1 class="title-small">Ireland</h1>
-                <p class="tagline">Law. Innovation. Impact.</p>
+                <p class="tagline">The latest on legal innovation, technology, AI and design for the Irish legal sector.</p>
               </td>
             </tr>
             <tr>
               <td class="issue-meta">
-                <strong>{{ issue.newsletter_name }}</strong><br>
-                Issue date: {{ issue.run_date.isoformat() }}
+                <strong>Issue: {{ format_date(issue.run_date) }}</strong>
+                <p class="issue-disclaimer">{{ issue.disclaimer }}</p>
               </td>
             </tr>
             <tr>
@@ -226,7 +248,14 @@
                     </td>
                     <td valign="top">
                       <h2>{{ story.headline }}</h2>
-                      <p class="meta">{{ story.date.isoformat() }}</p>
+                      <p class="meta">{{ format_date(story.date) }}</p>
+                      {% if story.region_tags %}
+                      <p class="region-tags">
+                        {% for region in story.region_tags[:3] %}
+                        <span class="region-tag">{{ region }}</span>
+                        {% endfor %}
+                      </p>
+                      {% endif %}
                     </td>
                   </tr>
                 </table>
@@ -244,7 +273,7 @@
             <tr>
               <td class="footer">
                 <p class="footer-mark">LII</p>
-                {{ issue.disclaimer }}
+                <a class="feedback-button" href="mailto:legalinnovation@gmail.com">Provide feedback</a>
               </td>
             </tr>
           </table>

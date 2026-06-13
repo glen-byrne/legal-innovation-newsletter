@@ -21,6 +21,7 @@ def make_issue(story_count: int = 8) -> Issue:
                 date=(run_at - timedelta(days=index + 1)).date(),
                 canonical_url=f"https://example.com/story-{index}",
                 sources=[SourceLink(name="Example Legal News", url=f"https://example.com/story-{index}")],
+                region_tags=["Ireland"] if index % 2 == 0 else ["United Kingdom", "European Union"],
                 source_names=["Example Legal News"],
                 source_types=["legal_tech_media"],
                 summary="A reliable source reported a legal innovation development.",
@@ -61,8 +62,24 @@ def test_html_template_uses_brand_identity_palette() -> None:
     assert "#5A3E2B" in html
     assert "#DCCBB2" in html
     assert "#F5F1EA" in html
-    assert "Law. Innovation. Impact." in html
+    assert "The latest on legal innovation, technology, AI and design for the Irish legal sector." in html
     assert "LII" in html
+    assert "Est. 2024" not in html
+    assert "Issue date:" not in html
+    assert "Issue: 19 May 2026" in html
+    assert "18 May 2026" in html
+    assert "mailto:legalinnovation@gmail.com" in html
+
+
+def test_rendered_outputs_include_visible_region_tags() -> None:
+    issue = make_issue(story_count=2)
+    outputs = rendered_outputs(issue)
+
+    assert '<span class="region-tag">Ireland</span>' in outputs["html"]
+    assert '<span class="region-tag">United Kingdom</span>' in outputs["html"]
+    assert '<span class="region-tag">European Union</span>' in outputs["html"]
+    assert "**Regions:** Ireland" in outputs["markdown"]
+    assert "Regions: United Kingdom, European Union" in outputs["plaintext"]
 
 
 def test_qa_acceptance_checks_pass_for_valid_issue() -> None:

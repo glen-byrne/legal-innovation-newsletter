@@ -31,7 +31,22 @@ def parse_selected_cluster_ids(path: str | Path) -> list[str]:
 
 def select_stories(stories: list[RankedStory], selected_cluster_ids: list[str]) -> list[RankedStory]:
     selected = set(selected_cluster_ids)
-    return [story for story in stories if story.cluster_id in selected]
+    return [story for story in order_stories_by_selection(stories, selected_cluster_ids) if story.cluster_id in selected]
+
+
+def order_stories_by_selection(stories: list[RankedStory], selected_cluster_ids: list[str]) -> list[RankedStory]:
+    stories_by_id = {story.cluster_id: story for story in stories}
+    seen: set[str] = set()
+    ordered: list[RankedStory] = []
+    for story_id in selected_cluster_ids:
+        if story_id in seen:
+            continue
+        story = stories_by_id.get(story_id)
+        if story:
+            ordered.append(story)
+            seen.add(story_id)
+    ordered.extend(story for story in stories if story.cluster_id not in seen)
+    return ordered
 
 
 def render_selection_markdown(shortlist: ReviewShortlist) -> str:
@@ -45,12 +60,14 @@ def render_selection_markdown(shortlist: ReviewShortlist) -> str:
         "Do not edit the hidden `story:` identifiers inside the comments.",
         "",
     ]
-    for index, story in enumerate(shortlist.stories, start=1):
+    for index, story in enumerate(order_stories_by_selection(shortlist.stories, shortlist.selected_cluster_ids), start=1):
         checked = "x" if story.cluster_id in selected else " "
         sources = "; ".join(f"{source.name}: {source.url}" for source in story.sources)
+        regions = _region_tags_text(story)
         lines.extend(
             [
                 f"- [{checked}] <!-- story:{story.cluster_id} --> **{index}. {story.headline}** ({story.date.isoformat()})",
+                f"  Regions: {regions}" if regions else "  Regions: Unspecified",
                 f"  Sources: {sources}",
                 "",
             ]
@@ -62,3 +79,7 @@ def _selection_instruction(shortlist: ReviewShortlist) -> str:
     if shortlist.max_final_stories <= 0:
         return f"Select at least {shortlist.min_final_stories} stories for the final newsletter."
     return f"Select {shortlist.min_final_stories}-{shortlist.max_final_stories} stories for the final newsletter."
+
+
+def _region_tags_text(story: RankedStory) -> str:
+    return ", ".join(story.region_tags[:3])

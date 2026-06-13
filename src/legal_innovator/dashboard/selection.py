@@ -5,6 +5,8 @@ from __future__ import annotations
 from html import escape
 from typing import Any
 
+from legal_innovator.models import region_tags_for_region
+
 
 def selected_story_ids(shortlist: dict[str, Any]) -> list[str]:
     values = shortlist.get("selected_cluster_ids", [])
@@ -35,17 +37,19 @@ def build_editorial_selection_markdown(shortlist: dict[str, Any], selected_ids: 
         "Do not edit the hidden `story:` identifiers inside the comments.",
         "",
     ]
-    for index, story in enumerate(shortlist.get("stories", []), start=1):
+    for index, story in enumerate(_ordered_stories(shortlist.get("stories", []), selected_ids), start=1):
         story_id = str(story.get("cluster_id", ""))
         checked = "x" if story_id in selected else " "
         headline = story.get("headline", "Untitled story")
         date = story.get("date", "")
+        regions = ", ".join(story_region_tags(story))
         sources = "; ".join(
             f"{source.get('name', 'Source')}: {source.get('url', '')}" for source in story.get("sources", [])
         )
         lines.extend(
             [
                 f"- [{checked}] <!-- story:{story_id} --> **{index}. {headline}** ({date})",
+                f"  Regions: {regions}" if regions else "  Regions: Unspecified",
                 f"  Sources: {sources}",
                 "",
             ]
@@ -82,8 +86,35 @@ def story_source_links(story: Any) -> list[dict[str, str]]:
     return links
 
 
+def story_region_tags(story: Any) -> list[str]:
+    tags = _story_value(story, "region_tags", [])
+    if isinstance(tags, list) and tags:
+        return [str(tag) for tag in tags[:3] if str(tag).strip()]
+    region = _story_value(story, "region", "")
+    if not region:
+        return []
+    return region_tags_for_region(str(region))
+
+
 def safe_message(value: str | None) -> str:
     return escape(value or "", quote=True)
+
+
+def _ordered_stories(stories: Any, selected_ids: list[str]) -> list[Any]:
+    if not isinstance(stories, list):
+        return []
+    stories_by_id = {str(_story_value(story, "cluster_id", "")): story for story in stories}
+    seen: set[str] = set()
+    ordered: list[Any] = []
+    for story_id in selected_ids:
+        if story_id in seen:
+            continue
+        story = stories_by_id.get(story_id)
+        if story:
+            ordered.append(story)
+            seen.add(story_id)
+    ordered.extend(story for story in stories if str(_story_value(story, "cluster_id", "")) not in seen)
+    return ordered
 
 
 def _story_value(value: Any, key: str, default: Any = None) -> Any:

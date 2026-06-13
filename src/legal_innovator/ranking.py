@@ -6,7 +6,7 @@ from datetime import datetime
 from urllib.parse import urlsplit
 
 from legal_innovator.config import RunWindow, Settings
-from legal_innovator.models import Region, RankedStory, ScoreBreakdown, SourceLink, StoryCluster
+from legal_innovator.models import Region, RankedStory, ScoreBreakdown, SourceLink, StoryCluster, region_tags_for_region
 
 
 REGION_WEIGHTS = {
@@ -49,6 +49,7 @@ def _story_from_cluster(cluster: StoryCluster, window: RunWindow, settings: Sett
         date=story_date.astimezone(window.run_at.tzinfo).date(),
         canonical_url=primary.url,
         sources=links,
+        region_tags=region_tags_for_region(cluster.classification.region),
         source_names=[link.name for link in links],
         source_types=[link.source_type for link in links],
         score=round(score, 3),

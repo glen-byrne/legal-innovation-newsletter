@@ -27,12 +27,18 @@ from legal_innovator.dashboard.github import GitHubClient, GitHubSettings, candi
 from legal_innovator.dashboard.selection import (
     build_editorial_selection_markdown,
     candidate_rows,
+    story_region_tags,
     story_source_links,
     validate_selection_count,
 )
 from legal_innovator.models import Issue, RankedStory, ReviewShortlist
 from legal_innovator.rendering.html import render_html
-from legal_innovator.selection import parse_selected_cluster_ids, render_selection_markdown, select_stories
+from legal_innovator.selection import (
+    order_stories_by_selection,
+    parse_selected_cluster_ids,
+    render_selection_markdown,
+    select_stories,
+)
 
 
 COOKIE_NAME = "lin_dashboard_session"
@@ -244,6 +250,7 @@ async def generate_html(request: Request, issue_date: str):
     _validate_issue_date(issue_date)
     form = await request.form()
     selected_ids = [str(value) for value in form.getlist("selected")]
+    region_tag_overrides = _region_tag_overrides_from_form(form)
     context = _local_issue_context(issue_date, override_selected_ids=selected_ids)
     if context["error"]:
         return _render_issue(request, settings, issue_date, error=context["error"], override_selected_ids=selected_ids)
@@ -257,7 +264,7 @@ async def generate_html(request: Request, issue_date: str):
     )
     if error:
         return _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
-    issue, review_shortlist = _build_local_issue(context, selected_ids)
+    issue, review_shortlist = _build_local_issue(context, selected_ids, region_tag_overrides)
     issue_dir = _issue_dir(issue_date)
     selection_markdown = render_selection_markdown(review_shortlist)
     files = write_issue_outputs(
@@ -309,6 +316,7 @@ async def generated_html(request: Request, issue_date: str, message: str | None 
 async def save_local_selection(request: Request, issue_date: str):
     form = await request.form()
     selected_ids = [str(value) for value in form.getlist("selected")]
+    region_tag_overrides = _region_tag_overrides_from_form(form)
     context = _local_issue_context(issue_date, override_selected_ids=selected_ids)
     if context["error"]:
         settings = load_dashboard_settings()
@@ -321,6 +329,7 @@ async def save_local_selection(request: Request, issue_date: str):
     if error:
         settings = load_dashboard_settings()
         return _render_issue(request, settings, issue_date, error=error, override_selected_ids=selected_ids)
+    _apply_region_tag_overrides(shortlist.stories, region_tag_overrides)
     updated_shortlist = shortlist.model_copy(update={"selected_cluster_ids": selected_ids})
     _issue_dir(issue_date).mkdir(parents=True, exist_ok=True)
     (_issue_dir(issue_date) / "editorial_selection.md").write_text(
@@ -329,7 +338,7 @@ async def save_local_selection(request: Request, issue_date: str):
     )
     action = str(form.get("action", "save"))
     if action == "save_and_generate":
-        issue, review_shortlist = _build_local_issue(context, selected_ids)
+        issue, review_shortlist = _build_local_issue(context, selected_ids, region_tag_overrides)
         write_issue_outputs(
             issue,
             _issue_dir(issue_date),
@@ -371,6 +380,7 @@ def _render_issue(
             "shortlist_error": context["error"],
             "selected_ids": set(selected_ids),
             "selected_count": len(selected_ids),
+            "story_region_tags": story_region_tags,
             "story_source_links": story_source_links,
             "message": message,
             "error": error,
@@ -454,6 +464,7 @@ def _local_issue_context(issue_date: str, override_selected_ids: list[str] | Non
         selected_ids = _limit_ids(imported.default_selected_cluster_ids, settings.max_final_stories)
     if not selected_ids:
         selected_ids = default_dashboard_selected_ids(review_stories, settings.max_final_stories)
+    review_stories = order_stories_by_selection(review_stories, selected_ids)
     shortlist = ReviewShortlist(
         newsletter_name=settings.newsletter_name,
         run_date=window.issue_date,
@@ -477,11 +488,39 @@ def _local_issue_context(issue_date: str, override_selected_ids: list[str] | Non
     }
 
 
-def _build_local_issue(context: dict[str, Any], selected_ids: list[str]) -> tuple[Issue, ReviewShortlist]:
+def _region_tag_overrides_from_form(form: Any) -> dict[str, list[str]]:
+    story_ids = [str(value) for value in form.getlist("region_tag_story") if str(value).strip()]
+    overrides: dict[str, list[str]] = {story_id: [] for story_id in story_ids}
+    for story_id in story_ids:
+        key = f"region_tags__{story_id}"
+        values = [str(value).strip() for value in form.getlist(key) if str(value).strip()]
+        overrides[story_id] = values[:3]
+    return overrides
+
+
+def _apply_region_tag_overrides(stories: list[Any], overrides: dict[str, list[str]] | None) -> None:
+    if not overrides:
+        return
+    for story in stories:
+        story_id = str(getattr(story, "cluster_id", "") or (story.get("cluster_id", "") if isinstance(story, dict) else ""))
+        if story_id not in overrides:
+            continue
+        if isinstance(story, dict):
+            story["region_tags"] = overrides[story_id][:3]
+        else:
+            story.region_tags = overrides[story_id][:3]
+
+
+def _build_local_issue(
+    context: dict[str, Any],
+    selected_ids: list[str],
+    region_tag_overrides: dict[str, list[str]] | None = None,
+) -> tuple[Issue, ReviewShortlist]:
     shortlist: ReviewShortlist = context["shortlist"]
     imported: CandidateImportResult = context["import_result"]
     window: RunWindow = context["window"]
     settings: Settings = context["settings"]
+    _apply_region_tag_overrides(shortlist.stories, region_tag_overrides)
     selected_stories = select_stories(shortlist.stories, selected_ids)
     _apply_candidate_editorial_text(selected_stories, imported)
     issue = Issue(
@@ -513,14 +552,8 @@ def _local_intro(stories: list[RankedStory]) -> str:
         return "No stories were selected for this issue."
     ireland_count = sum(1 for story in stories if "ireland" in " ".join(story.source_names).lower() or ".ie" in str(story.canonical_url))
     if ireland_count:
-        return (
-            "This issue highlights recent legal innovation developments with particular Irish relevance, "
-            "alongside selected UK, EU, and global items that may affect legal-service delivery, legal operations, courts, and professional practice."
-        )
-    return (
-        "This issue highlights recent legal innovation developments from the past fortnight, "
-        "focusing on items that may affect legal-service delivery, legal operations, courts, and professional practice."
-    )
+        return "Legal innovation developments affecting Irish practice, courts, operations and the wider market."
+    return "Legal innovation developments affecting legal practice, courts, operations and clients."
 
 
 def _local_qa_markdown(issue: Issue, imported: CandidateImportResult | None) -> str:

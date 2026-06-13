@@ -27,7 +27,9 @@ def build_pr_body(issue: Issue, qa_report: QAReport, review_shortlist: ReviewSho
     ]
     for index, story in enumerate(issue.stories, start=1):
         sources = "; ".join(f"[{link.name}]({link.url})" for link in story.sources)
-        lines.append(f"{index}. **{story.headline}** ({story.date.isoformat()}) - {sources}")
+        regions = _region_tags_text(story)
+        region_text = f" [{regions}]" if regions else ""
+        lines.append(f"{index}. **{story.headline}**{region_text} ({story.date.isoformat()}) - {sources}")
 
     if review_shortlist:
         selected = set(review_shortlist.selected_cluster_ids)
@@ -51,7 +53,9 @@ def build_pr_body(issue: Issue, qa_report: QAReport, review_shortlist: ReviewSho
         for index, story in enumerate(review_shortlist.stories, start=1):
             checked = "x" if story.cluster_id in selected else " "
             sources = "; ".join(f"[{link.name}]({link.url})" for link in story.sources)
-            lines.append(f"- [{checked}] **{index}. {story.headline}** ({story.date.isoformat()}) - {sources}")
+            regions = _region_tags_text(story)
+            region_text = f" [{regions}]" if regions else ""
+            lines.append(f"- [{checked}] **{index}. {story.headline}**{region_text} ({story.date.isoformat()}) - {sources}")
 
     lines.extend(["", "## QA checklist", ""])
     for item, passed in qa_report.checklist.items():
@@ -111,3 +115,10 @@ def _command_exists(command: str) -> bool:
     from shutil import which
 
     return which(command) is not None
+
+
+def _region_tags_text(story: object) -> str:
+    tags = getattr(story, "region_tags", [])
+    if not isinstance(tags, list):
+        return ""
+    return ", ".join(str(tag) for tag in tags[:3] if str(tag).strip())

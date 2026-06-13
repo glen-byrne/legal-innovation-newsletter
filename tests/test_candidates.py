@@ -83,8 +83,10 @@ def test_candidate_file_import_keeps_all_candidate_rows_for_editorial_selection(
     ranked = rank_imported_clusters(result.clusters, window, Settings(dry_run_no_ai=True))
 
     assert ranked[0].headline == "Legal AI platform announces major court workflow partnership"
+    assert ranked[0].region_tags == ["United Kingdom", "European Union"]
     assert ranked[1].headline == "Second report on legal AI court workflow partnership"
     assert ranked[2].headline == "Near miss broad technology policy story"
+    assert ranked[2].region_tags == ["Global"]
 
 
 def test_candidate_file_import_flags_out_of_window_items(tmp_path: Path) -> None:

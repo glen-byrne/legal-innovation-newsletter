@@ -30,6 +30,38 @@ class Region(StrEnum):
     UNKNOWN = "unknown"
 
 
+REGION_DISPLAY_TAGS: dict[Region, list[str]] = {
+    Region.IRELAND: ["Ireland"],
+    Region.UK_EU: ["United Kingdom", "European Union"],
+    Region.US_GLOBAL: ["United States", "Global"],
+    Region.GLOBAL: ["Global"],
+    Region.UNKNOWN: [],
+}
+
+
+def region_tags_for_region(value: Region | str) -> list[str]:
+    """Return human-readable region tags capped for compact story display."""
+
+    if isinstance(value, Region):
+        return REGION_DISPLAY_TAGS[value][:3]
+    normalised = value.strip().lower().replace("-", "/").replace("_", "/")
+    if normalised in {"ireland", "irish", "all/island", "all island"}:
+        return ["Ireland"]
+    if normalised in {"uk/eu", "uk and eu", "uk/europe", "europe"}:
+        return ["United Kingdom", "European Union"]
+    if normalised in {"uk", "united kingdom", "britain", "england and wales"}:
+        return ["United Kingdom"]
+    if normalised in {"eu", "european union"}:
+        return ["European Union"]
+    if normalised in {"us/global", "us and global", "global us"}:
+        return ["United States", "Global"]
+    if normalised in {"us", "usa", "united states"}:
+        return ["United States"]
+    if normalised == "global":
+        return ["Global"]
+    return []
+
+
 class Source(Model):
     name: str
     url: AnyUrl
@@ -156,6 +188,7 @@ class RankedStory(Model):
     date: date
     canonical_url: AnyUrl
     sources: list[SourceLink] = Field(min_length=1, max_length=3)
+    region_tags: list[str] = Field(default_factory=list, max_length=3)
     source_names: list[str] = Field(default_factory=list)
     source_types: list[str] = Field(default_factory=list)
     summary: str = ""
@@ -185,7 +218,10 @@ class Issue(Model):
     window_end: date
     intro: str
     stories: list[RankedStory]
-    disclaimer: str = "This newsletter is for general information only and does not constitute legal advice."
+    disclaimer: str = (
+        "This newsletter is collected using AI and reviewed by humans. AI can be liable to mistakes. "
+        "This newsletter is for general information only and does not constitute legal advice."
+    )
     warnings: list[str] = Field(default_factory=list)
 
 

@@ -87,6 +87,8 @@ def test_pr_body_contains_required_review_sections() -> None:
     assert "Editorial selection shortlist" in body
     assert "- [x]" in body
     assert "- [ ]" in body
+    assert "[Ireland]" in body
+    assert "[United Kingdom, European Union]" in body
     assert "QA checklist" in body
     assert "Opinion pieces and vendor-only announcements were excluded" in body
     assert "does not send email" in body

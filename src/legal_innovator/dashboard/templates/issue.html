@@ -25,6 +25,14 @@
       <article class="card" style="margin-top:12px;">
         <h3 class="story-title">{{ loop.index }}. {{ item.headline }}</h3>
         <p class="meta">{{ item.published_date }} &middot; {{ item.source_name }} &middot; {{ item.region }} &middot; {{ item.source_origin }}</p>
+        {% set regions = story_region_tags(item) %}
+        {% if regions %}
+          <p class="region-tags">
+            {% for region in regions %}
+              <span class="region-tag">{{ region }}</span>
+            {% endfor %}
+          </p>
+        {% endif %}
         <p class="note">{{ item.legal_sector_relevance_note }}</p>
         <p class="sources"><a class="pill" href="{{ item.source_url }}" target="_blank" rel="noreferrer">Open source</a></p>
       </article>
@@ -40,8 +48,9 @@
         {% endif %}
         Currently selected: <strong>{{ selected_count }}</strong>.
       </p>
+      <div data-story-list>
       {% for story in shortlist.stories %}
-      <article class="card story-card">
+      <article class="card story-card" data-story-card>
         <div>
           <input
             type="checkbox"
@@ -51,9 +60,28 @@
             aria-label="Select story {{ loop.index }}"
           >
         </div>
-        <div>
-          <h2 class="story-title">{{ loop.index }}. {{ story.headline }}</h2>
+        <div class="story-card-content">
+          <h2 class="story-title"><span data-story-number>{{ loop.index }}</span>. {{ story.headline }}</h2>
           <p class="meta">{{ story.date }} &middot; {{ story.sources | length }} source{% if story.sources | length != 1 %}s{% endif %}</p>
+          {% set regions = story_region_tags(story) %}
+          <div class="region-tags" data-region-tags>
+            <input type="hidden" name="region_tag_story" value="{{ story.cluster_id }}">
+            {% if regions %}
+              {% for region in regions %}
+                <span class="region-tag region-tag-removable" data-region-tag>
+                  {{ region }}
+                  <button
+                    class="region-tag-remove"
+                    type="button"
+                    data-remove-region
+                    aria-label="Remove {{ region }} tag"
+                    title="Remove {{ region }} tag"
+                  >x</button>
+                  <input type="hidden" name="region_tags__{{ story.cluster_id }}" value="{{ region }}">
+                </span>
+              {% endfor %}
+            {% endif %}
+          </div>
           {% if story.summary %}
             <p class="note">{{ story.summary }}</p>
           {% endif %}
@@ -66,8 +94,25 @@
             {% endfor %}
           </p>
         </div>
+        <div
+          class="story-drag-handle"
+          data-drag-handle
+          draggable="true"
+          role="button"
+          tabindex="0"
+          aria-label="Drag story to reorder"
+          title="Drag story to reorder"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </article>
       {% endfor %}
+      </div>
 
       <div class="toolbar">
         <div class="muted">
@@ -83,4 +128,105 @@
     </form>
   {% endif %}
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (() => {
+    const list = document.querySelector("[data-story-list]");
+    if (!list) return;
+    let draggedCard = null;
+
+    const cards = () => Array.from(list.querySelectorAll("[data-story-card]"));
+
+    const updateStoryState = () => {
+      cards().forEach((card, index) => {
+        const number = card.querySelector("[data-story-number]");
+        if (number) number.textContent = String(index + 1);
+      });
+    };
+
+    const cleanupDrag = () => {
+      cards().forEach((card) => card.classList.remove("is-dragging", "is-drag-active"));
+      draggedCard = null;
+      updateStoryState();
+    };
+
+    const cardAfterPointer = (pointerY) => {
+      return cards()
+        .filter((card) => card !== draggedCard)
+        .reduce(
+          (closest, card) => {
+            const box = card.getBoundingClientRect();
+            const offset = pointerY - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+              return { offset, card };
+            }
+            return closest;
+          },
+          { offset: Number.NEGATIVE_INFINITY, card: null }
+        ).card;
+    };
+
+    list.addEventListener("dragstart", (event) => {
+      const handle = event.target.closest("[data-drag-handle]");
+      if (!handle) return;
+      draggedCard = handle.closest("[data-story-card]");
+      if (!draggedCard) return;
+      const selectedInput = draggedCard.querySelector('input[name="selected"]');
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("text/plain", selectedInput ? selectedInput.value : "");
+      requestAnimationFrame(() => draggedCard.classList.add("is-dragging"));
+    });
+
+    list.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-remove-region]");
+      if (!button) return;
+      const tag = button.closest("[data-region-tag]");
+      if (tag) tag.remove();
+    });
+
+    list.addEventListener("dragover", (event) => {
+      if (!draggedCard) return;
+      event.preventDefault();
+      event.dataTransfer.dropEffect = "move";
+      cards().forEach((card) => card.classList.remove("is-drag-active"));
+      const nextCard = cardAfterPointer(event.clientY);
+      if (nextCard) {
+        nextCard.classList.add("is-drag-active");
+        list.insertBefore(draggedCard, nextCard);
+      } else {
+        list.appendChild(draggedCard);
+      }
+      updateStoryState();
+    });
+
+    list.addEventListener("drop", (event) => {
+      if (!draggedCard) return;
+      event.preventDefault();
+      cleanupDrag();
+    });
+
+    list.addEventListener("dragend", cleanupDrag);
+
+    list.addEventListener("keydown", (event) => {
+      const handle = event.target.closest("[data-drag-handle]");
+      if (!handle) return;
+      const card = handle.closest("[data-story-card]");
+      if (!card) return;
+      if (event.key === "ArrowUp" && card.previousElementSibling) {
+        event.preventDefault();
+        list.insertBefore(card, card.previousElementSibling);
+        updateStoryState();
+      }
+      if (event.key === "ArrowDown" && card.nextElementSibling) {
+        event.preventDefault();
+        list.insertBefore(card.nextElementSibling, card);
+        updateStoryState();
+      }
+    });
+
+    updateStoryState();
+  })();
+</script>
 {% endblock %}

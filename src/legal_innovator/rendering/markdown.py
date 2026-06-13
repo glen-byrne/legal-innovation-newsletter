@@ -24,11 +24,14 @@ def render_markdown(issue: Issue) -> str:
             ]
         )
     for index, story in enumerate(issue.stories, start=1):
+        regions = ", ".join(story.region_tags[:3])
         lines.extend(
             [
                 f"## {index}. {story.headline}",
                 "",
                 f"**Date:** {story.date.isoformat()}",
+                "",
+                f"**Regions:** {regions}" if regions else "**Regions:** Unspecified",
                 "",
                 story.summary,
                 "",
