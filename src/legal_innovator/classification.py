@@ -15,7 +15,7 @@ class ClassificationBatch(BaseModel):
 
 
 CLASSIFICATION_SYSTEM = """You are an executive legal innovation newsletter editor.
-Classify candidate news items for The Legal Innovator Ireland.
+Classify candidate news items for The Legal Edge Ireland.
 Return JSON only.
 Exclude opinion, commentary, generic vendor marketing, and vendor-only product announcements unless there is a concrete factual news event supported by a reliable third-party source.
 Treat paywalled items cautiously: use only headline, metadata, snippets, and links supplied. Do not infer detailed facts from a headline alone.

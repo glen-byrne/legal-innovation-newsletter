@@ -1,4 +1,4 @@
-"""CLI entrypoint for The Legal Innovator Ireland pipeline."""
+"""CLI entrypoint for The Legal Edge Ireland pipeline."""
 
 from __future__ import annotations
 

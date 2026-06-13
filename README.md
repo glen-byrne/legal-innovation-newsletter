@@ -1,6 +1,6 @@
-# The Legal Innovator Ireland
+# The Legal Edge Ireland
 
-Lean MVP newsletter generation system for **The Legal Innovator Ireland**, an executive-style legal innovation briefing.
+Lean MVP newsletter generation system for **The Legal Edge Ireland**, an executive-style legal innovation briefing.
 
 The system discovers legal innovation news from the 14 days immediately before the run date, prioritises Irish relevance while allowing major UK/EU and global stories to outrank minor local items, and generates review-ready issue files for a human-approved GitHub pull request.
 
@@ -256,7 +256,7 @@ Useful controls:
 - `REQUIRE_HUMAN_REVIEW=true`
 - `DRY_RUN_NO_AI=false`
 - `ENABLE_OPENAI_WEB_SEARCH=false`
-- `NEWSLETTER_NAME="The Legal Innovator Ireland"`
+- `NEWSLETTER_NAME="The Legal Edge Ireland"`
 
 Future beehiiv placeholders:
 
@@ -316,7 +316,7 @@ It:
 
 The PR title is:
 
-`Draft issue: The Legal Innovator Ireland - YYYY-MM-DD`
+`Draft issue: The Legal Edge Ireland - YYYY-MM-DD`
 
 The workflow requests only:
 

@@ -48,7 +48,7 @@ def test_default_selection_can_be_uncapped() -> None:
 def test_render_and_parse_editorial_selection(tmp_path: Path) -> None:
     stories = make_ranked_stories(3)
     shortlist = ReviewShortlist(
-        newsletter_name="The Legal Innovator Ireland",
+        newsletter_name="The Legal Edge Ireland",
         run_date=stories[0].date,
         generated_at=datetime(2026, 5, 20, 12, 0, tzinfo=ZoneInfo("Europe/Dublin")),
         window_start=stories[0].date - timedelta(days=14),
@@ -72,7 +72,7 @@ def test_selection_order_controls_final_story_order(tmp_path: Path) -> None:
     stories = make_ranked_stories(3)
     selected_ids = ["cluster-2", "cluster-0"]
     shortlist = ReviewShortlist(
-        newsletter_name="The Legal Innovator Ireland",
+        newsletter_name="The Legal Edge Ireland",
         run_date=stories[0].date,
         generated_at=datetime(2026, 5, 20, 12, 0, tzinfo=ZoneInfo("Europe/Dublin")),
         window_start=stories[0].date - timedelta(days=14),

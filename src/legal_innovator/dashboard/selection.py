@@ -25,7 +25,7 @@ def validate_selection_count(selected_ids: list[str], minimum: int, maximum: int
 def build_editorial_selection_markdown(shortlist: dict[str, Any], selected_ids: list[str]) -> str:
     selected = set(selected_ids)
     issue_date = shortlist["run_date"]
-    newsletter_name = shortlist.get("newsletter_name", "The Legal Innovator Ireland")
+    newsletter_name = shortlist.get("newsletter_name", "The Legal Edge Ireland")
     minimum = shortlist.get("min_final_stories", 8)
     maximum = shortlist.get("max_final_stories", 0)
     lines = [

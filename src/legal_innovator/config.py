@@ -1,4 +1,4 @@
-"""Configuration loading for The Legal Innovator Ireland."""
+"""Configuration loading for The Legal Edge Ireland."""
 
 from __future__ import annotations
 
@@ -29,7 +29,7 @@ class Settings(BaseModel):
     require_human_review: bool = True
     dry_run_no_ai: bool = False
     enable_openai_web_search: bool = False
-    newsletter_name: str = "The Legal Innovator Ireland"
+    newsletter_name: str = "The Legal Edge Ireland"
     newsletter_sender_name: str | None = None
     newsletter_sender_email: str | None = None
     beehiiv_api_key: str | None = None
@@ -92,7 +92,7 @@ def load_settings(env_file: str | Path | None = ".env") -> Settings:
         require_human_review=bool_env(os.getenv("REQUIRE_HUMAN_REVIEW"), True),
         dry_run_no_ai=bool_env(os.getenv("DRY_RUN_NO_AI"), False),
         enable_openai_web_search=bool_env(os.getenv("ENABLE_OPENAI_WEB_SEARCH"), False),
-        newsletter_name=os.getenv("NEWSLETTER_NAME", "The Legal Innovator Ireland"),
+        newsletter_name=os.getenv("NEWSLETTER_NAME", "The Legal Edge Ireland"),
         newsletter_sender_name=os.getenv("NEWSLETTER_SENDER_NAME"),
         newsletter_sender_email=os.getenv("NEWSLETTER_SENDER_EMAIL"),
         beehiiv_api_key=os.getenv("BEEHIIV_API_KEY"),

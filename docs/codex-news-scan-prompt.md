@@ -1,6 +1,6 @@
 You are working inside the Git repository at C:\Users\Glen\Documents\legal-innovation-newsletter.
 
-Your task is to find recent factual news items relevant to an executive briefing called The Legal Innovator Ireland, then save the candidate list directly into the repository as valid JSON.
+Your task is to find recent factual news items relevant to an executive briefing called The Legal Edge Ireland, then save the candidate list directly into the repository as valid JSON.
 
 Set ISSUE_DATE to the current local date on the day this prompt is used, in YYYY-MM-DD format. Do not hard-code the issue date.
 

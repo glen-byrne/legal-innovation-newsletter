@@ -32,7 +32,7 @@ def make_issue(story_count: int = 8) -> Issue:
             )
         )
     return Issue(
-        newsletter_name="The Legal Innovator Ireland",
+        newsletter_name="The Legal Edge Ireland",
         run_date=run_at.date(),
         generated_at=run_at,
         window_start=(run_at - timedelta(days=14)).date(),
@@ -114,7 +114,7 @@ def test_empty_issue_is_plainly_labelled_without_ai_intro() -> None:
     tz = ZoneInfo("Europe/Dublin")
     run_at = datetime(2026, 5, 19, 12, 0, tzinfo=tz)
     issue = Issue(
-        newsletter_name="The Legal Innovator Ireland",
+        newsletter_name="The Legal Edge Ireland",
         run_date=run_at.date(),
         generated_at=run_at,
         window_start=(run_at - timedelta(days=14)).date(),

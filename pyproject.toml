@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "the-legal-innovator-ireland"
 version = "0.1.0"
-description = "Newsletter generation pipeline for The Legal Innovator Ireland."
+description = "Newsletter generation pipeline for The Legal Edge Ireland."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

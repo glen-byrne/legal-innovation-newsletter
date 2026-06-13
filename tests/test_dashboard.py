@@ -12,7 +12,7 @@ from legal_innovator.selection import parse_selected_cluster_ids
 
 def make_shortlist() -> dict:
     return {
-        "newsletter_name": "The Legal Innovator Ireland",
+        "newsletter_name": "The Legal Edge Ireland",
         "run_date": "2026-06-10",
         "min_final_stories": 1,
         "max_final_stories": 2,
