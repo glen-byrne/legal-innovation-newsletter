@@ -4,6 +4,16 @@ Your task is to find recent factual news items relevant to an executive briefing
 
 Set ISSUE_DATE to the current local date on the day this prompt is used, in YYYY-MM-DD format. Do not hard-code the issue date.
 
+Set SCAN_DISPLAY_DATE to ISSUE_DATE formatted as DD/MM/YYYY.
+
+Before starting the research task, determine SCAN_NUMBER for this date by counting existing git commits whose subject starts with `Add candidate stories for {ISSUE_DATE} issue`, then adding 1. If this cannot be determined reliably, use 1.
+
+If Codex has access to a chat/thread title control, rename this chat to:
+
+Scan {SCAN_DISPLAY_DATE} - {SCAN_NUMBER}
+
+If Codex cannot rename the chat automatically, include this exact suggested chat title in your final reply.
+
 Create this folder if it does not already exist:
 
 issues/{ISSUE_DATE}/
