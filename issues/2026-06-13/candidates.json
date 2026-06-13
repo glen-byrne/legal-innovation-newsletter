@@ -24,7 +24,7 @@
       "event_type": "legal_education",
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
-      "factual_basis": "The Gazette reported that Law Society education staff joined the European Commission-funded LITEL 2 project in Bucharest to develop AI-related training tools for lawyers across Europe.",
+      "factual_basis": "The Gazette reported that Law Society education staff joined the European Commission-funded LITEL 2 project to develop AI-related training for lawyers across Europe.",
       "legal_sector_relevance_note": "A high-priority Irish legal-education item showing lawyer training being redesigned around AI skills, GDPR, IP, core legal judgment, agentic AI, and EU-wide training toolkits.",
       "duplicate_group": "none",
       "warning_flags": [],
@@ -203,8 +203,23 @@
     },
     {
       "id": "TLII-2026-06-13-014",
+      "headline": "Universities told to preserve critical thinking as AI adoption accelerates",
+      "published_date": "2026-06-04",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/universities-must-preserve-critical-thinking-on-ai/",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that RDJ's Universities Conference heard universities must move beyond AI adoption to lead responsible use, preserve critical thinking, and adapt procedures for student issues and investigations.",
+      "legal_sector_relevance_note": "A useful Irish education and legal-risk item linking AI literacy, graduate pathways, fair procedures, investigations, and governance design in institutions served by education and public-law lawyers.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLII-2026-06-13-015",
       "headline": "UK government plans AI legal assistants for Crown Court backlog pilot",
-      "published_date": "2026-06-08",
+      "published_date": "2026-06-09",
       "source_name": "The Guardian",
       "source_url": "https://www.theguardian.com/technology/2026/jun/09/ai-legal-assistants-england-wales-cannot-replace-funding-staff",
       "event_type": "court_digitisation",
@@ -217,7 +232,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-015",
+      "id": "TLII-2026-06-13-016",
       "headline": "UK Government launches AI Growth Lab with legal as first focus area",
       "published_date": "2026-06-09",
       "source_name": "Legal IT Insider",
@@ -232,7 +247,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-016",
+      "id": "TLII-2026-06-13-017",
       "headline": "European Commission publishes code of practice for marking and labelling AI-generated content",
       "published_date": "2026-06-10",
       "source_name": "European Commission",
@@ -247,7 +262,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-017",
+      "id": "TLII-2026-06-13-018",
       "headline": "AI Act enforcement gets independent expert support",
       "published_date": "2026-06-01",
       "source_name": "European Commission",
@@ -262,7 +277,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-018",
+      "id": "TLII-2026-06-13-019",
       "headline": "DeepIP acquires PatentMaker to target European leadership in patent AI",
       "published_date": "2026-06-09",
       "source_name": "LawSites",
@@ -279,7 +294,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-019",
+      "id": "TLII-2026-06-13-020",
       "headline": "Former PwC partner and ex-SYKE COO launch AI legal services company Telon",
       "published_date": "2026-06-11",
       "source_name": "Legal IT Insider",
@@ -297,7 +312,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-020",
+      "id": "TLII-2026-06-13-021",
       "headline": "Anthropic's Claude Fable 5 launch draws legal-sector attention for agent benchmarks and governance concerns",
       "published_date": "2026-06-12",
       "source_name": "Legal IT Insider",
@@ -312,7 +327,24 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-021",
+      "id": "TLII-2026-06-13-022",
+      "headline": "Claude for Legal has more than 90 workflow agents",
+      "published_date": "2026-06-01",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/06/01/claude-for-legal-has-over-90-ai-agents/",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "Artificial Lawyer reported that Claude for Legal includes more than 90 named end-to-end workflow agents, with source-attribution, jurisdiction-setting, and explicit gates before work is filed, sent, or relied on.",
+      "legal_sector_relevance_note": "A substantive legal AI product-development item because it shifts attention from general assistants to configurable legal workflows for contracts, DSARs, litigation, clinics, and law-school use.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLII-2026-06-13-023",
       "headline": "Clio acquires Jurisage to support Canadian legal AI products",
       "published_date": "2026-06-10",
       "source_name": "LawSites",
@@ -329,7 +361,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-022",
+      "id": "TLII-2026-06-13-024",
       "headline": "Eve launches EveOS, an AI-native operational platform for plaintiff firms",
       "published_date": "2026-06-11",
       "source_name": "LawSites",
@@ -346,7 +378,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-023",
+      "id": "TLII-2026-06-13-025",
       "headline": "Smokeball free trust-accounting program reaches more than 900,000 US lawyers",
       "published_date": "2026-06-10",
       "source_name": "LawSites",
@@ -363,7 +395,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-024",
+      "id": "TLII-2026-06-13-026",
       "headline": "Sandstone raises USD 30 million for AI-native in-house legal teams",
       "published_date": "2026-06-09",
       "source_name": "Artificial Lawyer",
@@ -380,7 +412,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-025",
+      "id": "TLII-2026-06-13-027",
       "headline": "Kirkland and Palantir partner for private equity platform",
       "published_date": "2026-06-04",
       "source_name": "Artificial Lawyer",
@@ -395,7 +427,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-026",
+      "id": "TLII-2026-06-13-028",
       "headline": "Legora buys Cadastral agentic real estate platform",
       "published_date": "2026-06-02",
       "source_name": "Artificial Lawyer",
@@ -412,7 +444,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-027",
+      "id": "TLII-2026-06-13-029",
       "headline": "LawGeex founders launch Superlegal NewMod firm",
       "published_date": "2026-06-03",
       "source_name": "Artificial Lawyer",
@@ -429,7 +461,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-028",
+      "id": "TLII-2026-06-13-030",
       "headline": "Ironclad founder Jason Boehmig joins OpenAI for legal vertical launch",
       "published_date": "2026-06-01",
       "source_name": "Artificial Lawyer",
@@ -446,7 +478,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-029",
+      "id": "TLII-2026-06-13-031",
       "headline": "AmLaw 200 firm Hanson Bridgett goes all-in with Claude",
       "published_date": "2026-06-01",
       "source_name": "Artificial Lawyer",
@@ -456,6 +488,21 @@
       "region": "US/global",
       "factual_basis": "Artificial Lawyer reported that Hanson Bridgett adopted Claude firm-wide for attorneys and professional staff, using it across document review, drafting, research, organisation, internal operations, due diligence, and knowledge management.",
       "legal_sector_relevance_note": "A concrete law-firm AI adoption example involving general models, legal add-ons, enterprise data protections, written AI policy, workflow review, and change management for professional staff as well as lawyers.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLII-2026-06-13-032",
+      "headline": "Mississippi federal judge sanctions four lawyers over AI-hallucinated court filings",
+      "published_date": "2026-06-11",
+      "source_name": "Business Insider",
+      "source_url": "https://www.businessinsider.com/mississippi-judge-removes-lawyers-lawsuit-ai-hallucinations-court-filings-2026-6",
+      "event_type": "professional_guidance",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Business Insider reported that US District Judge Sharion Aycock removed four lawyers from a case, barred two from appearing before the court for two years, and imposed USD 8,000 in fines after AI-generated bogus citations appeared in filings.",
+      "legal_sector_relevance_note": "A practical AI-governance warning for lawyers and firms because it reinforces verification duties, local-counsel risk, litigation workflow controls, and sanctions exposure from unreviewed AI output.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
