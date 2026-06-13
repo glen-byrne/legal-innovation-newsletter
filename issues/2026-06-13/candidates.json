@@ -9,8 +9,8 @@
       "event_type": "court_digitisation",
       "source_origin": "official_source",
       "region": "Ireland",
-      "factual_basis": "The Courts Service said solicitors nationwide would be able to apply for grants of probate online through the Courts Portal from 2 June after a Dublin pilot received more than 100 applications and led to updates based on solicitor feedback.",
-      "legal_sector_relevance_note": "A direct Irish court-modernisation story affecting probate filing, Revenue integration, solicitor workflows, turnaround times, and the wider Courts Service modernisation programme.",
+      "factual_basis": "The Courts Service said solicitors nationwide could apply for grants of probate online through the Courts Portal from 2 June after a Dublin pilot processed more than 100 applications and prompted solicitor-feedback updates.",
+      "legal_sector_relevance_note": "A direct Irish court-modernisation story affecting probate filing, solicitor workflows, Revenue integration, turnaround expectations, and the wider Courts Service modernisation programme.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
@@ -24,8 +24,8 @@
       "event_type": "legal_education",
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
-      "factual_basis": "The Gazette reported that Law Society education staff joined the European Commission-funded LITEL 2 project in Bucharest to develop AI-related training for lawyers across Europe, focusing on AI, GDPR, IP, core legal skills, and agentic AI.",
-      "legal_sector_relevance_note": "A high-priority Irish legal-education item showing lawyer training being redesigned around AI skills, data protection, IP, professional judgment, and EU-wide training toolkits.",
+      "factual_basis": "The Gazette reported that Law Society education staff joined the European Commission-funded LITEL 2 project in Bucharest to develop AI-related training tools for lawyers across Europe.",
+      "legal_sector_relevance_note": "A high-priority Irish legal-education item showing lawyer training being redesigned around AI skills, GDPR, IP, core legal judgment, agentic AI, and EU-wide training toolkits.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
@@ -39,8 +39,8 @@
       "event_type": "legal_education",
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
-      "factual_basis": "The Gazette reported that registration opened for the Law Society's free on-demand course on social media, AI and law, beginning on 9 June with more than 3,000 participants already registered.",
-      "legal_sector_relevance_note": "Shows strong Irish demand for legal education on AI, social-media liability, privacy, data protection, cybercrime, ecommerce, digital manipulation, and responsible online practice.",
+      "factual_basis": "The Gazette reported that registration opened for the Law Society's free on-demand Social Media, AI and the Law course, beginning on 9 June with more than 3,000 participants signed up.",
+      "legal_sector_relevance_note": "Shows strong Irish demand for public and professional legal education on AI, social-media liability, privacy, cybercrime, ecommerce, digital manipulation, and responsible online practice.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
@@ -55,7 +55,7 @@
       "source_origin": "vendor_originated_announcement",
       "region": "Ireland",
       "factual_basis": "Irish Legal News reported that Wordsmith AI secured a USD 70 million Series B backed by Highland Europe and Index Ventures, serves more than 500 in-house legal teams, and plans to build an Irish presence.",
-      "legal_sector_relevance_note": "A high-priority Irish-linked legal AI funding story focused on in-house legal intake, workflow routing, outside-counsel reduction, activity measurement, and Irish customer and talent expansion.",
+      "legal_sector_relevance_note": "A strong Irish-linked legal AI funding story focused on in-house legal intake, workflow routing, outside-counsel reduction, activity measurement, and Irish customer and talent expansion.",
       "duplicate_group": "none",
       "warning_flags": [
         "vendor_originated"
@@ -72,7 +72,7 @@
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
       "factual_basis": "The Gazette reported that the Law Society described the proposed EUR 455 flat fee for District Court criminal legal-aid cases as seriously flawed and open to legal challenge ahead of a planned July start.",
-      "legal_sector_relevance_note": "A major Irish service-delivery and access-to-justice item because fee design may affect criminal-defence availability, case handling incentives, vulnerable defendants, and the viability of District Court representation.",
+      "legal_sector_relevance_note": "A major Irish service-delivery and access-to-justice item because fee design may affect criminal-defence availability, case-handling incentives, vulnerable defendants, and the viability of District Court representation.",
       "duplicate_group": "DG-001",
       "warning_flags": [],
       "selected": true
@@ -96,23 +96,6 @@
     },
     {
       "id": "TLII-2026-06-13-007",
-      "headline": "More than 150 criminal-law solicitors voice anger and frustration over flat-fee proposals",
-      "published_date": "2026-06-09",
-      "source_name": "Law Society Gazette",
-      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/anger-and-frustration-on-flat-fee-proposals/",
-      "event_type": "access_to_justice",
-      "source_origin": "confirmed_reporting",
-      "region": "Ireland",
-      "factual_basis": "The Gazette reported that more than 150 solicitors attended a Law Society information meeting on 9 June where speakers warned that the proposed model could cause practitioners to stop taking District Court legal-aid work.",
-      "legal_sector_relevance_note": "A follow-up item on practitioner mobilisation and unresolved operational concerns before the proposed 1 July payment-model change.",
-      "duplicate_group": "DG-001",
-      "warning_flags": [
-        "possible_duplicate"
-      ],
-      "selected": false
-    },
-    {
-      "id": "TLII-2026-06-13-008",
       "headline": "Public consultation opened to inform review of Ireland's Disability Act 2005",
       "published_date": "2026-06-08",
       "source_name": "Government of Ireland",
@@ -120,14 +103,14 @@
       "event_type": "access_to_justice",
       "source_origin": "official_source",
       "region": "Ireland",
-      "factual_basis": "The Department of Children, Disability and Equality opened a public consultation on reviewing the Disability Act 2005 in light of Ireland's UNCRPD obligations, with accessible submission options and a 9 September deadline.",
+      "factual_basis": "The Department of Children, Disability and Equality opened a public consultation on reviewing the Disability Act 2005 in light of Ireland's UNCRPD obligations, with multiple accessible submission methods and a 9 September deadline.",
       "legal_sector_relevance_note": "Relevant to accessible justice, rights advice, universal design, public-law litigation, assessment-of-need processes, and how legal and public services are designed for disabled people.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-009",
+      "id": "TLII-2026-06-13-008",
       "headline": "Deemed Insolvent Process widens access to Ireland's Insolvency Payments Scheme",
       "published_date": "2026-06-09",
       "source_name": "Law Society Gazette",
@@ -142,7 +125,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-010",
+      "id": "TLII-2026-06-13-009",
       "headline": "Eighty per cent of Northern Ireland crime victims have no confidence in justice system",
       "published_date": "2026-06-03",
       "source_name": "Irish Legal News",
@@ -150,14 +133,14 @@
       "event_type": "access_to_justice",
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
-      "factual_basis": "Irish Legal News reported Queen's University Belfast researchers saying more than 80% of Northern Ireland crime victims are not confident they will receive justice after an event involving policymakers, lawyers, psychologists, the Lady Chief Justice, and the Victims' Commissioner Designate.",
+      "factual_basis": "Irish Legal News reported Queen's University Belfast researchers saying more than 80% of Northern Ireland crime victims are not confident they will receive justice after an event with policymakers, lawyers, psychologists, the Lady Chief Justice, and the Victims' Commissioner Designate.",
       "legal_sector_relevance_note": "All-island relevance for victim-centred service design, trauma-informed justice, practitioner training, court communication, and evidence-based justice-system reform.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-011",
+      "id": "TLII-2026-06-13-010",
       "headline": "ICCL raises concerns over reported nationwide garda bodycam rollout",
       "published_date": "2026-06-05",
       "source_name": "Law Society Gazette",
@@ -174,7 +157,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-012",
+      "id": "TLII-2026-06-13-011",
       "headline": "EU Justice Scoreboard shows Ireland high on trust but low on some justice-system digital indicators",
       "published_date": "2026-06-05",
       "source_name": "Law Society Gazette",
@@ -189,7 +172,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-013",
+      "id": "TLII-2026-06-13-012",
       "headline": "International Protection Act 2026 takes effect with new asylum timelines and appeals body",
       "published_date": "2026-06-12",
       "source_name": "Law Society Gazette",
@@ -197,14 +180,14 @@
       "event_type": "access_to_justice",
       "source_origin": "confirmed_reporting",
       "region": "Ireland",
-      "factual_basis": "The Gazette reported that the International Protection Act 2026 came into effect on 12 June, introducing screening, mandatory two-to-six-month timelines, and the new Tribunal for Asylum and Returns Appeals for appeals.",
+      "factual_basis": "The Gazette reported that the International Protection Act 2026 came into effect on 12 June, introducing screening, mandatory two-to-six-month timelines, and the new Tribunal for Asylum and Returns Appeals.",
       "legal_sector_relevance_note": "A major legal-service-delivery change for immigration and public-law practitioners because it redesigns asylum processing, appeals infrastructure, timelines, border procedures, and rights-monitoring roles.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-014",
+      "id": "TLII-2026-06-13-013",
       "headline": "Irish presidency discussion highlights fully digital EU Inc company-law model",
       "published_date": "2026-06-12",
       "source_name": "Law Society Gazette",
@@ -219,39 +202,22 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-015",
-      "headline": "Dublin Circuit Court personal insolvency remote callover set for 8 June 2026",
-      "published_date": "2026-06-04",
-      "source_name": "Courts Service of Ireland",
-      "source_url": "https://www.courts.ie/news/dublin---circuit-court---personal-insolvency---remote-call-over-8-june-2026-at-10-25am",
-      "event_type": "court_digitisation",
-      "source_origin": "official_source",
-      "region": "Ireland",
-      "factual_basis": "The Courts Service notified practitioners that a remote callover would take place on 8 June for Dublin Circuit Court personal insolvency matters listed for hearing on 10 and 11 June.",
-      "legal_sector_relevance_note": "A narrow but concrete example of remote procedural management continuing in Irish civil practice and shaping scheduling, readiness checks, and practitioner workflows.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "limited_detail"
-      ],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-016",
+      "id": "TLII-2026-06-13-014",
       "headline": "UK government plans AI legal assistants for Crown Court backlog pilot",
-      "published_date": "2026-06-09",
+      "published_date": "2026-06-08",
       "source_name": "The Guardian",
       "source_url": "https://www.theguardian.com/technology/2026/jun/09/ai-legal-assistants-england-wales-cannot-replace-funding-staff",
       "event_type": "court_digitisation",
       "source_origin": "confirmed_reporting",
       "region": "UK/EU",
-      "factual_basis": "The Guardian reported that David Lammy would announce AI-powered virtual legal assistants for Crown courts, with judges planning tools to identify trial-ready cases and group similar hearings, while the Law Society urged transparent evaluation and safeguards.",
-      "legal_sector_relevance_note": "A major UK justice-innovation story for courts, criminal practitioners, legal-aid policy, AI governance, backlog management, and Irish comparison with court digitisation efforts.",
+      "factual_basis": "The Guardian reported that David Lammy would announce AI-powered virtual legal assistants for Crown courts, with judges planning tools to identify trial-ready cases and group similar hearings.",
+      "legal_sector_relevance_note": "A major UK justice-innovation story for courts, criminal practitioners, legal-aid policy, AI governance, backlog management, and comparison with Irish court digitisation efforts.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-017",
+      "id": "TLII-2026-06-13-015",
       "headline": "UK Government launches AI Growth Lab with legal as first focus area",
       "published_date": "2026-06-09",
       "source_name": "Legal IT Insider",
@@ -266,7 +232,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-018",
+      "id": "TLII-2026-06-13-016",
       "headline": "European Commission publishes code of practice for marking and labelling AI-generated content",
       "published_date": "2026-06-10",
       "source_name": "European Commission",
@@ -274,14 +240,14 @@
       "event_type": "regulatory_development",
       "source_origin": "official_source",
       "region": "UK/EU",
-      "factual_basis": "The Commission published the final voluntary code of practice setting practical steps for providers and deployers of generative AI systems to meet AI Act transparency obligations that apply from 2 August 2026.",
+      "factual_basis": "The Commission published the final voluntary code of practice setting practical steps for providers and deployers of generative AI systems to meet AI Act transparency obligations applying from 2 August 2026.",
       "legal_sector_relevance_note": "Relevant to lawyers advising AI providers, deployers, publishers, regulated clients, legal publishers, and law firms using GenAI in public-facing material or client workflows.",
       "duplicate_group": "none",
       "warning_flags": [],
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-019",
+      "id": "TLII-2026-06-13-017",
       "headline": "AI Act enforcement gets independent expert support",
       "published_date": "2026-06-01",
       "source_name": "European Commission",
@@ -296,24 +262,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-020",
-      "headline": "Simmons & Simmons to reward AI adoption in bonus overhaul",
-      "published_date": "2026-06-04",
-      "source_name": "Financial News London",
-      "source_url": "https://www.fnlondon.com/articles/simmons-simmons-to-reward-ai-adoption-in-bonus-overhaul-f24ee044",
-      "event_type": "legal_ai_adoption",
-      "source_origin": "confirmed_reporting",
-      "region": "UK/EU",
-      "factual_basis": "Financial News reported that Simmons & Simmons will allow associates to count up to 50 bonus-eligible hours for meaningful generative-AI work that benefits clients or the firm, with AI champions able to count the full 100-hour allocation.",
-      "legal_sector_relevance_note": "Shows a UK and international law firm embedding AI adoption into incentives, knowledge management, client work, legal engineering, and professional-performance systems rather than treating AI use as optional experimentation.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "paywalled"
-      ],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-021",
+      "id": "TLII-2026-06-13-018",
       "headline": "DeepIP acquires PatentMaker to target European leadership in patent AI",
       "published_date": "2026-06-09",
       "source_name": "LawSites",
@@ -330,7 +279,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-022",
+      "id": "TLII-2026-06-13-019",
       "headline": "Former PwC partner and ex-SYKE COO launch AI legal services company Telon",
       "published_date": "2026-06-11",
       "source_name": "Legal IT Insider",
@@ -338,7 +287,7 @@
       "event_type": "reported_platform_entry",
       "source_origin": "vendor_originated_announcement",
       "region": "UK/EU",
-      "factual_basis": "Legal IT Insider reported that Lewis Bretts and Tom Mellor launched Telon with a 15-person team, a major platform partnership, delivery across four countries, outcome-based pricing, and an Outcomes Engine for managed AI legal work.",
+      "factual_basis": "Legal IT Insider reported that Lewis Bretts and Tom Mellor launched Telon with a 15-person team, delivery across four countries, a major platform partnership, and an Outcomes Engine for managed AI legal work.",
       "legal_sector_relevance_note": "A new legal-service-delivery model combining AI platforms, lawyers, agents, playbooks, managed services, and outcome pricing rather than traditional software-only or hourly-services models.",
       "duplicate_group": "none",
       "warning_flags": [
@@ -348,7 +297,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-023",
+      "id": "TLII-2026-06-13-020",
       "headline": "Anthropic's Claude Fable 5 launch draws legal-sector attention for agent benchmarks and governance concerns",
       "published_date": "2026-06-12",
       "source_name": "Legal IT Insider",
@@ -363,7 +312,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-024",
+      "id": "TLII-2026-06-13-021",
       "headline": "Clio acquires Jurisage to support Canadian legal AI products",
       "published_date": "2026-06-10",
       "source_name": "LawSites",
@@ -380,7 +329,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-025",
+      "id": "TLII-2026-06-13-022",
       "headline": "Eve launches EveOS, an AI-native operational platform for plaintiff firms",
       "published_date": "2026-06-11",
       "source_name": "LawSites",
@@ -388,7 +337,7 @@
       "event_type": "legal_tech_product",
       "source_origin": "vendor_originated_announcement",
       "region": "US/global",
-      "factual_basis": "LawSites reported that Eve launched EveOS with a self-updating case data layer, operational analytics, communication agents, research across US jurisdictions, nightly matter audits, intake automation, and more than 1,400 plaintiff firms on the platform.",
+      "factual_basis": "LawSites reported that Eve launched EveOS with a self-updating case data layer, operational analytics, communication agents, native legal research, nightly matter audits, intake automation, and more than 1,400 plaintiff firms on the platform.",
       "legal_sector_relevance_note": "A substantial law-firm operations story because it positions AI agents as an execution layer across intake, casework, case data, communications, legal research, auditing, and attorney review.",
       "duplicate_group": "none",
       "warning_flags": [
@@ -397,7 +346,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-026",
+      "id": "TLII-2026-06-13-023",
       "headline": "Smokeball free trust-accounting program reaches more than 900,000 US lawyers",
       "published_date": "2026-06-10",
       "source_name": "LawSites",
@@ -414,22 +363,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-027",
-      "headline": "A16z-backed Fearn raises USD 5.5 million to bring AI to patent drafting",
-      "published_date": "2026-06-10",
-      "source_name": "Business Insider",
-      "source_url": "https://www.businessinsider.com/a16z-backed-fearn-raises-5-million-legal-ai-patent-drafting-2026-6",
-      "event_type": "funding_acquisition_partnership",
-      "source_origin": "confirmed_reporting",
-      "region": "US/global",
-      "factual_basis": "Business Insider reported that Fearn raised USD 5.5 million to build AI software that lets inventors upload technical documents, create patent drafts, generate drawings, show sources, and route drafts to outside counsel for review.",
-      "legal_sector_relevance_note": "A patent-workflow and legal-service-delivery story showing AI tools moving legal work upstream to inventors and in-house teams, with implications for patent prosecutors, pricing, review models, and outside-counsel demand.",
-      "duplicate_group": "none",
-      "warning_flags": [],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-028",
+      "id": "TLII-2026-06-13-024",
       "headline": "Sandstone raises USD 30 million for AI-native in-house legal teams",
       "published_date": "2026-06-09",
       "source_name": "Artificial Lawyer",
@@ -446,7 +380,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-029",
+      "id": "TLII-2026-06-13-025",
       "headline": "Kirkland and Palantir partner for private equity platform",
       "published_date": "2026-06-04",
       "source_name": "Artificial Lawyer",
@@ -461,7 +395,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-030",
+      "id": "TLII-2026-06-13-026",
       "headline": "Legora buys Cadastral agentic real estate platform",
       "published_date": "2026-06-02",
       "source_name": "Artificial Lawyer",
@@ -478,7 +412,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-031",
+      "id": "TLII-2026-06-13-027",
       "headline": "LawGeex founders launch Superlegal NewMod firm",
       "published_date": "2026-06-03",
       "source_name": "Artificial Lawyer",
@@ -495,7 +429,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-032",
+      "id": "TLII-2026-06-13-028",
       "headline": "Ironclad founder Jason Boehmig joins OpenAI for legal vertical launch",
       "published_date": "2026-06-01",
       "source_name": "Artificial Lawyer",
@@ -512,7 +446,7 @@
       "selected": true
     },
     {
-      "id": "TLII-2026-06-13-033",
+      "id": "TLII-2026-06-13-029",
       "headline": "AmLaw 200 firm Hanson Bridgett goes all-in with Claude",
       "published_date": "2026-06-01",
       "source_name": "Artificial Lawyer",
@@ -524,73 +458,6 @@
       "legal_sector_relevance_note": "A concrete law-firm AI adoption example involving general models, legal add-ons, enterprise data protections, written AI policy, workflow review, and change management for professional staff as well as lawyers.",
       "duplicate_group": "none",
       "warning_flags": [],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-034",
-      "headline": "Claude for Legal has over 90 AI agents",
-      "published_date": "2026-06-01",
-      "source_name": "Artificial Lawyer",
-      "source_url": "https://www.artificiallawyer.com/2026/06/01/claude-for-legal-has-over-90-ai-agents/",
-      "event_type": "legal_tech_product",
-      "source_origin": "vendor_originated_announcement",
-      "region": "US/global",
-      "factual_basis": "Artificial Lawyer reported that Claude for Legal has more than 90 named legal AI agents listed on GitHub, including workflow agents for vendor agreement review, DSAR response, termination review, and claim-chart building.",
-      "legal_sector_relevance_note": "Shows legal AI moving from broad copilots to specific, customisable workflow agents that firms, in-house teams, clinics, and law schools may adapt to their own processes and safeguards.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "vendor_originated"
-      ],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-035",
-      "headline": "Lakshmikumaran & Sridharan Attorneys uses Dell AI legal assistant built with Dell AI Factory",
-      "published_date": "2026-06-08",
-      "source_name": "The Times of India",
-      "source_url": "https://timesofindia.indiatimes.com/technology/tech-news/dell-technologies-announces-lakshmikumaran-sridharan-attorneys-to-use-its-ai-legal-assistant-built-using-dell-ai-factory/articleshow/131581655.cms",
-      "event_type": "legal_ai_adoption",
-      "source_origin": "vendor_originated_announcement",
-      "region": "global",
-      "factual_basis": "The Times of India reported Dell's announcement that Indian law firm Lakshmikumaran & Sridharan Attorneys is using an AI legal assistant built with Dell AI Factory and Nvidia to access proprietary legal knowledge, regulatory updates, case law, and statutes.",
-      "legal_sector_relevance_note": "A global law-firm AI adoption item showing enterprise AI infrastructure, proprietary knowledge retrieval, secure deployment, and a shift from research-heavy workflows to intelligence-led practice support.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "vendor_originated"
-      ],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-036",
-      "headline": "Mississippi federal judge removes and sanctions lawyers over AI hallucinations in court filings",
-      "published_date": "2026-06-11",
-      "source_name": "Business Insider",
-      "source_url": "https://www.businessinsider.com/mississippi-judge-removes-lawyers-lawsuit-ai-hallucinations-court-filings-2026-6",
-      "event_type": "professional_guidance",
-      "source_origin": "confirmed_reporting",
-      "region": "US/global",
-      "factual_basis": "Business Insider reported that U.S. District Judge Sharion Aycock removed four lawyers from a case, suspended two from appearing before the court for two years, and imposed USD 8,000 in fines after both sides submitted filings with bogus AI-generated citations.",
-      "legal_sector_relevance_note": "A current professional-risk item for litigators and AI adopters, reinforcing duties of competence, diligence, supervision, local counsel review, and human verification of AI-assisted legal research.",
-      "duplicate_group": "none",
-      "warning_flags": [],
-      "selected": true
-    },
-    {
-      "id": "TLII-2026-06-13-037",
-      "headline": "Billables AI raises USD 10.2 million Series A for AI-powered operational intelligence for law firms",
-      "published_date": "2026-06-10",
-      "source_name": "Artificial Lawyer",
-      "source_url": "https://www.artificiallawyer.com/2026/06/10/claude-fable-steno-billables-ai-spellbook-legora/",
-      "event_type": "funding_acquisition_partnership",
-      "source_origin": "vendor_originated_announcement",
-      "region": "US/global",
-      "factual_basis": "Artificial Lawyer reported that Billables AI raised USD 10.2 million in Series A funding led by Avenue Growth Partners to expand R&D, go-to-market work, and integrations for capturing how legal work gets done across Microsoft 365, Google Workspace, Zoom, Adobe, and practice-management tools.",
-      "legal_sector_relevance_note": "A law-firm operations item because passive time capture and operational intelligence affect billing accuracy, work measurement, workflow data, and the evidence base for pricing and staffing decisions.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "vendor_originated",
-        "limited_detail"
-      ],
       "selected": true
     }
   ]
