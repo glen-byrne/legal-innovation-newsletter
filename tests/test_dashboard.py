@@ -163,6 +163,8 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert (issue_dir / "editorial_selection.md").exists()
     html = (issue_dir / "issue.html").read_text(encoding="utf-8")
     assert "Story 1" in html
+    assert "This issue leads with Story 8, Story 7, and Story 6." in html
+    assert "Legal innovation developments affecting" not in html
     assert html.index("Story 8") < html.index("Story 1")
     assert '<span class="region-tag">Ireland</span>' in html
     assert '<span class="region-tag">United Kingdom</span>' in html

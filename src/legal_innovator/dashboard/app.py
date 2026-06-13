@@ -550,10 +550,19 @@ def _apply_candidate_editorial_text(stories: list[RankedStory], imported: Candid
 def _local_intro(stories: list[RankedStory]) -> str:
     if not stories:
         return "No stories were selected for this issue."
-    ireland_count = sum(1 for story in stories if "ireland" in " ".join(story.source_names).lower() or ".ie" in str(story.canonical_url))
-    if ireland_count:
-        return "Legal innovation developments affecting Irish practice, courts, operations and the wider market."
-    return "Legal innovation developments affecting legal practice, courts, operations and clients."
+    highlights = [_intro_highlight(story.headline) for story in stories[:3]]
+    if len(highlights) == 1:
+        return f"This issue leads with {highlights[0]}."
+    if len(highlights) == 2:
+        return f"This issue leads with {highlights[0]} and {highlights[1]}."
+    return f"This issue leads with {highlights[0]}, {highlights[1]}, and {highlights[2]}."
+
+
+def _intro_highlight(headline: str) -> str:
+    clean = " ".join(headline.strip().rstrip(".").split())
+    if len(clean) <= 86:
+        return clean
+    return clean[:86].rsplit(" ", 1)[0].rstrip(",;:") + "..."
 
 
 def _local_qa_markdown(issue: Issue, imported: CandidateImportResult | None) -> str:
