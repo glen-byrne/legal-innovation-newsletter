@@ -146,7 +146,7 @@ Optional Brevo draft-campaign environment variables:
 - `BREVO_SENDER_EMAIL` or `BREVO_SENDER_ID`
 - `BREVO_LIST_IDS`, comma-separated, for example `12` or `12,34`
 - `BREVO_REPLY_TO`
-- `BREVO_CAMPAIGN_TAG=legal-edge-ireland`
+- `BREVO_CAMPAIGN_TAG`, optional. Leave blank if your Brevo account does not support campaign tags.
 
 When these are present, the generated HTML page shows **Create Brevo draft**. The dashboard creates a draft campaign only. It does not call Brevo's send endpoints.
 

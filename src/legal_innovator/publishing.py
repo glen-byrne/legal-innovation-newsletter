@@ -40,7 +40,7 @@ class BrevoSettings:
     sender_id: int | None = None
     list_ids: tuple[int, ...] = ()
     reply_to: str | None = None
-    campaign_tag: str = "legal-edge-ireland"
+    campaign_tag: str | None = None
     api_base_url: str = "https://api.brevo.com/v3"
 
     @property
@@ -65,7 +65,7 @@ def load_brevo_settings_from_env() -> BrevoSettings | None:
         sender_id=sender_id,
         list_ids=tuple(list_ids),
         reply_to=os.getenv("BREVO_REPLY_TO", "").strip() or sender_email,
-        campaign_tag=os.getenv("BREVO_CAMPAIGN_TAG", "legal-edge-ireland").strip() or "legal-edge-ireland",
+        campaign_tag=os.getenv("BREVO_CAMPAIGN_TAG", "").strip() or None,
         api_base_url=os.getenv("BREVO_API_BASE_URL", "https://api.brevo.com/v3").rstrip("/"),
     )
     if not settings.is_configured:
@@ -83,15 +83,10 @@ class BrevoPublisher(Publisher):
         close_client = self.client is None
         client = self.client or httpx.Client(timeout=30)
         try:
-            response = client.post(
-                f"{self.settings.api_base_url}/emailCampaigns",
-                headers={
-                    "accept": "application/json",
-                    "api-key": self.settings.api_key,
-                    "content-type": "application/json",
-                },
-                json=payload,
-            )
+            response = self._post_campaign(client, payload)
+            if response.status_code == 405 and "tag" in payload and _brevo_rejected_tag(response):
+                payload = {key: value for key, value in payload.items() if key != "tag"}
+                response = self._post_campaign(client, payload)
             response.raise_for_status()
             data: dict[str, Any] = response.json()
         except httpx.HTTPStatusError as exc:
@@ -107,6 +102,17 @@ class BrevoPublisher(Publisher):
             raise RuntimeError("Brevo draft creation failed: response did not include a campaign ID.")
         return str(draft_id)
 
+    def _post_campaign(self, client: httpx.Client, payload: dict[str, Any]) -> httpx.Response:
+        return client.post(
+            f"{self.settings.api_base_url}/emailCampaigns",
+            headers={
+                "accept": "application/json",
+                "api-key": self.settings.api_key,
+                "content-type": "application/json",
+            },
+            json=payload,
+        )
+
     def _campaign_payload(self, issue: Issue, html: str, plaintext: str) -> dict[str, Any]:
         _ = plaintext
         sender: dict[str, Any] = {"name": self.settings.sender_name}
@@ -121,8 +127,9 @@ class BrevoPublisher(Publisher):
             "previewText": _preview_text(issue),
             "htmlContent": html,
             "recipients": {"listIds": list(self.settings.list_ids)},
-            "tag": self.settings.campaign_tag,
         }
+        if self.settings.campaign_tag:
+            payload["tag"] = self.settings.campaign_tag
         if self.settings.reply_to:
             payload["replyTo"] = self.settings.reply_to
         return payload
@@ -181,3 +188,7 @@ def _brevo_error_message(response: httpx.Response) -> str:
         message = data.get("message") or data.get("error") or data
         return f"HTTP {response.status_code}: {message}"
     return f"HTTP {response.status_code}: {data}"
+
+
+def _brevo_rejected_tag(response: httpx.Response) -> bool:
+    return "tag option" in _brevo_error_message(response).lower()
