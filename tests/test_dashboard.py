@@ -8,6 +8,7 @@ from legal_innovator.dashboard.app import DashboardSettings, is_authenticated
 from legal_innovator.dashboard.github import GitHubSettings, candidate_count
 from legal_innovator.dashboard.selection import build_editorial_selection_markdown, validate_selection_count
 from legal_innovator.selection import parse_selected_cluster_ids
+from tests.test_rendering_and_qa import make_issue
 
 
 def make_shortlist() -> dict:
@@ -187,6 +188,26 @@ def test_dashboard_generate_html_get_redirects(monkeypatch, tmp_path) -> None:
 
     assert response.status_code == 303
     assert response.headers["location"] == "/issues/2026-06-10"
+
+
+def test_dashboard_generated_html_shows_brevo_button_when_configured(monkeypatch, tmp_path) -> None:
+    fastapi_testclient = pytest.importorskip("fastapi.testclient")
+    from legal_innovator.archive import write_issue_outputs
+    from legal_innovator.dashboard.app import app
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("DASHBOARD_ALLOW_NO_AUTH", "true")
+    monkeypatch.setenv("BREVO_API_KEY", "test-key")
+    monkeypatch.setenv("BREVO_SENDER_EMAIL", "sender@example.com")
+    monkeypatch.setenv("BREVO_LIST_IDS", "42")
+    write_issue_outputs(make_issue(), tmp_path / "issues" / "2026-05-19", qa_report_markdown="# QA\n")
+
+    client = fastapi_testclient.TestClient(app)
+    response = client.get("/issues/2026-05-19/html")
+
+    assert response.status_code == 200
+    assert "Create Brevo draft" in response.text
+    assert "Open Brevo" in response.text
 
 
 def _candidate(index: int) -> dict[str, object]:

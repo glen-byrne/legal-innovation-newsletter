@@ -12,6 +12,14 @@
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin:18px 0;">
       <button class="button" type="button" onclick="copyHtml()">Copy HTML</button>
       <a class="button secondary" href="/issues/{{ issue_date }}">Edit story selection</a>
+      {% if brevo_configured %}
+        <form method="post" action="/issues/{{ issue_date }}/brevo-draft" style="margin:0;">
+          <button class="button" type="submit">Create Brevo draft</button>
+        </form>
+      {% else %}
+        <span class="muted" style="align-self:center;">Brevo draft button appears when Brevo settings are configured.</span>
+      {% endif %}
+      <a class="button secondary" href="{{ brevo_app_url }}" target="_blank" rel="noreferrer">Open Brevo</a>
     </div>
     <textarea
       id="html-source"

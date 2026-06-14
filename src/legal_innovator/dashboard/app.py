@@ -32,6 +32,7 @@ from legal_innovator.dashboard.selection import (
     validate_selection_count,
 )
 from legal_innovator.models import Issue, RankedStory, ReviewShortlist
+from legal_innovator.publishing import create_brevo_draft_from_issue_dir, load_brevo_settings_from_env
 from legal_innovator.rendering.html import render_html
 from legal_innovator.selection import (
     order_stories_by_selection,
@@ -299,6 +300,12 @@ async def generated_html(request: Request, issue_date: str, message: str | None 
     _validate_issue_date(issue_date)
     html_path = _issue_dir(issue_date) / "issue.html"
     html_content = html_path.read_text(encoding="utf-8") if html_path.exists() else ""
+    brevo_configured = False
+    if html_content:
+        try:
+            brevo_configured = load_brevo_settings_from_env() is not None
+        except ValueError as exc:
+            error = error or str(exc)
     return templates.TemplateResponse(
         request,
         "html_output.html",
@@ -309,7 +316,29 @@ async def generated_html(request: Request, issue_date: str, message: str | None 
             "html_path": html_path,
             "message": message,
             "error": error if error else (None if html_content else "No generated HTML file exists yet."),
+            "brevo_configured": brevo_configured,
+            "brevo_app_url": "https://app.brevo.com/camp/listing",
         },
+    )
+
+
+@app.post("/issues/{issue_date}/brevo-draft")
+async def create_brevo_draft(request: Request, issue_date: str):
+    settings = load_dashboard_settings()
+    redirect = login_redirect(request, settings)
+    if redirect:
+        return redirect
+    _validate_issue_date(issue_date)
+    try:
+        campaign_id = create_brevo_draft_from_issue_dir(_issue_dir(issue_date))
+    except Exception as exc:  # noqa: BLE001
+        return RedirectResponse(
+            url=f"/issues/{issue_date}/html?error={_url_escape(str(exc))}",
+            status_code=303,
+        )
+    return RedirectResponse(
+        url=f"/issues/{issue_date}/html?message={_url_escape(f'Brevo draft created. Campaign ID: {campaign_id}')}",
+        status_code=303,
     )
 
 
@@ -650,3 +679,9 @@ def _workflow_inputs(issue_date: str) -> dict[str, str]:
 def _validate_issue_date(issue_date: str) -> None:
     if not ISSUE_DATE_RE.match(issue_date):
         raise HTTPException(status_code=404, detail="Invalid issue date")
+
+
+def _url_escape(value: str) -> str:
+    from urllib.parse import quote
+
+    return quote(value, safe="")

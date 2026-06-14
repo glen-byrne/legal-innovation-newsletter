@@ -4,7 +4,7 @@ Lean MVP newsletter generation system for **The Legal Edge Ireland**, an executi
 
 The system discovers legal innovation news from the 14 days immediately before the run date, prioritises Irish relevance while allowing major UK/EU and global stories to outrank minor local items, and generates review-ready issue files for a human-approved GitHub pull request.
 
-The MVP does **not** send email and does **not** create beehiiv drafts.
+The MVP does **not** send email. Optional publisher adapters may create reviewable drafts, but sending remains manual.
 
 ## Editorial Scope
 
@@ -63,7 +63,8 @@ The recommended low-cost workflow uses Codex for research discovery and the loca
 5. Open the latest issue in the dashboard. The library shows when `candidates.json` was last updated, which helps distinguish repeat scans on the same day.
 6. Review the candidate stories and tick the items to include in the final newsletter. There is no upper cap on the number selected.
 7. Click **Generate newsletter HTML**.
-8. Copy the generated HTML into the mailing campaign platform for human review and sending.
+8. Copy the generated HTML into the mailing campaign platform, or use the optional Brevo draft button.
+9. Review and send manually inside the mailing platform.
 
 This workflow is designed to minimise API spend while preserving source traceability and human editorial control. The legacy RSS/source discovery path remains available as a fallback when no candidate file is supplied.
 
@@ -80,6 +81,7 @@ The dashboard can:
 - Save selections to `issues/YYYY-MM-DD/editorial_selection.md`.
 - Generate `issue.html`, `issue.md`, `issue.txt`, `issue.json`, and `qa_report.md` locally.
 - Show the generated HTML with a copy button and preview.
+- Optionally create a Brevo draft campaign from the generated HTML when Brevo settings are configured.
 
 The dashboard still uses the same source-of-truth files:
 
@@ -135,6 +137,17 @@ Optional dashboard environment variables:
 - `DASHBOARD_ALLOW_NO_AUTH=false`
 
 Use a fine-grained GitHub token with access only to this repository where possible. It needs repository contents read/write permission and permission to dispatch Actions workflows. Keep the hosted dashboard behind HTTPS and a strong password. Use `DASHBOARD_COOKIE_SECURE=false` only for local HTTP testing.
+
+Optional Brevo draft-campaign environment variables:
+
+- `BREVO_API_KEY`
+- `BREVO_SENDER_NAME="The Legal Edge Ireland"`
+- `BREVO_SENDER_EMAIL` or `BREVO_SENDER_ID`
+- `BREVO_LIST_IDS`, comma-separated, for example `12` or `12,34`
+- `BREVO_REPLY_TO`
+- `BREVO_CAMPAIGN_TAG=legal-edge-ireland`
+
+When these are present, the generated HTML page shows **Create Brevo draft**. The dashboard creates a draft campaign only. It does not call Brevo's send endpoints.
 
 ## Candidate File Format
 
@@ -265,6 +278,8 @@ Future beehiiv placeholders:
 
 Beehiiv values are not required for the MVP and are not validated as required settings.
 
+Optional Brevo values are also not required for generation. They are used only by the dashboard's draft-campaign button.
+
 Never commit `.env` or real secrets. GitHub Actions should read secrets from repository secrets or variables.
 
 ## Local Run
@@ -355,9 +370,9 @@ The generated PR body includes:
 - Confirmation that opinion pieces and vendor-only announcements were excluded
 - Confirmation that the disclaimer is included
 
-Merging the PR archives the approved issue and repeat-prevention files in the repository. It does not publish or send anything.
+Merging the PR archives the approved issue and repeat-prevention files in the repository. It does not send anything.
 
-For Beehiiv, use `issue.html` as the manual HTML source for the MVP. Future beehiiv integration should create a draft only after human approval and should never send automatically unless explicitly enabled.
+For Brevo, the dashboard can create a draft campaign from `issue.html` when Brevo settings are configured. For Beehiiv or other platforms, use `issue.html` as the manual HTML source unless a draft-only adapter is added.
 
 ## Archives and Repeat Prevention
 
@@ -442,15 +457,20 @@ git push
 
 That creates a new commit restoring the previous behaviour without rewriting history.
 
-## Future beehiiv Integration
+## Publisher Integrations
 
 The adapter boundary is in [src/legal_innovator/publishing.py](src/legal_innovator/publishing.py).
 
-Future work should add:
+Implemented:
 
-- `Publisher` implementation for beehiiv.
-- Draft creation only after PR approval or merge.
-- Configuration that never sends automatically unless explicitly enabled.
+- `BrevoPublisher`, which creates draft email campaigns using the generated HTML.
+- Dashboard button for creating a Brevo draft when Brevo settings are configured.
+
+Future work may add:
+
+- `Publisher` implementation for beehiiv if API access and HTML handling are suitable.
+- Additional draft-only adapters for other newsletter platforms.
+- Optional post-merge draft creation.
 - Clear separation from collection, ranking, summarisation, rendering, QA, and archive storage.
 
 ## Tests
