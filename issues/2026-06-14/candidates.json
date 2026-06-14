@@ -461,6 +461,23 @@
         "paywalled"
       ],
       "selected": true
+    },
+    {
+      "id": "TLII-2026-06-14-030",
+      "headline": "Eve launches EveOS as an AI-native operational platform for plaintiff firms",
+      "published_date": "2026-06-11",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/06/eve-builds-on-ai-workforce-launch-with-eveos-an-ai-native-operational-platform-for-plaintiff-firms.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawSites reported that Eve launched EveOS, an AI-native operating system for plaintiff firms, adding four products including a live case data layer, operational analytics, communication agents, and embedded legal research, with more than 1,400 plaintiff firms and 200,000 active matters on the platform.",
+      "legal_sector_relevance_note": "A meaningful legal-workflow story because it moves beyond point AI drafting into firm-level operations, case lifecycle data, attorney review gates, AI agents, intake, research, and case-management integration.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
     }
   ]
 }
