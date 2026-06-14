@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from dotenv import load_dotenv
+from pydantic import BaseModel
 
 try:  # Dashboard dependencies are optional.
     from fastapi import FastAPI, HTTPException, Request
@@ -21,8 +22,9 @@ except ImportError as exc:  # pragma: no cover - exercised only when optional de
     raise RuntimeError('Install dashboard dependencies with: python -m pip install ".[dashboard]"') from exc
 
 from legal_innovator.archive import write_issue_outputs
+from legal_innovator.ai import StructuredAIClient
 from legal_innovator.candidates import CandidateImportResult, load_candidate_file, rank_imported_clusters
-from legal_innovator.config import RunWindow, Settings, compute_run_window, load_settings
+from legal_innovator.config import RunWindow, Settings, bool_env, compute_run_window, load_settings
 from legal_innovator.dashboard.github import GitHubClient, GitHubSettings, candidate_count
 from legal_innovator.dashboard.selection import (
     build_editorial_selection_markdown,
@@ -46,6 +48,10 @@ COOKIE_NAME = "lin_dashboard_session"
 ISSUE_DATE_RE = __import__("re").compile(r"^\d{4}-\d{2}-\d{2}$")
 ISSUES_DIR = Path("issues")
 SCAN_PROMPT_PATH = Path("docs/codex-news-scan-prompt.md")
+
+
+class DashboardIntro(BaseModel):
+    intro: str
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 app = FastAPI(title="Legal Innovation Newsletter Dashboard")
@@ -558,7 +564,7 @@ def _build_local_issue(
         generated_at=datetime.now(window.run_at.tzinfo),
         window_start=window.start_at.date(),
         window_end=window.end_at.date(),
-        intro=_local_intro(selected_stories),
+        intro=_issue_intro(selected_stories, load_settings()),
         stories=selected_stories,
         warnings=[],
     )
@@ -576,22 +582,123 @@ def _apply_candidate_editorial_text(stories: list[RankedStory], imported: Candid
         story.why_it_matters = candidate.legal_sector_relevance_note
 
 
+def _issue_intro(stories: list[RankedStory], settings: Settings) -> str:
+    if _dashboard_ai_intro_enabled(settings):
+        generated = _ai_issue_intro(stories, settings)
+        if generated:
+            return generated
+    return _local_intro(stories)
+
+
+def _dashboard_ai_intro_enabled(settings: Settings) -> bool:
+    if not bool_env(os.getenv("DASHBOARD_AI_INTRO", "true"), True):
+        return False
+    return bool(settings.openai_api_key and settings.openai_model_fast and settings.openai_model_high_quality)
+
+
+def _ai_issue_intro(stories: list[RankedStory], settings: Settings) -> str | None:
+    if not stories:
+        return None
+    ai_settings = settings.model_copy(update={"dry_run_no_ai": False})
+    try:
+        result = StructuredAIClient(ai_settings).complete_json(
+            schema=DashboardIntro,
+            system=(
+                "You write concise executive newsletter introductions for The Legal Edge Ireland. "
+                "Return JSON only. The intro must be a short overview of the main themes and trends across the selected stories. "
+                "Do not list story headlines. Do not mention every item. Avoid hype and legal advice."
+            ),
+            user=_intro_prompt(stories),
+            high_quality=False,
+        )
+    except Exception:  # noqa: BLE001 - dashboard generation should still work without AI.
+        return None
+    intro = " ".join(result.intro.split())
+    if not intro:
+        return None
+    return intro
+
+
+def _intro_prompt(stories: list[RankedStory]) -> str:
+    lines = [
+        "Draft a 1-2 sentence executive overview, around 45-75 words, for the top of this newsletter issue.",
+        "Synthesize the issue's broad news themes and practical implications for Irish legal-sector readers.",
+        "Do not write a list of the stories. Do not use bullet points.",
+        "",
+        "Selected stories:",
+    ]
+    for index, story in enumerate(stories, start=1):
+        regions = ", ".join(story.region_tags) if story.region_tags else "Unspecified"
+        lines.append(
+            f"{index}. Headline: {story.headline}\n"
+            f"Date: {story.date.isoformat()}\n"
+            f"Regions: {regions}\n"
+            f"Summary: {story.summary}\n"
+            f"Why it matters: {story.why_it_matters}"
+        )
+    return "\n\n".join(lines)
+
+
 def _local_intro(stories: list[RankedStory]) -> str:
     if not stories:
         return "No stories were selected for this issue."
-    highlights = [_intro_highlight(story.headline) for story in stories[:3]]
-    if len(highlights) == 1:
-        return f"This issue leads with {highlights[0]}."
-    if len(highlights) == 2:
-        return f"This issue leads with {highlights[0]} and {highlights[1]}."
-    return f"This issue leads with {highlights[0]}, {highlights[1]}, and {highlights[2]}."
+    themes = _intro_themes(stories)
+    region = _intro_region_focus(stories)
+    if themes:
+        return (
+            f"This issue highlights {themes} across {region}, with selected developments pointing to practical changes "
+            "in how legal work is delivered, governed, taught, and supported by technology."
+        )
+    return (
+        f"This issue highlights legal innovation developments across {region}, with practical implications for legal "
+        "services, courts, legal operations, professional practice, and client-facing risk."
+    )
 
 
-def _intro_highlight(headline: str) -> str:
-    clean = " ".join(headline.strip().rstrip(".").split())
-    if len(clean) <= 86:
-        return clean
-    return clean[:86].rsplit(" ", 1)[0].rstrip(",;:") + "..."
+def _intro_themes(stories: list[RankedStory]) -> str:
+    text = " ".join(
+        " ".join(
+            [
+                " ".join(story.headline.lower().split()),
+                " ".join(story.summary.lower().split()),
+                " ".join(story.why_it_matters.lower().split()),
+            ]
+        )
+        for story in stories
+    )
+    theme_map = [
+        ("court digitisation and digital justice", ["court", "courts", "portal", "remote", "digital justice", "probate"]),
+        ("legal AI adoption", ["legal ai", "ai", "agent", "claude", "openai", "wordsmith"]),
+        ("lawyer training and legal education", ["training", "education", "mooc", "law society", "educators"]),
+        ("legal operations and workflow redesign", ["operations", "workflow", "matter", "document", "knowledge", "automation"]),
+        ("access to justice and public-service delivery", ["access to justice", "legal aid", "disability", "public"]),
+        ("professional governance and risk management", ["governance", "regulation", "professional", "risk", "guidance"]),
+        ("legal-tech investment and market activity", ["funding", "raises", "investment", "acquisition", "startup"]),
+    ]
+    found: list[str] = []
+    for label, needles in theme_map:
+        if label in found:
+            continue
+        if any(needle in text for needle in needles):
+            found.append(label)
+    if not found:
+        return ""
+    if len(found) == 1:
+        return found[0]
+    if len(found) == 2:
+        return f"{found[0]} and {found[1]}"
+    return f"{found[0]}, {found[1]}, and {found[2]}"
+
+
+def _intro_region_focus(stories: list[RankedStory]) -> str:
+    tags = [tag for story in stories for tag in story.region_tags]
+    if not tags:
+        return "Ireland and wider legal markets"
+    if tags.count("Ireland") >= max(1, len(stories) // 3):
+        return "Ireland, with wider UK, EU, and global context where relevant"
+    if "United Kingdom" in tags or "European Union" in tags:
+        return "the UK and EU, with Irish relevance where material"
+    return "global legal markets, with relevance for Irish legal-sector readers"
 
 
 def _local_qa_markdown(issue: Issue, imported: CandidateImportResult | None) -> str:

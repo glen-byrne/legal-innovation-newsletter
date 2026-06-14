@@ -135,6 +135,7 @@ Optional dashboard environment variables:
 - `DASHBOARD_SECRET_KEY`
 - `DASHBOARD_COOKIE_SECURE=true`
 - `DASHBOARD_ALLOW_NO_AUTH=false`
+- `DASHBOARD_AI_INTRO=true`, uses OpenAI to draft the issue overview when OpenAI settings are present
 
 Use a fine-grained GitHub token with access only to this repository where possible. It needs repository contents read/write permission and permission to dispatch Actions workflows. Keep the hosted dashboard behind HTTPS and a strong password. Use `DASHBOARD_COOKIE_SECURE=false` only for local HTTP testing.
 
@@ -159,7 +160,7 @@ Example:
 {
   "candidates": [
     {
-      "id": "TLII-2026-05-24-001",
+      "id": "TLEI-2026-05-24-001",
       "headline": "Example legal AI workflow story",
       "published_date": "2026-05-24",
       "source_name": "Example Legal News",

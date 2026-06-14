@@ -63,7 +63,10 @@ def test_html_template_uses_brand_identity_palette() -> None:
     assert "#DCCBB2" in html
     assert "#F5F1EA" in html
     assert "The latest on legal innovation, technology, AI and design for the Irish legal sector." in html
-    assert "LII" in html
+    assert "LEI" in html
+    assert "The Legal" in html
+    assert "Edge" in html
+    assert "Innovator</h1>" not in html
     assert "Est. 2024" not in html
     assert "Issue date:" not in html
     assert "Issue: 19 May 2026" in html

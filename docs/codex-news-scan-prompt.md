@@ -82,7 +82,7 @@ Each candidate must include exactly these fields:
 
 Field rules:
 
-id: stable sequential identifier using ISSUE_DATE, e.g. TLII-{ISSUE_DATE}-001
+id: stable sequential identifier using ISSUE_DATE, e.g. TLEI-{ISSUE_DATE}-001
 
 headline: story headline
 

@@ -124,6 +124,7 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     monkeypatch.delenv("DASHBOARD_PASSWORD", raising=False)
     monkeypatch.setenv("DASHBOARD_ALLOW_NO_AUTH", "true")
     monkeypatch.setenv("DASHBOARD_COOKIE_SECURE", "false")
+    monkeypatch.setenv("DASHBOARD_AI_INTRO", "false")
     issue_dir = tmp_path / "issues" / "2026-06-10"
     issue_dir.mkdir(parents=True)
     candidates = [_candidate(index) for index in range(1, 9)]
@@ -164,7 +165,8 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert (issue_dir / "editorial_selection.md").exists()
     html = (issue_dir / "issue.html").read_text(encoding="utf-8")
     assert "Story 1" in html
-    assert "This issue leads with Story 8, Story 7, and Story 6." in html
+    assert "This issue highlights legal innovation developments" in html
+    assert "This issue leads with Story" not in html
     assert "Legal innovation developments affecting" not in html
     assert html.index("Story 8") < html.index("Story 1")
     assert '<span class="region-tag">Ireland</span>' in html
