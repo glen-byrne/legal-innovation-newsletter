@@ -298,7 +298,13 @@ async def generate_html_get(request: Request, issue_date: str):
 
 
 @app.get("/issues/{issue_date}/html", response_class=HTMLResponse)
-async def generated_html(request: Request, issue_date: str, message: str | None = None, error: str | None = None):
+async def generated_html(
+    request: Request,
+    issue_date: str,
+    message: str | None = None,
+    error: str | None = None,
+    brevo_campaign_id: str | None = None,
+):
     settings = load_dashboard_settings()
     redirect = login_redirect(request, settings)
     if redirect:
@@ -323,7 +329,7 @@ async def generated_html(request: Request, issue_date: str, message: str | None 
             "message": message,
             "error": error if error else (None if html_content else "No generated HTML file exists yet."),
             "brevo_configured": brevo_configured,
-            "brevo_app_url": "https://app.brevo.com/camp/listing",
+            "brevo_app_url": _brevo_app_url(brevo_campaign_id),
         },
     )
 
@@ -343,7 +349,11 @@ async def create_brevo_draft(request: Request, issue_date: str):
             status_code=303,
         )
     return RedirectResponse(
-        url=f"/issues/{issue_date}/html?message={_url_escape(f'Brevo draft created. Campaign ID: {campaign_id}')}",
+        url=(
+            f"/issues/{issue_date}/html?"
+            f"message={_url_escape(f'Brevo draft created. Campaign ID: {campaign_id}')}"
+            f"&brevo_campaign_id={_url_escape(campaign_id)}"
+        ),
         status_code=303,
     )
 
@@ -792,3 +802,11 @@ def _url_escape(value: str) -> str:
     from urllib.parse import quote
 
     return quote(value, safe="")
+
+
+def _brevo_app_url(campaign_id: str | None) -> str:
+    from urllib.parse import quote
+
+    if campaign_id and campaign_id.strip():
+        return f"https://app.brevo.com/marketing-campaign/edit/{quote(campaign_id.strip(), safe='')}"
+    return "https://app.brevo.com/marketing-campaign/list"

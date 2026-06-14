@@ -210,6 +210,11 @@ def test_dashboard_generated_html_shows_brevo_button_when_configured(monkeypatch
     assert response.status_code == 200
     assert "Create Brevo draft" in response.text
     assert "Open Brevo" in response.text
+    assert "https://app.brevo.com/marketing-campaign/list" in response.text
+
+    campaign_response = client.get("/issues/2026-05-19/html?brevo_campaign_id=2")
+    assert campaign_response.status_code == 200
+    assert "https://app.brevo.com/marketing-campaign/edit/2" in campaign_response.text
 
 
 def _candidate(index: int) -> dict[str, object]:
