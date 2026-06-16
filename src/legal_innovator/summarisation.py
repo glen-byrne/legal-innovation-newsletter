@@ -26,7 +26,9 @@ SUMMARY_SYSTEM = """You write The Legal Edge Ireland, an executive briefing for 
 Return JSON only. Tone: neutral, concise, professional, commercially aware. Avoid hype and legal advice.
 Summaries must be based only on the supplied source snippets, metadata, and permitted article text. For paywalled sources, do not imply full article access.
 Each story summary should be 1-2 concise sentences. Each why_it_matters should be exactly one sentence.
-The intro should be 2-3 sentences summarising the main news from the fortnight.
+The intro should be one concrete executive sentence, around 45-70 words, written as the body that follows the fixed prefix "In today's issue:".
+Do not include the prefix yourself. Do not begin with "This issue highlights", "This issue leads with", or similar generic wording.
+Synthesize themes and market/practice implications rather than listing headlines.
 """
 
 
@@ -91,6 +93,7 @@ def _summary_prompt(stories: list[RankedStory], cluster_map: dict[str, StoryClus
         "Write the issue intro and final story summaries from these ranked stories.",
         "Return exactly one story object for each input story, in the same order.",
         "Preserve each Cluster ID exactly as supplied.",
+        "For the intro, write one concrete sentence after the implied prefix 'In today's issue:' and avoid listing story headlines.",
     ]
     for index, story in enumerate(stories, start=1):
         cluster = cluster_map.get(story.cluster_id)
@@ -112,8 +115,8 @@ def _fallback_summary(article: ExtractedArticle | None) -> str:
 
 def _fallback_intro(stories: list[RankedStory]) -> str:
     return (
-        f"This issue tracks {len(stories)} legal innovation developments from the past fortnight, "
-        "with priority given to Irish relevance and wider UK, EU, and global developments where they materially affect legal services."
+        f"{len(stories)} selected legal innovation developments point to practical shifts in AI adoption, digital justice, "
+        "legal operations, professional governance, and legal-service delivery across Ireland and comparable markets."
     )
 
 

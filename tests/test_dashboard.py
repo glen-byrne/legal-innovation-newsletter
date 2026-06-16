@@ -143,7 +143,9 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert "Drag story to reorder" in review_response.text
     assert "data-drag-handle" in review_response.text
     assert "data-remove-region" in review_response.text
-    assert "Why it matters:" in review_response.text
+    assert "data-add-region" in review_response.text
+    assert "[region] +" in review_response.text
+    assert "Impact:" in review_response.text
     assert "Example legal-sector relevance 1." in review_response.text
 
     selected_ids = [candidate["id"] for candidate in reversed(candidates)]
@@ -165,7 +167,9 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert (issue_dir / "editorial_selection.md").exists()
     html = (issue_dir / "issue.html").read_text(encoding="utf-8")
     assert "Story 1" in html
-    assert "This issue highlights legal innovation developments" in html
+    assert "In today's issue:" in html
+    assert "legal innovation developments across Ireland" in html
+    assert "This issue highlights legal innovation developments" not in html
     assert "This issue leads with Story" not in html
     assert "Legal innovation developments affecting" not in html
     assert html.index("Story 8") < html.index("Story 1")
@@ -201,6 +205,7 @@ def test_dashboard_generated_html_shows_brevo_button_when_configured(monkeypatch
     monkeypatch.setenv("DASHBOARD_ALLOW_NO_AUTH", "true")
     monkeypatch.setenv("BREVO_API_KEY", "test-key")
     monkeypatch.setenv("BREVO_SENDER_EMAIL", "sender@example.com")
+    monkeypatch.delenv("BREVO_LIST_NAMES", raising=False)
     monkeypatch.setenv("BREVO_LIST_IDS", "42")
     write_issue_outputs(make_issue(), tmp_path / "issues" / "2026-05-19", qa_report_markdown="# QA\n")
 

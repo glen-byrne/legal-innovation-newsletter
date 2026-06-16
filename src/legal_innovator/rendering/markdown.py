@@ -24,7 +24,7 @@ def render_markdown(issue: Issue) -> str:
             ]
         )
     for index, story in enumerate(issue.stories, start=1):
-        regions = ", ".join(story.region_tags[:3])
+        regions = ", ".join(story.region_tags)
         lines.extend(
             [
                 f"## {index}. {story.headline}",
@@ -35,7 +35,7 @@ def render_markdown(issue: Issue) -> str:
                 "",
                 story.summary,
                 "",
-                f"**Why it matters:** {story.why_it_matters}",
+                f"**Impact:** {story.why_it_matters}",
                 "",
                 "**Sources:** "
                 + "; ".join(f"[{link.name}]({link.url})" for link in story.sources),

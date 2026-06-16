@@ -63,15 +63,21 @@ def test_html_template_uses_brand_identity_palette() -> None:
     assert "#DCCBB2" in html
     assert "#F5F1EA" in html
     assert "The latest on legal innovation, technology, AI and design for the Irish legal sector." in html
-    assert "LEI" in html
-    assert "The Legal" in html
-    assert "Edge" in html
+    assert "LEI" not in html
+    assert "data:image/png;base64" in html
+    assert "The Legal Edge" in html
+    assert "Ireland" in html
     assert "Innovator</h1>" not in html
     assert "Est. 2024" not in html
     assert "Issue date:" not in html
     assert "Issue: 19 May 2026" in html
     assert "18 May 2026" in html
-    assert "mailto:legalinnovation@gmail.com" in html
+    assert "Click here to subscribe" in html
+    assert "In today's issue:" in html
+    assert "Impact:" in html
+    assert "mailto:legal.innovation.news@gmail.com" in html
+    assert "What do you think? Provide feedback" in html
+    assert "Unsubscribe" in html
 
 
 def test_rendered_outputs_include_visible_region_tags() -> None:

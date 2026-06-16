@@ -272,6 +272,64 @@
         outline: none;
       }
 
+      .region-add-wrap {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .region-add-button {
+        appearance: none;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        background: #f5f5f7;
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 12px;
+        line-height: 1.2;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .region-add-button:hover,
+      .region-add-button:focus {
+        background: #eeeeef;
+        color: var(--text);
+        outline: none;
+      }
+
+      .region-add-menu {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 6px);
+        z-index: 30;
+        width: 180px;
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+      }
+
+      .region-option {
+        appearance: none;
+        display: block;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        text-align: left;
+        border-radius: 9px;
+        padding: 8px 9px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .region-option:hover,
+      .region-option:focus {
+        background: #f5f5f7;
+        outline: none;
+      }
+
       .note {
         margin: 10px 0 0;
         font-size: 14px;

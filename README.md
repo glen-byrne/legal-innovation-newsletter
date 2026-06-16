@@ -144,7 +144,8 @@ Optional Brevo draft-campaign environment variables:
 - `BREVO_API_KEY`
 - `BREVO_SENDER_NAME="The Legal Edge Ireland"`
 - `BREVO_SENDER_EMAIL` or `BREVO_SENDER_ID`
-- `BREVO_LIST_IDS`, comma-separated, for example `12` or `12,34`
+- `BREVO_LIST_NAMES`, comma-separated, for example `test-list,the-legal-edge-IE`. This is preferred because Brevo list IDs can change.
+- `BREVO_LIST_IDS`, comma-separated, for example `12` or `12,34`. This is a fallback and is ignored when `BREVO_LIST_NAMES` is set.
 - `BREVO_REPLY_TO`
 - `BREVO_CAMPAIGN_TAG`, optional. Leave blank if your Brevo account does not support campaign tags.
 
@@ -411,7 +412,7 @@ OpenAI assists with:
 - Article clustering and deduplication for fallback RSS/source discovery
 - Ranking inputs for fallback RSS/source discovery
 - Neutral summaries
-- One-sentence "Why it matters"
+- One-sentence "Impact"
 - Executive intro
 - Factual QA against source snippets, metadata, and permitted text
 

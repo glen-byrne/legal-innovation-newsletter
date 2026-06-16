@@ -48,6 +48,7 @@ COOKIE_NAME = "lin_dashboard_session"
 ISSUE_DATE_RE = __import__("re").compile(r"^\d{4}-\d{2}-\d{2}$")
 ISSUES_DIR = Path("issues")
 SCAN_PROMPT_PATH = Path("docs/codex-news-scan-prompt.md")
+REGION_TAG_CHOICES = ["Ireland", "United Kingdom", "European Union", "United States", "Global"]
 
 
 class DashboardIntro(BaseModel):
@@ -427,6 +428,7 @@ def _render_issue(
             "selected_count": len(selected_ids),
             "story_region_tags": story_region_tags,
             "story_source_links": story_source_links,
+            "region_tag_choices": REGION_TAG_CHOICES,
             "message": message,
             "error": error,
             "repository_url": settings.github.web_base_url if settings.github else "",
@@ -538,8 +540,15 @@ def _region_tag_overrides_from_form(form: Any) -> dict[str, list[str]]:
     overrides: dict[str, list[str]] = {story_id: [] for story_id in story_ids}
     for story_id in story_ids:
         key = f"region_tags__{story_id}"
-        values = [str(value).strip() for value in form.getlist(key) if str(value).strip()]
-        overrides[story_id] = values[:3]
+        seen: set[str] = set()
+        values: list[str] = []
+        for value in form.getlist(key):
+            tag = str(value).strip()
+            if not tag or tag not in REGION_TAG_CHOICES or tag in seen:
+                continue
+            seen.add(tag)
+            values.append(tag)
+        overrides[story_id] = values[:5]
     return overrides
 
 
@@ -551,9 +560,9 @@ def _apply_region_tag_overrides(stories: list[Any], overrides: dict[str, list[st
         if story_id not in overrides:
             continue
         if isinstance(story, dict):
-            story["region_tags"] = overrides[story_id][:3]
+            story["region_tags"] = overrides[story_id][:5]
         else:
-            story.region_tags = overrides[story_id][:3]
+            story.region_tags = overrides[story_id][:5]
 
 
 def _build_local_issue(
@@ -616,7 +625,9 @@ def _ai_issue_intro(stories: list[RankedStory], settings: Settings) -> str | Non
             system=(
                 "You write concise executive newsletter introductions for The Legal Edge Ireland. "
                 "Return JSON only. The intro must be a short overview of the main themes and trends across the selected stories. "
-                "Do not list story headlines. Do not mention every item. Avoid hype and legal advice."
+                "Write the body that follows the fixed prefix 'In today's issue:'; do not repeat that prefix. "
+                "Use a concrete, executive briefing tone, e.g. 'Irish and European legal AI developments dominate, from lawyer training, court digitisation and AI transparency rules to...' "
+                "Do not list story headlines. Do not mention every item. Avoid generic openings such as 'This issue highlights'. Avoid hype and legal advice."
             ),
             user=_intro_prompt(stories),
             high_quality=False,
@@ -631,9 +642,10 @@ def _ai_issue_intro(stories: list[RankedStory], settings: Settings) -> str | Non
 
 def _intro_prompt(stories: list[RankedStory]) -> str:
     lines = [
-        "Draft a 1-2 sentence executive overview, around 45-75 words, for the top of this newsletter issue.",
+        "Draft a one-sentence executive overview, around 45-70 words, for the top of this newsletter issue.",
+        "The rendered newsletter will add the prefix 'In today's issue:' in bold, so return only the sentence body after that prefix.",
         "Synthesize the issue's broad news themes and practical implications for Irish legal-sector readers.",
-        "Do not write a list of the stories. Do not use bullet points.",
+        "Do not write a list of the stories. Do not begin with 'This issue highlights', 'This issue leads with', or similar wording. Do not use bullet points.",
         "",
         "Selected stories:",
     ]
@@ -644,7 +656,7 @@ def _intro_prompt(stories: list[RankedStory]) -> str:
             f"Date: {story.date.isoformat()}\n"
             f"Regions: {regions}\n"
             f"Summary: {story.summary}\n"
-            f"Why it matters: {story.why_it_matters}"
+            f"Impact: {story.why_it_matters}"
         )
     return "\n\n".join(lines)
 
@@ -656,11 +668,11 @@ def _local_intro(stories: list[RankedStory]) -> str:
     region = _intro_region_focus(stories)
     if themes:
         return (
-            f"This issue highlights {themes} across {region}, with selected developments pointing to practical changes "
+            f"{themes.capitalize()} set the pace across {region}, with selected developments pointing to practical changes "
             "in how legal work is delivered, governed, taught, and supported by technology."
         )
     return (
-        f"This issue highlights legal innovation developments across {region}, with practical implications for legal "
+        f"Legal innovation developments across {region} point to practical shifts in legal "
         "services, courts, legal operations, professional practice, and client-facing risk."
     )
 
@@ -726,7 +738,7 @@ def _local_qa_markdown(issue: Issue, imported: CandidateImportResult | None) -> 
         "## Notes",
         "- This local dashboard generation does not send email and does not create beehiiv drafts.",
         "- Story summaries use the factual basis supplied in `candidates.json`.",
-        "- Why-it-matters lines use the legal-sector relevance notes supplied in `candidates.json`.",
+        "- Impact lines use the legal-sector relevance notes supplied in `candidates.json`.",
     ]
     if imported and imported.errors:
         lines.extend(["", "## Candidate import warnings"])

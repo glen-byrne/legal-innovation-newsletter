@@ -40,11 +40,14 @@ When verifying source URLs, batch source checks where possible and avoid asking 
 
 Prioritise stories about innovation in the practice, delivery, management, engineering, design, and business of law. Give stronger weight to stories involving legal technology, legal AI, workflow engineering, service design, court digitisation, access-to-justice tools, legal operations, knowledge systems, document systems, e-discovery, CLM, matter management, legal education technology, AI governance for lawyers, and new legal-service delivery models.
 
+Also check reputable mainstream technology and business sources, including TechCrunch, Wired, The Verge, Reuters, the Financial Times, Bloomberg, CNBC, BBC Technology, and The Guardian Technology, for major AI-platform or foundation-model stories. Include those stories only where they are materially relevant to legal AI adoption, legal-market strategy, professional risk, enterprise AI procurement, model reliability, data security, client advisory demand, litigation/dispute risk, drafting/research workflows, knowledge systems, or legal-service delivery. A general AI story can be included if it is strategically important enough that Irish legal-sector leaders should understand it, even if the story is not written specifically for lawyers.
+
 Prioritise:
 
 1. Irish and all-island legal innovation news.
 2. UK and EU legal innovation developments.
 3. Major US or global stories where they are materially relevant to law firms, legal departments, courts, regulators, legal services, clients, or the legal market.
+4. Major AI-sector developments from reputable technology media where the connection to legal innovation is indirect but material, such as major model releases, restrictions, safety incidents, enterprise AI platform shifts, AI-agent infrastructure, or government action affecting frontier AI providers.
 
 Demote generic legal, regulatory, litigation, policy, or business stories unless they clearly affect how legal work is produced, delivered, governed, priced, taught, accessed, supervised, automated, or transformed.
 
@@ -59,6 +62,7 @@ Exclude:
 - stories based only on search-result snippets or headlines
 - items without direct source URLs
 - generic technology regulation without a clear legal-practice, legal-market, or legal-service-delivery angle
+- routine AI-industry stories that have no clear implication for legal-sector technology, client risk, enterprise adoption, AI governance, or legal-service delivery
 
 The saved file must be valid JSON only. Do not wrap it in Markdown fences. Do not include comments. Use exactly this top-level structure:
 
@@ -113,6 +117,7 @@ Final quality check before saving:
 - the date window has been applied consistently
 - Irish and all-island stories have been prioritised where available
 - legal-innovation stories are prioritised over general legal/regulatory news
+- major AI-platform stories from reputable technology media have been checked and included only where they have a clear strategic legal-sector relevance
 - each item has a direct source URL
 - each item has a clear factual basis
 - vendor-originated stories are labelled appropriately
@@ -133,4 +138,3 @@ After pushing, reply briefly with:
 - the path of the saved file
 - the commit hash if available
 - any warnings or caveats
-```

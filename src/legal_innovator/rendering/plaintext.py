@@ -23,14 +23,14 @@ def render_plaintext(issue: Issue) -> str:
             ]
         )
     for index, story in enumerate(issue.stories, start=1):
-        regions = ", ".join(story.region_tags[:3]) or "Unspecified"
+        regions = ", ".join(story.region_tags) or "Unspecified"
         lines.extend(
             [
                 f"{index}. {story.headline}",
                 f"Date: {story.date.isoformat()}",
                 f"Regions: {regions}",
                 story.summary,
-                f"Why it matters: {story.why_it_matters}",
+                f"Impact: {story.why_it_matters}",
                 "Sources:",
             ]
         )

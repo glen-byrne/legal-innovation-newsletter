@@ -81,12 +81,20 @@
                 </span>
               {% endfor %}
             {% endif %}
+            <span class="region-add-wrap">
+              <button class="region-add-button" type="button" data-add-region>[region] +</button>
+              <span class="region-add-menu" data-region-menu hidden>
+                {% for region_option in region_tag_choices %}
+                  <button class="region-option" type="button" data-region-option="{{ region_option }}">{{ region_option }}</button>
+                {% endfor %}
+              </span>
+            </span>
           </div>
           {% if story.summary %}
             <p class="note">{{ story.summary }}</p>
           {% endif %}
           {% if story.why_it_matters %}
-            <p class="note"><strong>Why it matters:</strong> {{ story.why_it_matters }}</p>
+            <p class="note"><strong>Impact:</strong> {{ story.why_it_matters }}</p>
           {% endif %}
           <p class="sources">
             {% for source in story_source_links(story) %}
@@ -179,11 +187,78 @@
       requestAnimationFrame(() => draggedCard.classList.add("is-dragging"));
     });
 
+    const closeRegionMenus = (exceptMenu = null) => {
+      list.querySelectorAll("[data-region-menu]").forEach((menu) => {
+        if (menu !== exceptMenu) menu.hidden = true;
+      });
+    };
+
+    const hasRegionTag = (container, region) => {
+      return Array.from(container.querySelectorAll('input[name^="region_tags__"]')).some(
+        (input) => input.value === region
+      );
+    };
+
+    const addRegionTag = (container, region) => {
+      if (!region || hasRegionTag(container, region)) return;
+      const storyInput = container.querySelector('input[name="region_tag_story"]');
+      if (!storyInput) return;
+      const addWrap = container.querySelector(".region-add-wrap");
+      const tag = document.createElement("span");
+      tag.className = "region-tag region-tag-removable";
+      tag.dataset.regionTag = "";
+      tag.append(document.createTextNode(region + " "));
+
+      const remove = document.createElement("button");
+      remove.className = "region-tag-remove";
+      remove.type = "button";
+      remove.dataset.removeRegion = "";
+      remove.setAttribute("aria-label", "Remove " + region + " tag");
+      remove.title = "Remove " + region + " tag";
+      remove.textContent = "x";
+      tag.appendChild(remove);
+
+      const hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = "region_tags__" + storyInput.value;
+      hidden.value = region;
+      tag.appendChild(hidden);
+
+      container.insertBefore(tag, addWrap);
+    };
+
     list.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-remove-region]");
-      if (!button) return;
-      const tag = button.closest("[data-region-tag]");
-      if (tag) tag.remove();
+      const removeButton = event.target.closest("[data-remove-region]");
+      if (removeButton) {
+        const tag = removeButton.closest("[data-region-tag]");
+        if (tag) tag.remove();
+        return;
+      }
+
+      const addButton = event.target.closest("[data-add-region]");
+      if (addButton) {
+        const menu = addButton.parentElement.querySelector("[data-region-menu]");
+        if (!menu) return;
+        const isHidden = menu.hidden;
+        closeRegionMenus(menu);
+        menu.hidden = !isHidden;
+        return;
+      }
+
+      const option = event.target.closest("[data-region-option]");
+      if (option) {
+        const container = option.closest("[data-region-tags]");
+        if (!container) return;
+        addRegionTag(container, option.dataset.regionOption);
+        closeRegionMenus();
+        return;
+      }
+
+      closeRegionMenus();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!list.contains(event.target)) closeRegionMenus();
     });
 
     list.addEventListener("dragover", (event) => {

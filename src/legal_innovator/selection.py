@@ -82,4 +82,4 @@ def _selection_instruction(shortlist: ReviewShortlist) -> str:
 
 
 def _region_tags_text(story: RankedStory) -> str:
-    return ", ".join(story.region_tags[:3])
+    return ", ".join(story.region_tags)

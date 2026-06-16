@@ -89,7 +89,7 @@ def story_source_links(story: Any) -> list[dict[str, str]]:
 def story_region_tags(story: Any) -> list[str]:
     tags = _story_value(story, "region_tags", [])
     if isinstance(tags, list) and tags:
-        return [str(tag) for tag in tags[:3] if str(tag).strip()]
+        return [str(tag) for tag in tags if str(tag).strip()]
     region = _story_value(story, "region", "")
     if not region:
         return []

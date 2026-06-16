@@ -40,10 +40,10 @@ REGION_DISPLAY_TAGS: dict[Region, list[str]] = {
 
 
 def region_tags_for_region(value: Region | str) -> list[str]:
-    """Return human-readable region tags capped for compact story display."""
+    """Return human-readable region tags for story display."""
 
     if isinstance(value, Region):
-        return REGION_DISPLAY_TAGS[value][:3]
+        return REGION_DISPLAY_TAGS[value]
     normalised = value.strip().lower().replace("-", "/").replace("_", "/")
     if normalised in {"ireland", "irish", "all/island", "all island"}:
         return ["Ireland"]
@@ -188,7 +188,7 @@ class RankedStory(Model):
     date: date
     canonical_url: AnyUrl
     sources: list[SourceLink] = Field(min_length=1, max_length=3)
-    region_tags: list[str] = Field(default_factory=list, max_length=3)
+    region_tags: list[str] = Field(default_factory=list, max_length=5)
     source_names: list[str] = Field(default_factory=list)
     source_types: list[str] = Field(default_factory=list)
     summary: str = ""

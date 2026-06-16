@@ -14,7 +14,7 @@
       }
       table { border-collapse: collapse; }
       img { border: 0; display: block; }
-      a { color: #1E3B2E; text-decoration: underline; }
+      a { color: #1E3B2E !important; text-decoration: underline; }
       .wrapper {
         width: 100%;
         background: #F5F1EA;
@@ -34,39 +34,54 @@
         color: #F5F1EA;
         text-align: center;
       }
-      .monogram {
+      .brand-icon-wrap {
         display: inline-block;
         margin: 0 auto 12px auto;
-        padding: 9px 12px;
+        padding: 8px;
         border: 1px solid #DCCBB2;
-        color: #DCCBB2;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 24px;
-        line-height: 1;
+        border-radius: 999px;
+        background: #F5F1EA;
       }
-      .title-small {
-        margin: 0 0 4px 0;
+      .brand-icon {
+        width: 46px;
+        height: 46px;
+      }
+      .title-main {
+        margin: 0;
+        color: #F5F1EA;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 34px;
+        line-height: 1.15;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .title-country {
+        margin: 4px 0 0 0;
         color: #F5F1EA;
         font-family: Georgia, "Times New Roman", serif;
         font-size: 22px;
         line-height: 1.15;
         font-weight: normal;
         text-transform: uppercase;
-      }
-      .title-large {
-        margin: 0;
-        color: #F5F1EA;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 42px;
-        line-height: 1.05;
-        font-weight: normal;
-        text-transform: uppercase;
+        letter-spacing: 0;
       }
       .tagline {
         margin: 16px 0 0 0;
         color: #DCCBB2;
         font-size: 14px;
         line-height: 1.5;
+      }
+      .subscribe-button {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 10px 16px;
+        border: 1px solid #DCCBB2;
+        border-radius: 999px;
+        color: #1E3B2E !important;
+        background: #F5F1EA;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
       }
       .issue-meta {
         padding: 16px 30px;
@@ -178,30 +193,26 @@
         line-height: 1.55;
         text-align: center;
       }
-      .footer-mark {
-        margin: 0 0 10px 0;
-        color: #F5F1EA;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 20px;
-        line-height: 1;
-      }
       .feedback-button {
         display: inline-block;
         margin-top: 12px;
         padding: 10px 16px;
         border: 1px solid #DCCBB2;
         border-radius: 999px;
-        color: #F5F1EA;
+        color: #F5F1EA !important;
         text-decoration: none;
         font-size: 13px;
         font-weight: bold;
+      }
+      .unsubscribe-link {
+        color: #DCCBB2 !important;
       }
       @media screen and (max-width: 520px) {
         .outer-pad { padding: 0 !important; }
         .masthead { padding: 28px 20px 24px 20px !important; }
         .issue-meta, .intro, .story, .footer { padding-left: 20px !important; padding-right: 20px !important; }
-        .title-large { font-size: 34px !important; }
-        .title-small { font-size: 18px !important; }
+        .title-main { font-size: 29px !important; }
+        .title-country { font-size: 18px !important; }
         .story h2 { font-size: 20px !important; }
         .intro { font-size: 16px !important; }
       }
@@ -214,11 +225,11 @@
           <table role="presentation" class="container" width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td class="masthead">
-                <div class="monogram">LEI</div>
-                <h1 class="title-small">The Legal</h1>
-                <h1 class="title-large">Edge</h1>
-                <h1 class="title-small">Ireland</h1>
+                <span class="brand-icon-wrap"><img class="brand-icon" src="{{ brand_icon_data_uri }}" width="46" height="46" alt=""></span>
+                <h1 class="title-main">The Legal Edge</h1>
+                <h1 class="title-country">Ireland</h1>
                 <p class="tagline">The latest on legal innovation, technology, AI and design for the Irish legal sector.</p>
+                <a class="subscribe-button" href="{{ subscribe_url }}">Click here to subscribe</a>
               </td>
             </tr>
             <tr>
@@ -228,7 +239,7 @@
               </td>
             </tr>
             <tr>
-              <td class="intro">{{ issue.intro }}</td>
+              <td class="intro"><strong>In today's issue:</strong> {{ intro_body }}</td>
             </tr>
             {% if not issue.stories %}
             <tr>
@@ -251,7 +262,7 @@
                       <p class="meta">{{ format_date(story.date) }}</p>
                       {% if story.region_tags %}
                       <p class="region-tags">
-                        {% for region in story.region_tags[:3] %}
+                        {% for region in story.region_tags %}
                         <span class="region-tag">{{ region }}</span>
                         {% endfor %}
                       </p>
@@ -260,7 +271,7 @@
                   </tr>
                 </table>
                 <p class="summary">{{ story.summary }}</p>
-                <p class="why"><strong>Why it matters:</strong> {{ story.why_it_matters }}</p>
+                <p class="why"><strong>Impact:</strong> {{ story.why_it_matters }}</p>
                 <p class="sources">
                   <strong>Sources:</strong>
                   {% for source in story.sources %}
@@ -272,8 +283,8 @@
             {% endfor %}
             <tr>
               <td class="footer">
-                <p class="footer-mark">LEI</p>
-                <a class="feedback-button" href="mailto:legalinnovation@gmail.com">Provide feedback</a>
+                <a class="feedback-button" href="mailto:legal.innovation.news@gmail.com">What do you think? Provide feedback</a>
+                <p><a class="unsubscribe-link" href="{{ unsubscribe_url }}">Unsubscribe</a></p>
               </td>
             </tr>
           </table>
