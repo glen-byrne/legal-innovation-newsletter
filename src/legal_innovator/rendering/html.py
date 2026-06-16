@@ -30,7 +30,7 @@ def format_display_date(value: date) -> str:
 
 
 def brand_icon_data_uri() -> str:
-    icon_path = Path(__file__).parent / "assets" / "balance.png"
+    icon_path = Path(__file__).parent / "assets" / "the-legal-edge-logo.png"
     encoded = base64.b64encode(icon_path.read_bytes()).decode("ascii")
     return f"data:image/png;base64,{encoded}"
 
