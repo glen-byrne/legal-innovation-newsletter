@@ -36,7 +36,7 @@ legal-innovator = "legal_innovator.main:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-legal_innovator = ["rendering/templates/*.j2", "rendering/assets/*.png", "dashboard/templates/*.html"]
+legal_innovator = ["rendering/templates/*.j2", "rendering/assets/*.png", "rendering/assets/*.svg", "dashboard/templates/*.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import base64
+import os
 from datetime import date
 from pathlib import Path
 
@@ -23,16 +23,18 @@ UNSUBSCRIBE_URL = (
     "hEn43dvUcqM5IabDx7ehox-sUYlSTrU_Tvz6OfgR85OkVf80q_oN_QciLWUPBdQsBEeQLa6hj5sPUIIJB6kyIDTjsUJGPehPLQilgAt5i9G5o-"
     "qgQXbkKD1AnZILELMM9A=="
 )
+DEFAULT_LOGO_URL = (
+    "https://raw.githubusercontent.com/glen-byrne/legal-innovation-newsletter/main/"
+    "src/legal_innovator/rendering/assets/the-legal-edge-logo-email.png"
+)
 
 
 def format_display_date(value: date) -> str:
     return f"{value.day} {value.strftime('%B %Y')}"
 
 
-def brand_icon_data_uri() -> str:
-    icon_path = Path(__file__).parent / "assets" / "the-legal-edge-logo.svg"
-    encoded = base64.b64encode(icon_path.read_bytes()).decode("ascii")
-    return f"data:image/svg+xml;base64,{encoded}"
+def brand_icon_src() -> str:
+    return os.getenv("NEWSLETTER_LOGO_URL", "").strip() or DEFAULT_LOGO_URL
 
 
 def format_intro_body(value: str) -> str:
@@ -68,7 +70,7 @@ def render_html(issue: Issue) -> str:
     return template.render(
         issue=issue,
         format_date=format_display_date,
-        brand_icon_data_uri=brand_icon_data_uri(),
+        brand_icon_src=brand_icon_src(),
         intro_body=format_intro_body(issue.intro),
         subscribe_url=SUBSCRIBE_URL,
         unsubscribe_url=UNSUBSCRIBE_URL,

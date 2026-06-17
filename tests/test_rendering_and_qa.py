@@ -53,7 +53,8 @@ def test_rendered_outputs_exclude_internal_scores() -> None:
     assert issue.disclaimer in outputs["plaintext"]
 
 
-def test_html_template_uses_brand_identity_palette() -> None:
+def test_html_template_uses_brand_identity_palette(monkeypatch) -> None:
+    monkeypatch.delenv("NEWSLETTER_LOGO_URL", raising=False)
     issue = make_issue()
     html = rendered_outputs(issue)["html"]
 
@@ -64,7 +65,8 @@ def test_html_template_uses_brand_identity_palette() -> None:
     assert "#F5F1EA" in html
     assert "The latest on legal innovation, technology, AI and design for the Irish legal sector." in html
     assert ">LEI<" not in html
-    assert "data:image/svg+xml;base64" in html
+    assert "data:image" not in html
+    assert "the-legal-edge-logo-email.png" in html
     brand_wrap_css = html.split(".brand-icon-wrap {", 1)[1].split("}", 1)[0]
     assert "border" not in brand_wrap_css
     assert "background" not in brand_wrap_css

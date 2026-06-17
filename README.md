@@ -272,6 +272,7 @@ Useful controls:
 - `DRY_RUN_NO_AI=false`
 - `ENABLE_OPENAI_WEB_SEARCH=false`
 - `NEWSLETTER_NAME="The Legal Edge Ireland"`
+- `NEWSLETTER_LOGO_URL`, optional. Leave blank to use the bundled GitHub-hosted PNG logo. Use a normal hosted PNG/JPG URL for email-client compatibility; Gmail may not render embedded SVG or `data:` image URLs.
 
 Future beehiiv placeholders:
 
