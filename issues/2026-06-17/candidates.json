@@ -1,0 +1,473 @@
+{
+  "candidates": [
+    {
+      "id": "TLEI-2026-06-17-001",
+      "headline": "Bar of Ireland selects Newcode as AI platform for Irish barristers",
+      "published_date": "2026-06-17",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/ai-use-mustnt-weaken-public-trust-in-law--guerin/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that the Bar of Ireland selected Newcode after a rigorous evaluation process to provide a dedicated legal agentic AI platform for Irish barristers with auditable, context-aware workflows.",
+      "legal_sector_relevance_note": "A direct Irish legal AI adoption story, raising questions of barrister workflow design, professional standards, security, auditability and public trust.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-002",
+      "headline": "Law Society educators help develop European AI training tools for lawyers",
+      "published_date": "2026-06-12",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/law-society-educators-upskill-in-europe/",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that Law Society education staff joined the European Commission-funded LITEL 2 project with European bar associations to develop AI training tools for lawyers across Europe.",
+      "legal_sector_relevance_note": "Shows Irish participation in EU-level redesign of legal education around AI skills, GDPR, IP and agentic AI implications for future lawyers.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-003",
+      "headline": "Private firm certified in Ireland to adjudicate DSA platform-user disputes",
+      "published_date": "2026-06-12",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/private-firm-to-adjudicate-on-disputes-under-dsa/",
+      "event_type": "access_to_justice",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that Coimisiun na Mean certified Impress Dispute Resolutions as an out-of-court dispute-settlement body under the Digital Services Act for five years.",
+      "legal_sector_relevance_note": "Adds a regulated online dispute-resolution route for platform users and shows Ireland's DSA role creating digital justice infrastructure outside the courts.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-004",
+      "headline": "Irish co-founded legal AI startup Wordsmith raises USD 70 million",
+      "published_date": "2026-06-05",
+      "source_name": "Irish Legal News",
+      "source_url": "https://www.irishlegal.com/articles/irish-co-founded-legal-ai-startup-wordsmith-raises-70m",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "Ireland",
+      "factual_basis": "Irish Legal News reported that Wordsmith AI secured a USD 70 million Series B backed by Highland Europe and Index Ventures, with plans to expand in Ireland and serve more than 500 in-house legal teams worldwide.",
+      "legal_sector_relevance_note": "Signals investor conviction behind AI-native in-house legal workflow platforms and an Ireland-linked legal AI scale-up focused on corporate legal operations.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-005",
+      "headline": "ICCL raises transparency concerns over reported national Garda bodycam rollout",
+      "published_date": "2026-06-05",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/iccl-concerns-on-garda-bodycam-plans/",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported ICCL concerns about reports that An Garda Siochana may spend EUR 150 million on body-worn cameras nationwide before publication of the pilot assessment report or final code of practice.",
+      "legal_sector_relevance_note": "Raises evidence, privacy, oversight and consultation issues around technology deployment in policing and criminal-justice workflows.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "reported_not_confirmed"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-006",
+      "headline": "EU Justice Scoreboard shows Ireland low on some court digital indicators",
+      "published_date": "2026-06-05",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/ireland-scores-high-for-trust-in-justice/",
+      "event_type": "court_digitisation",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that the 2026 EU Justice Scoreboard ranked Ireland fourth from bottom for procedural rules allowing the use of digital technology in court and relatively low on ADR incentives.",
+      "legal_sector_relevance_note": "Provides evidence for where Irish court modernisation, digital procedure and dispute-resolution incentives may need attention despite strong trust in judicial independence.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-007",
+      "headline": "Irish universities urged to preserve critical thinking as AI adoption accelerates",
+      "published_date": "2026-06-04",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/universities-must-preserve-critical-thinking-on-ai/",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that RDJ's Universities Conference heard AI literacy was becoming fundamental and that universities must move from adoption to responsible, transparent use while preserving critical thinking.",
+      "legal_sector_relevance_note": "Connects AI adoption to legal education, student processes, procedural fairness and the future pipeline of legally trained professionals.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-008",
+      "headline": "European Commission publishes code for labelling AI-generated content",
+      "published_date": "2026-06-10",
+      "source_name": "European Commission",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",
+      "event_type": "regulatory_development",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "The Commission published the Code of Practice on transparency of AI-generated content on 10 June 2026 to support AI Act marking and labelling obligations for providers and deployers.",
+      "legal_sector_relevance_note": "Law firms and clients deploying generative AI will need practical compliance advice on AI-generated text, deepfakes, public-interest publications and disclosure duties.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-009",
+      "headline": "UK AI Growth Lab makes LawTech, legal services and conveyancing its first focus",
+      "published_date": "2026-06-09",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/uk-government-launches-ai-growth-lab-with-legal-as-its-first-focus-area/",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that the UK Government launched an advisory AI Growth Lab, with LawTech, legal services and conveyancing as the first focus area and participation from ICO, CLC, SRA and LSB.",
+      "legal_sector_relevance_note": "Shows regulators trying to reduce cross-regulatory friction for responsible legal AI adoption, conveyancing innovation and access-to-justice improvements.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-010",
+      "headline": "UK plans AI legal assistants trial for Crown Court backlog",
+      "published_date": "2026-06-09",
+      "source_name": "The Guardian",
+      "source_url": "https://www.theguardian.com/technology/2026/jun/09/ai-legal-assistants-england-wales-cannot-replace-funding-staff",
+      "event_type": "court_digitisation",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "The Guardian reported that David Lammy would announce AI assistants for Crown Courts, with judges planning to identify trial-ready cases and group similar hearings while the Law Society called for evaluation and safeguards.",
+      "legal_sector_relevance_note": "A material court digitisation and AI governance development in a neighbouring jurisdiction facing backlog pressures familiar to Irish justice leaders.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-011",
+      "headline": "Derbyshire police officer investigated over alleged AI-generated evidential material",
+      "published_date": "2026-06-12",
+      "source_name": "The Guardian",
+      "source_url": "https://www.theguardian.com/technology/2026/jun/12/police-officer-under-criminal-investigation-over-alleged-use-of-ai",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "The Guardian reported that Derbyshire police removed an officer from frontline duties during an investigation into alleged use of AI to create evidential material in multiple cases, with the CPS engaging on affected cases.",
+      "legal_sector_relevance_note": "Highlights the evidential, disclosure and reliability risks that arise when AI enters criminal justice workflows without robust controls.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "reported_not_confirmed"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-012",
+      "headline": "RSGI's second Harvey report shows jump in legal AI adoption",
+      "published_date": "2026-06-17",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/rsgis-second-harvey-report-shows-jump-in-adoption/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that RSGI's second Harvey report found 68% of surveyed law firms and in-house teams already deploying Harvey-based AI agents, with 21% of law firms running more than 50 agents in production.",
+      "legal_sector_relevance_note": "Useful benchmark evidence that legal AI is shifting from pilots to production agents, integration with document systems, Microsoft 365 and APIs, and measurable capacity claims.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-013",
+      "headline": "Legal IT Insider report says governance is now the infrastructure for legal generative AI",
+      "published_date": "2026-06-16",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/gen-ai-and-the-practice-of-law-3-report-governance-is-the-key-not-the-lock/",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider published its third Gen AI and the Practice of Law report, based on more than 35 hours of interviews, arguing that legal AI governance now spans strategy, process, forensic validation and client acceptance.",
+      "legal_sector_relevance_note": "Frames governance as operational infrastructure for defensible AI work, client assurance, data architecture and workflow orchestration rather than a policy afterthought.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-014",
+      "headline": "Jalubro launches J-10 governance layer for multiple AI systems",
+      "published_date": "2026-06-16",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/jalubro-launches-j-10-governance-layer-helping-businesses-manage-multiple-ai-systems/",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that technology consultancy Jalubro launched J-10, a governance enforcement platform designed to sit across existing AI systems and enforce compliance rules in real time for agents and humans.",
+      "legal_sector_relevance_note": "Reflects demand for cross-tool AI governance and compliance enforcement as firms and clients use multiple models and agentic systems in regulated workflows.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-015",
+      "headline": "Autologyx adds MCP-enabled governance layer for agentic legal workflows",
+      "published_date": "2026-06-15",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/autologyx-extends-its-governance-platform-to-support-agentic-work/",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that Autologyx announced MCP-enabled capabilities allowing approved AI agents to update records, create tasks, generate documents and progress matters within auditable workflow controls.",
+      "legal_sector_relevance_note": "Agentic AI is moving from pilots into governed matter and workflow execution, making permissions, auditability and accountability central legal-ops issues.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-016",
+      "headline": "LOD and Consilio partner with Wordsmith for AI-enabled managed legal services",
+      "published_date": "2026-06-15",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/06/15/lod-consilio-wordsmith-link-for-managed-services/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Artificial Lawyer reported that Lawyers On Demand and Consilio are partnering with Wordsmith to deliver AI-enabled managed services to in-house legal teams using Wordsmith's workflow platform.",
+      "legal_sector_relevance_note": "Points to a blended AI-plus-ALSP delivery model for corporate legal departments seeking scale, governance and specialist legal support without adding headcount.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-017",
+      "headline": "Former PwC and SYKE leaders launch Telon as outcome-priced AI legal services company",
+      "published_date": "2026-06-11",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/former-pwc-partner-ex-syke-coo-launch-ai-services-company-telon/",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that Lewis Bretts and Tom Mellor launched Telon with a 15-person team, a major platform partnership and outcome-priced delivery using AI-native lawyers and agents.",
+      "legal_sector_relevance_note": "A new delivery model focused on measured outcomes rather than billable hours or software licences, relevant to law-firm and ALSP strategy.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "limited_detail"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-018",
+      "headline": "Legal AI start-up Legora plans to more than double headcount after client growth",
+      "published_date": "2026-06-15",
+      "source_name": "Financial Times",
+      "source_url": "https://www.ft.com/content/51b43d91-ae82-4142-9ff6-3252720e2906",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "The FT reported that Stockholm-based Legora plans to grow from 650 to about 1,500 employees by year-end after its client list quadrupled to around 1,200.",
+      "legal_sector_relevance_note": "Shows European legal AI demand and consolidation pressures as firms and in-house teams choose between buying, building and combining AI systems.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "paywalled",
+        "limited_detail"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-019",
+      "headline": "DeepIP acquires PatentMaker to expand patent drafting and prosecution automation",
+      "published_date": "2026-06-09",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/06/targeting-european-leadership-in-patent-ai-deepip-acquires-patentmaker.html",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "LawSites reported that DeepIP acquired PatentMaker, combining AI patent drafting with a European patent workflow tool built by German and European patent attorney Matthias Hofmann.",
+      "legal_sector_relevance_note": "Shows AI automation extending into high-value IP drafting, filing, prosecution and patent knowledge workflows where jurisdictional expertise and supervision matter.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-020",
+      "headline": "Summize acquires InnoLaw assets to strengthen AI contracting implementation",
+      "published_date": "2026-06-17",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/06/17/summize-buys-part-of-innolaw-group/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Artificial Lawyer reported that AI-driven CLM company Summize is acquiring key personnel and proprietary assets from InnoLaw Group, a legal tech consultancy focused on in-house teams.",
+      "legal_sector_relevance_note": "Shows CLM and contract AI providers investing in implementation capability and change management as clients try to use AI at scale in contracting workflows.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-021",
+      "headline": "France to replace Palantir AI data tools with domestic provider",
+      "published_date": "2026-06-16",
+      "source_name": "The Guardian",
+      "source_url": "https://www.theguardian.com/world/2026/jun/16/france-ai-data-tools-palantir-chapsvision",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "The Guardian reported that France's domestic intelligence service will replace Palantir AI data tools with French provider ChapsVision to avoid strategic dependency on US-controlled technology.",
+      "legal_sector_relevance_note": "A major European AI procurement and data-sovereignty signal for public-sector clients, regulated industries and advisers assessing vendor dependency, surveillance and cross-border technology risk.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-022",
+      "headline": "Anthropic suspends Fable 5 and Mythos 5 after US export-control directive",
+      "published_date": "2026-06-12",
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/news/fable-mythos-access",
+      "event_type": "regulatory_development",
+      "source_origin": "official_source",
+      "region": "US/global",
+      "factual_basis": "Anthropic stated that the US government directed it to suspend all access to Fable 5 and Mythos 5 by any foreign national, causing the company to disable access for all customers while disputing the national-security basis.",
+      "legal_sector_relevance_note": "A major foundation-model supply-chain and procurement risk story for legal AI tools that depend on frontier providers, cross-border access and data-retention tradeoffs.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-023",
+      "headline": "Relativity acquires Gavel to connect e-discovery data with drafting in Microsoft Word",
+      "published_date": "2026-06-15",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/relativity-expands-into-the-drafting-workflow-with-gavel-acquistion/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "Legal IT Insider reported that Relativity acquired AI-native legal technology company Gavel to integrate Word-based drafting, automation and document review into RelativityOne.",
+      "legal_sector_relevance_note": "Shows e-discovery and legal data platforms moving into drafting workflows where lawyers produce work product from matter evidence and context.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-024",
+      "headline": "Relativity rolls out aiR Assist and custom analyses for document review",
+      "published_date": "2026-06-16",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/06/16/relativity-announces-air-assist-general-roll-out/",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "Artificial Lawyer reported that Relativity announced general availability of aiR Assist and custom analyses in Relativity aiR for Review, with both capabilities standard in RelativityOne by the end of June.",
+      "legal_sector_relevance_note": "Material for litigation teams because e-discovery AI is moving toward cited answers, custom review analyses and defensible outputs grounded in matter data.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-025",
+      "headline": "Clio acquires Jurisage to build jurisdiction-specific Canadian legal AI",
+      "published_date": "2026-06-10",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/06/clio-acquires-jurisage-paving-the-way-for-canadian-launch-of-clio-work-and-other-canadian-ai-tools.html",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawSites reported that Clio acquired Jurisage, including a Canadian legal database covering more than 470,000 cases across more than 40 courts, to support Clio Work and other Canadian AI tools.",
+      "legal_sector_relevance_note": "Underscores the strategic value of jurisdiction-specific legal data as practice platforms compete to build reliable AI legal workflows outside the US.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-026",
+      "headline": "BlackBoiler launches Veris to pair deterministic redlining with generative AI in Word",
+      "published_date": "2026-06-16",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/06/blackboiler-launches-veris-pairing-its-deterministic-redlining-with-generative-ai-in-microsoft-word.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawSites reported that BlackBoiler launched Veris, a Microsoft Word add-in combining its deterministic editing engine with generative AI and an agentic chat interface for contract review teams.",
+      "legal_sector_relevance_note": "A notable contract-AI design pattern: combining generative drafting with deterministic constraints, validation and governance to reduce review risk.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-027",
+      "headline": "Eve launches EveOS as AI-native operating platform for plaintiff firms",
+      "published_date": "2026-06-11",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/06/eve-builds-on-ai-workforce-launch-with-eveos-an-ai-native-operational-platform-for-plaintiff-firms.html",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawSites reported that legal AI company Eve launched EveOS, an AI-native operating system intended to run plaintiff-firm operations across the full case lifecycle with new products and workflow updates.",
+      "legal_sector_relevance_note": "Shows legal AI moving from task assistants toward firm operating systems that rework intake, case management, analytics and human oversight.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-028",
+      "headline": "A2JRAG research proposes process-aware retrieval for public legal information systems",
+      "published_date": "2026-06-10",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/06/context-matters-a2jrag-brings-procedural-awareness-and-better-answers-to-legal-ai.html",
+      "event_type": "access_to_justice",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawSites carried LawDroid and LANC Legal Innovation Lab's announcement of A2JRAG, a process-aware retrieval-augmented generation framework for public legal information systems, presented at the AIDA2J Workshop at ICAIL 2026.",
+      "legal_sector_relevance_note": "Directly relevant to access-to-justice AI because it targets the risk that self-help systems provide legally accurate but procedurally mistimed answers.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-17-029",
+      "headline": "Mississippi federal judge sanctions four lawyers over unverified AI-generated citations",
+      "published_date": "2026-06-11",
+      "source_name": "Business Insider",
+      "source_url": "https://www.businessinsider.com/mississippi-judge-removes-lawyers-lawsuit-ai-hallucinations-court-filings-2026-6",
+      "event_type": "professional_guidance",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Business Insider reported that US District Judge Sharion Aycock removed four lawyers from a case, suspended two from practising before the court for two years and imposed USD 8,000 in fines after AI-generated bogus citations appeared in filings.",
+      "legal_sector_relevance_note": "A concrete professional-risk signal that AI-assisted research and drafting must be paired with verification, supervision and clear accountability.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    }
+  ]
+}
