@@ -78,7 +78,7 @@ def test_html_template_uses_brand_identity_palette(monkeypatch) -> None:
     assert "Issue: 19 May 2026" in html
     assert "18 May 2026" in html
     assert "Click here to subscribe" in html
-    assert "In today's issue:" in html
+    assert "In today's issue:" not in html
     assert "Impact:" in html
     assert "mailto:legal.innovation.news@gmail.com" in html
     assert "What do you think? Provide feedback" in html

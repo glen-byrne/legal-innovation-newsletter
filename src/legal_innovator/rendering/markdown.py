@@ -11,8 +11,6 @@ def render_markdown(issue: Issue) -> str:
         "",
         f"**Issue date:** {issue.run_date.isoformat()}",
         "",
-        issue.intro,
-        "",
     ]
     if not issue.stories:
         lines.extend(

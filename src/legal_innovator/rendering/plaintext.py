@@ -11,8 +11,6 @@ def render_plaintext(issue: Issue) -> str:
         "=" * len(issue.newsletter_name),
         f"Issue date: {issue.run_date.isoformat()}",
         "",
-        issue.intro,
-        "",
     ]
     if not issue.stories:
         lines.extend(

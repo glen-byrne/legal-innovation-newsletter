@@ -583,7 +583,7 @@ def _build_local_issue(
         generated_at=datetime.now(window.run_at.tzinfo),
         window_start=window.start_at.date(),
         window_end=window.end_at.date(),
-        intro=_issue_intro(selected_stories, load_settings()),
+        intro="",
         stories=selected_stories,
         warnings=[],
     )

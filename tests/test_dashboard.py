@@ -167,8 +167,8 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert (issue_dir / "editorial_selection.md").exists()
     html = (issue_dir / "issue.html").read_text(encoding="utf-8")
     assert "Story 1" in html
-    assert "In today's issue:" in html
-    assert "legal innovation developments across Ireland" in html
+    assert "In today's issue:" not in html
+    assert "legal innovation developments across Ireland" not in html
     assert "This issue highlights legal innovation developments" not in html
     assert "This issue leads with Story" not in html
     assert "Legal innovation developments affecting" not in html
