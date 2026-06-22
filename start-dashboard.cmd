@@ -17,6 +17,20 @@ if not exist "%PYTHON_EXE%" (
   exit /b 1
 )
 
+"%PYTHON_EXE%" -c "import uvicorn" >nul 2>nul
+if errorlevel 1 (
+  echo Dashboard packages are missing. Installing them now...
+  echo.
+  "%PYTHON_EXE%" -m pip install -e ".[dashboard]"
+  if errorlevel 1 (
+    echo.
+    echo Dashboard package installation failed.
+    pause
+    exit /b 1
+  )
+  echo.
+)
+
 echo Starting the Legal Innovation Newsletter dashboard...
 echo.
 echo Dashboard address:
