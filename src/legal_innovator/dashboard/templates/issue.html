@@ -96,11 +96,26 @@
           {% if story.why_it_matters %}
             <p class="note"><strong>Impact:</strong> {{ story.why_it_matters }}</p>
           {% endif %}
+          {% set source_links = story_source_links(story) %}
           <p class="sources">
-            {% for source in story_source_links(story) %}
+            {% for source in source_links %}
               <a class="pill" href="{{ source.url }}" target="_blank" rel="noreferrer">{{ source.name }}</a>
             {% endfor %}
           </p>
+          <div class="source-url-editor">
+            <input type="hidden" name="source_url_story" value="{{ story.cluster_id }}">
+            <label for="source-url-{{ story.cluster_id }}">Source URL</label>
+            <input
+              id="source-url-{{ story.cluster_id }}"
+              class="source-url-input"
+              type="url"
+              name="source_url__{{ story.cluster_id }}"
+              value="{% if source_links %}{{ source_links[0].url }}{% else %}{{ story.canonical_url }}{% endif %}"
+              placeholder="https://example.com/article"
+              autocomplete="off"
+              spellcheck="false"
+            >
+          </div>
         </div>
         <div
           class="story-drag-handle"
@@ -124,12 +139,13 @@
 
       <div class="toolbar">
         <div class="muted">
-          Saves selection and creates <code>issues/{{ issue_date }}/issue.html</code>.
+          Saves selection, region tags, source URL edits, and creates <code>issues/{{ issue_date }}/issue.html</code>.
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           {% if html_exists %}
             <a class="button secondary" href="{{ html_url }}">Open generated HTML</a>
           {% endif %}
+          <button class="button secondary" type="submit" formaction="/issues/{{ issue_date }}/save">Save changes</button>
           <button class="button" type="submit">Generate newsletter HTML</button>
         </div>
       </div>

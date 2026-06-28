@@ -145,6 +145,8 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert "data-remove-region" in review_response.text
     assert "data-add-region" in review_response.text
     assert "[region] +" in review_response.text
+    assert "source_url_story" in review_response.text
+    assert "Source URL" in review_response.text
     assert "Impact:" in review_response.text
     assert "Example legal-sector relevance 1." in review_response.text
 
@@ -152,10 +154,14 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     form_data = {
         "selected": selected_ids,
         "region_tag_story": [candidate["id"] for candidate in candidates],
+        "source_url_story": [candidate["id"] for candidate in candidates],
     }
     for candidate in candidates:
         story_id = str(candidate["id"])
         form_data[f"region_tags__{story_id}"] = ["United Kingdom"] if story_id == candidates[1]["id"] else ["Ireland"]
+        form_data[f"source_url__{story_id}"] = (
+            "https://fixed.example.com/story-1" if story_id == candidates[0]["id"] else str(candidate["source_url"])
+        )
     response = client.post(
         "/issues/2026-06-10/generate-html",
         data=form_data,
@@ -173,10 +179,14 @@ def test_dashboard_local_generation_from_candidates(monkeypatch, tmp_path) -> No
     assert "This issue leads with Story" not in html
     assert "Legal innovation developments affecting" not in html
     assert html.index("Story 8") < html.index("Story 1")
+    assert "https://fixed.example.com/story-1" in html
+    assert "https://example.com/story-1" not in html
     assert '<span class="region-tag">Ireland</span>' in html
     assert '<span class="region-tag">United Kingdom</span>' in html
     assert '<span class="region-tag">European Union</span>' not in html
     assert parse_selected_cluster_ids(issue_dir / "editorial_selection.md") == selected_ids
+    updated_candidates = json.loads((issue_dir / "candidates.json").read_text(encoding="utf-8"))["candidates"]
+    assert updated_candidates[0]["source_url"] == "https://fixed.example.com/story-1"
 
 
 def test_dashboard_generate_html_get_redirects(monkeypatch, tmp_path) -> None:

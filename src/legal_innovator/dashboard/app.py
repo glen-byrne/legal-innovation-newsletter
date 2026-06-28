@@ -10,6 +10,7 @@ from datetime import datetime
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 from dotenv import load_dotenv
 from pydantic import BaseModel
@@ -259,6 +260,10 @@ async def generate_html(request: Request, issue_date: str):
     form = await request.form()
     selected_ids = [str(value) for value in form.getlist("selected")]
     region_tag_overrides = _region_tag_overrides_from_form(form)
+    try:
+        _apply_source_url_overrides_to_candidate_file(issue_date, _source_url_overrides_from_form(form))
+    except ValueError as exc:
+        return _render_issue(request, settings, issue_date, error=str(exc), override_selected_ids=selected_ids)
     context = _local_issue_context(issue_date, override_selected_ids=selected_ids)
     if context["error"]:
         return _render_issue(request, settings, issue_date, error=context["error"], override_selected_ids=selected_ids)
@@ -363,6 +368,11 @@ async def save_local_selection(request: Request, issue_date: str):
     form = await request.form()
     selected_ids = [str(value) for value in form.getlist("selected")]
     region_tag_overrides = _region_tag_overrides_from_form(form)
+    try:
+        _apply_source_url_overrides_to_candidate_file(issue_date, _source_url_overrides_from_form(form))
+    except ValueError as exc:
+        settings = load_dashboard_settings()
+        return _render_issue(request, settings, issue_date, error=str(exc), override_selected_ids=selected_ids)
     context = _local_issue_context(issue_date, override_selected_ids=selected_ids)
     if context["error"]:
         settings = load_dashboard_settings()
@@ -550,6 +560,50 @@ def _region_tag_overrides_from_form(form: Any) -> dict[str, list[str]]:
             values.append(tag)
         overrides[story_id] = values[:5]
     return overrides
+
+
+def _source_url_overrides_from_form(form: Any) -> dict[str, str]:
+    story_ids = [str(value) for value in form.getlist("source_url_story") if str(value).strip()]
+    overrides: dict[str, str] = {}
+    for story_id in story_ids:
+        url = str(form.get(f"source_url__{story_id}", "")).strip()
+        if not url:
+            raise ValueError("Every story needs a source URL. Add a working article link before saving.")
+        if not _is_http_url(url):
+            raise ValueError(f"Source URL for {story_id} must be a full http or https link.")
+        overrides[story_id] = url
+    return overrides
+
+
+def _apply_source_url_overrides_to_candidate_file(issue_date: str, overrides: dict[str, str]) -> None:
+    if not overrides:
+        return
+    candidate_path = _issue_dir(issue_date) / "candidates.json"
+    if not candidate_path.exists():
+        raise ValueError("No candidates.json file exists for this issue.")
+    data = json.loads(candidate_path.read_text(encoding="utf-8"))
+    if isinstance(data, list):
+        candidates = data
+    elif isinstance(data, dict) and isinstance(data.get("candidates"), list):
+        candidates = data["candidates"]
+    else:
+        raise ValueError("Candidate file must contain a JSON list or an object with a candidates list.")
+    changed = False
+    for candidate in candidates:
+        if not isinstance(candidate, dict):
+            continue
+        candidate_id = str(candidate.get("id", ""))
+        replacement = overrides.get(candidate_id)
+        if replacement and str(candidate.get("source_url", "")) != replacement:
+            candidate["source_url"] = replacement
+            changed = True
+    if changed:
+        candidate_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _is_http_url(value: str) -> bool:
+    parsed = urlparse(value)
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
 def _apply_region_tag_overrides(stories: list[Any], overrides: dict[str, list[str]] | None) -> None:

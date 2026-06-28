@@ -347,6 +347,38 @@
         font-size: 12px;
       }
 
+      .source-url-editor {
+        margin-top: 12px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .source-url-editor label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .source-url-input {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fbfbfd;
+        color: var(--text);
+        font: inherit;
+        font-size: 13px;
+        padding: 10px 12px;
+        outline: none;
+        transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+      }
+
+      .source-url-input:focus {
+        border-color: var(--accent);
+        background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
+      }
+
       .toolbar {
         position: sticky;
         bottom: 0;
