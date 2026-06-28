@@ -1,0 +1,273 @@
+{
+  "candidates": [
+    {
+      "id": "TLEI-2026-06-28-001",
+      "headline": "AI use mustn't weaken public trust in law - Guerin",
+      "published_date": "2026-06-17",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/ai-use-mustnt-weaken-public-trust-in-law--guerin/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "The Gazette reported that The Bar of Ireland selected Newcode as its AI provider after a rigorous evaluation process, with a dedicated agentic AI service for Irish barristers offering auditable and context-aware workflows.",
+      "legal_sector_relevance_note": "This is a high-signal Irish legal AI adoption story: the Bar is moving from experimentation to a shared professional platform with explicit attention to governance, training, security and trust.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-002",
+      "headline": "Guidance on AI tools for meeting note-taking",
+      "published_date": "2026-06-23",
+      "source_name": "Law Society Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/june/guidance-on-ai-tools-for-meeting-note-taking/",
+      "event_type": "professional_guidance",
+      "source_origin": "official_source",
+      "region": "Ireland",
+      "factual_basis": "The Law Society reported that its Technology Committee published a guide for solicitors and teams using AI note-taking tools, covering security, privacy, data protection, confidentiality and practical controls.",
+      "legal_sector_relevance_note": "AI meeting assistants are entering client, internal and transaction workflows; the guidance gives Irish practices a concrete governance checklist for confidentiality, consent and data-handling decisions.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-003",
+      "headline": "Opening doors to justice: A&O Shearman and Ulster University celebrate 10-year scholarship milestone",
+      "published_date": "2026-06-18",
+      "source_name": "Irish Legal News",
+      "source_url": "https://www.irishlegal.com/articles/opening-doors-to-justice-ao-shearman-and-ulster-university-celebrate-10-year-scholarship-milestone",
+      "event_type": "access_to_justice",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "Irish Legal News reported that the A&O Shearman and Ulster University partnership has delivered more than GBP1 million in free legal support over 10 years through the Ulster University Law Clinic.",
+      "legal_sector_relevance_note": "Although not a technology story, the clinic model is a concrete legal-service delivery and legal-education initiative linking firm resources, student training and access to justice on the island of Ireland.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-004",
+      "headline": "AI-powered legal advice tool's win in court opens door to justice for millions",
+      "published_date": "2026-06-22",
+      "source_name": "The Guardian",
+      "source_url": "https://www.theguardian.com/technology/2026/jun/22/ai-powered-legal-advice-tools-win-in-court-opens-door-to-justice-for-millions",
+      "event_type": "access_to_justice",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "The Guardian reported that Garfield AI helped a claimant win in a small-claims dispute and described the case as the first time an AI tool directly provided legal advice in an English court.",
+      "legal_sector_relevance_note": "The story is a live test of AI-enabled consumer legal help, raising practical questions about access to justice, authorisation, supervision, reliability and where legal advice tools fit in court processes.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-005",
+      "headline": "Rape convictions under review after UK detective allegedly used AI chatbot for paperwork",
+      "published_date": "2026-06-18",
+      "source_name": "Financial Times",
+      "source_url": "https://www.ft.com/content/4d1db23d-7747-4e8a-a95f-d63af64458c2",
+      "event_type": "professional_guidance",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "The FT reported that several rape convictions are under review after a Derbyshire police detective was suspended over alleged use of AI to generate slanted legal paperwork, including victim impact statements and prosecutor briefings.",
+      "legal_sector_relevance_note": "The case is a concrete warning about AI use in evidence preparation, supervision and criminal justice workflows, with implications for reliability, disclosure, appeal risk and professional accountability.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "paywalled"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-006",
+      "headline": "HSF Kramer develops proprietary AI platform with Acora and Microsoft",
+      "published_date": "2026-06-26",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/hsf-kramer-develops-proprietary-ai-platform-with-acora-and-microsoft/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that HSF Kramer worked with Acora and Microsoft on a proprietary AI platform intended to provide 24/7 context-aware legal support and faster access to legal knowledge and regulatory workflows.",
+      "legal_sector_relevance_note": "The development shows major firms continuing to engineer firm-specific AI knowledge platforms rather than relying solely on generic tools, with implications for knowledge management, matter support and internal service design.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-007",
+      "headline": "Shoosmiths unveils proprietary AI contract review tool built with Microsoft",
+      "published_date": "2026-06-24",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/shoosmiths-unveils-proprietary-ai-contract-review-tool-built-with-microsoft/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that Shoosmiths built Project Apollo using large language models and GPT-4.1 in Azure AI Foundry, with testing by more than 130 people across the firm.",
+      "legal_sector_relevance_note": "Contract review remains a core legal-workflow battleground; the story illustrates how law firms are building governed, internal AI tools around document comparison and review rather than waiting for off-the-shelf systems.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-008",
+      "headline": "Start-Up Corner: Caira from Unwildered uses genAI to fix legal information overload",
+      "published_date": "2026-06-26",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/start-up-corner-caira-from-unwildered-uses-genai-to-fix-legal-information-overload/",
+      "event_type": "access_to_justice",
+      "source_origin": "secondary_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider profiled Caira, a genAI tool from Unwildered that asks users structured questions before generating information on rights, options and next steps.",
+      "legal_sector_relevance_note": "The item is relevant as an access-to-justice and legal-design example: a consumer-facing tool is trying to move users from generic legal information to structured, action-oriented guidance.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-009",
+      "headline": "Perplexity enters legal market with its AI answers engine via contract with Texas firm Jackson Walker",
+      "published_date": "2026-06-25",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/06/perplexity-enters-legal-market-with-its-ai-answers-engine-via-contract-with-texas-firm-jackson-walker.html",
+      "event_type": "reported_platform_entry",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Perplexity is entering legal via a contract with Jackson Walker and a legal research launch pad using its Carbon desktop and enterprise search, ingest and summarisation features.",
+      "legal_sector_relevance_note": "A mainstream AI answers platform moving into legal research and proprietary-document workflows is strategically important for law-firm procurement, knowledge systems and competition with legal-specific research vendors.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-010",
+      "headline": "Thomson Reuters CEO says legal is sweet spot for its agentic AI, launches early access to next-gen CoCounsel",
+      "published_date": "2026-06-22",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/06/thomson-reuters-ceo-says-legal-is-sweet-spot-for-its-agentic-ai-launches-early-access-to-next-gen-cocounsel.html",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Thomson Reuters opened early access to a next-generation CoCounsel Legal workspace intended to deliver AI work product inside a more integrated legal experience.",
+      "legal_sector_relevance_note": "This is a major legal-platform development because it points to agentic, workflow-centred research and drafting tools being embedded into lawyers' daily work rather than offered as standalone chat interfaces.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-011",
+      "headline": "Abstract extends its legislative intelligence into agentic workflow automation with launch of Abstract Workers",
+      "published_date": "2026-06-24",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/06/abstract-extends-its-legislative-intelligence-into-agentic-workflow-automation-with-launch-of-abstract-workers.html",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Abstract launched Abstract Workers, personalised AI agents designed to assist across the policy lifecycle for policy and public-affairs teams.",
+      "legal_sector_relevance_note": "The launch is relevant to legal and regulatory-affairs operations because it turns monitoring and legislative intelligence into agentic workflows for tracking, analysing and acting on policy developments.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-012",
+      "headline": "Clio launches two major AI initiatives to support next-gen legal professionals, educators and students",
+      "published_date": "2026-06-18",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/06/clio-launches-two-major-ai-initiatives-to-support-next-gen-legal-professionals-educators-and-students.html",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Clio launched Clio Learning Studios and the Clio Scholar Program to support AI training and education for legal professionals, educators and students.",
+      "legal_sector_relevance_note": "Legal AI adoption depends on training and curricula as much as tools; this story is relevant to how firms and law schools build practical AI capability and supervised use habits.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-013",
+      "headline": "A top law firm created a free AI-powered legal tool for Y Combinator startups",
+      "published_date": "2026-06-23",
+      "source_name": "Business Insider",
+      "source_url": "https://www.businessinsider.com/cooley-go-lab-legora-y-combinator-2026-6",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Business Insider reported that Cooley built Cooley GO Lab with Legora, giving Y Combinator-backed startups free access to an AI-powered legal tool trained on thousands of venture-capital transactions.",
+      "legal_sector_relevance_note": "The tool is a notable legal-service delivery experiment: a large firm is packaging legal knowledge into an AI-assisted self-service channel for startup clients and prospects.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-014",
+      "headline": "US regulations limit access to Anthropic's top AI model while OpenAI's GPT-5.6 gets the green light",
+      "published_date": "2026-06-27",
+      "source_name": "Business Insider",
+      "source_url": "https://www.businessinsider.com/anthropic-mythos-5-us-restrictions-fable-5-openai-gpt-2026-6",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Business Insider reported that Anthropic's Mythos 5 received a limited government carve-out while Fable 5 remained under restriction, and that OpenAI's GPT-5.6 Sol had been cleared for a limited preview.",
+      "legal_sector_relevance_note": "Model-access restrictions now directly affect enterprise AI roadmaps, procurement diligence, national-security advice and the reliability of legal teams' chosen AI stacks.",
+      "duplicate_group": "DG-001",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-015",
+      "headline": "Previewing GPT-5.6 Sol",
+      "published_date": "2026-06-26",
+      "source_name": "OpenAI",
+      "source_url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "event_type": "reported_platform_entry",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "OpenAI announced a limited preview of GPT-5.6 Sol, with access initially restricted to selected partners through the API and with government customers outside the first preview phase.",
+      "legal_sector_relevance_note": "Frontier-model release controls and evaluation status are material for legal AI adoption because law firms and clients depend on model availability, governance assurances and procurement-grade risk information.",
+      "duplicate_group": "DG-001",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-016",
+      "headline": "How agents are transforming work at OpenAI",
+      "published_date": "2026-06-25",
+      "source_name": "OpenAI",
+      "source_url": "https://openai.com/index/how-agents-are-transforming-work/",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "OpenAI described internal agentic-AI use cases across functions, including legal specialists using Codex to write tests for workflows and explain contracts.",
+      "legal_sector_relevance_note": "The post is not legal-sector-specific reporting, but the legal-department examples are useful evidence of how agentic AI is moving into contract explanation, workflow testing and cross-functional operational design.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-06-28-017",
+      "headline": "Building AI tools for the front lines of cyber defense",
+      "published_date": "2026-06-22",
+      "source_name": "OpenAI",
+      "source_url": "https://openai.com/index/building-ai-tools-for-the-front-lines-of-cyber-defense/",
+      "event_type": "other",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "OpenAI announced Daybreak, an agentic AI suite for cyber defenders, and said one component autonomously generated patches against real-world software flaws.",
+      "legal_sector_relevance_note": "Cybersecurity is a core legal-sector risk area for firms and clients; autonomous defensive tooling will shape incident-response advice, procurement due diligence and the security expectations around AI-enabled legal work.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    }
+  ]
+}
