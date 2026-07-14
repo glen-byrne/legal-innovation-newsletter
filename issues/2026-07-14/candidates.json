@@ -1,0 +1,375 @@
+{
+  "candidates": [
+    {
+      "id": "TLEI-2026-07-14-001",
+      "headline": "Newsbrands calls for Government policy to safeguard journalism",
+      "published_date": "2026-07-10",
+      "source_name": "Irish Examiner",
+      "source_url": "https://www.irishexaminer.com/business/companies/arid-41877422.html",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "Irish Examiner reported that NewsBrands Ireland used its annual Oireachtas briefing to call for a Government policy framework on AI and misinformation, stronger implementation of the EU Copyright Directive, copyright protection within the EU AI Act, transparency on publisher-content use by AI systems, fair compensation and engagement between AI providers and rights holders.",
+      "legal_sector_relevance_note": "This is relevant to Irish lawyers advising media, technology platforms and AI providers on copyright, licensing, AI transparency, misinformation and EU digital-policy implementation.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-002",
+      "headline": "From data strategy to human judgment: Key Knowledge Exchange takeaways",
+      "published_date": "2026-07-10",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/from-data-strategy-to-human-judgment-key-knowledge-exchange-takeaways/",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported takeaways from a July knowledge exchange with LexisNexis and more than 25 CIOs and legal-tech leaders, covering legal AI stack strategy, firm IP, portable data and knowledge strategy, AI vendor risk, prompt libraries, human judgment and frameworks for agentic AI work.",
+      "legal_sector_relevance_note": "The item gives law-firm leaders practical benchmarks for AI governance, data portability, vendor lock-in, lawyer training and operational design as legal AI moves toward agentic workflows.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "limited_detail"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-003",
+      "headline": "Start Up Corner: Disclosure Assistant - Review bank statements faster",
+      "published_date": "2026-07-10",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/start-up-corner-disclosure-assistant-review-bank-statements-faster/",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider profiled Disclosure Assistant, a 2026-founded legal-tech SaaS platform that extracts, organises and reviews transactions from PDF bank statements, offers configurable workflows and reporting, and has an integration with Clio Manage for matter selection and document storage.",
+      "legal_sector_relevance_note": "Bank-statement review is a repetitive disclosure task in family, probate, insolvency, fraud and litigation workflows, making this relevant to process automation and document-heavy legal service delivery.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-004",
+      "headline": "Epiq acquires Tenor Legal for talent solutions",
+      "published_date": "2026-07-09",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/epiq-acquires-tenor-legal-for-talent-solutions/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "Legal IT Insider reported that Epiq announced the acquisition of Tenor Legal, a provider of flexible talent to Fortune 500 legal departments, with Tenor joining Epiq Counsel and Epiq Counsel professionals supporting clients across the US, UK, Canada, Australia, Hong Kong and Singapore.",
+      "legal_sector_relevance_note": "The acquisition reflects continued convergence between managed legal services, flexible legal talent and legal operations models used by in-house teams.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-005",
+      "headline": "Training, adoption and the buy-v-build question: How Mayer Brown is scaling GenAI",
+      "published_date": "2026-07-09",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/training-adoption-and-the-buy-v-build-question-how-mayer-brown-is-scaling-genai/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Legal IT Insider interviewed Mayer Brown CIO Evette Pastoriza about the firm's GenAI training curriculum, compulsory training before access to tools such as Copilot or Harvey, persona-based learning, practice-specific training, adoption tracking and a hybrid buy-versus-build technology strategy.",
+      "legal_sector_relevance_note": "The story is a useful benchmark for law firms moving from AI tool access to governed adoption, role-based training, measurement and strategic technology investment.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-006",
+      "headline": "Exclusive: Stone King appoints Jas Bassi as IT director",
+      "published_date": "2026-07-09",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/exclusive-stone-king-appoints-jas-bassi-as-it-director/",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that UK law firm Stone King appointed Jas Bassi as its inaugural IT director, with responsibility for technology strategy, IT operations, digital innovation, AI strategy and managing technology risks and opportunities.",
+      "legal_sector_relevance_note": "The appointment shows mid-market firms formalising senior technology and AI-accountability roles as part of legal operations and service-delivery change.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-007",
+      "headline": "LegalTechTalk acquired by the events company it modelled itself on",
+      "published_date": "2026-07-08",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/legaltechtalk-acquired-by-the-events-company-it-modelled-itself-on/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that LegalTechTalk was acquired by Hyve Group, the events company behind Shoptalk and POSSIBLE, with founder Bradley Collins saying Hyve's festival-format and orchestrated-meeting model influenced LegalTechTalk's approach and US expansion plans.",
+      "legal_sector_relevance_note": "The acquisition is relevant to legal innovation because executive networks, vendor discovery and buyer matchmaking are becoming professionalised and scaled as part of the legal-tech market infrastructure.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "limited_detail"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-008",
+      "headline": "Oz Benamram joins Pillsbury as chief AI officer",
+      "published_date": "2026-07-08",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/oz-benamram-joins-pillsbury-as-chief-ai-officer/",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Legal IT Insider reported that Oz Benamram joined Pillsbury Winthrop Shaw Pittman as chief AI officer to lead AI strategy, governance frameworks, enablement infrastructure, data science and knowledge management.",
+      "legal_sector_relevance_note": "The appointment shows AI governance, knowledge strategy and legal workflow transformation moving into senior law-firm leadership structures.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-009",
+      "headline": "AI liability clarified? UKJT says existing English Law provides the answer",
+      "published_date": "2026-07-08",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/ai-liability-clarified-ukjt-says-existing-english-law-provides-the-answer/",
+      "event_type": "professional_guidance",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that the UK Jurisdiction Taskforce published a Legal Statement on Liability for AI Harms after a public consultation from 14 January to 13 February 2026. The statement addresses non-deliberate harms caused by AI under the private law of England and Wales, says it is not law, and finds professionals may be liable for negligent AI use or failure to use AI where a competent professional would have done so.",
+      "legal_sector_relevance_note": "The statement is directly relevant to lawyers advising on AI deployment, professional negligence, chatbot liability, model due diligence, validation of AI outputs and choice of English law for AI-related contracts and disputes.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-010",
+      "headline": "Exclusive: Harbor acquires UK legal tech training provider iTrain",
+      "published_date": "2026-07-07",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/exclusive-harbor-acquires-uk-legal-tech-training-provider-itrain/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that Harbor acquired UK legal technology training provider iTrain after its November 2025 acquisition of Encoretech. iTrain works with iManage, Aderant, NetDocuments, Intapp and Elite, and has helped firms with Microsoft Copilot adoption programmes, AI readiness assessments, AI transformation engagements, Training-as-a-Service and an AI-enabled learning management platform.",
+      "legal_sector_relevance_note": "The acquisition highlights training, change management and adoption support as critical infrastructure for law-firm AI and enterprise-technology transformation.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-011",
+      "headline": "Tiger Eye embeds noslegal's taxonomy in its Blueprint Knowledge Management platform",
+      "published_date": "2026-07-07",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/tiger-eye-embeds-noslegals-taxonomy-in-its-blueprint-knowledge-management-platform/",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Legal IT Insider reported that Tiger Eye embedded noslegal V4, the latest version of the open-source non-profit legal data taxonomy launched in May 2026, into its Blueprint Knowledge Management platform. The update adds 14 pre-configured fields covering work types, areas of law, participants, roles, sectors, places, process elements and information types.",
+      "legal_sector_relevance_note": "Standard legal taxonomies are important for knowledge systems, matter data, AI retrieval, search quality and cross-firm data interoperability.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-012",
+      "headline": "Chris Cartrett to Step Down as CEO of Aderant, Departing Legal Tech to Lead Public Safety Software Company; Former CEO Deane Price to Return on Interim Basis",
+      "published_date": "2026-07-14",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/chris-cartrett-to-step-down-as-ceo-of-aderant-departing-legal-tech-to-lead-public-safety-software-company-former-ceo-deane-price-to-return-on-interim-basis.html",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Aderant president and CEO Chris Cartrett will step down effective 1 August, Deane Price will return as interim CEO from 20 July, and Aderant's executive leadership team remains unchanged while it continues its 2026 priorities and long-term strategy.",
+      "legal_sector_relevance_note": "Aderant is a major law-firm business management and practice-of-law software provider, so leadership continuity matters to large-firm finance, cloud, practice-management and AI-roadmap decisions.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-013",
+      "headline": "Percipient Launches Certera.AI, A Blind Head-to-Head Testing Ground for Legal AI, with a Lawyer-Voted Leaderboard On the Way",
+      "published_date": "2026-07-13",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/percipient-launches-certera-ai-a-blind-head-to-head-testing-ground-for-legal-ai-with-a-lawyer-voted-leaderboard-on-the-way.html",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that alternative legal services provider Percipient launched Certera.AI in beta, allowing verified legal professionals to submit legal prompts, compare two AI-model responses side by side, hide model identities in anonymous mode and contribute votes to a public legal-work leaderboard.",
+      "legal_sector_relevance_note": "Blind, lawyer-voted legal-AI evaluation is relevant to model procurement, benchmarking, model selection, reliability assessment and legal-specific AI quality standards.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-014",
+      "headline": "UChicago Law Bans Laptops from 1L Classrooms As Part of Sweeping New AI Strategy for Legal Education",
+      "published_date": "2026-07-10",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/uchicago-law-bans-laptops-from-1l-classrooms-as-part-of-sweeping-new-ai-strategy-for-legal-education.html",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that the University of Chicago Law School released an AI Strategy Statement that includes a 2026-2027 pilot ban on laptops, tablets and phones in core 1L classes, changes to legal research and writing, oral defences for substantial research papers and supervised AI training through clinics.",
+      "legal_sector_relevance_note": "The story matters to legal education and talent pipelines because leading law schools are redesigning teaching, assessment and professional skills for an AI-enabled profession.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-015",
+      "headline": "Two Years After Launching Its AI Assistant Archie, Smokeball Rolls Out the 'Next Generation' Built on Agentic AI, and Embedded in Word and Outlook",
+      "published_date": "2026-07-09",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/two-years-after-launching-its-ai-assistant-archie-smokeball-rolls-out-the-next-generation-built-on-agentic-ai-and-embedded-in-word-and-outlook.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Smokeball released a next-generation Archie AI that shifts from one-shot retrieval-augmented generation to agentic multi-step reasoning, embeds in matters, Microsoft Word and Outlook, accesses more Smokeball data and adds apps for chronologies, audio transcription and bank-statement analysis.",
+      "legal_sector_relevance_note": "Embedding agentic AI into practice management, drafting and email tools is materially relevant to small and mid-sized firm workflow automation and lawyer adoption.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-016",
+      "headline": "Centari Launches External Views, Enabling Firms to Share Deal Intelligence Dashboards Directly with Clients",
+      "published_date": "2026-07-08",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/centari-launches-external-views-enabling-firms-to-share-deal-intelligence-dashboards-directly-with-clients.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Centari launched External Views, enabling law firms to create white-labelled client dashboards using client-specific or anonymised aggregate market data, granular permissions and citation-backed deal data from its Deal Reasoning Engine.",
+      "legal_sector_relevance_note": "The feature points to law firms packaging transaction data, benchmarks and institutional knowledge as client-facing advisory products rather than only internal productivity tools.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-017",
+      "headline": "Norm Ai Hits Unicorn Status with $120M Series C at $1.2 Billion Valuation",
+      "published_date": "2026-07-07",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/norm-ai-hits-unicorn-status-with-120m-series-c-at-1-2-billion-valuation.html",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Norm Ai raised a $120 million Series C at a $1.2 billion valuation, led by Khosla Ventures, bringing total funding to more than $260 million since mid-2023. The company combines legal and regulatory AI agents with an affiliated AI-native law firm, Norm Law LLP.",
+      "legal_sector_relevance_note": "The funding is strategically important because AI-native legal-service models raise questions about supervision, pricing, liability, law-firm structure and competition with traditional firms.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-018",
+      "headline": "Fastcase And Alexi Head To Court This Week In High-Stakes Fight Over Legal AI, Caselaw Data And Clio's $1B vLex Deal",
+      "published_date": "2026-07-06",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/fastcase-and-alexi-head-to-court-this-week-in-high-stakes-fight-over-legal-ai-caselaw-data-and-clios-1b-vlex-deal.html",
+      "event_type": "other",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "LawNext reported that Judge Richard J. Leon in the US District Court for the District of Columbia was scheduled to hear 8 July arguments in Fastcase Inc. v. Alexi Technologies Inc., involving breach-of-contract claims, trade-secret allegations and counterclaims around licensed caselaw data. The report notes the filings are heavily redacted.",
+      "legal_sector_relevance_note": "The dispute could affect legal AI companies' access to licensed caselaw data and the contractual rules underpinning AI legal research markets.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "limited_detail"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-019",
+      "headline": "Scan Logic Announces Major BillSync Enhancements to Help Law Firms Reduce Revenue Leakage and Get Paid Faster",
+      "published_date": "2026-07-02",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/scan-logic-announces-major-billsync-enhancements-to-help-law-firms-reduce-revenue-leakage-and-get-paid-faster.html",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "A LawNext press release from Scan Logic said BillSync reviews more than one million legal time entries, supports tens of thousands of invoice submissions across more than 40 e-billing portals, checks time entries and narratives against client outside counsel guidelines, and uses a human-in-the-loop review model.",
+      "legal_sector_relevance_note": "AI-assisted e-billing compliance is relevant to law-firm finance, realisation, appeals, outside counsel guideline compliance and legal operations workflow engineering.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-020",
+      "headline": "Descrybe Brings Verified Legal Research to ChatGPT",
+      "published_date": "2026-07-02",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/descrybe-brings-verified-legal-research-to-chatgpt.html",
+      "event_type": "reported_platform_entry",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "A LawNext press release from Descrybe said Descrybe Legal Engine is available through ChatGPT's App Directory, adding structured US primary law, citation intelligence, treatment analysis, source retrieval, quote verification and source-grounded legal reasoning inside ChatGPT.",
+      "legal_sector_relevance_note": "The story is relevant to legal AI adoption because verified legal research layers are moving into general AI assistants used in daily legal workflows.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-021",
+      "headline": "In-House Legal Is Winning on Risk Instinct, Losing on Governance Infrastructure Says New Litera Report",
+      "published_date": "2026-07-02",
+      "source_name": "LawNext",
+      "source_url": "https://www.lawnext.com/2026/07/in-house-legal-is-winning-on-risk-instinct-losing-on-governance-infrastructure-says-new-litera-report.html",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "A LawNext press release from Litera reported survey findings from approximately 100 senior legal leaders at Fortune 1000 companies in the US and Canada: 64% said AI is improving operational efficiency, 62% said AI is automating workflows, 75% cited data privacy and security vulnerabilities as the top AI-related risk, and more than 66% had not updated key contract clauses in the past 12 months to reflect emerging risks.",
+      "legal_sector_relevance_note": "The report is relevant to in-house legal operations, AI governance, contract-risk updating, privacy and security controls and legal department technology strategy.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-022",
+      "headline": "OpenAI releases latest ChatGPT model after delay over White House cybersecurity concerns",
+      "published_date": "2026-07-09",
+      "source_name": "The Guardian",
+      "source_url": "https://www.theguardian.com/technology/2026/jul/09/trump-administration-openai-chatgpt-cybersecurity",
+      "event_type": "regulatory_development",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "The Guardian reported that OpenAI released ChatGPT 5.6 after delaying the public rollout because the Trump administration requested access be limited to a small group of government-approved users. The wider release followed additional testing by the Center for AI Standards and Innovation, and the article says similar restrictions affected Anthropic models.",
+      "legal_sector_relevance_note": "Government review and access restrictions for frontier AI models affect legal-sector AI procurement, client cyber-risk advice, cross-border availability, model governance and professional use of advanced AI systems.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-07-14-023",
+      "headline": "Apple sues OpenAI, alleging artificial intelligence company stole trade secrets",
+      "published_date": "2026-07-10",
+      "source_name": "The Guardian",
+      "source_url": "https://www.theguardian.com/technology/2026/jul/10/apple-sues-openai-trade-secrets",
+      "event_type": "other",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "The Guardian reported that Apple filed a lawsuit alleging OpenAI stole trade secrets to create its own hardware device. The suit seeks damages and a court order blocking OpenAI from possessing or using Apple's trade secrets; OpenAI said it was reviewing the filing and had no interest in other companies' trade secrets.",
+      "legal_sector_relevance_note": "The case is relevant to legal-sector leaders advising AI providers and enterprise clients on trade secrets, employee mobility, AI hardware strategy, partnership risk and litigation exposure around frontier AI development.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "reported_not_confirmed"
+      ],
+      "selected": true
+    }
+  ]
+}
