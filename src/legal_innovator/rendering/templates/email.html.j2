@@ -95,6 +95,37 @@
         font-size: 18px;
         line-height: 1.6;
       }
+      .issue-summary {
+        padding: 24px 30px;
+        background: #FFFCF7;
+        border-bottom: 1px solid #DCCBB2;
+      }
+      .issue-summary-title {
+        margin: 0 0 12px 0;
+        color: #1E3B2E;
+        font-size: 13px;
+        line-height: 1.35;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .issue-summary-list {
+        margin: 0;
+        padding: 0 0 0 20px;
+        color: #5A3E2B;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+      .issue-summary-list li {
+        margin: 0 0 6px 0;
+        padding: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .issue-summary-list a {
+        color: #1E3B2E !important;
+        text-decoration: none;
+      }
       .story {
         padding: 26px 30px;
         background: #FFFCF7;
@@ -206,7 +237,7 @@
       @media screen and (max-width: 520px) {
         .outer-pad { padding: 0 !important; }
         .masthead { padding: 28px 20px 24px 20px !important; }
-        .issue-meta, .intro, .story, .footer { padding-left: 20px !important; padding-right: 20px !important; }
+        .issue-meta, .intro, .issue-summary, .story, .footer { padding-left: 20px !important; padding-right: 20px !important; }
         .title-main { font-size: 29px !important; }
         .title-country { font-size: 18px !important; }
         .story h2 { font-size: 20px !important; }
@@ -234,6 +265,18 @@
                 <p class="issue-disclaimer">{{ issue.disclaimer }}</p>
               </td>
             </tr>
+            {% if issue.stories %}
+            <tr>
+              <td class="issue-summary">
+                <p class="issue-summary-title">In this issue</p>
+                <ul class="issue-summary-list">
+                  {% for story in issue.stories %}
+                  <li><a href="#story-{{ loop.index }}">{{ loop.index }}. {{ summary_link_title(story.headline) }}</a></li>
+                  {% endfor %}
+                </ul>
+              </td>
+            </tr>
+            {% endif %}
             {% if not issue.stories %}
             <tr>
               <td class="story">
@@ -245,6 +288,7 @@
             {% for story in issue.stories %}
             <tr>
               <td class="story">
+                <a id="story-{{ loop.index }}" name="story-{{ loop.index }}"></a>
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                   <tr>
                     <td width="46" valign="top">

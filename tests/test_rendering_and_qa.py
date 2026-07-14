@@ -7,6 +7,7 @@ from legal_innovator.archive import rendered_outputs
 from legal_innovator.config import Settings
 from legal_innovator.models import Issue, RankedStory, ScoreBreakdown, SourceDiagnostic, SourceLink
 from legal_innovator.qa import render_qa_report, run_qa
+from legal_innovator.rendering.html import summary_link_title
 from legal_innovator.summarisation import SummaryBatch, StorySummary, summarise_issue
 
 
@@ -66,7 +67,7 @@ def test_html_template_uses_brand_identity_palette(monkeypatch) -> None:
     assert "The latest on legal innovation, technology, AI and design for the Irish legal sector." in html
     assert ">LEI<" not in html
     assert "data:image" not in html
-    assert "the-legal-edge-logo-email.png" in html
+    assert "the-legal-edge-logo-PNG-2.png" in html
     brand_wrap_css = html.split(".brand-icon-wrap {", 1)[1].split("}", 1)[0]
     assert "border" not in brand_wrap_css
     assert "background" not in brand_wrap_css
@@ -78,11 +79,26 @@ def test_html_template_uses_brand_identity_palette(monkeypatch) -> None:
     assert "Issue: 19 May 2026" in html
     assert "18 May 2026" in html
     assert "Click here to subscribe" in html
+    assert "In this issue" in html
+    assert 'href="#story-1"' in html
+    assert 'id="story-1"' in html
+    assert "1. Legal AI development 1" in html
     assert "In today's issue:" not in html
     assert "Impact:" in html
     assert "mailto:legal.innovation.news@gmail.com" in html
     assert "What do you think? Provide feedback" in html
     assert "Unsubscribe" in html
+
+
+def test_html_summary_link_titles_are_shortened() -> None:
+    shortened = summary_link_title(
+        "This is an unusually long newsletter story headline about regulation, exemptions, "
+        "implementation dates, and legal-sector technology consequences",
+        limit=70,
+    )
+
+    assert shortened.endswith("...")
+    assert len(shortened) <= 73
 
 
 def test_rendered_outputs_include_visible_region_tags() -> None:

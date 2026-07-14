@@ -25,7 +25,7 @@ UNSUBSCRIBE_URL = (
 )
 DEFAULT_LOGO_URL = (
     "https://raw.githubusercontent.com/glen-byrne/legal-innovation-newsletter/main/"
-    "src/legal_innovator/rendering/assets/the-legal-edge-logo-email.png"
+    "src/legal_innovator/rendering/assets/the-legal-edge-logo-PNG-2.png"
 )
 
 
@@ -58,6 +58,13 @@ def format_intro_body(value: str) -> str:
     return "legal innovation developments across Ireland and comparable markets, with selected stories on technology, courts, operations, regulation and legal-service delivery."
 
 
+def summary_link_title(value: str, limit: int = 82) -> str:
+    title = " ".join(value.split())
+    if len(title) <= limit:
+        return title
+    return title[:limit].rsplit(" ", 1)[0].rstrip(".,;:") + "..."
+
+
 def render_html(issue: Issue) -> str:
     template_dir = Path(__file__).parent / "templates"
     env = Environment(
@@ -72,6 +79,7 @@ def render_html(issue: Issue) -> str:
         format_date=format_display_date,
         brand_icon_src=brand_icon_src(),
         intro_body=format_intro_body(issue.intro),
+        summary_link_title=summary_link_title,
         subscribe_url=SUBSCRIBE_URL,
         unsubscribe_url=UNSUBSCRIBE_URL,
     )
