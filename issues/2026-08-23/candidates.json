@@ -1,7 +1,7 @@
 {
   "candidates": [
     {
-      "id": "TLEI-2026-08-21-001",
+      "id": "TLEI-2026-08-23-001",
       "headline": "High Court generative-AI practice direction will take effect on 1 September",
       "published_date": "2026-08-14",
       "source_name": "Law Society of Ireland",
@@ -16,7 +16,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-002",
+      "id": "TLEI-2026-08-23-002",
       "headline": "SRA warns firms after 42 reports of potential AI misuse in legal services",
       "published_date": "2026-08-17",
       "source_name": "Solicitors Regulation Authority",
@@ -31,7 +31,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-003",
+      "id": "TLEI-2026-08-23-003",
       "headline": "Clio launches round-the-clock AI intake agents for law firms",
       "published_date": "2026-08-20",
       "source_name": "LawNext",
@@ -46,7 +46,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-004",
+      "id": "TLEI-2026-08-23-004",
       "headline": "NetDocuments adds large-scale tabular review and automatic legal-authority extraction",
       "published_date": "2026-08-20",
       "source_name": "LawNext",
@@ -61,7 +61,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-005",
+      "id": "TLEI-2026-08-23-005",
       "headline": "Clio brings a billion-document court docket collection into its AI workspace",
       "published_date": "2026-08-18",
       "source_name": "LawNext",
@@ -76,7 +76,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-006",
+      "id": "TLEI-2026-08-23-006",
       "headline": "Trellis opens state trial-court data to ChatGPT and a native legal chat tool",
       "published_date": "2026-08-17",
       "source_name": "LawNext",
@@ -91,7 +91,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-007",
+      "id": "TLEI-2026-08-23-007",
       "headline": "Harvey work can now generate draft time entries in Aderant iTimekeep",
       "published_date": "2026-08-17",
       "source_name": "LawNext",
@@ -106,7 +106,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-008",
+      "id": "TLEI-2026-08-23-008",
       "headline": "DeepJudge releases an open protocol for handing legal work between AI products",
       "published_date": "2026-08-13",
       "source_name": "LawNext",
@@ -121,7 +121,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-009",
+      "id": "TLEI-2026-08-23-009",
       "headline": "Relativity previews record-grounded conversational AI for full e-discovery matters",
       "published_date": "2026-08-12",
       "source_name": "LawNext",
@@ -138,7 +138,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-010",
+      "id": "TLEI-2026-08-23-010",
       "headline": "Elevate agrees to acquire legal work-management platform Lupl",
       "published_date": "2026-08-19",
       "source_name": "Global Legal Post",
@@ -153,7 +153,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-011",
+      "id": "TLEI-2026-08-23-011",
       "headline": "Harvey releases Harvey II with spaces and lawyer-controlled memory",
       "published_date": "2026-08-18",
       "source_name": "Global Legal Post",
@@ -168,7 +168,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-012",
+      "id": "TLEI-2026-08-23-012",
       "headline": "Legora and Box connect governed content to legal AI workflows",
       "published_date": "2026-08-17",
       "source_name": "Global Legal Post",
@@ -183,7 +183,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-013",
+      "id": "TLEI-2026-08-23-013",
       "headline": "Mayer Brown expands verified AI document automation for structured products",
       "published_date": "2026-08-13",
       "source_name": "Global Legal Post",
@@ -198,7 +198,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-014",
+      "id": "TLEI-2026-08-23-014",
       "headline": "Anaqua acquires patent-risk specialist Unified Patents",
       "published_date": "2026-08-10",
       "source_name": "Global Legal Post",
@@ -213,22 +213,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-015",
-      "headline": "Anthropic appoints Robert Mahari to lead Claude for Legal",
-      "published_date": "2026-08-07",
-      "source_name": "Legal IT Insider",
-      "source_url": "https://legaltechnology.com/anthropic-hires-robert-mahari-as-head-of-claude-for-legal/",
-      "event_type": "reported_platform_entry",
-      "source_origin": "confirmed_reporting",
-      "region": "global",
-      "factual_basis": "Anthropic hired lawyer and researcher Robert Mahari as head of Claude for Legal, a role spanning law firms, in-house teams and legal-technology companies. Claude for Legal had launched roughly three months earlier with 20 MCP connectors.",
-      "legal_sector_relevance_note": "A dedicated legal-sector lead and connector ecosystem indicate that a frontier-model provider is building a more direct legal-market strategy.",
-      "duplicate_group": "none",
-      "warning_flags": [],
-      "selected": true
-    },
-    {
-      "id": "TLEI-2026-08-21-016",
+      "id": "TLEI-2026-08-23-015",
       "headline": "Neota adds governed orchestration for customer-selected AI models",
       "published_date": "2026-08-10",
       "source_name": "Neota Logic",
@@ -245,7 +230,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-017",
+      "id": "TLEI-2026-08-23-016",
       "headline": "LexisNexis acquires UK specialist publisher Globe Law and Business",
       "published_date": "2026-08-12",
       "source_name": "LexisNexis",
@@ -262,7 +247,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-018",
+      "id": "TLEI-2026-08-23-017",
       "headline": "Thomson Reuters and iManage deepen AI integration through MCP",
       "published_date": "2026-08-20",
       "source_name": "Legal IT Insider",
@@ -277,7 +262,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-019",
+      "id": "TLEI-2026-08-23-018",
       "headline": "Legora reportedly seeks funding at a valuation above $10 billion",
       "published_date": "2026-08-13",
       "source_name": "The Next Web",
@@ -294,7 +279,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-020",
+      "id": "TLEI-2026-08-23-019",
       "headline": "Twin1 raises $20 million as major law firms adopt its professional digital twins",
       "published_date": "2026-08-20",
       "source_name": "Legal IT Insider",
@@ -309,7 +294,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-021",
+      "id": "TLEI-2026-08-23-020",
       "headline": "Kinstellar overhauls its firmwide technology stack around cloud and best-of-breed tools",
       "published_date": "2026-08-20",
       "source_name": "Legal IT Insider",
@@ -324,7 +309,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-022",
+      "id": "TLEI-2026-08-23-021",
       "headline": "OpenAI slows development and raises safeguards after a test agent hacked another company",
       "published_date": "2026-08-18",
       "source_name": "The Guardian",
@@ -339,7 +324,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-023",
+      "id": "TLEI-2026-08-23-022",
       "headline": "Anthropic plans detectable text watermarking for Claude to meet an EU requirement",
       "published_date": "2026-08-17",
       "source_name": "The Guardian",
@@ -354,7 +339,7 @@
       "selected": true
     },
     {
-      "id": "TLEI-2026-08-21-024",
+      "id": "TLEI-2026-08-23-023",
       "headline": "Researchers expose reasoning-trace leakage across major frontier-model APIs",
       "published_date": "2026-08-11",
       "source_name": "WIRED",
@@ -366,23 +351,6 @@
       "legal_sector_relevance_note": "The research is directly relevant to vendor security due diligence, secret management and confidentiality controls for legal AI connected to firm systems.",
       "duplicate_group": "none",
       "warning_flags": [],
-      "selected": true
-    },
-    {
-      "id": "TLEI-2026-08-21-025",
-      "headline": "Harvey reportedly seeks at least $500 million at a $15.5 billion valuation",
-      "published_date": "2026-08-07",
-      "source_name": "The Next Web",
-      "source_url": "https://thenextweb.com/news/harvey-legal-ai-15-5bn-valuation-500m-raise-vertical-ai",
-      "event_type": "funding_acquisition_partnership",
-      "source_origin": "reported_not_officially_confirmed",
-      "region": "US/global",
-      "factual_basis": "Citing reporting by The Information, The Next Web says Harvey is in talks to raise at least $500 million at a $15.5 billion valuation, including the new capital, with Lightspeed Venture Partners interested in leading. The article describes an active raise rather than a completed financing.",
-      "legal_sector_relevance_note": "The reported terms show investor expectations for vertical legal AI and the scale at which leading platforms are attempting to build distribution and infrastructure.",
-      "duplicate_group": "none",
-      "warning_flags": [
-        "reported_not_confirmed"
-      ],
       "selected": true
     }
   ]
