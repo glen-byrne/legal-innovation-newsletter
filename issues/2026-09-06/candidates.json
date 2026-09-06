@@ -1,0 +1,510 @@
+{
+  "candidates": [
+    {
+      "id": "TLEI-2026-09-06-001",
+      "headline": "Ireland’s High Court and Court of Appeal bring generative AI document directions into force",
+      "published_date": "2026-08-31",
+      "source_name": "Courts Service of Ireland",
+      "source_url": "https://www.supremecourt.ie/news/court-of-appeal---high-court---new-practice-directions-issued-on-the-responsible-use-of-generative-artificial-intelligence-in-court-documents",
+      "event_type": "professional_guidance",
+      "source_origin": "official_source",
+      "region": "Ireland",
+      "factual_basis": "The Courts Service’s 31 August notice confirms commencement of HC 142 and CA16 on 1 September 2026. The linked directions cover civil proceedings, including existing cases, and documents prepared after commencement; they bind practitioners, parties, witnesses, experts and litigants in person. AI material requires independent human verification. Unless otherwise directed, affidavits and witness statements require a declaration that AI did not generate substantive evidence; formatting and spell-checking remain permitted. Expert reports require a declaration and disclosure of material AI use. General disclosure is not automatic but may be ordered. Non-compliance can attract costs, rejected documents, striking out or professional referral.",
+      "legal_sector_relevance_note": "Requires Irish litigation teams to update drafting, verification, witness-evidence and AI supervision procedures immediately.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "earlier_directions_commencement_update"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-002",
+      "headline": "Newcode’s funding reaches $20 million as it names the Bar of Ireland among customers",
+      "published_date": "2026-08-31",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/08/series-a-round-for-newcode-an-ai-harness-for-legal-brings-its-funding-to-20m-and-fuels-u-s-expansion.html",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "LawSites reports a Series A led by OnDean Forward, announced on 24 August, bringing Newcode’s capital raised this year to $20 million. The configurable legal AI platform connects firm knowledge and workflows with deployment and model choices. Newcode names the Bar of Ireland, serving more than 2,150 barristers, among new customers; the latest round’s standalone amount was not disclosed.",
+      "legal_sector_relevance_note": "The named Irish adoption and investment in firm-controlled AI infrastructure are relevant to knowledge management, procurement and legal workflow strategy.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "customer_adoption_vendor_claim"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-003",
+      "headline": "England and Wales publish draft rules for the first digital possession proceedings service",
+      "published_date": "2026-08-26",
+      "source_name": "Online Procedure Rule Committee",
+      "source_url": "https://www.gov.uk/government/news/draft-practice-direction-for-possession-proceedings-published",
+      "event_type": "court_digitisation",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "The draft covers an initial September 2026 rollout for registered social landlords in England and community landlords in Wales claiming possession in postcode areas served by Bradford, Caernarfon, Huddersfield and Wandsworth courts. Cases outside this phase remain under Civil Procedure Rules, as do appeals and enforcement until separately provided for. The draft remains subject to approval and creates no legal obligations. The linked Online Procedure Rules commence on 7 September and allow unrepresented users paper submissions and notifications.",
+      "legal_sector_relevance_note": "A concrete model for phased digital litigation, with scope and assisted-access safeguards relevant to court modernisation and housing practice.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "draft_not_in_force"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-004",
+      "headline": "UK study finds one in six respondents with a legal dispute used an AI chatbot",
+      "published_date": "2026-09-01",
+      "source_name": "JUSTICE",
+      "source_url": "https://www.justice.org.uk/news/one-in-six-people-with-a-legal-problem-turning-to-ai-for-advice---new-research",
+      "event_type": "access_to_justice",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "JUSTICE and the Administrative Fairness Lab surveyed 3,287 UK participants. Of 1,428 reporting a legal dispute in the previous two years, 233 had used a chatbot for help. Seventy-seven shared transcripts, showing uses including explaining jargon, checking lawyers’ advice and drafting complaints. Only 6% of chatbot users relied on AI alone; the study does not establish that AI caused rising court claims.",
+      "legal_sector_relevance_note": "Shows how people already seek legal assistance and suggests a need to design intake, triage and public legal information around AI-assisted users.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "survey_self_reported"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-005",
+      "headline": "RELX completes acquisition of European legal AI provider Doctrine",
+      "published_date": "2026-09-03",
+      "source_name": "LexisNexis",
+      "source_url": "https://www.lexisnexis.com/community/amp-espacepresse/le-groupe-relx-finalise-l-acquisition-de-doctrine-et-vise-a-equiper-1-million-de-professionnels-du-droit-en-europe-1150383333",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "RELX confirmed completion of the Doctrine acquisition announced on 28 April. Doctrine joins LexisNexis Continental Europe, Middle East and Africa, bringing legal research, analysis and drafting tools including Flow Litigate and Flow Counsel. The announcement reports 27,000 daily professional users across France, Italy, Germany, Spain and Luxembourg and a corpus exceeding 100 million legal documents.",
+      "legal_sector_relevance_note": "Consolidates European legal AI platforms and content, affecting research procurement, supplier concentration and cross-border legal technology strategy.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-006",
+      "headline": "LEGALFLY adds post-signature contract intelligence",
+      "published_date": "2026-09-04",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/legalfly-launches-contract-intelligence-to-become-a-system-of-record/",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Belgian-founded LEGALFLY announced Contract Intelligence, extending its platform across pre- and post-signature contract work. The reported capability tracks contract contents, changes, approaching obligations and risks requiring attention.",
+      "legal_sector_relevance_note": "Moves contract tools beyond drafting and review into continuing obligation management for in-house teams.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "limited_detail"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-007",
+      "headline": "Wolters Kluwer announces a connected legal knowledge graph for Libra",
+      "published_date": "2026-08-24",
+      "source_name": "Wolters Kluwer",
+      "source_url": "https://www.wolterskluwer.com/en/news/wolters-kluwer-transforms-trusted-legal-content-into-structured-v2",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "Wolters Kluwer announced that Libra will connect laws, rulings, expert commentary and practical guidance through a curated knowledge graph linked to the matter. Selected-customer early access is planned in the coming months, followed by phased rollout through Q4 2026 and Q1 2027; timing and capabilities will vary by market. Claimed improvements in answer quality and traceability come from internal evaluations.",
+      "legal_sector_relevance_note": "Highlights structured legal knowledge as a differentiator in research and context-sensitive drafting systems.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "performance_claims_vendor_supplied",
+        "phased_rollout_planned"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-008",
+      "headline": "LexisNexis survey finds wider legal AI use alongside persistent accuracy concerns",
+      "published_date": "2026-09-02",
+      "source_name": "LexisNexis",
+      "source_url": "https://www.lexisnexis.com/community/pressroom/b/news/posts/lawyer-preference-for-ai-grounded-in-legal-sources-rises-to-81",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "A LexisNexis survey of 543 legal professionals reports that 94% of respondents use AI for legal work and 74% do so weekly. Some 81% feel more comfortable with AI grounded in legal sources; 83% worry about reliance on inaccurate or fabricated information. Research, summarisation, drafting and review are leading uses. These are respondent findings, not a census of the profession.",
+      "legal_sector_relevance_note": "Provides a procurement and training signal: adoption is spreading while source quality and verification remain central concerns.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "survey_self_reported"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-009",
+      "headline": "Legora and Avvoka plan template-based and bulk contract drafting integration",
+      "published_date": "2026-08-24",
+      "source_name": "Legora",
+      "source_url": "https://legora.com/newsroom/legora-and-avvoka-integrate-to-deliver-every-first-draft-inside-the-agentic-operating-system-for-legal-work",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "UK/EU",
+      "factual_basis": "The announced integration brings Avvoka questionnaires and approved templates into Legora, with template recommendations and generation of multiple contracts from one template. Where no applicable template or business logic exists, Legora’s AI handles drafting. It is scheduled for beta customers by Q4 2026.",
+      "legal_sector_relevance_note": "Combines structured document automation and generative drafting, allowing firms to reuse approved drafting standards across transactional workflows.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "beta_planned"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-010",
+      "headline": "Google launches Gemini Enterprise for Legal in preview",
+      "published_date": "2026-08-25",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/08/25/google-launches-gemini-enterprise-for-legal/",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "Google Cloud unveiled a legal offering within Gemini Enterprise, initially in preview, with Cleary, Freshfields, Weil and Williams & Connolly named as launch customers. It combines legal task skills, platform connectors and third-party agents for work including brief drafting, citation checks, contracts, regulatory scanning and data-subject access requests, with audit logging and central governance.",
+      "legal_sector_relevance_note": "A major platform provider’s entry affects legal AI purchasing, integration choices and competition among specialist tools.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "preview_release"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-011",
+      "headline": "Thomson Reuters launches proprietary legal model Thomson",
+      "published_date": "2026-08-24",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/08/thomson-reuters-launches-thomson-its-own-proprietary-llm-trained-on-westlaw-and-practical-law-content.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "Thomson Reuters launched Thomson 1.0, specialised from an open-source foundation using its proprietary legal, tax and news content and expert evaluations. Its first planned deployment is CoCounsel Legal’s Tabular Analysis; CoCounsel remains multi-model and administrators can choose an alternative. The company says customer data was not used in training and reports $40 million of development investment.",
+      "legal_sector_relevance_note": "A major legal publisher owning its model could change document-review economics, AI supplier dependence and knowledge infrastructure choices.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "performance_claims_vendor_supplied"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-012",
+      "headline": "LexisNexis unveils dynamic agent orchestration for Lexis+ with Protégé",
+      "published_date": "2026-08-24",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/08/lexisnexis-unveils-legal-intelligence-engine-rebuilding-protege-around-dynamic-agentic-orchestration.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "The Legal Intelligence Engine selects models, tools and sources for a user’s task, carries session context forward and produces Word, Excel or PowerPoint work product. Users can amend the proposed plan before execution. Reported capabilities include integrated Lex Machina, Intelligize and Law360 content and Shepard’s Verify checks; broader cross-session memory remains planned.",
+      "legal_sector_relevance_note": "Brings research, drafting, analytics and citation validation into a connected workflow while keeping legal review necessary.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-013",
+      "headline": "Harvey introduces regulatory horizon scanning in early access",
+      "published_date": "2026-09-01",
+      "source_name": "Harvey",
+      "source_url": "https://www.harvey.ai/blog/horizon-scanning-in-harvey",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Harvey announced tailored regulatory and legislative monitoring using more than 12,000 sources across over 100 jurisdictions, plus user-specified public sources. Scans provide relevance assessments and daily email digests and can feed source-grounded analysis, policy revisions and client alerts. The product is in early access for Harvey customers; general availability will follow.",
+      "legal_sector_relevance_note": "Connects regulatory monitoring to advisory and compliance work, potentially changing how firms produce updates and maintain client knowledge.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "early_access"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-014",
+      "headline": "Stripe agrees to acquire startup legal-document platform Clerky",
+      "published_date": "2026-09-01",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/01/stripe-moves-into-legal-tech-with-clerky/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Artificial Lawyer reports Clerky’s announcement that it has agreed to join Stripe. Founded by former Orrick lawyers, Clerky handles routine legal paperwork for startups and their lawyers; the announcement says the existing team and focus will continue.",
+      "legal_sector_relevance_note": "Connects startup payments and legal-document delivery, with implications for corporate service models and lawyers serving growing businesses.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-015",
+      "headline": "Filevine releases AI brief auditor alongside passage-level case-law citator",
+      "published_date": "2026-09-02",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/filevine-takes-on-shepards-and-keycite-with-its-own-ai-case-law-citator-and-hallucination-checker.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Filevine demonstrated LOIS tools for checking fabricated citations, altered quotations and mischaracterised authorities, and assessing whether a selected passage remains good law. The brief auditor is newly released this week; the citator was announced in June. Coverage is US federal and state opinions, excluding statutes and regulations. The reporter observed demonstrations but had not independently tested the tools; passage-level checks may miss reversal on an unrelated holding.",
+      "legal_sector_relevance_note": "Shows verification moving into AI drafting workflows while exposing coverage and reliability questions that procurement and litigation teams should test.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "not_independently_tested",
+        "us_case_law_only"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-016",
+      "headline": "Clio recruits Pablo Arredondo to establish a judiciary product line",
+      "published_date": "2026-08-25",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/08/pablo-arredondo-casetext-cofounder-and-legal-ai-pioneer-joins-clio-to-lead-its-expansion-into-the-judiciary.html",
+      "event_type": "court_digitisation",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Clio appointed Casetext cofounder Pablo Arredondo as senior vice president for the judiciary, starting 31 August. His mandate is to build a dedicated product line for courts and judges and contribute to AI capabilities across Clio’s platform; the article reports the strategy and appointment rather than a finished court product.",
+      "legal_sector_relevance_note": "Signals expansion of a major legal software platform into judicial workflows and court technology procurement.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "product_not_yet_launched"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-017",
+      "headline": "Greenberg Traurig deploys next-generation CoCounsel Legal across its global offices",
+      "published_date": "2026-08-26",
+      "source_name": "Greenberg Traurig via PR Newswire",
+      "source_url": "https://www.prnewswire.com/news-releases/greenberg-traurig-deploys-the-next-generation-of-cocounsel-legal-302859864.html",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "official_source",
+      "region": "US/global",
+      "factual_basis": "The firm announced deployment after four years of collaboration, beta testing and product development with Thomson Reuters. Lawyers across its global offices can use AI for planning, research and drafting, integrating Westlaw, Practical Law and firm knowledge. The firm says clients are informed of AI use and AI work is reviewed by the handling lawyers and supervising shareholders before reaching clients.",
+      "legal_sector_relevance_note": "Provides a concrete large-firm adoption example linking connected research workflows to client communication and supervisory review.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "self_reported_adoption"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-018",
+      "headline": "BakerHostetler connects proprietary matter intelligence with Clio research capabilities",
+      "published_date": "2026-08-31",
+      "source_name": "Clio",
+      "source_url": "https://www.clio.com/enterprise/blog/clio-bakerhostetler-vincent-collaboration/",
+      "event_type": "legal_operations",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "Clio announced collaboration on BakerHostetler’s Practice Intelligence Center, a firm-built platform combining enterprise data, legal knowledge, attorney experience and AI workflows. An early capability, Matter Research+, connects the firm’s proprietary matter intelligence with Vincent legal research within the firm’s governed environment.",
+      "legal_sector_relevance_note": "Offers a concrete model for engineering firm knowledge and external AI into existing lawyer workflows rather than relying solely on standalone chat tools.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-019",
+      "headline": "iManage sets October release for platform connecting matter knowledge and AI actions",
+      "published_date": "2026-08-27",
+      "source_name": "iManage via LawSites",
+      "source_url": "https://www.lawnext.com/2026/08/imanage-announces-general-availability-of-its-next-generation-platform-enabling-organizations-to-scale-ai-reliably.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "An iManage announcement dated 24 August and published by LawSites on 27 August sets general availability for October 2026. The platform connects documents, communications, parties and matter context, with AI chronologies, review and filing actions subject to permissions and information barriers. Playbook review, tabular review and MCP read/write actions are already available according to the release.",
+      "legal_sector_relevance_note": "Moves document management towards an active knowledge and workflow system, with practical consequences for firm AI architecture and records governance.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "mixed_release_stages"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-020",
+      "headline": "Legora and NetDocuments announce governed access to firm knowledge",
+      "published_date": "2026-08-26",
+      "source_name": "Legora",
+      "source_url": "https://legora.com/newsroom/legora-deepens-its-netdocuments-partnership-to-bring-governed-institutional-knowledge-into-agentic-legal-work",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "A deeper MCP integration is designed to retrieve relevant documents, precedent and matter history from NetDocuments directly within Legora, including relationships from its Legal Context Graph. The companies say existing permissions and ethical walls govern each request. It is intended for mutual customers; capabilities and availability will be communicated over time.",
+      "legal_sector_relevance_note": "Could reduce manual document gathering for drafting and review while making existing confidentiality controls central to AI access.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "availability_not_specified"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-021",
+      "headline": "Legora and Intapp plan ethical-wall enforcement and AI time capture integrations",
+      "published_date": "2026-08-25",
+      "source_name": "Legora",
+      "source_url": "https://legora.com/newsroom/legora-and-intapp-integrate-to-deliver-governed-ai-and-ai-driven-time-capture-for-lawyers",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "The partnership will connect Legora to Intapp Walls for AI and supply structured Legora usage data to Intapp Time for time entries. It also envisages reciprocal workflows between Legora Agent and Intapp Celeste. Delivery will be phased for mutual customers, with availability details still to come.",
+      "legal_sector_relevance_note": "Links substantive AI work to confidentiality controls, time recording and firm profitability analysis.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "planned_integrations"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-022",
+      "headline": "Everlaw connects evidence to CoCounsel, Harvey, Gemini and Microsoft Copilot",
+      "published_date": "2026-09-03",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/iltacon-news-round-up-part-1-e-discovery-disco-everlaw-nuix-relativity-reveal.html",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "Everlaw announced evidence integrations with CoCounsel Legal, Harvey, Gemini Enterprise for Legal and Microsoft 365 Copilot. Everlaw retains evidence, permissions and audit records. The Copilot connector is live; Gemini is in private preview; CoCounsel and Harvey integrations are expected in autumn 2026 for joint customers.",
+      "legal_sector_relevance_note": "Connects discovery evidence to legal analysis and drafting while preserving the originating evidence system.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "mixed_release_stages"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-023",
+      "headline": "Nuix adds conversational case-data analysis and wider AI review capabilities",
+      "published_date": "2026-09-03",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/iltacon-news-round-up-part-1-e-discovery-disco-everlaw-nuix-relativity-reveal.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "Nuix announced AI Chat for case-data questions with document citations and an audit trail, alongside ingestion summaries, semantic search, similar-document discovery and clustering. AI Chat is in an early adopter programme, with general availability planned for December; the other features are generally available from 4 September.",
+      "legal_sector_relevance_note": "Adds evidence-grounded analysis to early case assessment and document review.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "ai_chat_early_access"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-024",
+      "headline": "Clio connects Vincent to a billion-record docket database and plans Clio Operate integration",
+      "published_date": "2026-09-04",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/iltacon-news-round-up-part-3-documents-data-and-ai-imanage-netdocuments-entegrata-wolters-kluwer-thomson-reuters-clio-avvoka.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Clio launched Docket Insights, connecting Vincent to roughly one billion US federal, state, bankruptcy and administrative court records for searching, summarising filings and comparing motions or fact patterns. Vincent within the Clio Operate matter-management system is separately scheduled for November.",
+      "legal_sector_relevance_note": "Links matter management, court records and legal AI, expanding options for litigation research and case preparation.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "us_docket_coverage",
+        "operate_integration_planned"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-025",
+      "headline": "Thomson Reuters makes Solve Intelligence’s patent AI available through its offering",
+      "published_date": "2026-08-24",
+      "source_name": "Thomson Reuters",
+      "source_url": "https://legal.thomsonreuters.com/blog/thomson-reuters-and-solve-intelligence-bring-dedicated-patent-ai-to-ip-firms/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Thomson Reuters announced a partnership offering Solve Intelligence for patent applications, prosecution responses and claim charts through Thomson Reuters. The Word-compatible editor supports firm-specific templates. The announcement states zero retention by model providers, local-geography processing and storage, and no customer-data training of underlying models.",
+      "legal_sector_relevance_note": "Extends a major legal supplier’s offering into specialised patent production workflows and makes confidential invention-data handling a procurement issue.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-026",
+      "headline": "LexisNexis and EvenUp plan linked research and personal-injury case workflows",
+      "published_date": "2026-09-01",
+      "source_name": "LexisNexis",
+      "source_url": "https://www.lexisnexis.com/community/pressroom/b/news/posts/lexisnexis-and-evenup-announce-strategic-alliance-bringing-trusted-legal-ai-to-personal-injury-professionals",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "The alliance targets mutual personal-injury law-firm customers. EvenUp Companion will draw on LexisNexis case law and statutes with citations and authority links. Lexis+ with Protégé will use EvenUp case intelligence for drafting in multiple formats and save documents to the relevant EvenUp case. The capabilities are expected later in 2026.",
+      "legal_sector_relevance_note": "Connects specialist claims intelligence, authoritative research and drafting in a single case workflow; relevant as a service-design model rather than an Irish-law product.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "planned_integrations"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-027",
+      "headline": "OpenAI announces GPT-6 Astra with staged access and stronger computer-use claims",
+      "published_date": "2026-09-03",
+      "source_name": "WIRED",
+      "source_url": "https://www.wired.com/story/openai-says-gpt-6-can-use-a-computer-better-than-a-human/",
+      "event_type": "other",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "OpenAI announced Astra, claiming improvements in browser operation and coding. Access is planned first for selected organisations, including Daybreak clients, then ChatGPT Plus, Pro, Business and Enterprise subscribers; free access was unspecified. Executives acknowledged increasing difficulty monitoring advanced models.",
+      "legal_sector_relevance_note": "Could expand legal workflow automation, making supervision and reliability testing central to procurement.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "phased_rollout",
+        "performance_claims_vendor_supplied"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-028",
+      "headline": "Anthropic releases Fable 5.1 and introduces restricted Mythos 5.1 access",
+      "published_date": "2026-09-01",
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "event_type": "other",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Fable 5.1 is generally available; Mythos 5.1 uses the same model with different safeguards for vetted cybersecurity and life-sciences users. Fable permits vulnerability discovery but redirects penetration testing, exploit generation and binary vulnerability scanning to Opus models. Mythos access uses separate verification programmes: life-sciences participants are enrolled, while Mythos access through the cyber programme is forthcoming. Lower cache-read pricing is expected to reduce typical token-billed costs by about 25%, a vendor estimate.",
+      "legal_sector_relevance_note": "Changes model selection and agent-workflow economics, while sector-specific access controls matter to enterprise procurement and advice to technology and life-sciences clients.",
+      "duplicate_group": "DG-001",
+      "warning_flags": [
+        "vendor_originated",
+        "cost_estimates_vendor_supplied",
+        "restricted_mythos_access",
+        "related_announcement"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-06-029",
+      "headline": "Anthropic plans customer-controlled monitoring for enterprise frontier models",
+      "published_date": "2026-09-01",
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+      "event_type": "other",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Enterprise Frontier Safeguards will combine automated misuse monitoring with customer-controlled cloud storage, encryption keys and review of flagged activity; Anthropic human review is not required. Storage, customer-managed keys and automated review are opt-in controls. Support spans Claude Code, Enterprise and Platform, Amazon Bedrock and Claude Platform on AWS, Google Agent Platform and Microsoft Foundry. Phased rollout starts later in autumn; eligible customers receive interim zero data retention on Fable 5 and 5.1. Anthropic charges no EFS fee, but customer cloud storage and transfer charges apply.",
+      "legal_sector_relevance_note": "Directly addresses handling of privileged material and sensitive client data, with implications for retention terms, access controls and law-firm AI approval processes.",
+      "duplicate_group": "DG-001",
+      "warning_flags": [
+        "vendor_originated",
+        "phased_rollout_planned",
+        "related_announcement"
+      ],
+      "selected": true
+    }
+  ]
+}
