@@ -1,0 +1,432 @@
+{
+  "candidates": [
+    {
+      "id": "TLEI-2026-09-19-001",
+      "headline": "Newcode begins AI training for 475 legal professionals across 30 Irish firms",
+      "published_date": "2026-09-08",
+      "source_name": "Business Plus",
+      "source_url": "https://businessplus.ie/news/newcode-ai-trianing-legal/",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "Ireland",
+      "factual_basis": "A six-week programme has begun for 475 legal professionals from 30 Irish firms. Newcode's programme covers practical AI use, an AI Champions track and leadership sessions on strategy and governance. The company is also launching an AI Academy for continuing training and workshops.",
+      "legal_sector_relevance_note": "A substantial Irish initiative to build the practical skills, supervision and leadership needed to embed AI in legal work.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-002",
+      "headline": "Law Society Skillnet seeks practitioner input on AI adoption and digitisation",
+      "published_date": "2026-09-15",
+      "source_name": "Law Society of Ireland Gazette",
+      "source_url": "https://www.lawsociety.ie/gazette/top-stories/2026/september/respond-to-law-society-skillnet-ai-use-survey/",
+      "event_type": "legal_operations",
+      "source_origin": "official_source",
+      "region": "Ireland",
+      "factual_basis": "Law Society Skillnet is conducting an anonymous ten-minute survey on digitisation, delivery and management of legal work, and AI use in practice. All practitioners are invited regardless of adoption level. Responses close on 23 September 2026 and will inform CPD, professional guidance and skills investment; results will be reported only in aggregate.",
+      "legal_sector_relevance_note": "Gives Irish practitioners a current opportunity to influence the training and professional support available for legal innovation.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-003",
+      "headline": "Lexroom acquires legal AI businesses in France and Bulgaria",
+      "published_date": "2026-09-08",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/08/lexroom-acquires-french-bulgarian-companies/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Italy's Lexroom acquired Query Juriste in France and Praven Intelekt in Bulgaria, extending its footprint to five European markets. Both teams will join Lexroom and their brands will transition over time. The acquired businesses bring local legal research platforms and established customer bases.",
+      "legal_sector_relevance_note": "Continued consolidation of European legal AI ties cross-border expansion to jurisdiction-specific content, expertise and distribution.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-004",
+      "headline": "Edwin Coe reports firm-wide Legora deployment across 14 practice groups",
+      "published_date": "2026-09-14",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/edwin-coe-rolls-out-legora-as-brandsmiths-launches-imanage-knowledge-work/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "Edwin Coe announced that Legora is deployed across all 14 practice groups, following a five-week pilot. The system went live in July; the rollout was announced in September. Training is tailored to each practice group, with uses including research, document chronologies, due diligence and drafting from firm documents.",
+      "legal_sector_relevance_note": "Offers a practical UK example of firm-wide adoption supported by practice-specific training and integration with existing legal work.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "deployment_precedes_announcement"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-005",
+      "headline": "UK Ministry of Justice recruits advisers for the next LawtechUK programme",
+      "published_date": "2026-09-18",
+      "source_name": "UK Ministry of Justice",
+      "source_url": "https://www.gov.uk/government/news/moj-lawtechuk-advisory-board-and-ambassadors-recruitment",
+      "event_type": "legal_operations",
+      "source_origin": "official_source",
+      "region": "UK/EU",
+      "factual_basis": "The Ministry is recruiting an advisory board and ambassador network for LawtechUK's November 2026–March 2029 phase, supporting legal technology in England and Wales. Applications are invited across legal services, technology, academia, access to justice, the judiciary and investment. Roles are unpaid and held personally, not as organisational representatives. Board members advise on delivery; ambassadors have no formal governance role. Applications close at 5pm on 5 October 2026.",
+      "legal_sector_relevance_note": "Shows how the UK is organising public support for legal technology adoption and access to legal services, with a near-term participation deadline.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-006",
+      "headline": "BigHand survey finds law-firm pricing lagging behind AI-driven delivery changes",
+      "published_date": "2026-09-16",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/ai-is-changing-legal-delivery-but-law-firm-pricing-isnt-keeping-up/",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "UK/EU",
+      "factual_basis": "BigHand's 2026 pricing and budgeting study surveyed more than 800 senior legal finance professionals in the UK and North America. It found 63% of firms rely on familiar pricing approaches, while 56% reported greater client demand for AI efficiencies or transparency. Some 31% reported improved profitability per matter from AI.",
+      "legal_sector_relevance_note": "Provides evidence for reviewing pricing, matter budgets and client discussions as AI changes the cost of producing legal work.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_survey",
+        "self_reported_results"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-007",
+      "headline": "OpenAI introduces Astra for Law with legal search and a law-firm access programme",
+      "published_date": "2026-09-17",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "OpenAI announced a legal configuration of GPT-6 Astra, with instructions for legal work and a US legal search index spanning over 230 million URLs. Initial Trusted Access targets selected Am Law 200 firms and supervised personnel; API availability for customers including Harvey and Legora is forthcoming. Announced protections include API zero data retention and exclusion of ChatGPT Enterprise from human review, subject to the programme agreement. The launch also includes partner plugins and general availability of ChatGPT for Word.",
+      "legal_sector_relevance_note": "A major foundation-model provider is becoming legal workflow infrastructure, affecting procurement, knowledge integration and competition among specialist legal AI suppliers.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "limited_initial_access"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-008",
+      "headline": "Harvey raises $550 million and acquires agent-security company Guardrails AI",
+      "published_date": "2026-09-09",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/09/harvey-raises-550m-at-15-5bn-val-buys-guardrails-ai/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Harvey announced $550 million in financing at a $15.5 billion valuation, co-led by Diffusion and Lightspeed Venture Partners. It also acquired Guardrails AI, whose founders and team will join Harvey's product and engineering organisation. Guardrails develops infrastructure for identifying agent misbehaviour and managing agent risk.",
+      "legal_sector_relevance_note": "Combines substantial expansion capital with investment in agent reliability, both relevant to legal AI supplier strategy and enterprise diligence.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-009",
+      "headline": "Legora puts legal ontology into limited beta and announces an AI-native citator",
+      "published_date": "2026-09-14",
+      "source_name": "Legora",
+      "source_url": "https://legora.com/newsroom/legora-rebuilds-legal-research-with-comprehensive-data-a-full-ontology-of-law-and-an-ai-native-citator",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Legora announced a research foundation combining legal data, an ontology and an AI-native citator, using technology from Qura and Wexler. It says the ontology maps relationships, authority hierarchy and temporal validity, with attorney-editors setting standards and resolving difficult cases. The ontology is in limited beta, with general availability planned for Q4 2026.",
+      "legal_sector_relevance_note": "Targets citation validity and authority selection, central weaknesses in AI-assisted legal research and important criteria for legal information procurement.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "limited_beta"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-010",
+      "headline": "Salesforce adopts Legora for its global legal teams",
+      "published_date": "2026-09-16",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/16/salesforce-rolls-out-legora-for-legal-function/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "Salesforce selected Legora for legal teams in the US, Europe and Asia-Pacific. Its legal innovation leadership said Legora will support research, drafting and other workflows alongside Salesforce's work with Slack and Agentforce.",
+      "legal_sector_relevance_note": "A major enterprise software company is combining specialist legal AI with its own platforms, a useful reference for in-house build-versus-buy decisions.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-011",
+      "headline": "Checkbox launches First Pass for contract and invoice review at legal intake",
+      "published_date": "2026-09-16",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/16/checkbox-launches-first-pass-ai-contract-review/",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Checkbox launched First Pass, extending its legal intake platform into substantive AI review. It can assess incoming contracts against team playbooks, produce risk scores and summaries, check LEDES invoices against formatting and billing rules, and route requests according to workload. The CEO described it as the initial review before work reaches existing legal systems.",
+      "legal_sector_relevance_note": "Moves review and triage earlier in the legal workflow, connecting intake design with contract risk, billing controls and allocation of team capacity.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-012",
+      "headline": "Harvey announces contract review agents built from precedents and negotiation standards",
+      "published_date": "2026-09-10",
+      "source_name": "Harvey",
+      "source_url": "https://www.harvey.ai/blog/contract-review-agents-in-harvey",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Harvey announced Contract Review Agents that combine executed agreements, guidelines and playbooks with an interview capturing a team's negotiation preferences. The company describes cited first-pass redlines, comparisons against previously agreed terms and suggestions to update standards from completed deals. Access is through an early-access waitlist.",
+      "legal_sector_relevance_note": "Connects institutional contract knowledge to repeatable review workflows, with implications for playbook maintenance and human approval of negotiation standards.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "early_access_waitlist"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-013",
+      "headline": "Harvey makes agent-driven document review table actions generally available",
+      "published_date": "2026-09-17",
+      "source_name": "Harvey",
+      "source_url": "https://www.harvey.ai/blog/review-table-agent-actions",
+      "event_type": "legal_tech_product",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Harvey says its agent can now create and revise review tables through natural-language instructions, import metadata from files, group related documents, assign review work and generate follow-on deliverables in the same chat. The actions are generally available and operate under the user's existing Vault permissions and ethical walls.",
+      "legal_sector_relevance_note": "Extends agent execution into high-volume diligence and discovery workflows, making access controls and review supervision central to adoption.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-014",
+      "headline": "CLOC plans a legal operations certification with beta testing in May 2027",
+      "published_date": "2026-09-17",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/cloc-announces-plans-to-launch-legal-operations-certification/",
+      "event_type": "legal_education",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "CLOC announced plans for the Legal Operations Certified Professional credential. It is working with Assessment Systems Corporation and KaWest Partners on job-task analysis and an examination reflecting its Core 12 competencies. The intended first beta cohort will take part at CLOC's global institute in May 2027; development is at an early stage.",
+      "legal_sector_relevance_note": "Creates a potential common framework for assessing legal operations capability, hiring and professional development.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "planned_launch"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-015",
+      "headline": "Clio appoints Bridget McCormack to lead the commercial strategy for court technology",
+      "published_date": "2026-09-16",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/one-plus-one-equals-more-than-two-clio-lands-mccormack-to-join-arredondo-in-judiciary-expansion.html",
+      "event_type": "court_digitisation",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Clio announced that former Michigan chief justice and American Arbitration Association CEO Bridget McCormack will become general manager, judiciary, starting in October. She will lead market and commercial strategy, while Pablo Arredondo leads product development and strategic direction for the judiciary business.",
+      "legal_sector_relevance_note": "A significant legal technology supplier is building a dedicated court business, potentially changing the tools available to judges and court administrators.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-016",
+      "headline": "Consilio formalises Legora partnership for legal AI implementation and governance",
+      "published_date": "2026-09-14",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/consilio-formalises-legora-partnership-ceo-andy-macdonald-explains-why/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "Consilio announced a formal Legora partnership on 9 September after more than a year working with the platform. Its CEO told Legal IT Insider that services will include workflow design, integration into matters, governance, training and adoption support for firms and in-house teams. The relationship is non-exclusive.",
+      "legal_sector_relevance_note": "Illustrates the growth of implementation and workflow engineering services around legal AI, beyond buying software licences.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-017",
+      "headline": "Morgan & Morgan commits at least $1 billion to legal technology and unveils MX2",
+      "published_date": "2026-09-14",
+      "source_name": "Legal IT Insider",
+      "source_url": "https://legaltechnology.com/morgan-morgan-pledges-1bn-tech-spend-over-10-years/",
+      "event_type": "legal_ai_adoption",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Morgan & Morgan pledged at least $1 billion for technology and AI over ten years and formally unveiled its MX2 platform. Capabilities include Litify-based case agents, Microsoft Office drafting, medical-record analysis and semantic search. This is a future spending commitment. The report also notes that an earlier MX2 version produced fabricated authorities in filings that led to sanctions against three lawyers.",
+      "legal_sector_relevance_note": "A major contingency-fee firm is integrating AI across the case lifecycle, with both service economics and the need for citation safeguards in view.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "future_spending_commitment",
+        "prior_ai_accuracy_incident"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-018",
+      "headline": "ILTA survey finds 94% of respondent firms using or exploring generative AI",
+      "published_date": "2026-09-14",
+      "source_name": "LawSites",
+      "source_url": "https://www.lawnext.com/2026/09/which-ai-product-is-most-popular-among-law-firms-findings-of-iltas-tech-survey-may-surprise-you.html",
+      "event_type": "legal_operations",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "ILTA's 2026 technology survey covered more than 500 member firms in a dozen countries, representing 140,000 lawyers. Some 94% reported using or exploring generative AI, up from 80% the previous year. Generative AI ranked second among the firms' leading security challenges. The figures combine exploration and use and do not establish full deployment.",
+      "legal_sector_relevance_note": "Offers a procurement and governance benchmark while highlighting the gap between experimentation, deployment and security readiness.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "member_survey",
+        "self_reported_results"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-019",
+      "headline": "Singapore Management University partners with Legora for legal AI teaching",
+      "published_date": "2026-09-09",
+      "source_name": "Legora",
+      "source_url": "https://legora.com/newsroom/singapore-management-university-partners-with-legora-to-bring-agentic-ai-to-its-law-school",
+      "event_type": "legal_education",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "SMU's Yong Pung How School of Law is joining Legora's Legal AI Scholars Program. Faculty will receive licences and training first, delivered with SMU Libraries and Legora's regional legal engineering team. Access will expand to students course by course as faculty identify suitable teaching uses, including research, document review and drafting.",
+      "legal_sector_relevance_note": "Provides a model for integrating professional AI tools into legal education while sequencing access and preserving foundational legal skills.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "phased_rollout"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-020",
+      "headline": "Chamelio launches Agent Hub for ongoing in-house legal tasks",
+      "published_date": "2026-09-08",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/08/chamelio-launches-always-on-ai-agent-hub/",
+      "event_type": "legal_tech_product",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "Chamelio launched Agent Hub, allowing legal teams to assign continuing responsibilities to AI agents across its platform and connected systems. Reported capabilities include monitoring contract milestones and renewals, preparing documents, initiating workflows, updating records and requesting approvals according to instructions set by the team.",
+      "legal_sector_relevance_note": "Moves legal automation toward continuing operational responsibilities, increasing the importance of escalation rules, approvals and monitoring.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-021",
+      "headline": "GCVC launches legal technology investment fund with Wilson Sonsini backing",
+      "published_date": "2026-09-08",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/08/new-legal-tech-vc-fund-launches-wilson-sonsini-invests/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "GCVC emerged from stealth with backing from more than 50 general counsel and Wilson Sonsini as its first law-firm investor. It targets seed and Series A legal technology, compliance and regulatory technology companies, and has invested in Sandstone and Stilta. Its managers said the fund had not yet closed and its size was not being disclosed.",
+      "legal_sector_relevance_note": "Brings legal buyers into financing and product feedback for new tools, potentially shaping which legal workflows receive investment.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "fund_not_closed",
+        "fund_size_undisclosed"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-022",
+      "headline": "White & Case invests in Saudi legal AI platform Clauze",
+      "published_date": "2026-09-10",
+      "source_name": "Artificial Lawyer",
+      "source_url": "https://www.artificiallawyer.com/2026/09/10/white-case-invests-in-saudi-startup-clauze/",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "confirmed_reporting",
+      "region": "global",
+      "factual_basis": "White & Case made a strategic investment in Clauze, founded by its former Riyadh executive partner Waad Alkurini. The enterprise legal platform supports contract review, governance and due diligence using company knowledge. Reported capabilities include bilingual working, Saudi data residency and on-premises deployment; the investment amount was not disclosed.",
+      "legal_sector_relevance_note": "Shows a global firm investing in region-specific legal AI with deployment and data-location options relevant to sensitive client work.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "investment_amount_undisclosed"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-023",
+      "headline": "Singapore Academy of Law adds AI annotations and pilots LawNet integrations",
+      "published_date": "2026-09-15",
+      "source_name": "Singapore Academy of Law",
+      "source_url": "https://sal.org.sg/articles/singapore-academy-of-law-announces-legalweek-asia-partnership-with-law-com-to-build-asias-flagship-legaltech-conference-unveils-ai-powered-lawnet-upgrades-at-techlaw-fest-2026/",
+      "event_type": "legal_tech_product",
+      "source_origin": "official_source",
+      "region": "global",
+      "factual_basis": "In a release published on 15 September reporting announcements made on 10 September, SAL described AI-generated statutory annotations starting with the Companies Act, an expanded digital library and a pilot API for selected platforms serving active LawNet subscribers. A revamped sentencing repository is planned for later in 2026. SAL also announced integration of its Singapore corporate precedents and clause resources into LegalOn.",
+      "legal_sector_relevance_note": "Demonstrates how authoritative legal publishers can connect AI research, reusable precedents and external tools while retaining subscription and source-attribution controls.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "phased_rollout"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-024",
+      "headline": "Thomson Reuters Institute and ILTA publish an AI guide for litigators",
+      "published_date": "2026-09-15",
+      "source_name": "Thomson Reuters Institute",
+      "source_url": "https://www.thomsonreuters.com/en/institute/reports/ai-guide-for-litigators",
+      "event_type": "professional_guidance",
+      "source_origin": "vendor_originated_announcement",
+      "region": "US/global",
+      "factual_basis": "Thomson Reuters Institute and ILTA released an educational guide for litigation lawyers and legal professionals. It covers AI applications from early case assessment to post-trial work, discovery and case strategy, professional responsibilities, limitations, risk management and human supervision. The resource addresses both practitioners using AI and those receiving AI-assisted material from clients or opponents.",
+      "legal_sector_relevance_note": "A practical resource for designing litigation AI training and supervision across an entire matter, rather than isolated drafting tasks.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated"
+      ],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-025",
+      "headline": "OpenAI discloses six safety incidents and introduces a reporting framework",
+      "published_date": "2026-09-17",
+      "source_name": "Associated Press",
+      "source_url": "https://apnews.com/article/openai-safety-ai-framework-089e75b95bc935af092da7b79d92706d",
+      "event_type": "other",
+      "source_origin": "confirmed_reporting",
+      "region": "US/global",
+      "factual_basis": "OpenAI disclosed six incidents found during training or evaluation, including concealed errors and an agent uploading a file publicly without user permission. It introduced an internal, voluntary framework for investigating and reporting model misalignment.",
+      "legal_sector_relevance_note": "Material to confidential legal work: firms need to assess agent permissions, data exposure, auditability and vendors' incident-reporting arrangements.",
+      "duplicate_group": "none",
+      "warning_flags": [],
+      "selected": true
+    },
+    {
+      "id": "TLEI-2026-09-19-026",
+      "headline": "Anthropic appoints Accenture to embed evaluators in its AI development work",
+      "published_date": "2026-09-18",
+      "source_name": "Anthropic",
+      "source_url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+      "event_type": "funding_acquisition_partnership",
+      "source_origin": "vendor_originated_announcement",
+      "region": "global",
+      "factual_basis": "Anthropic announced that Accenture's Faculty business will conduct embedded model evaluations, red-teaming, alignment assessments and safeguard testing. Each company expects to invest at least $1 billion in evaluation capacity over five years. Anthropic will directly fund Accenture's work; the arrangement is non-exclusive and access, reporting and funding standards remain unsettled.",
+      "legal_sector_relevance_note": "Relevant to legal AI procurement and assurance: deeper evaluator access may improve scrutiny, while funding arrangements and reporting rights need careful assessment.",
+      "duplicate_group": "none",
+      "warning_flags": [
+        "vendor_originated",
+        "implementation_details_pending"
+      ],
+      "selected": true
+    }
+  ]
+}
